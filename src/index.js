@@ -1,13 +1,15 @@
-import React from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import '@fontsource/roboto';
+import App from './Components/App/App';
+import { StyledEngineProvider } from '@material-ui/core/styles';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StyledEngineProvider injectFirst>
     <App />
-  </React.StrictMode>,
+  </StyledEngineProvider>,
   document.getElementById('root')
 );
 

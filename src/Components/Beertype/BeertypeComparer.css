@@ -1,0 +1,18 @@
+.beertype .MuiSlider-root .MuiSlider-mark {
+  right: 0%;
+  width: auto;
+  color: green;
+  background-color: currentColor;
+  opacity: 1.0
+}
+
+.beertype .MuiSlider-root .MuiSlider-mark ~ .MuiSlider-mark {
+  width: auto;
+  right: 0%;
+  color: #bdbdbd;
+}
+
+.beertype .MuiSlider-root .MuiSlider-rail {
+  color: #bdbdbd;
+  opacity: 1.0;
+}
