@@ -91,11 +91,11 @@ function Hops(props) {
           <TableHead>
             <TableRow>
               <TableCell width="20%">Name</TableCell>
-              <TableCell width="10%" align="center">Alpha</TableCell>
-              <TableCell width="10%" align="center">Oil</TableCell>
-              <TableCell width="10%" align="center">Amount</TableCell>
-              <TableCell width="10%" align="center">Type</TableCell>
-              <TableCell width="10%" align="center">Duration</TableCell>
+              <TableCell width="10%" sx={{minWidth: 40}} align="center">Alpha</TableCell>
+              <TableCell width="10%" sx={{minWidth: 40}} align="center">Oil</TableCell>
+              <TableCell width="10%" sx={{minWidth: 40}} align="center">Amount</TableCell>
+              <TableCell width="10%" sx={{minWidth: 40}} align="center">Type</TableCell>
+              <TableCell width="10%" sx={{minWidth: 40}} align="center">Duration</TableCell>
               <TableCell width="20%" align="center">Info</TableCell>
               <TableCell width="10%" align="right">Actions</TableCell>
             </TableRow>
