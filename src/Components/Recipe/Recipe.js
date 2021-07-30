@@ -45,7 +45,7 @@ function Recipe(props) {
     });
   }, []);
   
-  let updateRecipe = (target, value) => { dispatch({type: 'recipe', target: target, value: value})};
+  const updateRecipe = (target, value) => { dispatch({type: 'recipe', target: target, value: value})};
 
   return (
     <FormControl fullWidth>
