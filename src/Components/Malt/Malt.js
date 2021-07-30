@@ -3,8 +3,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import { Autocomplete, IconButton, Paper, Table, TableBody, TableContainer, TableHead, TextField } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
-
-const emptyMalt = {name: "", ebc: 0, potential: 0, amount: 0}
+import *  as Model from '../../Model';
 
 function SingleMalt(props) {
   const dispatch = props.dispatch
@@ -14,13 +13,16 @@ function SingleMalt(props) {
   }
   const [inputName, setInputName] = useState(props.malt.name)
 
+  const backgroundColor = rowId === -1 ? {backgroundColor: "#eeeeee"} : {};
+
   return (
-    <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+    <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }, backgroundColor}>
       <TableCell component="th" scope="row">
         <Autocomplete 
           options={[]}
           renderInput={(params) => <TextField {...params} label="Name" variant="standard" size="small" />} 
           freeSolo 
+          fullWidth
           value={props.malt.name} 
           onChange={(event, newValue) => updateMalt("name", newValue)} 
           inputValue={inputName} 
@@ -28,13 +30,13 @@ function SingleMalt(props) {
         />
       </TableCell>
       <TableCell align="center">
-        <TextField label="EBC" variant="standard" size="small" value={props.malt.ebc} onChange={(event) => updateMalt("ebc", event.target.valueAsNumber)} type="number" />
+        <TextField label="EBC" variant="standard" fullWidth size="small" value={props.malt.ebc} onChange={(event) => updateMalt("ebc", event.target.valueAsNumber)} type="number" />
       </TableCell>
       <TableCell align="center">
-        <TextField label="Potential" variant="standard" size="small" value={props.malt.potential} onChange={(event) => updateMalt("potential", event.target.valueAsNumber)} type="number" />
+        <TextField label="Potential" variant="standard" fullWidth size="small" value={props.malt.potential} onChange={(event) => updateMalt("potential", event.target.valueAsNumber)} type="number" />
       </TableCell>
       <TableCell align="center">
-        <TextField label="Amount" variant="standard" size="small" value={props.malt.amount} onChange={(event) => updateMalt("amount", event.target.valueAsNumber)} type="number" />
+        <TextField label="Amount" variant="standard" fullWidth size="small" value={props.malt.amount} onChange={(event) => updateMalt("amount", event.target.valueAsNumber)} type="number" />
       </TableCell>
       <TableCell align="right">
         <IconButton disabled={rowId < 0} aria-label="delete" onClick={() => {dispatch({type: "deleteMalt", rowId: rowId});}}>
@@ -54,7 +56,7 @@ function Malt(props) {
   rows.forEach((row, index) => {
     children.push(<SingleMalt malt={row} rowID={index} dispatch={dispatch} key={"malt" + index} />)
   });
-  children.push(<SingleMalt malt={emptyMalt} rowID={-1} dispatch={dispatch} key={"malt-1"} />)
+  children.push(<SingleMalt malt={Model.malt()} rowID={-1} dispatch={dispatch} key={"malt-1"} />)
 
   return (
     <div>

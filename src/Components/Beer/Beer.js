@@ -4,32 +4,8 @@ import Recipe from '../Recipe/Recipe';
 import BeertypeComparer from '../Beertype/BeertypeComparer'
 import Hops from '../Hop/Hops';
 import Malt from '../Malt/Malt';
-
-const beerRecipe = {
-  recipe: { 
-    name: "", 
-    description: "",
-    author: "",
-    date: new Date().toISOString().substr(0,10), // Default is today for recipe.
-    maltYield: 0.68,                             // Default is 68%
-
-    og: null,
-    sg: null,
-    ibu: null,
-    alc: null,
-    ebc: null,
-    beertype: {
-      name: null,
-      og: { minGravity: null, maxGravity: null,minPlato: null, maxPlato: null},
-      sg: { minGravity: null, maxGravity: null,minPlato: null, maxPlato: null},
-      alc: { minPercentWeight: null, maxPercentWeight: null,minPercentVol: null, maxPercentVol: null},
-      colorVal: { minSRM: null, maxSRM: null,minEBC: null, maxEBC: null},
-      ibu:  { min: null, max: null }
-    }
-  },
-  hops: [],
-  malt: [],
-}
+import *  as Model from '../../Model';
+import MashSteps from '../MashSteps/MashSteps';
 
 function changeState(state, action) {
   let updated = false
@@ -44,7 +20,7 @@ function changeState(state, action) {
     case 'updateHop':
       if(action.rowId === -1) {
         action.rowId = state.hops.length
-        state.hops.push({name: "", alpha: 0, oil: 0, amount: 0, type: 1, duration: 0});
+        state.hops.push(Model.hop());
         updated = true
       }
       if(state.hops[action.rowId][action.target] !== action.value) {
@@ -61,7 +37,7 @@ function changeState(state, action) {
     case 'updateMalt':
       if(action.rowId === -1) {
         action.rowId = state.malt.length
-        state.malt.push({name: "", ebc: 0, potential: 0, amount: 0});
+        state.malt.push(Model.malt());
         updated = true
       }
       if(state.malt[action.rowId][action.target] !== action.value) {
@@ -75,6 +51,33 @@ function changeState(state, action) {
       array = [...state.malt];
       array.splice(action.rowId, 1);
       return {...state, malt: array};
+    case 'updateMashStep':
+      if(action.rowId === -1) {
+        action.rowId = state.mashSteps.length
+        state.mashSteps.push(Model.mashStep());
+        updated = true
+      }
+      if(state.mashSteps[action.rowId][action.target] !== action.value) {
+        state.mashSteps[action.rowId][action.target] = action.value;
+        updated = true
+      }
+      if(updated)
+        return {...state};
+      return state
+    case 'moveMashStep':
+      if(action.rowId2 >= state.mashSteps.length)
+        state.mashSteps.push(Model.mashStep())
+      array = [...state.mashSteps];
+      array[action.rowId1] = state.mashSteps[action.rowId2]
+      array[action.rowId2] = state.mashSteps[action.rowId1]
+      return {...state, mashSteps: array};
+    case 'deleteMashStep':
+      array = [...state.mashSteps];
+      array.splice(action.rowId, 1);
+      return {...state, mashSteps: array};
+    case 'setMashTemplate':
+      array = [...action.value];
+      return {...state, mashSteps: array};
     default:
       return state
   }
@@ -83,7 +86,7 @@ function changeState(state, action) {
 function Beer(props) {
   let beer
   if (props.beer === undefined) {
-    beer = beerRecipe
+    beer = Model.beerRecipe()
   } else {
     beer = props.beer
   }
@@ -117,12 +120,17 @@ function Beer(props) {
         </Grid>
         <Grid item xs={12}>
           <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-            <Hops hops={state["hops"]} dispatch={dispatch} />
+            <Malt malt={state["malt"]} dispatch={dispatch} />
           </Paper>
         </Grid>
         <Grid item xs={12}>
           <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-            <Malt malt={state["malt"]} dispatch={dispatch} />
+            <MashSteps mashSteps={state["mashSteps"]} dispatch={dispatch} />
+          </Paper>
+        </Grid>
+        <Grid item xs={12}>
+          <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+            <Hops hops={state["hops"]} dispatch={dispatch} />
           </Paper>
         </Grid>
       </Grid>

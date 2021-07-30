@@ -3,16 +3,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import { Autocomplete, IconButton, InputLabel, MenuItem, Paper, Select, Table, TableBody, TableContainer, TableHead, TextField } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
-
-const emptyHop = {name: "", alpha: 0, oil: 0, amount: 0, type: 1, duration: 0}
-
-const hopType = [
-  {id: 0, label: "first wort"},
-  {id: 1, label: "boil"},
-  //{id: 2, label: "whirlpool"},
-  {id: 3, label: "whirlpool 80°C"},
-  {id: 4, label: "dry hopping"}
-]
+import *  as Model from '../../Model';
 
 function Hop(props) {
   const dispatch = props.dispatch
@@ -22,8 +13,10 @@ function Hop(props) {
   }
   const [inputName, setInputName] = useState(props.hop.name)
 
+  const backgroundColor = rowId === -1 ? {backgroundColor: "#eeeeee"} : {};
+
   return (
-    <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+    <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }, backgroundColor}>
       <TableCell component="th" scope="row">
         <Autocomplete 
           options={[]}
@@ -36,28 +29,26 @@ function Hop(props) {
         />
       </TableCell>
       <TableCell align="center">
-        <TextField label="Alpha" variant="standard" size="small" value={props.hop.alpha} onChange={(event) => updateHops("alpha", event.target.valueAsNumber)} type="number" />
+        <TextField label="Alpha" fullWidth variant="standard" size="small" value={props.hop.alpha} onChange={(event) => updateHops("alpha", event.target.valueAsNumber)} type="number" />
       </TableCell>
       <TableCell align="center">
-        <TextField label="Oil" variant="standard" size="small" value={props.hop.oil} onChange={(event) => updateHops("oil", event.target.valueAsNumber)} type="number" />
+        <TextField label="Oil" fullWidth variant="standard" size="small" value={props.hop.oil} onChange={(event) => updateHops("oil", event.target.valueAsNumber)} type="number" />
       </TableCell>
       <TableCell align="center">
-        <TextField label="Amount" variant="standard" size="small" value={props.hop.amount} onChange={(event) => updateHops("amount", event.target.valueAsNumber)} type="number" />
+        <TextField label="Amount" fullWidth variant="standard" size="small" value={props.hop.amount} onChange={(event) => updateHops("amount", event.target.valueAsNumber)} type="number" />
       </TableCell>
       <TableCell align="center">
-        <InputLabel id={rowId + "-type"} variant="standard" sx={{
-          fontSize: 12,
-            }} >
+        <InputLabel id={rowId + "-hoptype"} variant="standard" sx={{ fontSize: 12 }} >
           Type
         </InputLabel>
-        <Select labelId={rowId + "-type"} label="Type" variant="standard" size="small" value={props.hop.type} onChange={(event) => updateHops("type", event.target.value)}>
-          {hopType.map(t => 
-            <MenuItem key={"beertype" + t.id} value={t.id}>{t.label}</MenuItem>
+        <Select labelId={rowId + "-hoptype"} fullWidth label="Type" variant="standard" size="small" value={props.hop.type} onChange={(event) => updateHops("type", event.target.value)}>
+          {Model.hopType.map(t => 
+            <MenuItem key={"hoptype" + t.id} value={t.id}>{t.label}</MenuItem>
           )}
         </Select>
       </TableCell>
       <TableCell align="center">
-        <TextField label="Duration" size="small" variant="standard" value={props.hop.duration} type="number" onChange={(event) => updateHops("duration", event.target.valueAsNumber)} />
+        <TextField label="Duration" size="small" fullWidth variant="standard" value={props.hop.duration} type="number" onChange={(event) => updateHops("duration", event.target.valueAsNumber)} />
       </TableCell>
       <TableCell align="center">
       </TableCell>
@@ -80,7 +71,7 @@ function Hops(props) {
   rows.forEach((row, index) => {
     children.push(<Hop hop={row} rowID={index} dispatch={dispatch} key={"hop" + index} />)
   });
-  children.push(<Hop hop={emptyHop} rowID={-1} dispatch={dispatch} key={"hop-1"} />)
+  children.push(<Hop hop={Model.hop()} rowID={-1} dispatch={dispatch} key={"hop-1"} />)
 
   return (
     <div>
