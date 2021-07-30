@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import Recipe from '../Recipe/Recipe';
 import BeertypeComparer from '../Beertype/BeertypeComparer'
 import Hops from '../Hop/Hops';
+import Malt from '../Malt/Malt';
 
 const beerRecipe = {
   recipe: { 
@@ -27,10 +28,13 @@ const beerRecipe = {
       ibu:  { min: null, max: null }
     }
   },
-  hops: []
+  hops: [],
+  malt: [],
 }
 
 function changeState(state, action) {
+  let updated = false
+  let array = []
   switch(action.type) {
     case 'recipe':
       if(state.recipe[action.target] !== action.value) {
@@ -39,7 +43,6 @@ function changeState(state, action) {
       }
       return state
     case 'updateHop':
-      let updated = false
       if(action.rowId === -1) {
         action.rowId = state.hops.length
         state.hops.push({name: "", alpha: 0, oil: 0, amount: 0, type: null, duration: 0});
@@ -53,9 +56,26 @@ function changeState(state, action) {
         return {...state};
       return state
     case 'deleteHop':
-      let array = [...state.hops];
+      array = [...state.hops];
       array.splice(action.rowId, 1);
       return {...state, hops: array};
+    case 'updateMalt':
+      if(action.rowId === -1) {
+        action.rowId = state.malt.length
+        state.malt.push({name: "", ebc: 0, potential: 0, amount: 0});
+        updated = true
+      }
+      if(state.malt[action.rowId][action.target] !== action.value) {
+        state.malt[action.rowId][action.target] = action.value;
+        updated = true
+      }
+      if(updated)
+        return {...state};
+      return state
+    case 'deleteMalt':
+      array = [...state.malt];
+      array.splice(action.rowId, 1);
+      return {...state, malt: array};
     default:
       return state
   }
@@ -76,6 +96,7 @@ function Beer(props) {
       <Recipe recipe={state["recipe"]} dispatch={dispatch} />
       <BeertypeComparer  recipe={state["recipe"]} dispatch={dispatch} />
       <Hops hops={state["hops"]} dispatch={dispatch} />
+      <Malt malt={state["malt"]} dispatch={dispatch} />
     </Box>
   )
 }
