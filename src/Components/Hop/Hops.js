@@ -2,10 +2,19 @@ import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-import { Autocomplete, IconButton, Paper, Select, Table, TableBody, TableContainer, TableHead, TextField } from '@material-ui/core';
+import { Autocomplete, IconButton, InputLabel, inputLabelClasses, MenuItem, Paper, Select, Table, TableBody, TableContainer, TableHead, TextField } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
+import clsx from 'clsx';
 
-const emptyHop = {name: "", alpha: 0, oil: 0, amount: 0, type: null, duration: 0}
+const emptyHop = {name: "", alpha: 0, oil: 0, amount: 0, type: 1, duration: 0}
+
+const hopType = [
+  {id: 0, label: "first wort"},
+  {id: 1, label: "boil"},
+  {id: 2, label: "whirlpool"},
+  {id: 3, label: "whirlpool 80°C"},
+  {id: 4, label: "dry hopping"}
+]
 
 function Hop(props) {
   const dispatch = props.dispatch
@@ -16,11 +25,11 @@ function Hop(props) {
   const [inputName, setInputName] = useState(props.hop.name)
 
   return (
-    <TableRow key={props.hop.name}>
+    <TableRow key={rowId}>
       <TableCell component="th" scope="row">
         <Autocomplete 
           options={[]}
-          renderInput={(params) => <TextField {...params} label="Name" />} 
+          renderInput={(params) => <TextField {...params} label="Name" variant="standard" size="small" />} 
           freeSolo 
           value={props.hop.name} 
           onChange={(event, newValue) => updateHops("name", newValue)} 
@@ -29,19 +38,28 @@ function Hop(props) {
         />
       </TableCell>
       <TableCell align="center">
-        <TextField label="Alpha" value={props.hop.alpha} onChange={(event) => updateHops("alpha", event.target.valueAsNumber)} type="number" />
+        <TextField label="Alpha" variant="standard" size="small" value={props.hop.alpha} onChange={(event) => updateHops("alpha", event.target.valueAsNumber)} type="number" />
       </TableCell>
       <TableCell align="center">
-        <TextField label="Oil" value={props.hop.oil} onChange={(event) => updateHops("oil", event.target.valueAsNumber)} type="number" />
+        <TextField label="Oil" variant="standard" size="small" value={props.hop.oil} onChange={(event) => updateHops("oil", event.target.valueAsNumber)} type="number" />
       </TableCell>
       <TableCell align="center">
-        <TextField label="Amount" value={props.hop.amount} onChange={(event) => updateHops("amount", event.target.valueAsNumber)} type="number" />
+        <TextField label="Amount" variant="standard" size="small" value={props.hop.amount} onChange={(event) => updateHops("amount", event.target.valueAsNumber)} type="number" />
       </TableCell>
       <TableCell align="center">
-        <Select label="Type" value={props.hop.type} onChange={(event) => updateHops("type", event.target.value)} />
+        <InputLabel id={rowId + "-type"} variant="standard" sx={{
+          fontSize: 12,
+            }} >
+          Type
+        </InputLabel>
+        <Select labelId={rowId + "-type"} label="Type" variant="standard" size="small" value={props.hop.type} onChange={(event) => updateHops("type", event.target.value)}>
+          {hopType.map(t => 
+            <MenuItem value={t.id}>{t.label}</MenuItem>
+          )}
+        </Select>
       </TableCell>
       <TableCell align="center">
-        <TextField label="Duration" value={props.hop.duration} type="number" onChange={(event) => updateHops("duration", event.target.valueAsNumber)} />
+        <TextField label="Duration" size="small" variant="standard" value={props.hop.duration} type="number" onChange={(event) => updateHops("duration", event.target.valueAsNumber)} />
       </TableCell>
       <TableCell align="center">
       </TableCell>
@@ -65,25 +83,30 @@ function Hops(props) {
   });
   children.push(<Hop hop={emptyHop} rowID={-1} dispatch={dispatch} />)
 
-  return <TableContainer component={Paper}>
-  <Table aria-label="simple table">
-    <TableHead>
-      <TableRow>
-        <TableCell>Name</TableCell>
-        <TableCell align="center">Alpha</TableCell>
-        <TableCell align="center">Oil</TableCell>
-        <TableCell align="center">Amount</TableCell>
-        <TableCell align="center">Type</TableCell>
-        <TableCell align="center">Duration</TableCell>
-        <TableCell align="center">Info</TableCell>
-        <TableCell align="right">Actions</TableCell>
-      </TableRow>
-    </TableHead>
-    <TableBody>
-      {children}
-    </TableBody>
-  </Table>
-</TableContainer>;
+  return (
+    <div>
+      <h3>Hop</h3>
+      <TableContainer component={Paper}>
+        <Table size="small" aria-label="hop table">
+          <TableHead>
+            <TableRow>
+              <TableCell width="20%">Name</TableCell>
+              <TableCell width="10%" align="center">Alpha</TableCell>
+              <TableCell width="10%" align="center">Oil</TableCell>
+              <TableCell width="10%" align="center">Amount</TableCell>
+              <TableCell width="10%" align="center">Type</TableCell>
+              <TableCell width="10%" align="center">Duration</TableCell>
+              <TableCell width="20%" align="center">Info</TableCell>
+              <TableCell width="10%" align="right">Actions</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {children}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </div>
+  );
 }
 
 export default Hops

@@ -16,11 +16,11 @@ function SingleMalt(props) {
   const [inputName, setInputName] = useState(props.malt.name)
 
   return (
-    <TableRow key={props.malt.name}>
+    <TableRow key={rowId} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
       <TableCell component="th" scope="row">
         <Autocomplete 
           options={[]}
-          renderInput={(params) => <TextField {...params} label="Name" />} 
+          renderInput={(params) => <TextField {...params} label="Name" variant="standard" size="small" />} 
           freeSolo 
           value={props.malt.name} 
           onChange={(event, newValue) => updateMalt("name", newValue)} 
@@ -29,13 +29,13 @@ function SingleMalt(props) {
         />
       </TableCell>
       <TableCell align="center">
-        <TextField label="EBC" value={props.malt.ebc} onChange={(event) => updateMalt("ebc", event.target.valueAsNumber)} type="number" />
+        <TextField label="EBC" variant="standard" size="small" value={props.malt.ebc} onChange={(event) => updateMalt("ebc", event.target.valueAsNumber)} type="number" />
       </TableCell>
       <TableCell align="center">
-        <TextField label="Potential" value={props.malt.potential} onChange={(event) => updateMalt("potential", event.target.valueAsNumber)} type="number" />
+        <TextField label="Potential" variant="standard" size="small" value={props.malt.potential} onChange={(event) => updateMalt("potential", event.target.valueAsNumber)} type="number" />
       </TableCell>
       <TableCell align="center">
-        <TextField label="Amount" value={props.malt.amount} onChange={(event) => updateMalt("amount", event.target.valueAsNumber)} type="number" />
+        <TextField label="Amount" variant="standard" size="small" value={props.malt.amount} onChange={(event) => updateMalt("amount", event.target.valueAsNumber)} type="number" />
       </TableCell>
       <TableCell align="right">
         <IconButton disabled={rowId < 0} aria-label="delete" onClick={() => {dispatch({type: "deleteMalt", rowId: rowId});}}>
@@ -57,22 +57,27 @@ function Malt(props) {
   });
   children.push(<SingleMalt malt={emptyMalt} rowID={-1} dispatch={dispatch} />)
 
-  return <TableContainer component={Paper}>
-  <Table aria-label="simple table">
-    <TableHead>
-      <TableRow>
-        <TableCell>Name</TableCell>
-        <TableCell align="center">EBC</TableCell>
-        <TableCell align="center">Pontential</TableCell>
-        <TableCell align="center">Amount</TableCell>
-        <TableCell align="right">Action</TableCell>
-      </TableRow>
-    </TableHead>
-    <TableBody>
-      {children}
-    </TableBody>
-  </Table>
-</TableContainer>;
+  return (
+    <div>
+      <h3>Malt</h3>
+      <TableContainer component={Paper}>
+        <Table size="small" aria-label="malt table">
+          <TableHead>
+            <TableRow>
+              <TableCell width="30%">Name</TableCell>
+              <TableCell width="20%" align="center">EBC</TableCell>
+              <TableCell width="20%" align="center">Pontential</TableCell>
+              <TableCell width="20%" align="center">Amount</TableCell>
+              <TableCell width="10%" align="right">Action</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {children}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </div>
+  );
 }
 
 export default Malt

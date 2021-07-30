@@ -1,4 +1,4 @@
-import { Box } from '@material-ui/core';
+import { Box, Grid, Paper } from '@material-ui/core';
 import React, { useReducer } from 'react';
 import ReactDOM from 'react-dom';
 import Recipe from '../Recipe/Recipe';
@@ -91,13 +91,43 @@ function Beer(props) {
   const [state, dispatch] = useReducer(changeState, beer)
 
   return (
-    <Box>
+    <div>
       <h2>{state["recipe"]["name"] !== "" ? state["recipe"]["name"] + " Recipe" : "New Beer Recipe"}</h2>
-      <Recipe recipe={state["recipe"]} dispatch={dispatch} />
-      <BeertypeComparer  recipe={state["recipe"]} dispatch={dispatch} />
-      <Hops hops={state["hops"]} dispatch={dispatch} />
-      <Malt malt={state["malt"]} dispatch={dispatch} />
-    </Box>
+      <Grid container spacing={3}>
+        <Grid item xs={12} md={8} lg={9}>
+          <Paper
+            sx={{
+              p: 2,
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            <Recipe recipe={state["recipe"]} dispatch={dispatch} />
+          </Paper>
+        </Grid>
+        <Grid item xs={12} md={4} lg={3}>
+          <Paper
+            sx={{
+              p: 2,
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            <BeertypeComparer  recipe={state["recipe"]} dispatch={dispatch} />
+          </Paper>
+        </Grid>
+        <Grid item xs={12}>
+          <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+            <Hops hops={state["hops"]} dispatch={dispatch} />
+          </Paper>
+        </Grid>
+        <Grid item xs={12}>
+          <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+            <Malt malt={state["malt"]} dispatch={dispatch} />
+          </Paper>
+        </Grid>
+      </Grid>
+    </div>
   )
 }
 

@@ -50,7 +50,7 @@ function Recipe(props) {
   return (
     <FormControl fullWidth>
       <h3>Recipe settings</h3>
-      <Stack spacing={2} sx={{ width: 300 }}>
+      <Stack spacing={2}>
         <TextField label="Recipe Name" value={recipe["name"]} onChange={(event) => {
             updateRecipe("name", event.target.value)
           }} />
