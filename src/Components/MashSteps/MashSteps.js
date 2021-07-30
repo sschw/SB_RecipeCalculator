@@ -82,7 +82,7 @@ function MashSteps(props) {
           )}
         </Select>
       </Box>
-      <h3>Malt Steps</h3>
+      <h3>Mashing</h3>
       <TableContainer component={Paper}>
         <Table size="small" aria-label="mashsteps table">
           <TableHead>
