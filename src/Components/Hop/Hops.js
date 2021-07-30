@@ -1,17 +1,15 @@
 import React, {useState} from 'react';
-import ReactDOM from 'react-dom';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-import { Autocomplete, IconButton, InputLabel, inputLabelClasses, MenuItem, Paper, Select, Table, TableBody, TableContainer, TableHead, TextField } from '@material-ui/core';
+import { Autocomplete, IconButton, InputLabel, MenuItem, Paper, Select, Table, TableBody, TableContainer, TableHead, TextField } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
-import clsx from 'clsx';
 
 const emptyHop = {name: "", alpha: 0, oil: 0, amount: 0, type: 1, duration: 0}
 
 const hopType = [
   {id: 0, label: "first wort"},
   {id: 1, label: "boil"},
-  {id: 2, label: "whirlpool"},
+  //{id: 2, label: "whirlpool"},
   {id: 3, label: "whirlpool 80°C"},
   {id: 4, label: "dry hopping"}
 ]
@@ -25,7 +23,7 @@ function Hop(props) {
   const [inputName, setInputName] = useState(props.hop.name)
 
   return (
-    <TableRow key={rowId}>
+    <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
       <TableCell component="th" scope="row">
         <Autocomplete 
           options={[]}
@@ -54,7 +52,7 @@ function Hop(props) {
         </InputLabel>
         <Select labelId={rowId + "-type"} label="Type" variant="standard" size="small" value={props.hop.type} onChange={(event) => updateHops("type", event.target.value)}>
           {hopType.map(t => 
-            <MenuItem value={t.id}>{t.label}</MenuItem>
+            <MenuItem key={"beertype" + t.id} value={t.id}>{t.label}</MenuItem>
           )}
         </Select>
       </TableCell>
@@ -78,10 +76,11 @@ function Hops(props) {
   let dispatch = props.dispatch
 
   let children = []
+  rows.sort((a, b) => a.type > b.type || (a.type === b.type && a.duration < b.duration));
   rows.forEach((row, index) => {
-    children.push(<Hop hop={row} rowID={index} dispatch={dispatch} />)
+    children.push(<Hop hop={row} rowID={index} dispatch={dispatch} key={"hop" + index} />)
   });
-  children.push(<Hop hop={emptyHop} rowID={-1} dispatch={dispatch} />)
+  children.push(<Hop hop={emptyHop} rowID={-1} dispatch={dispatch} key={"hop-1"} />)
 
   return (
     <div>

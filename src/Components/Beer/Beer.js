@@ -1,6 +1,5 @@
-import { Box, Grid, Paper } from '@material-ui/core';
+import { Grid, Paper } from '@material-ui/core';
 import React, { useReducer } from 'react';
-import ReactDOM from 'react-dom';
 import Recipe from '../Recipe/Recipe';
 import BeertypeComparer from '../Beertype/BeertypeComparer'
 import Hops from '../Hop/Hops';
@@ -45,7 +44,7 @@ function changeState(state, action) {
     case 'updateHop':
       if(action.rowId === -1) {
         action.rowId = state.hops.length
-        state.hops.push({name: "", alpha: 0, oil: 0, amount: 0, type: null, duration: 0});
+        state.hops.push({name: "", alpha: 0, oil: 0, amount: 0, type: 1, duration: 0});
         updated = true
       }
       if(state.hops[action.rowId][action.target] !== action.value) {

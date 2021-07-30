@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import ReactDOM from 'react-dom';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import { Autocomplete, IconButton, Paper, Table, TableBody, TableContainer, TableHead, TextField } from '@material-ui/core';
@@ -16,7 +15,7 @@ function SingleMalt(props) {
   const [inputName, setInputName] = useState(props.malt.name)
 
   return (
-    <TableRow key={rowId} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+    <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
       <TableCell component="th" scope="row">
         <Autocomplete 
           options={[]}
@@ -53,9 +52,9 @@ function Malt(props) {
 
   let children = []
   rows.forEach((row, index) => {
-    children.push(<SingleMalt malt={row} rowID={index} dispatch={dispatch} />)
+    children.push(<SingleMalt malt={row} rowID={index} dispatch={dispatch} key={"malt" + index} />)
   });
-  children.push(<SingleMalt malt={emptyMalt} rowID={-1} dispatch={dispatch} />)
+  children.push(<SingleMalt malt={emptyMalt} rowID={-1} dispatch={dispatch} key={"malt-1"} />)
 
   return (
     <div>

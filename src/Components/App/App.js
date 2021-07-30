@@ -1,4 +1,3 @@
-import logo from './../../logo.svg';
 import './App.css';
 import Beer from './../Beer/Beer'
 import { Box, Container } from '@material-ui/core';

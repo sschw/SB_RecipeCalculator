@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './BeertypeComparer.css';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';

@@ -1,8 +1,7 @@
-import { Autocomplete, Box, FormControl, ListSubheader, MenuItem, Select, Stack, TextField } from '@material-ui/core';
+import { Autocomplete, Stack, TextField } from '@material-ui/core';
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import NumberFormat from 'react-number-format';
-import ReactDOM from 'react-dom';
 
 const emptyRecipe = {
   name: null,
@@ -13,22 +12,29 @@ const emptyRecipe = {
   ibu:  { min: null, max: null }
 }
 
-const PercentInput = (props) => {
-  const { value, onChange } = props;
+const PercentInput = React.forwardRef(function NumberFormatCustom(props, ref) {
+  const { value, onChange, ...other } = props;
 
   return (
-      <NumberFormat
-          format="###%"
-          decimalSeparator=","
-          className={`text-right ${props.className}`}
-          value={value * 100}
-          onValueChange={values => {
-              values?.floatValue > 100
-                  ? onChange({ floatValue: 1, formattedValue: '1,00', value: '1' })
-                  : onChange({ floatValue: values?.floatValue/100, formattedValue: values?.formattedValue, value: values?.value });
-          }}
-      />
+    <NumberFormat
+      {...other}
+      getInputRef={ref}
+      format="###%"
+      decimalSeparator=","
+      className={`text-right ${props.className}`}
+      value={parseFloat(value) * 100}
+      onValueChange={values => {
+          values?.floatValue > 100
+              ? onChange({ floatValue: 1, formattedValue: '1,00', value: '1' })
+              : onChange({ floatValue: values?.floatValue/100, formattedValue: values?.formattedValue, value: values?.value });
+      }}
+    />
   );
+});
+
+PercentInput.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 function Recipe(props) {
@@ -48,7 +54,7 @@ function Recipe(props) {
   const updateRecipe = (target, value) => { dispatch({type: 'recipe', target: target, value: value})};
 
   return (
-    <FormControl fullWidth>
+    <div>
       <h3>Recipe settings</h3>
       <Stack spacing={2}>
         <TextField label="Recipe Name" value={recipe["name"]} onChange={(event) => {
@@ -66,7 +72,7 @@ function Recipe(props) {
         InputLabelProps={{
           shrink: true,
         }}/>
-        <TextField label="Malt yield" value={recipe["maltYield"]} onChange={(event) => {
+        <TextField label="Malt yield" value={recipe["maltYield"].toString()} onChange={(event) => {
           updateRecipe("maltYield", event.floatValue)
         }} 
         InputProps={{
@@ -90,7 +96,7 @@ function Recipe(props) {
           }}
           onInputChange={(_, newValue) => setInputValue(newValue)} />
       </Stack>
-    </FormControl>
+    </div>
   );
 }
 
