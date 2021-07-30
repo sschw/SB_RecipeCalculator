@@ -28,22 +28,22 @@ function Hop(props) {
           onInputChange={(_, newValue) => setInputName(newValue)} 
         />
       </TableCell>
-      <TableCell align="right">
+      <TableCell align="center">
         <TextField label="Alpha" value={props.hop.alpha} onChange={(event) => updateHops("alpha", event.target.valueAsNumber)} type="number" />
       </TableCell>
-      <TableCell align="right">
+      <TableCell align="center">
         <TextField label="Oil" value={props.hop.oil} onChange={(event) => updateHops("oil", event.target.valueAsNumber)} type="number" />
       </TableCell>
-      <TableCell align="right">
+      <TableCell align="center">
         <TextField label="Amount" value={props.hop.amount} onChange={(event) => updateHops("amount", event.target.valueAsNumber)} type="number" />
       </TableCell>
-      <TableCell align="right">
+      <TableCell align="center">
         <Select label="Type" value={props.hop.type} onChange={(event) => updateHops("type", event.target.value)} />
       </TableCell>
-      <TableCell align="right">
+      <TableCell align="center">
         <TextField label="Duration" value={props.hop.duration} type="number" onChange={(event) => updateHops("duration", event.target.valueAsNumber)} />
       </TableCell>
-      <TableCell align="right">
+      <TableCell align="center">
       </TableCell>
       <TableCell align="right">
         <IconButton disabled={rowId < 0} aria-label="delete" onClick={() => {dispatch({type: "deleteHop", rowId: rowId});}}>
@@ -70,12 +70,12 @@ function Hops(props) {
     <TableHead>
       <TableRow>
         <TableCell>Name</TableCell>
-        <TableCell align="right">Alpha</TableCell>
-        <TableCell align="right">Oil</TableCell>
-        <TableCell align="right">Amount</TableCell>
-        <TableCell align="right">Type</TableCell>
-        <TableCell align="right">Duration</TableCell>
-        <TableCell align="right">Info</TableCell>
+        <TableCell align="center">Alpha</TableCell>
+        <TableCell align="center">Oil</TableCell>
+        <TableCell align="center">Amount</TableCell>
+        <TableCell align="center">Type</TableCell>
+        <TableCell align="center">Duration</TableCell>
+        <TableCell align="center">Info</TableCell>
         <TableCell align="right">Actions</TableCell>
       </TableRow>
     </TableHead>
