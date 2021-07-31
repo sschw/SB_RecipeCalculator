@@ -2,10 +2,59 @@ import { Grid, Stack, Typography } from '@material-ui/core';
 import React from 'react';
 import logo from '../../logo.svg';
 import * as Model from '../../Model';
+import html2pdf from 'html2pdf.js';
+import { renderToString } from 'react-dom/server';
 
-export default function ShowRecipe(props) {
-  const beer = props.beer
+export default async function print(beer) {
+  await html2pdf().from(renderToString(ShowRecipeHeader({beer}))).set({html2canvas:  { scale: 4 }}).toImg().get('img').then(async img => {
+    await html2pdf().from(renderToString(ShowRecipeContent({beer}))).set({ margin: [40, 0, 0, 0], html2canvas:  { scale: 4 }, pagebreak: { avoid: '.keepTogether' }}).toPdf().get('pdf').then((pdf) => {
+      var totalPages = pdf.internal.getNumberOfPages();
+      for (let i = 1; i <= totalPages; i++) {
+        pdf.setPage(i);
+        pdf.addImage(img, 'JPEG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getWidth()*0.2026);
+      }
+    }).save(beer.recipe.name !== "" ? beer.recipe.name : "recipe");
+  })
+}
 
+function ShowRecipeHeader(props) {
+  let beer = props.beer
+  return (
+    <div>
+      <div style={{padding: 25}} id="showRecipeHeader">
+        <Grid container spacing={3}>
+          <Grid item xs={2} md={2} lg={2}>
+            <img src={logo} width="100%" alt="" />
+          </Grid>
+          <Grid item xs={8} md={8} lg={8}>
+            <Typography variant="h3" align="center" gutterBottom component="div">
+              {beer.recipe.name !== "" ? beer.recipe.name : "Unnamed Recipe"}
+            </Typography>
+            <Typography sx={{ marginBottom: 2 }} variant="h5" align="center" gutterBottom component="div">
+              {beer.recipe.beertype.name}
+            </Typography>
+            <Typography sx={{ marginBottom: 2 }} variant="subtitle2" align="center" gutterBottom component="div">
+              OW: {beer.recipe.og}°P &nbsp;&nbsp; FW: {beer.recipe.sg}°P &nbsp;&nbsp; ALC: {beer.recipe.alc}%vol &nbsp;&nbsp; EBC: {beer.recipe.ebc} &nbsp;&nbsp; IBU: {beer.recipe.ibu}
+            </Typography>
+            <Typography variant="subtitle" align="left" gutterBottom component="div">
+              {beer.recipe.description}
+            </Typography>
+          </Grid>
+          <Grid item xs={2} md={2} lg={2}>
+            <Typography variant="subtitle" align="right" >
+              {beer.recipe.author}<br />
+              {beer.recipe.date}
+            </Typography>
+          </Grid>
+        </Grid>
+      </div>
+    </div>
+  );
+}
+
+function ShowRecipeContent(props) {
+  let beer = props.beer
+  
   const maltList = Object.values(
     beer.malt.reduce((pv, c) => { 
       if(c.name in pv) {
@@ -95,58 +144,37 @@ export default function ShowRecipe(props) {
   
   return (
     <div>
-      <div style={{padding: 25}} id="recipetoprint">
+      <div style={{padding: "0px 25px 0px 25px"}}>
         <Grid container spacing={3}>
-          <Grid item xs={2} md={2} lg={2}>
-            <img src={logo} width="100%" alt="" />
-          </Grid>
-          <Grid item xs={8} md={8} lg={8}>
-            <Typography variant="h3" align="center" gutterBottom component="div">
-              {beer.recipe.name !== "" ? beer.recipe.name : "Unnamed Recipe"}
-            </Typography>
-            <Typography sx={{ marginBottom: 2 }} variant="h5" align="center" gutterBottom component="div">
-              {beer.recipe.beertype.name}
-            </Typography>
-            <Typography sx={{ marginBottom: 2 }} variant="subtitle2" align="center" gutterBottom component="div">
-              OW: {beer.recipe.og}°P &nbsp;&nbsp; FW: {beer.recipe.sg}°P &nbsp;&nbsp; ALC: {beer.recipe.alc}%vol &nbsp;&nbsp; EBC: {beer.recipe.ebc} &nbsp;&nbsp; IBU: {beer.recipe.ibu}
-            </Typography>
-            <Typography variant="subtitle" align="left" gutterBottom component="div">
-              {beer.recipe.description}
-            </Typography>
-          </Grid>
-          <Grid item xs={2} md={2} lg={2}>
-            <Typography variant="subtitle" align="right" >
-              {beer.recipe.author}<br />
-              {beer.recipe.date}
-            </Typography>
-          </Grid>
           <Grid item xs={1} md={1} lg={1}></Grid>
           <Grid item xs={10} md={10} lg={10}>
-            <hr />
-            <Grid container spacing={3}>
-              <Grid item xs={4} md={4} lg={4}>
-                <Typography variant="h6" align="left" gutterBottom component="div">
-                  Malt
-                </Typography>
-                {maltListToDisplay}
+            <div class="keepTogether">
+              <hr />
+              <Grid container spacing={3}>
+                <Grid item xs={4} md={4} lg={4}>
+                  <Typography variant="h6" align="left" gutterBottom component="div">
+                    Malt
+                  </Typography>
+                  {maltListToDisplay}
+                </Grid>
+                <Grid item xs={4} md={4} lg={4}>
+                  <Typography variant="h6" align="left" gutterBottom component="div">
+                    Hop
+                  </Typography>
+                  {hopListToDisplay}
+                </Grid>
+                <Grid item xs={4} md={4} lg={4}>
+                  <Typography variant="h6" align="left" gutterBottom component="div">
+                    Yeast
+                  </Typography>
+                  <Typography variant="body1" align="left" gutterBottom>
+                    {beer.yeast.name}
+                  </Typography>
+                </Grid>
               </Grid>
-              <Grid item xs={4} md={4} lg={4}>
-                <Typography variant="h6" align="left" gutterBottom component="div">
-                  Hop
-                </Typography>
-                {hopListToDisplay}
-              </Grid>
-              <Grid item xs={4} md={4} lg={4}>
-                <Typography variant="h6" align="left" gutterBottom component="div">
-                  Yeast
-                </Typography>
-                <Typography variant="body1" align="left" gutterBottom>
-                  {beer.yeast.name}
-                </Typography>
-              </Grid>
-            </Grid>
-            <hr />
-            <div>
+            </div>
+            <div class="keepTogether">
+              <hr />
               <Typography variant="h6" align="left" gutterBottom>
                 Mashing
               </Typography>
@@ -159,8 +187,8 @@ export default function ShowRecipe(props) {
                 </Stack>
               </Stack>
             </div>
-            <hr />
-            <div>
+            <div class="keepTogether">
+              <hr />
               <Typography variant="h6" align="left" gutterBottom>
                 Hop Cooking
               </Typography>
@@ -176,14 +204,16 @@ export default function ShowRecipe(props) {
                 </Stack>
               </Stack>
             </div>
-            <hr />
-            <Typography variant="body1" align="left" sx={{marginTop: 4}} gutterBottom>
-            <span>OW: <span style={{display: "inline-block", marginRight: "20px", borderBottom: "1px solid black", width: "140px"}} /></span><span>FW: <span style={{display: "inline-block", borderBottom: "1px solid black", width: "140px"}} /></span>
-            </Typography>
+            <div class="keepTogether">
+              <hr />
+              <Typography variant="body1" align="left" sx={{marginTop: 4}} gutterBottom>
+                <span>OW: <span style={{display: "inline-block", marginRight: "20px", borderBottom: "1px solid black", width: "140px"}} /></span><span>FW: <span style={{display: "inline-block", borderBottom: "1px solid black", width: "140px"}} /></span>
+              </Typography>
+            </div>
           </Grid>
           <Grid item xs={1} md={1} lg={1}></Grid>
         </Grid>
       </div>
     </div>
-  );
+  )
 }

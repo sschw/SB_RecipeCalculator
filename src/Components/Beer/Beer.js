@@ -4,10 +4,10 @@ import Recipe from '../Recipe/Recipe';
 import BeertypeComparer from '../Beertype/BeertypeComparer'
 import Hops from '../Hop/Hops';
 import Malt from '../Malt/Malt';
-import *  as Model from '../../Model';
+import * as Model from '../../Model';
 import MashSteps from '../MashSteps/MashSteps';
 import ShowRecipe from './ShowRecipe';
-import html2pdf from 'html2pdf.js';
+import printRecipe from './PrintRecipe';
 
 function changeState(state, action) {
   let updated = false
@@ -85,11 +85,6 @@ function changeState(state, action) {
   }
 }
 
-async function print(beer) {
-  const elem = document.getElementById('recipetoprint');
-  await html2pdf().from(elem).save(beer.recipe.name !== "" ? beer.recipe.name : "recipe");
-}
-
 const modalStyle = {
   position: 'absolute',
   top: '50%',
@@ -108,6 +103,7 @@ function Beer(props) {
   const [state, dispatch] = useReducer(changeState, beer)
   
   const [open, setOpen] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -161,10 +157,14 @@ function Beer(props) {
         aria-describedby="modal-modal-description"
       >
         <Paper sx={modalStyle}>
-          <ShowRecipe beer={beer} />
-          <Box display="flex" justifyContent="flex-end" spacing={2}>
-            <Button variant="contained" sx={{m:1}} color="grey" onClick={() => { handleClose(); } }>Close</Button>
-            <Button variant="contained" sx={{m:1}} color="primary" onClick={() => {print(beer).then(() => {handleClose()}) } }>Print</Button>
+          <div style={{height: "calc(100vh - 225px)", overflowY: "auto"}}>
+            <Paper sx={{minHeight: "100%"}}>
+              <ShowRecipe beer={state} />
+            </Paper>
+          </div>
+          <Box display="flex" justifyContent="flex-end" spacing={2} sx={{borderTop: "1px solid black"}}>
+            <Button variant="contained" sx={{m:1}} color="grey" disabled={loading} onClick={() => { handleClose(); } }>Close</Button>
+            <Button variant="contained" sx={{m:1}} color="primary" disabled={loading} onClick={() => {setLoading(true); printRecipe(state).then(() => {setLoading(false); handleClose()}) } }>Print</Button>
           </Box>
         </Paper>
       </Modal>
