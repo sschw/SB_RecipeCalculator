@@ -1,5 +1,4 @@
 import { Grid, Paper, Stack, Typography } from '@material-ui/core';
-import html2pdf from 'html2pdf.js';
 import React from 'react';
 import logo from '../../logo.svg';
 import * as Model from '../../Model';
@@ -182,21 +181,5 @@ export default function ShowRecipe(props) {
         </Grid>
       </div>
     </Paper>
-  );
-}
-
-function print(beer) {
-  const elem = document.getElementById('recipetoprint');
-  html2pdf().from(elem).save(beer.recipe.name !== "" ? beer.recipe.name : "recipe");
-}
-
-export function PrintRecipe(props) {
-  const beer = props.beer
-
-  return (
-    <div>
-      <a href="#" onClick={() => print(beer)}>Print</a>
-      <ShowRecipe beer={beer} />
-    </div>
   );
 }

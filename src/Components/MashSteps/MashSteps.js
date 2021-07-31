@@ -13,10 +13,10 @@ function MashStep(props) {
     dispatch({type: 'updateMashStep', rowId: rowId, target: target, value: value})
   }
 
-  const backgroundColor = rowId === -1 ? {backgroundColor: "#eeeeee"} : {};
+  const styling = rowId === -1 ? {'&:last-child td, &:last-child th': { border: 0 }, backgroundColor: "#eeeeee"} : {'&:last-child td, &:last-child th': { border: 0 }};
 
   return (
-    <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }, backgroundColor}>
+    <TableRow sx={styling}>
       <TableCell align="center">
         <TextField label="Temperature" fullWidth variant="standard" size="small" value={props.mashStep.temp} onChange={(event) => updateMashStep("temp", event.target.valueAsNumber)} type="number" />
       </TableCell>

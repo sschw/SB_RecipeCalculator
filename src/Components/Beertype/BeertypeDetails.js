@@ -3,7 +3,7 @@ import './BeertypeComparer.css';
 import Box from '@material-ui/core/Box';
 
 function BeertypeDetails (props) {
-  const beertype = props.beertype
+  //const beertype = props.beertype
   return (
     <Box className="beertype">
       <h3>Beer type</h3>

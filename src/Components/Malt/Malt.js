@@ -13,10 +13,10 @@ function SingleMalt(props) {
   }
   const [inputName, setInputName] = useState(props.malt.name)
 
-  const backgroundColor = rowId === -1 ? {backgroundColor: "#eeeeee"} : {};
+  const styling = rowId === -1 ? {'&:last-child td, &:last-child th': { border: 0 }, backgroundColor: "#eeeeee"} : {'&:last-child td, &:last-child th': { border: 0 }};
 
   return (
-    <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }, backgroundColor}>
+    <TableRow sx={styling}>
       <TableCell component="th" scope="row">
         <Autocomplete 
           options={[]}

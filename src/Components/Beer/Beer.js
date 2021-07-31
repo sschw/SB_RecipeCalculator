@@ -1,4 +1,4 @@
-import { Grid, Paper } from '@material-ui/core';
+import { Box, Button, Grid, Modal, Paper } from '@material-ui/core';
 import React, { useReducer } from 'react';
 import Recipe from '../Recipe/Recipe';
 import BeertypeComparer from '../Beertype/BeertypeComparer'
@@ -6,7 +6,8 @@ import Hops from '../Hop/Hops';
 import Malt from '../Malt/Malt';
 import *  as Model from '../../Model';
 import MashSteps from '../MashSteps/MashSteps';
-import ShowRecipe, { PrintRecipe } from './ShowRecipe';
+import ShowRecipe from './ShowRecipe';
+import html2pdf from 'html2pdf.js';
 
 function changeState(state, action) {
   let updated = false
@@ -84,6 +85,19 @@ function changeState(state, action) {
   }
 }
 
+async function print(beer) {
+  const elem = document.getElementById('recipetoprint');
+  await html2pdf().from(elem).save(beer.recipe.name !== "" ? beer.recipe.name : "recipe");
+}
+
+const modalStyle = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 1200,
+};
+
 function Beer(props) {
   let beer
   if (props.beer === undefined) {
@@ -92,10 +106,15 @@ function Beer(props) {
     beer = props.beer
   }
   const [state, dispatch] = useReducer(changeState, beer)
+  
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <div>
       <h2>{state["recipe"]["name"] !== "" ? state["recipe"]["name"] + " Recipe" : "New Beer Recipe"}</h2>
+      <Button sx={{ m: 2 }} variant="contained" onClick={handleOpen}>Print recipe</Button>
       <Grid container spacing={3}>
         <Grid item xs={12} md={8} lg={9}>
           <Paper
@@ -134,12 +153,21 @@ function Beer(props) {
             <Hops hops={state["hops"]} dispatch={dispatch} />
           </Paper>
         </Grid>
-        <Grid item xs={12}>
-          <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-            <PrintRecipe beer={state} />
-          </Paper>
-        </Grid>
       </Grid>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Paper sx={modalStyle}>
+          <ShowRecipe beer={beer} />
+          <Box display="flex" justifyContent="flex-end" spacing={2}>
+            <Button variant="contained" sx={{m:1}} color="grey" onClick={() => { handleClose(); } }>Close</Button>
+            <Button variant="contained" sx={{m:1}} color="primary" onClick={() => {print(beer).then(() => {handleClose()}) } }>Print</Button>
+          </Box>
+        </Paper>
+      </Modal>
     </div>
   )
 }
