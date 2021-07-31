@@ -24,7 +24,7 @@ function SingleMalt(props) {
           freeSolo 
           fullWidth
           value={props.malt.name} 
-          onChange={(event, newValue) => updateMalt("name", newValue)} 
+          onChange={(_, newValue) => updateMalt("name", newValue == null ? "" : newValue)} 
           inputValue={inputName} 
           onInputChange={(_, newValue) => setInputName(newValue)} 
         />

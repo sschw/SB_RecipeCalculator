@@ -25,6 +25,7 @@ export const beerRecipe = () => {return {
     malt: [],
     mashSteps: [{temp: 57, dur: 0, type: 0, descr: "" }],
     hops: [],
+    yeast: { name: "" }
   }
 }
 
@@ -41,11 +42,11 @@ export const mashStepTemplates = [
 ]
 
 export const hopType = [
-  {id: 0, label: "first wort"},
-  {id: 1, label: "boil"},
-  //{id: 2, label: "whirlpool"},
-  {id: 3, label: "whirlpool 80°C"},
-  {id: 4, label: "dry hopping"}
+  {id: 0, label: "first wort", descr: " as first wort"},
+  {id: 1, label: "boil", descr: " boiling for "},
+  //{id: 2, label: "whirlpool", descr: ""},
+  {id: 2, label: "whirlpool 80°C", descr: " at 80°C with whirlpool"},
+  {id: 3, label: "dry hopping", descr: " as dry hop"}
 ]
 
 export const mashStepTypes = [

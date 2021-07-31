@@ -23,7 +23,7 @@ function Hop(props) {
           renderInput={(params) => <TextField {...params} label="Name" variant="standard" size="small" />} 
           freeSolo 
           value={props.hop.name} 
-          onChange={(event, newValue) => updateHops("name", newValue)} 
+          onChange={(_, newValue) => updateHops("name", newValue == null ? "" : newValue)} 
           inputValue={inputName} 
           onInputChange={(_, newValue) => setInputName(newValue)} 
         />

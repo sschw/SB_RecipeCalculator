@@ -6,6 +6,7 @@ import Hops from '../Hop/Hops';
 import Malt from '../Malt/Malt';
 import *  as Model from '../../Model';
 import MashSteps from '../MashSteps/MashSteps';
+import ShowRecipe, { PrintRecipe } from './ShowRecipe';
 
 function changeState(state, action) {
   let updated = false
@@ -131,6 +132,11 @@ function Beer(props) {
         <Grid item xs={12}>
           <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
             <Hops hops={state["hops"]} dispatch={dispatch} />
+          </Paper>
+        </Grid>
+        <Grid item xs={12}>
+          <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+            <PrintRecipe beer={state} />
           </Paper>
         </Grid>
       </Grid>
