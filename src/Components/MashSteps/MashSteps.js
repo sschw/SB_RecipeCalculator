@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-import { Box, IconButton, InputLabel, MenuItem, Paper, Select, Stack, Table, TableBody, TableContainer, TableHead, TextField } from '@material-ui/core';
+import { Grid, IconButton, InputLabel, MenuItem, Paper, Select, Stack, Table, TableBody, TableContainer, TableHead, TextField } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import *  as Model from '../../Model';
 import { ArrowDownward, ArrowUpward } from '@material-ui/icons';
@@ -71,19 +71,24 @@ function MashSteps(props) {
 
   return (
     <div>
-      <Box align="right" sx={{width: 200, float: "right"}}>
-        <InputLabel id={"mashtemplate"} variant="standard" sx={{
-          fontSize: 12,
-            }} >
-          Mashing Templates
-        </InputLabel>
-        <Select labelId={"mashtemplate"} label="Mashing Templates" fullWidth variant="standard" size="small" value={maltTemplate} onChange={(event) => {dispatch({type: "setMashTemplate", value: event.target.value.value}); setMaltTemplate(event.target.value)}}>
-          {Model.mashStepTemplates.map(t => 
-            <MenuItem key={"mashstep" + t.id} value={t}>{t.label}</MenuItem>
-          )}
-        </Select>
-      </Box>
-      <h3>Mashing</h3>
+      <Grid container>
+        <Grid item lg={2} md={2} sm={0} xs={0} ></Grid>
+        <Grid item lg={8} md={8} sm={12}xs={12} >
+          <h3>Mashing</h3>
+        </Grid>
+        <Grid item lg={2} md={2} sm={12} xs={12}>
+          <InputLabel id={"mashtemplate"} variant="standard" sx={{
+            fontSize: 12,
+              }} >
+            Mashing Templates
+          </InputLabel>
+          <Select labelId={"mashtemplate"} label="Mashing Templates" fullWidth variant="standard" size="small" value={maltTemplate} onChange={(event) => {dispatch({type: "setMashTemplate", value: event.target.value.value}); setMaltTemplate(event.target.value)}}>
+            {Model.mashStepTemplates.map(t => 
+              <MenuItem key={"mashstep" + t.id} value={t}>{t.label}</MenuItem>
+            )}
+          </Select>
+        </Grid>
+      </Grid>
       <TableContainer component={Paper}>
         <Table size="small" aria-label="mashsteps table">
           <TableHead>
