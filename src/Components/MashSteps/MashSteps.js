@@ -72,8 +72,8 @@ function MashSteps(props) {
   return (
     <div>
       <Grid container>
-        <Grid item lg={2} md={2} sm={0} xs={0} ></Grid>
-        <Grid item lg={8} md={8} sm={12}xs={12} >
+        <Grid item lg={2} md={2} sm={12} xs={12} ></Grid>
+        <Grid item lg={8} md={8} sm={12} xs={12} >
           <h3>Mashing</h3>
         </Grid>
         <Grid item lg={2} md={2} sm={12} xs={12}>
