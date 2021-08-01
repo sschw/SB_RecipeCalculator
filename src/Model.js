@@ -22,10 +22,11 @@ export const beerRecipe = () => {return {
         ibu:  { min: null, max: null }
       }
     },
+    water: { mashWaterVolume: 0, spargeWaterVolume: 0, finalVolume: 0 },
     malt: [],
     mashSteps: [{temp: 57, dur: 0, type: 0, descr: "" }],
     hops: [],
-    yeast: { name: "" }
+    yeast: { name: "", alc: 0, sedimentation: 0 }
   }
 }
 
@@ -53,3 +54,11 @@ export const mashStepTypes = [
   { id: 0, label: "Adding" },
   { id: 1, label: "Resting" }
 ]
+
+export const sedimentation = [
+  { id: 0, label: "Low" }, 
+  { id: 1, label: "Medium-Low" }, 
+  { id: 2, label: "Medium" }, 
+  { id: 3, label: "Medium-High" }, 
+  { id: 4, label: "High" }, 
+] 

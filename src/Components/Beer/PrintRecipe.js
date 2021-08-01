@@ -7,11 +7,11 @@ import { renderToString } from 'react-dom/server';
 
 export default async function print(beer) {
   await html2pdf().from(renderToString(ShowRecipeHeader({beer}))).set({html2canvas:  { scale: 4 }}).toImg().get('img').then(async img => {
-    await html2pdf().from(renderToString(ShowRecipeContent({beer}))).set({ margin: [40, 0, 0, 0], html2canvas:  { scale: 4 }, pagebreak: { avoid: '.keepTogether' }}).toPdf().get('pdf').then((pdf) => {
+    await html2pdf().from(renderToString(ShowRecipeContent({beer}))).set({ margin: [46, 0, 0, 2], html2canvas:  { scale: 4 }, pagebreak: { avoid: '.keepTogether' }}).toPdf().get('pdf').then((pdf) => {
       var totalPages = pdf.internal.getNumberOfPages();
       for (let i = 1; i <= totalPages; i++) {
         pdf.setPage(i);
-        pdf.addImage(img, 'JPEG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getWidth()*0.2026);
+        pdf.addImage(img, 'JPEG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getWidth()*0.224);
       }
     }).save(beer.recipe.name !== "" ? beer.recipe.name : "recipe");
   })
@@ -33,11 +33,11 @@ function ShowRecipeHeader(props) {
             <Typography sx={{ marginBottom: 2 }} variant="h5" align="center" gutterBottom component="div">
               {beer.recipe.beertype.name}
             </Typography>
-            <Typography sx={{ marginBottom: 2 }} variant="subtitle2" align="center" gutterBottom component="div">
-              OW: {beer.recipe.og}°P &nbsp;&nbsp; FW: {beer.recipe.sg}°P &nbsp;&nbsp; ALC: {beer.recipe.alc}%vol &nbsp;&nbsp; EBC: {beer.recipe.ebc} &nbsp;&nbsp; IBU: {beer.recipe.ibu}
+            <Typography variant="subtitle1" align="center"  component="div">
+              Recipe for {beer.water.finalVolume}L &nbsp;&nbsp; 
             </Typography>
-            <Typography variant="subtitle" align="left" gutterBottom component="div">
-              {beer.recipe.description}
+            <Typography variant="subtitle2" align="center" gutterBottom component="div">
+              Volume: {beer.water.finalVolume}L &nbsp;&nbsp; OG: {beer.recipe.og}°P &nbsp;&nbsp; FG: {beer.recipe.sg}°P &nbsp;&nbsp; ALC: {beer.recipe.alc}%vol &nbsp;&nbsp; EBC: {beer.recipe.ebc} &nbsp;&nbsp; IBU: {beer.recipe.ibu}
             </Typography>
           </Grid>
           <Grid item xs={2} md={2} lg={2}>
@@ -80,7 +80,7 @@ function ShowRecipeContent(props) {
   let maltListToDisplay = []
   maltList.forEach((c) => {
     maltListToDisplay.push(
-      <Typography key={c.name} variant="body1" align="left" gutterBottom>
+      <Typography key={c.name} variant="body2" align="left">
         {c.amount}g {c.name}
       </Typography>
     )
@@ -89,7 +89,7 @@ function ShowRecipeContent(props) {
   let hopListToDisplay = []
   hopList.forEach((c) => {
     hopListToDisplay.push(
-      <Typography key={c.name} variant="body1" align="left" gutterBottom>
+      <Typography key={c.name} variant="body2" align="left">
         {c.amount}g {c.name}
       </Typography>
     )
@@ -97,9 +97,10 @@ function ShowRecipeContent(props) {
 
   let mashstepsListToDisplay = []
   beer.mashSteps.forEach((c, i) => {
+    let detail = (c.type === 1) ? "for " + c.dur + "min" : ""
     mashstepsListToDisplay.push(
       <Typography sx={{ marginBottom: 2 }} key={i} variant="body1" align="left" gutterBottom>
-        {Model.mashStepTypes[c.type].label} at {c.temp}°C
+        {Model.mashStepTypes[c.type].label} at {c.temp}°C {detail}
       </Typography>
     )
   })
@@ -146,6 +147,14 @@ function ShowRecipeContent(props) {
     <div>
       <div style={{padding: "0px 25px 0px 25px"}}>
         <Grid container spacing={3}>
+          <Grid item xs={2} md={2} lg={2}></Grid>
+          <Grid item xs={8} md={8} lg={8}>
+            <Typography variant="body2" align="left" component="div">
+              {beer.recipe.description}
+            </Typography>
+          </Grid>
+          <Grid item xs={2} md={2} lg={2}></Grid>
+
           <Grid item xs={1} md={1} lg={1}></Grid>
           <Grid item xs={10} md={10} lg={10}>
             <div class="keepTogether">
@@ -167,7 +176,7 @@ function ShowRecipeContent(props) {
                   <Typography variant="h6" align="left" gutterBottom component="div">
                     Yeast
                   </Typography>
-                  <Typography variant="body1" align="left" gutterBottom>
+                  <Typography variant="body2" align="left">
                     {beer.yeast.name}
                   </Typography>
                 </Grid>
@@ -177,6 +186,9 @@ function ShowRecipeContent(props) {
               <hr />
               <Typography variant="h6" align="left" gutterBottom>
                 Mashing
+              </Typography>
+              <Typography sx={{ marginBottom: 2 }} variant="body1" align="left" gutterBottom>
+                Mash water: {beer.water.mashWaterVolume}L &nbsp;&nbsp; Sparge water: {beer.water.spargeWaterVolume}L
               </Typography>
               <Stack direction="row" spacing={4}>
                 <Stack>
@@ -207,7 +219,7 @@ function ShowRecipeContent(props) {
             <div class="keepTogether">
               <hr />
               <Typography variant="body1" align="left" sx={{marginTop: 4}} gutterBottom>
-                <span>OW: <span style={{display: "inline-block", marginRight: "20px", borderBottom: "1px solid black", width: "140px"}} /></span><span>FW: <span style={{display: "inline-block", borderBottom: "1px solid black", width: "140px"}} /></span>
+                <span>OG: <span style={{display: "inline-block", marginRight: "20px", borderBottom: "1px solid black", width: "140px"}} /></span><span>FG: <span style={{display: "inline-block", borderBottom: "1px solid black", width: "140px"}} /></span>
               </Typography>
             </div>
           </Grid>

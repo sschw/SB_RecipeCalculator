@@ -31,7 +31,7 @@ export default function ShowRecipe(props) {
   let maltListToDisplay = []
   maltList.forEach((c) => {
     maltListToDisplay.push(
-      <Typography key={c.name} variant="body1" align="left" gutterBottom>
+      <Typography key={c.name} variant="body2" align="left">
         {c.amount}g {c.name}
       </Typography>
     )
@@ -40,7 +40,7 @@ export default function ShowRecipe(props) {
   let hopListToDisplay = []
   hopList.forEach((c) => {
     hopListToDisplay.push(
-      <Typography key={c.name} variant="body1" align="left" gutterBottom>
+      <Typography key={c.name} variant="body2" align="left">
         {c.amount}g {c.name}
       </Typography>
     )
@@ -48,9 +48,10 @@ export default function ShowRecipe(props) {
 
   let mashstepsListToDisplay = []
   beer.mashSteps.forEach((c, i) => {
+    let detail = (c.type === 1) ? "for " + c.dur + "min" : ""
     mashstepsListToDisplay.push(
       <Typography sx={{ marginBottom: 2 }} key={i} variant="body1" align="left" gutterBottom>
-        {Model.mashStepTypes[c.type].label} at {c.temp}°C
+        {Model.mashStepTypes[c.type].label} at {c.temp}°C {detail}
       </Typography>
     )
   })
@@ -107,11 +108,11 @@ export default function ShowRecipe(props) {
             <Typography sx={{ marginBottom: 2 }} variant="h5" align="center" gutterBottom component="div">
               {beer.recipe.beertype.name}
             </Typography>
-            <Typography sx={{ marginBottom: 2 }} variant="subtitle2" align="center" gutterBottom component="div">
-              OW: {beer.recipe.og}°P &nbsp;&nbsp; FW: {beer.recipe.sg}°P &nbsp;&nbsp; ALC: {beer.recipe.alc}%vol &nbsp;&nbsp; EBC: {beer.recipe.ebc} &nbsp;&nbsp; IBU: {beer.recipe.ibu}
+            <Typography variant="subtitle1" align="center"  component="div">
+              Recipe for {beer.water.finalVolume}L &nbsp;&nbsp; 
             </Typography>
-            <Typography variant="subtitle" align="left" gutterBottom component="div">
-              {beer.recipe.description}
+            <Typography sx={{ marginBottom: 2 }} variant="subtitle2" align="center" gutterBottom component="div">
+              OG: {beer.recipe.og}°P &nbsp;&nbsp; FG: {beer.recipe.sg}°P &nbsp;&nbsp; ALC: {beer.recipe.alc}%vol &nbsp;&nbsp; EBC: {beer.recipe.ebc} &nbsp;&nbsp; IBU: {beer.recipe.ibu}
             </Typography>
           </Grid>
           <Grid item xs={2} md={2} lg={2}>
@@ -120,6 +121,15 @@ export default function ShowRecipe(props) {
               {beer.recipe.date}
             </Typography>
           </Grid>
+
+          <Grid item xs={2} md={2} lg={2}></Grid>
+          <Grid item xs={8} md={8} lg={8}>
+            <Typography variant="body2" align="left" component="div">
+              {beer.recipe.description}
+            </Typography>
+          </Grid>
+          <Grid item xs={2} md={2} lg={2}></Grid>
+
           <Grid item xs={1} md={1} lg={1}></Grid>
           <Grid item xs={10} md={10} lg={10}>
             <hr />
@@ -140,7 +150,7 @@ export default function ShowRecipe(props) {
                 <Typography variant="h6" align="left" gutterBottom component="div">
                   Yeast
                 </Typography>
-                <Typography variant="body1" align="left" gutterBottom>
+                <Typography variant="body2" align="left">
                   {beer.yeast.name}
                 </Typography>
               </Grid>
@@ -149,6 +159,9 @@ export default function ShowRecipe(props) {
             <div>
               <Typography variant="h6" align="left" gutterBottom>
                 Mashing
+              </Typography>
+              <Typography sx={{ marginBottom: 2 }} variant="body1" align="left" gutterBottom>
+                Mash water: {beer.water.mashWaterVolume}L &nbsp;&nbsp; Sparge water: {beer.water.spargeWaterVolume}L
               </Typography>
               <Stack direction="row" spacing={4}>
                 <Stack>
@@ -178,7 +191,7 @@ export default function ShowRecipe(props) {
             </div>
             <hr />
             <Typography variant="body1" align="left" sx={{marginTop: 4}} gutterBottom>
-            <span>OW: <span style={{display: "inline-block", marginRight: "20px", borderBottom: "1px solid black", width: "140px"}} /></span><span>FW: <span style={{display: "inline-block", borderBottom: "1px solid black", width: "140px"}} /></span>
+            <span>OG: <span style={{display: "inline-block", marginRight: "20px", borderBottom: "1px solid black", width: "140px"}} /></span><span>FG: <span style={{display: "inline-block", borderBottom: "1px solid black", width: "140px"}} /></span>
             </Typography>
           </Grid>
           <Grid item xs={1} md={1} lg={1}></Grid>
