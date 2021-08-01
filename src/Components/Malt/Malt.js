@@ -68,6 +68,9 @@ function Malt(props) {
     fetch("./sb_malt.json")
     .then((resp) => resp.json())
     .then((resp) => {
+      for(let i = 0; i < resp.length; i++) {
+        resp[i].color.ebc = Math.round(resp[i].color.ebc)
+      }
       setState({malt: resp});
     });
   }, []);
