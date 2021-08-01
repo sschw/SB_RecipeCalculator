@@ -4,6 +4,7 @@ import TableRow from '@material-ui/core/TableRow';
 import { Autocomplete, IconButton, Paper, Table, TableBody, TableContainer, TableHead, TextField } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import *  as Model from '../../Model';
+import { GrammInput } from '../../Utils/NumberInput';
 
 function SingleMalt(props) {
   const dispatch = props.dispatch
@@ -36,7 +37,7 @@ function SingleMalt(props) {
         <TextField label="Potential" variant="standard" fullWidth size="small" value={props.malt.potential} onChange={(event) => updateMalt("potential", event.target.valueAsNumber)} type="number" />
       </TableCell>
       <TableCell align="center">
-        <TextField label="Amount" variant="standard" fullWidth size="small" value={props.malt.amount} onChange={(event) => updateMalt("amount", event.target.valueAsNumber)} type="number" />
+      <TextField label="Amount" fullWidth variant="standard" size="small" value={props.malt.amount.toString()} InputProps={{ inputComponent: GrammInput }} InputLabelProps={{ shrink: true }} onChange={(event) => updateMalt("amount", event.floatValue)} />
       </TableCell>
       <TableCell align="right">
         <IconButton disabled={rowId < 0} aria-label="delete" onClick={() => {dispatch({type: "deleteMalt", rowId: rowId});}}>
@@ -54,9 +55,9 @@ function Malt(props) {
 
   let children = []
   rows.forEach((row, index) => {
-    children.push(<SingleMalt malt={row} rowID={index} dispatch={dispatch} key={"malt" + index} />)
+    children.push(<SingleMalt malt={row} rowID={index} dispatch={dispatch} key={row.key} />)
   });
-  children.push(<SingleMalt malt={Model.malt()} rowID={-1} dispatch={dispatch} key={"malt-1"} />)
+  children.push(<SingleMalt malt={Model.malt("malt"+rows.length)} rowID={-1} dispatch={dispatch} key={"malt"+rows.length} />)
 
   return (
     <div>

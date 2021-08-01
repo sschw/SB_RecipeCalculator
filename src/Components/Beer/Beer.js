@@ -22,7 +22,7 @@ function changeState(state, action) {
     case 'updateHop':
       if(action.rowId === -1) {
         action.rowId = state.hops.length
-        state.hops.push(Model.hop());
+        state.hops.push(Model.hop("hop"+state.hops.length));
         updated = true
       }
       if(state.hops[action.rowId][action.target] !== action.value) {
@@ -39,7 +39,7 @@ function changeState(state, action) {
     case 'updateMalt':
       if(action.rowId === -1) {
         action.rowId = state.malt.length
-        state.malt.push(Model.malt());
+        state.malt.push(Model.malt("malt"+state.malt.length));
         updated = true
       }
       if(state.malt[action.rowId][action.target] !== action.value) {
@@ -56,7 +56,7 @@ function changeState(state, action) {
     case 'updateMashStep':
       if(action.rowId === -1) {
         action.rowId = state.mashSteps.length
-        state.mashSteps.push(Model.mashStep());
+        state.mashSteps.push(Model.mashStep("mash"+state.mashSteps.length));
         updated = true
       }
       if(state.mashSteps[action.rowId][action.target] !== action.value) {

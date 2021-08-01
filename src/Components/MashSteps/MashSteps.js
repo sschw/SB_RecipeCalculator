@@ -5,6 +5,7 @@ import { Box, IconButton, InputLabel, MenuItem, Paper, Select, Stack, Table, Tab
 import DeleteIcon from '@material-ui/icons/Delete';
 import *  as Model from '../../Model';
 import { ArrowDownward, ArrowUpward } from '@material-ui/icons';
+import { MinuteInput } from '../../Utils/NumberInput';
 
 function MashStep(props) {
   const dispatch = props.dispatch
@@ -21,17 +22,17 @@ function MashStep(props) {
         <TextField label="Temperature" fullWidth variant="standard" size="small" value={props.mashStep.temp} onChange={(event) => updateMashStep("temp", event.target.valueAsNumber)} type="number" />
       </TableCell>
       <TableCell align="center">
-        <TextField label="Duration" disabled={props.mashStep.type === 0} fullWidth variant="standard" size="small" value={props.mashStep.dur} onChange={(event) => updateMashStep("dur", event.target.valueAsNumber)} type="number" />
+      <TextField label="Duration" disabled={props.mashStep.type === 0} InputProps={{ inputComponent: MinuteInput }} InputLabelProps={{ shrink: true }} size="small" fullWidth variant="standard" value={props.mashStep.dur.toString()} onChange={(event) => updateMashStep("dur", event.floatValue)} />
       </TableCell>
       <TableCell align="center">
-        <InputLabel id={rowId + "-malttype"} variant="standard" sx={{
+        <InputLabel id={props.mashStep.key + "-mashtype"} variant="standard" sx={{
           fontSize: 12,
             }} >
           Type
         </InputLabel>
-        <Select labelId={rowId + "-malttype"} label="Type" variant="standard" fullWidth size="small" value={props.mashStep.type} onChange={(event) => updateMashStep("type", event.target.value)}>
+        <Select labelId={props.mashStep.key + "-mashtype"} label="Type" variant="standard" fullWidth size="small" value={props.mashStep.type} onChange={(event) => updateMashStep("type", event.target.value)}>
           {Model.mashStepTypes.map(t => 
-            <MenuItem key={"mashstep" + t.id} value={t.id}>{t.label}</MenuItem>
+            <MenuItem key={props.mashStep.key + "mashtype" + t.id} value={t.id}>{t.label}</MenuItem>
           )}
         </Select>
       </TableCell>
@@ -62,9 +63,9 @@ function MashSteps(props) {
 
   let children = []
   rows.forEach((row, index) => {
-    children.push(<MashStep mashStep={row} rowID={index} dispatch={dispatch} key={"mashstep" + index} />)
+    children.push(<MashStep mashStep={row} rowID={index} dispatch={dispatch} key={row.key} />)
   });
-  children.push(<MashStep mashStep={Model.mashStep()} rowID={-1} dispatch={dispatch} key={"mashstep-1"} />)
+  children.push(<MashStep mashStep={Model.mashStep("mash"+rows.length)} rowID={-1} dispatch={dispatch} key={"mash"+rows.length} />)
 
   const [maltTemplate, setMaltTemplate] = useState(0)
 

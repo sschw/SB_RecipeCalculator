@@ -30,11 +30,11 @@ export const beerRecipe = () => {return {
   }
 }
 
-export const malt = () => {return {name: "", ebc: 0, potential: 0, amount: 0}}
+export const malt = (key) => {return {key: key, name: "", ebc: 0, potential: 0, amount: 0}}
 
-export const hop = () => {return {name: "", alpha: 0, oil: 0, amount: 0, type: 1, duration: 0}}
+export const hop = (key) => {return {key: key, name: "", alpha: 0, oil: 0, amount: 0, type: 1, duration: 0}}
 
-export const mashStep = () => {return {temp: 0, dur: 0, type: 1, descr: "" }}
+export const mashStep = (key) => {return {key: key, temp: 0, dur: 0, type: 1, descr: "" }}
 
 export const mashStepTemplates = [
   { id: 0, label: "3-Rests", value: [{temp: 57, dur: 0, type: 0, descr: "" }, {temp: 55, dur: 15, type: 1, descr: "" }, {temp: 68, dur: 60, type: 1, descr: "" }, {temp: 78, dur: 10, type: 1, descr: "" }]},

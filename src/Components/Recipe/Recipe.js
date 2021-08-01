@@ -1,7 +1,6 @@
 import { Autocomplete, Stack, TextField } from '@material-ui/core';
 import React, {useState, useEffect} from 'react';
-import PropTypes from 'prop-types';
-import NumberFormat from 'react-number-format';
+import { PercentInput } from '../../Utils/NumberInput'
 
 const emptyRecipe = {
   name: null,
@@ -11,31 +10,6 @@ const emptyRecipe = {
   colorVal: { minSRM: null, maxSRM: null,minEBC: null, maxEBC: null},
   ibu:  { min: null, max: null }
 }
-
-const PercentInput = React.forwardRef(function NumberFormatCustom(props, ref) {
-  const { value, onChange, ...other } = props;
-
-  return (
-    <NumberFormat
-      {...other}
-      getInputRef={ref}
-      format="###%"
-      decimalSeparator=","
-      className={`text-right ${props.className}`}
-      value={parseFloat(value) * 100}
-      onValueChange={values => {
-          values?.floatValue > 100
-              ? onChange({ floatValue: 1, formattedValue: '1,00', value: '1' })
-              : onChange({ floatValue: values?.floatValue/100, formattedValue: values?.formattedValue, value: values?.value });
-      }}
-    />
-  );
-});
-
-PercentInput.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-};
 
 function Recipe(props) {
   const recipe = props.recipe
