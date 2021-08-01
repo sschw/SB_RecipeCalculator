@@ -30,7 +30,7 @@ export const beerRecipe = () => {return {
   }
 }
 
-export const malt = (key) => {return {key: key, name: "", ebc: 0, potential: 0, amount: 0}}
+export const malt = (key) => {return {key: key, name: "", color: {srm: 0, ebc: 0}, potential: 0, amount: 0}}
 
 export const hop = (key) => {return {key: key, name: "", alpha: 0, oil: 0, amount: 0, type: 1, duration: 0}}
 

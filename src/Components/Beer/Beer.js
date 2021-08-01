@@ -25,7 +25,12 @@ function changeState(state, action) {
         state.hops.push(Model.hop("hop"+state.hops.length));
         updated = true
       }
-      if(state.hops[action.rowId][action.target] !== action.value) {
+      if(action.target == null) {
+        for(let [key, value] of Object.entries(action.value)) {
+          if(state.hops[action.rowId][key] !== undefined)
+            state.hops[action.rowId][key] = value
+        }
+      } else if(state.hops[action.rowId][action.target] !== action.value) {
         state.hops[action.rowId][action.target] = action.value;
         updated = true
       }
@@ -42,7 +47,12 @@ function changeState(state, action) {
         state.malt.push(Model.malt("malt"+state.malt.length));
         updated = true
       }
-      if(state.malt[action.rowId][action.target] !== action.value) {
+      if(action.target == null) {
+        for(let [key, value] of Object.entries(action.value)) {
+          if(state.malt[action.rowId][key] !== undefined)
+            state.malt[action.rowId][key] = value
+        }
+      } else if(state.malt[action.rowId][action.target] !== action.value) {
         state.malt[action.rowId][action.target] = action.value;
         updated = true
       }
@@ -59,7 +69,12 @@ function changeState(state, action) {
         state.mashSteps.push(Model.mashStep("mash"+state.mashSteps.length));
         updated = true
       }
-      if(state.mashSteps[action.rowId][action.target] !== action.value) {
+      if(action.target == null) {
+        for(let [key, value] of Object.entries(action.value)) {
+          if(state.mashSteps[action.rowId][key] !== undefined)
+            state.mashSteps[action.rowId][key] = value
+        }
+      } else if(state.mashSteps[action.rowId][action.target] !== action.value) {
         state.mashSteps[action.rowId][action.target] = action.value;
         updated = true
       }
