@@ -5,6 +5,7 @@ import { Autocomplete, IconButton, Paper, Table, TableBody, TableContainer, Tabl
 import DeleteIcon from '@material-ui/icons/Delete';
 import *  as Model from '../../Model';
 import { GrammInput } from '../../Utils/NumberInput';
+import { ebc2srm } from '../../Utils/Formulas';
 
 function SingleMalt(props) {
   const dispatch = props.dispatch
@@ -40,7 +41,7 @@ function SingleMalt(props) {
         />
       </TableCell>
       <TableCell align="center">
-        <TextField label="EBC" variant="standard" fullWidth size="small" value={props.malt.color.ebc} onChange={(event) => updateMalt("color", {srm: event.target.valueAsNumber * 0.508, ebc: event.target.valueAsNumber})} type="number" />
+        <TextField label="EBC" variant="standard" fullWidth size="small" value={props.malt.color.ebc} onChange={(event) => updateMalt("color", {srm: ebc2srm(event.target.valueAsNumber), ebc: event.target.valueAsNumber})} type="number" />
       </TableCell>
       <TableCell align="center">
         <TextField label="Potential" variant="standard" fullWidth size="small" value={props.malt.potential} onChange={(event) => updateMalt("potential", event.target.valueAsNumber)} type="number" />

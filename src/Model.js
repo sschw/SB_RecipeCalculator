@@ -26,7 +26,7 @@ export const beerRecipe = () => {return {
     malt: [],
     mashSteps: [{key: "mash0", temp: 57, dur: 0, type: 0, descr: "" }],
     hops: [],
-    yeast: { name: "", alc: 0, sedimentation: 0 }
+    yeast: { name: "", attenuation: 0, sedimentation: 0 }
   }
 }
 

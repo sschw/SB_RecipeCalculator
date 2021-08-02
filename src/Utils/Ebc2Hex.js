@@ -15,6 +15,9 @@ Ebc2Hex.prototype = {
     ebcToSrm: function(ebc) {
         return ebc * 0.508;
     },
+    srmToEbc: function(ebc) {
+        return ebc * 1.97;
+    },
     calcRed: function(srm) {
         var result = Math.round(280 - srm * 5.65);
         return result > 255 ? 255 : result;
