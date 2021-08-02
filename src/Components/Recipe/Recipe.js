@@ -5,7 +5,7 @@ import { PercentInput } from '../../Utils/NumberInput'
 const emptyRecipe = {
   name: null,
   og: { minGravity: null, maxGravity: null,minPlato: null, maxPlato: null},
-  sg: { minGravity: null, maxGravity: null,minPlato: null, maxPlato: null},
+  fg: { minGravity: null, maxGravity: null,minPlato: null, maxPlato: null},
   alc: { minPercentWeight: null, maxPercentWeight: null,minPercentVol: null, maxPercentVol: null},
   colorVal: { minSRM: null, maxSRM: null,minEBC: null, maxEBC: null},
   ibu:  { min: null, max: null }

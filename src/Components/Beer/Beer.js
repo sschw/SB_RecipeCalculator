@@ -8,6 +8,7 @@ import * as Model from '../../Model';
 import MashSteps from '../MashSteps/MashSteps';
 import ShowRecipe from './ShowRecipe';
 import printRecipe from './PrintRecipe';
+import { gravities2Abv, maltebc2beerebc, og2fg, potentials2og } from '../../Utils/Formulas';
 
 function changeState(state, action) {
   let updated = false
@@ -30,6 +31,7 @@ function changeState(state, action) {
           if(state.hops[action.rowId][key] !== undefined)
             state.hops[action.rowId][key] = value
         }
+        updated = true
       } else if(state.hops[action.rowId][action.target] !== action.value) {
         state.hops[action.rowId][action.target] = action.value;
         updated = true
@@ -52,16 +54,32 @@ function changeState(state, action) {
           if(state.malt[action.rowId][key] !== undefined)
             state.malt[action.rowId][key] = value
         }
+        updated = true
       } else if(state.malt[action.rowId][action.target] !== action.value) {
         state.malt[action.rowId][action.target] = action.value;
         updated = true
       }
-      if(updated)
+      if(updated) {
+        state.recipe.og = potentials2og(state.malt, state.water.finalVolume, state.recipe.maltYield)
+        state.recipe.og = state.recipe.og === 0 || state.recipe.og === 1 ? null : state.recipe.og
+        state.recipe.fg = state.recipe.og === null ? null : og2fg(state.recipe.og, state.yeast.attenuation)
+        state.recipe.alc = state.recipe.og === null ? null : gravities2Abv(state.recipe.og, state.recipe.fg)
+        state.recipe.alc = state.recipe.alc === 0 ? null : state.recipe.alc
+        state.recipe.ebc = maltebc2beerebc(state.malt, state.water.finalVolume)
+        state.recipe.ebc = state.recipe.ebc === 0 ? null : state.recipe.ebc
         return {...state};
+      }
       return state
     case 'deleteMalt':
       array = [...state.malt];
       array.splice(action.rowId, 1);
+      state.recipe.og = potentials2og(state.malt, state.water.finalVolume, state.recipe.maltYield)
+      state.recipe.og = state.recipe.og === 0 || state.recipe.og === 1 ? null : state.recipe.og
+      state.recipe.fg = state.recipe.og === null ? null : og2fg(state.recipe.og, state.yeast.attenuation)
+      state.recipe.alc = state.recipe.og === null ? null : gravities2Abv(state.recipe.og, state.recipe.fg)
+      state.recipe.alc = state.recipe.alc === 0 ? null : state.recipe.alc
+      state.recipe.ebc = maltebc2beerebc(state.malt, state.water.finalVolume)
+      state.recipe.ebc = state.recipe.ebc === 0 ? null : state.recipe.ebc
       return {...state, malt: array};
     case 'updateMashStep':
       if(action.rowId === -1) {
@@ -74,6 +92,7 @@ function changeState(state, action) {
           if(state.mashSteps[action.rowId][key] !== undefined)
             state.mashSteps[action.rowId][key] = value
         }
+        updated = true
       } else if(state.mashSteps[action.rowId][action.target] !== action.value) {
         state.mashSteps[action.rowId][action.target] = action.value;
         updated = true

@@ -10,7 +10,7 @@
      "ferm_character":"Mild carbonation traditionally characterizes draft-cask versions, but in bottled versions, a slight increase in carbon dioxide content is acceptable. Fruity esters are acceptable. Diacetyl is usually absent in these beers but may be present at low levels.",
      "body":"Low to medium",
      "og": { "minGravity": 1.033, "maxGravity": 1.038,"minPlato": 8.3, "maxPlato": 9.5},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.012,"minPlato": 1.5, "maxPlato": 3.1},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.012,"minPlato": 1.5, "maxPlato": 3.1},
      "alc": { "minPercentWeight": 2.4, "maxPercentWeight": 3.3,"minPercentVol": 3.0, "maxPercentVol": 4.2},
      "ibu": { "min": 20, "max": 35},
      "colorVal": { "minSRM": 5, "maxSRM": 12,"minEBC": 10, "maxEBC": 24}
@@ -26,7 +26,7 @@
      "ferm_character":"Low carbonation traditionally characterizes draft-cask versions, but in bottled versions, a slight increase in carbon dioxide content is acceptable. Fruity esters are acceptable. Diacetyl is usually absent in these beers but may be present at low levels.",
      "body":"Medium",
      "og": { "minGravity": 1.038, "maxGravity": 1.045,"minPlato": 9.5, "maxPlato": 11.2},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.012,"minPlato": 1.5, "maxPlato": 3.1},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.012,"minPlato": 1.5, "maxPlato": 3.1},
      "alc": { "minPercentWeight": 3.3, "maxPercentWeight": 3.8,"minPercentVol": 4.2, "maxPercentVol": 4.8},
      "ibu": { "min": 28, "max": 40},
      "colorVal": { "minSRM": 6, "maxSRM": 14,"minEBC": 12, "maxEBC": 28}
@@ -42,7 +42,7 @@
      "ferm_character":"Low carbonation traditionally characterizes draft-cask versions, but in bottled versions, a slight increase in carbon dioxide content is acceptable. The overall impression is refreshing and thirst quenching. Fruity esters are acceptable. Diacetyl is usually absent in these beers but may be present at low levels.",
      "body":"Medium",
      "og": { "minGravity": 1.046, "maxGravity": 1.060,"minPlato": 11.4, "maxPlato": 14.7},
-     "sg": { "minGravity": 1.010, "maxGravity": 1.016,"minPlato": 2.6, "maxPlato": 4.1},
+     "fg": { "minGravity": 1.010, "maxGravity": 1.016,"minPlato": 2.6, "maxPlato": 4.1},
      "alc": { "minPercentWeight": 3.8, "maxPercentWeight": 4.6,"minPercentVol": 4.8, "maxPercentVol": 5.8},
      "ibu": { "min": 30, "max": 45},
      "colorVal": { "minSRM": 8, "maxSRM": 17,"minEBC": 16, "maxEBC": 34}
@@ -58,7 +58,7 @@
      "ferm_character":"Yeast attributes such as diacetyl and sulfur are acceptable at very low levels. Bottled versions may contain higher amounts of carbon dioxide than is typical for lightly carbonated draft versions. Fruity esters, if present, are low.",
      "body":"Low",
      "og": { "minGravity": 1.030, "maxGravity": 1.035,"minPlato": 7.6, "maxPlato": 8.8},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.010,"minPlato": 1.5, "maxPlato": 2.6},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.010,"minPlato": 1.5, "maxPlato": 2.6},
      "alc": { "minPercentWeight": 2.2, "maxPercentWeight": 2.8,"minPercentVol": 2.8, "maxPercentVol": 3.5},
      "ibu": { "min": 9, "max": 20},
      "colorVal": { "minSRM": 6, "maxSRM": 15,"minEBC": 12, "maxEBC": 30}
@@ -74,7 +74,7 @@
      "ferm_character":"Yeast attributes such as diacetyl and sulfur are acceptable at very low levels. Bottled versions may contain higher amounts of carbon dioxide than is typical for lightly carbonated draft versions. Fruity esters, if present, are low.",
      "body":"Medium with a soft chewy character",
      "og": { "minGravity": 1.035, "maxGravity": 1.040,"minPlato": 8.8, "maxPlato": 10},
-     "sg": { "minGravity": 1.010, "maxGravity": 1.014,"minPlato": 2.6, "maxPlato": 3.6},
+     "fg": { "minGravity": 1.010, "maxGravity": 1.014,"minPlato": 2.6, "maxPlato": 3.6},
      "alc": { "minPercentWeight": 2.8, "maxPercentWeight": 3.2,"minPercentVol": 3.5, "maxPercentVol": 4.1},
      "ibu": { "min": 12, "max": 20},
      "colorVal": { "minSRM": 8, "maxSRM": 30,"minEBC": 16, "maxEBC": 60}
@@ -90,7 +90,7 @@
      "ferm_character":"Fruity esters, if present, are low. Yeast attributes such as diacetyl and sulfur are acceptable at very low levels. Bottled versions may contain higher amounts of carbon dioxide than is typical for lightly carbonated draft versions.",
      "body":"Medium",
      "og": { "minGravity": 1.040, "maxGravity": 1.050,"minPlato": 10, "maxPlato": 12.4},
-     "sg": { "minGravity": 1.010, "maxGravity": 1.018,"minPlato": 2.6, "maxPlato": 4.6},
+     "fg": { "minGravity": 1.010, "maxGravity": 1.018,"minPlato": 2.6, "maxPlato": 4.6},
      "alc": { "minPercentWeight": 3.2, "maxPercentWeight": 4.2,"minPercentVol": 4.1, "maxPercentVol": 5.3},
      "ibu": { "min": 15, "max": 25},
      "colorVal": { "minSRM": 9, "maxSRM": 19,"minEBC": 18, "maxEBC": 38}
@@ -106,7 +106,7 @@
      "ferm_character":"Mild carbonation traditionally characterizes draft-cask versions, but in bottled versions, a slight increase in carbon dioxide content is acceptable. Fruity esters are low to medium. Diacetyl and DMS should not be present.",
      "body":"Low to medium-low",
      "og": { "minGravity": 1.036, "maxGravity": 1.050,"minPlato": 9, "maxPlato": 12.4},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.012,"minPlato": 1.5, "maxPlato": 3.1},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.012,"minPlato": 1.5, "maxPlato": 3.1},
      "alc": { "minPercentWeight": 2.9, "maxPercentWeight": 4.0,"minPercentVol": 3.7, "maxPercentVol": 5.1},
      "ibu": { "min": 20, "max": 30},
      "colorVal": { "minSRM": 3, "maxSRM": 6,"minEBC": 6, "maxEBC": 12}
@@ -122,7 +122,7 @@
      "ferm_character":"Fruity esters are medium to medium-high. Diacetyl is usually absent in these beers but may be present at very low levels.",
      "body":"Medium",
      "og": { "minGravity": 1.040, "maxGravity": 1.056,"minPlato": 10, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
      "alc": { "minPercentWeight": 3.5, "maxPercentWeight": 4.2,"minPercentVol": 4.4, "maxPercentVol": 5.3},
      "ibu": { "min": 20, "max": 40},
      "colorVal": { "minSRM": 5, "maxSRM": 12,"minEBC": 10, "maxEBC": 24}
@@ -138,7 +138,7 @@
      "ferm_character":"Fruity esters are medium to high. Traditional interpretations are characterized by medium to medium-high alcohol content. The use of water with high mineral content results in a crisp, dry beer with a subtle and balanced character of sulfur compounds. Diacetyl can be absent or may be present at very low levels.",
      "body":"Medium",
      "og": { "minGravity": 1.046, "maxGravity": 1.064,"minPlato": 11.4, "maxPlato": 15.7},
-     "sg": { "minGravity": 1.012, "maxGravity": 1.018,"minPlato": 3.1, "maxPlato": 4.6},
+     "fg": { "minGravity": 1.012, "maxGravity": 1.018,"minPlato": 3.1, "maxPlato": 4.6},
      "alc": { "minPercentWeight": 3.6, "maxPercentWeight": 5.6,"minPercentVol": 4.5, "maxPercentVol": 7.1},
      "ibu": { "min": 35, "max": 63},
      "colorVal": { "minSRM": 6, "maxSRM": 14,"minEBC": 12, "maxEBC": 28}
@@ -154,7 +154,7 @@
      "ferm_character":"Rich, often sweet and complex fruity ester attributes can contribute to the profile of Strong Ales. Alcohol types can be varied and complex. Diacetyl is usually absent in these beers but may be present at very low levels.",
      "body":"Medium to full",
      "og": { "minGravity": 1.060, "maxGravity": 1.125,"minPlato": 14.7, "maxPlato": 29},
-     "sg": { "minGravity": 1.014, "maxGravity": 1.040,"minPlato": 3.6, "maxPlato": 10},
+     "fg": { "minGravity": 1.014, "maxGravity": 1.040,"minPlato": 3.6, "maxPlato": 10},
      "alc": { "minPercentWeight": 5.5, "maxPercentWeight": 8.9,"minPercentVol": 7.0, "maxPercentVol": 11.3},
      "ibu": { "min": 30, "max": 65},
      "colorVal": { "minSRM": 8, "maxSRM": 21,"minEBC": 16, "maxEBC": 42}
@@ -170,7 +170,7 @@
      "ferm_character":"Fruity esters can contribute to the character of these beers. Alcohol types can be varied and complex. A distinctive quality of Old Ales is that they undergo an aging process, often for years. Aging can occur on their yeast either in bulk storage or through conditioning in the bottle. This contributes to a rich, wine-like and often sweet oxidized character. Complex estery attributes may also emerge. Diacetyl is usually absent in these beers but may be present at very low levels.",
      "body":"Medium to full",
      "og": { "minGravity": 1.058, "maxGravity": 1.088,"minPlato": 14.3, "maxPlato": 21.1},
-     "sg": { "minGravity": 1.014, "maxGravity": 1.030,"minPlato": 3.6, "maxPlato": 7.6},
+     "fg": { "minGravity": 1.014, "maxGravity": 1.030,"minPlato": 3.6, "maxPlato": 7.6},
      "alc": { "minPercentWeight": 5.0, "maxPercentWeight": 7.2,"minPercentVol": 6.3, "maxPercentVol": 9.1},
      "ibu": { "min": 30, "max": 65},
      "colorVal": { "minSRM": 12, "maxSRM": 30,"minEBC": 24, "maxEBC": 60}
@@ -186,7 +186,7 @@
      "ferm_character":"Diacetyl is usually absent in these beers but may be present at very low levels. Fruity esters are very low to medium-low.",
      "body":"Low to medium-low",
      "og": { "minGravity": 1.030, "maxGravity": 1.036,"minPlato": 7.6, "maxPlato": 9},
-     "sg": { "minGravity": 1.004, "maxGravity": 1.008,"minPlato": 1, "maxPlato": 2.1},
+     "fg": { "minGravity": 1.004, "maxGravity": 1.008,"minPlato": 1, "maxPlato": 2.1},
      "alc": { "minPercentWeight": 2.7, "maxPercentWeight": 3.4,"minPercentVol": 3.4, "maxPercentVol": 4.4},
      "ibu": { "min": 10, "max": 20},
      "colorVal": { "minSRM": 6, "maxSRM": 9,"minEBC": 12, "maxEBC": 18}
@@ -202,7 +202,7 @@
      "ferm_character":"Diacetyl is usually absent in these beers but may be present at very low levels. Fruity esters are very low to medium-low.",
      "body":"Medium-low to medium",
      "og": { "minGravity": 1.030, "maxGravity": 1.036,"minPlato": 7.6, "maxPlato": 9},
-     "sg": { "minGravity": 1.004, "maxGravity": 1.008,"minPlato": 1, "maxPlato": 2.1},
+     "fg": { "minGravity": 1.004, "maxGravity": 1.008,"minPlato": 1, "maxPlato": 2.1},
      "alc": { "minPercentWeight": 2.7, "maxPercentWeight": 3.4,"minPercentVol": 3.4, "maxPercentVol": 4.4},
      "ibu": { "min": 10, "max": 24},
      "colorVal": { "minSRM": 17, "maxSRM": 34,"minEBC": 34, "maxEBC": 68}
@@ -218,7 +218,7 @@
      "ferm_character":"Low to medium-low level fruity esters are appropriate. Diacetyl is usually absent in these beers but may be present at very low levels.",
      "body":"Medium",
      "og": { "minGravity": 1.040, "maxGravity": 1.050,"minPlato": 10, "maxPlato": 12.4},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.014,"minPlato": 2.1, "maxPlato": 3.6},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.014,"minPlato": 2.1, "maxPlato": 3.6},
      "alc": { "minPercentWeight": 3.3, "maxPercentWeight": 4.7,"minPercentVol": 4.2, "maxPercentVol": 6.0},
      "ibu": { "min": 12, "max": 25},
      "colorVal": { "minSRM": 12, "maxSRM": 24,"minEBC": 24, "maxEBC": 48}
@@ -234,7 +234,7 @@
      "ferm_character":"Fruity esters are acceptable. Diacetyl is usually absent in these beers but may be present at low levels.",
      "body":"Low to medium",
      "og": { "minGravity": 1.040, "maxGravity": 1.050,"minPlato": 10, "maxPlato": 12.4},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.014,"minPlato": 1.5, "maxPlato": 3.6},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.014,"minPlato": 1.5, "maxPlato": 3.6},
      "alc": { "minPercentWeight": 3.5, "maxPercentWeight": 4.7,"minPercentVol": 4.4, "maxPercentVol": 6.0},
      "ibu": { "min": 20, "max": 30},
      "colorVal": { "minSRM": 20, "maxSRM": 35,"minEBC": 40, "maxEBC": 70}
@@ -250,7 +250,7 @@
      "ferm_character":"Fruity esters should be present and balanced with all other characters. Diacetyl should not be present.",
      "body":"Medium to full",
      "og": { "minGravity": 1.045, "maxGravity": 1.060,"minPlato": 11.2, "maxPlato": 14.7},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
      "alc": { "minPercentWeight": 4.0, "maxPercentWeight": 5.2,"minPercentVol": 5.1, "maxPercentVol": 6.6},
      "ibu": { "min": 25, "max": 40},
      "colorVal":{ "minSRM": 30, "maxSRM": null,"minEBC": 60, "maxEBC": null}
@@ -266,7 +266,7 @@
      "ferm_character":"Fruity esters, if present, are low. Diacetyl should not be present.",
      "body":"Full-bodied. Body can be increased with the addition of milk sugar (lactose).",
      "og": { "minGravity": 1.045, "maxGravity": 1.056,"minPlato": 11.2, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.012, "maxGravity": 1.020,"minPlato": 3.1, "maxPlato": 5.1},
+     "fg": { "minGravity": 1.012, "maxGravity": 1.020,"minPlato": 3.1, "maxPlato": 5.1},
      "alc": { "minPercentWeight": 2.5, "maxPercentWeight": 5.0,"minPercentVol": 3.2, "maxPercentVol": 6.3},
      "ibu": { "min": 15, "max": 25},
      "colorVal":{ "minSRM": 40, "maxSRM": null,"minEBC": 80, "maxEBC": null}
@@ -282,7 +282,7 @@
      "ferm_character":"Oatmeal is used in the grist, resulting in a pleasant, full ﬂavor without being grainy. Fruity esters are not present to very low. Diacetyl is usually absent in these beers but may be present at very low levels.",
      "body":"Full",
      "og": { "minGravity": 1.038, "maxGravity": 1.056,"minPlato": 9.5, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.020,"minPlato": 2.1, "maxPlato": 5.1},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.020,"minPlato": 2.1, "maxPlato": 5.1},
      "alc": { "minPercentWeight": 3.0, "maxPercentWeight": 4.8,"minPercentVol": 3.8, "maxPercentVol": 6.1},
      "ibu": { "min": 20, "max": 40},
      "colorVal":{ "minSRM": 20, "maxSRM": null,"minEBC": 40, "maxEBC": null}
@@ -298,7 +298,7 @@
      "ferm_character":"Fruity esters, if present, are generally at low levels. Diacetyl is usually absent in these beers but may be present at low levels.",
      "body":"Full",
      "og": { "minGravity": 1.072, "maxGravity": 1.085,"minPlato": 17.5, "maxPlato": 20.4},
-     "sg": { "minGravity": 1.016, "maxGravity": 1.028,"minPlato": 4.1, "maxPlato": 7.1},
+     "fg": { "minGravity": 1.016, "maxGravity": 1.028,"minPlato": 4.1, "maxPlato": 7.1},
      "alc": { "minPercentWeight": 5.2, "maxPercentWeight": 6.7,"minPercentVol": 6.6, "maxPercentVol": 8.5},
      "ibu": { "min": 25, "max": 35},
      "colorVal": { "minSRM": 15, "maxSRM": 30,"minEBC": 30, "maxEBC": 60}
@@ -314,7 +314,7 @@
      "ferm_character":"High alcohol content is evident. Fruity esters if present are medium to high. Diacetyl should not be present.",
      "body":"Full",
      "og": { "minGravity": 1.080, "maxGravity": 1.100,"minPlato": 19.3, "maxPlato": 23.7},
-     "sg": { "minGravity": 1.020, "maxGravity": 1.030,"minPlato": 5.1, "maxPlato": 7.6},
+     "fg": { "minGravity": 1.020, "maxGravity": 1.030,"minPlato": 5.1, "maxPlato": 7.6},
      "alc": { "minPercentWeight": 5.5, "maxPercentWeight": 9.5,"minPercentVol": 7.0, "maxPercentVol": 12.0},
      "ibu": { "min": 45, "max": 65},
      "colorVal":{ "minSRM": 20, "maxSRM": 35,"minEBC": 40, "maxEBC": 70}
@@ -330,7 +330,7 @@
      "ferm_character":"Complexity of alcohols and fruity ester attributes are often high and balanced with the high alcohol content. Low levels of diacetyl are acceptable. Caramel and some oxidized character (vinous aromas and/or ﬂavors) may be considered positive attributes.",
      "body":"Full",
      "og": { "minGravity": 1.085, "maxGravity": 1.120,"minPlato": 20.4, "maxPlato": 28},
-     "sg": { "minGravity": 1.024, "maxGravity": 1.028,"minPlato": 6.1, "maxPlato": 7.1},
+     "fg": { "minGravity": 1.024, "maxGravity": 1.028,"minPlato": 6.1, "maxPlato": 7.1},
      "alc": { "minPercentWeight": 6.7, "maxPercentWeight": 9.6,"minPercentVol": 8.5, "maxPercentVol": 12.2},
      "ibu": { "min": 40, "max": 65},
      "colorVal": { "minSRM": 11, "maxSRM": 36,"minEBC": 22, "maxEBC": 72}
@@ -346,7 +346,7 @@
      "ferm_character":"Low level fruity esters are acceptable. Diacetyl is usually absent in these beers but may be present at very low levels.",
      "body":"Medium",
      "og": { "minGravity": 1.040, "maxGravity": 1.048,"minPlato": 10, "maxPlato": 11.9},
-     "sg": { "minGravity": 1.010, "maxGravity": 1.014,"minPlato": 2.6, "maxPlato": 3.6},
+     "fg": { "minGravity": 1.010, "maxGravity": 1.014,"minPlato": 2.6, "maxPlato": 3.6},
      "alc": { "minPercentWeight": 3.2, "maxPercentWeight": 3.8,"minPercentVol": 4.0, "maxPercentVol": 4.8},
      "ibu": { "min": 20, "max": 28},
      "colorVal": { "minSRM": 11, "maxSRM": 18,"minEBC": 22, "maxEBC": 36}
@@ -362,7 +362,7 @@
      "ferm_character":"Fruity esters are low relative to malt and roasted barley as well as hop bitterness. Diacetyl is usually absent in these beers but may be present at very low levels. Slight acidity may be present but is not required.",
      "body":"Medium-light to medium",
      "og": { "minGravity": 1.038, "maxGravity": 1.048,"minPlato": 9.5, "maxPlato": 11.9},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.012,"minPlato": 2.1, "maxPlato": 3.1},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.012,"minPlato": 2.1, "maxPlato": 3.1},
      "alc": { "minPercentWeight": 3.2, "maxPercentWeight": 4.2,"minPercentVol": 4.1, "maxPercentVol": 5.3},
      "ibu": { "min": 30, "max": 40},
      "colorVal":{ "minSRM": 40, "maxSRM": null,"minEBC": 80, "maxEBC": null}
@@ -378,7 +378,7 @@
      "ferm_character":"Fruity esters are low. Diacetyl is usually absent in these beers but may be present at very low levels. Slight acidity is acceptable.",
      "body":"Medium to full",
      "og": { "minGravity": 1.052, "maxGravity": 1.072,"minPlato": 12.9, "maxPlato": 17.5},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.020,"minPlato": 2.1, "maxPlato": 5.1},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.020,"minPlato": 2.1, "maxPlato": 5.1},
      "alc": { "minPercentWeight": 4.5, "maxPercentWeight": 6.4,"minPercentVol": 5.6, "maxPercentVol": 8.0},
      "ibu": { "min": 30, "max": 60},
      "colorVal":{ "minSRM": 40, "maxSRM": null,"minEBC": 80, "maxEBC": null}
@@ -394,7 +394,7 @@
      "ferm_character":"Fruity esters may be present at low to medium-low levels. Diacetyl and DMS should not be present.",
      "body":"Low to medium with a crisp finish",
      "og": { "minGravity": 1.045, "maxGravity": 1.054,"minPlato": 11.2, "maxPlato": 13.3},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
      "alc": { "minPercentWeight": 3.2, "maxPercentWeight": 4.0,"minPercentVol": 4.1, "maxPercentVol": 5.1},
      "ibu": { "min": 15, "max": 25},
      "colorVal": { "minSRM": 3, "maxSRM": 7,"minEBC": 6, "maxEBC": 14}
@@ -410,7 +410,7 @@
      "ferm_character":"Fruity esters are low to medium. Diacetyl should not be present.",
      "body":"Low to medium",
      "og": { "minGravity": 1.038, "maxGravity": 1.052,"minPlato": 9.5, "maxPlato": 12.9},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.014,"minPlato": 2, "maxPlato": 4.6},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.014,"minPlato": 2, "maxPlato": 4.6},
      "alc": { "minPercentWeight": 3.0, "maxPercentWeight": 4.0,"minPercentVol": 3.7, "maxPercentVol": 5.0},
      "ibu": { "min": 30, "max": 55},
      "colorVal": { "minSRM": 3, "maxSRM": 12,"minEBC": 6, "maxEBC": 24}
@@ -426,7 +426,7 @@
      "ferm_character":"Fruity esters, if present, are low. Diacetyl is usually absent in these beers but may be present at very low levels.",
      "body":"Medium to medium-high",
      "og": { "minGravity": 1.048, "maxGravity": 1.058,"minPlato": 11.9, "maxPlato": 14.3},
-     "sg": { "minGravity": 1.010, "maxGravity": 1.018,"minPlato": 2.5, "maxPlato": 4.6},
+     "fg": { "minGravity": 1.010, "maxGravity": 1.018,"minPlato": 2.5, "maxPlato": 4.6},
      "alc": { "minPercentWeight": 3.5, "maxPercentWeight": 4.8,"minPercentVol": 4.4, "maxPercentVol": 6.1},
      "ibu": { "min": 25, "max": 45},
      "colorVal": { "minSRM": 8, "maxSRM": 18,"minEBC": 16, "maxEBC": 36}
@@ -442,7 +442,7 @@
      "ferm_character":"Fruity esters may be low to high. Diacetyl should not be present.",
      "body":"Medium",
      "og": { "minGravity": 1.044, "maxGravity": 1.050,"minPlato": 11, "maxPlato": 12.4},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.014,"minPlato": 2.1, "maxPlato": 3.6},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.014,"minPlato": 2.1, "maxPlato": 3.6},
      "alc": { "minPercentWeight": 3.5, "maxPercentWeight": 4.3,"minPercentVol": 4.4, "maxPercentVol": 5.4},
      "ibu": { "min": 30, "max": 50},
      "colorVal": { "minSRM": 4, "maxSRM": 7,"minEBC": 8, "maxEBC": 14}
@@ -458,7 +458,7 @@
      "ferm_character":"Medium-low to medium-high fruity esters are present and can contribute to the perception of sweetness and be complementary to the hop profile. Diacetyl should not be present.",
      "body":"Medium-low to medium-high. Perceived silky or full mouthfeel may contribute to overall flavor profile.",
      "og": { "minGravity": 1.044, "maxGravity": 1.050,"minPlato": 11, "maxPlato": 12.4},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.014,"minPlato": 2.1, "maxPlato": 3.6},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.014,"minPlato": 2.1, "maxPlato": 3.6},
      "alc": { "minPercentWeight": 3.5, "maxPercentWeight": 4.3,"minPercentVol": 4.4, "maxPercentVol": 5.4},
      "ibu": { "min": 5, "max": 30},
      "colorVal": { "minSRM": 3, "maxSRM": 7,"minEBC": 6, "maxEBC": 14}
@@ -474,7 +474,7 @@
      "ferm_character":"Fruity esters may be low to high. Diacetyl should not be present.",
      "body":"Medium",
      "og": { "minGravity": 1.050, "maxGravity": 1.060,"minPlato": 12.4, "maxPlato": 14.7},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
      "alc": { "minPercentWeight": 4.4, "maxPercentWeight": 5.6,"minPercentVol": 5.6, "maxPercentVol": 7.0},
      "ibu": { "min": 40, "max": 50},
      "colorVal": { "minSRM": 4, "maxSRM": 14,"minEBC": 8, "maxEBC": 28}
@@ -490,7 +490,7 @@
      "ferm_character":"Medium-low to medium-high fruity esters may be present and can contribute to the perception of sweetness and be complementary to the hop profile. Diacetyl should not be present.",
      "body":"Medium-low to medium-high. A silky or full mouthfeel may contribute to overall flavor profile.",
      "og": { "minGravity": 1.050, "maxGravity": 1.060,"minPlato": 12.4, "maxPlato": 14.7},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
      "alc": { "minPercentWeight": 4.4, "maxPercentWeight": 5.6,"minPercentVol": 5.6, "maxPercentVol": 7.0},
      "ibu":{ "min": 20, "max": 40},
      "colorVal": { "minSRM": 3, "maxSRM": 7,"minEBC": 6, "maxEBC": 14}
@@ -506,7 +506,7 @@
      "ferm_character":"Fruity esters are low to high. Diacetyl and DMS should not be present.",
      "body":"Medium-low to medium",
      "og": { "minGravity": 1.060, "maxGravity": 1.070,"minPlato": 14.7, "maxPlato": 17.1},
-     "sg": { "minGravity": 1.010, "maxGravity": 1.016,"minPlato": 2.5, "maxPlato": 4.1},
+     "fg": { "minGravity": 1.010, "maxGravity": 1.016,"minPlato": 2.5, "maxPlato": 4.1},
      "alc": { "minPercentWeight": 5.0, "maxPercentWeight": 6.0,"minPercentVol": 6.3, "maxPercentVol": 7.5},
      "ibu": { "min": 50, "max": 70},
      "colorVal": { "minSRM": 4, "maxSRM": 12,"minEBC": 8, "maxEBC": 24}
@@ -522,7 +522,7 @@
      "ferm_character":"Medium to medium-high fruity esters are present, and can contribute to the perception of sweetness and be complementary to the hop profile. Diacetyl should not be present.",
      "body":"Medium-low to medium-high. A silky or full mouthfeel may contribute to overall flavor profile.",
      "og": { "minGravity": 1.060, "maxGravity": 1.070,"minPlato": 14.7, "maxPlato": 17.1},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.020,"minPlato": 2, "maxPlato": 5},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.020,"minPlato": 2, "maxPlato": 5},
      "alc": { "minPercentWeight": 5.0, "maxPercentWeight": 6.0,"minPercentVol": 6.3, "maxPercentVol": 7.5},
      "ibu": { "min": 30, "max": 50},
      "colorVal": { "minSRM": 3, "maxSRM": 7,"minEBC": 6, "maxEBC": 14}
@@ -538,7 +538,7 @@
      "ferm_character":"Fruity esters are medium to high. Belgian yeast attributes such as banana, berry, apple, coriander, spice and/or smoky-phenolic should be in balance with malt and hops. Diacetyl, sulfur and attributes typical of Brettanomyces should not be present.",
      "body":"Medium-low to medium, in alignment with base beer style.",
      "og": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
-     "sg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
+     "fg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
      "alc":  { "minPercentWeight": null, "maxPercentWeight": null,"minPercentVol": null, "maxPercentVol": null},
      "ibu":  { "min": null, "max": null },
      "colorVal": { "minSRM": null, "maxSRM": null,"minEBC": null, "maxEBC": null}
@@ -554,7 +554,7 @@
      "ferm_character":"Low to medium-low fruity esters may be present. Diacetyl should not be present.",
      "body":"Medium",
      "og": { "minGravity": 1.040, "maxGravity": 1.060,"minPlato": 10, "maxPlato": 14.7},
-     "sg": { "minGravity": 1.010, "maxGravity": 1.018,"minPlato": 2.6, "maxPlato": 4.6},
+     "fg": { "minGravity": 1.010, "maxGravity": 1.018,"minPlato": 2.6, "maxPlato": 4.6},
      "alc": { "minPercentWeight": 3.3, "maxPercentWeight": 5.0,"minPercentVol": 4.2, "maxPercentVol": 6.3},
      "ibu": { "min": 30, "max": 45},
      "colorVal": { "minSRM": 15, "maxSRM": 26,"minEBC": 30, "maxEBC": 52}
@@ -570,7 +570,7 @@
      "ferm_character":"Fruity esters are low to medium. Diacetyl should not be present.",
      "body":"Medium",
      "og": { "minGravity": 1.056, "maxGravity": 1.075,"minPlato": 13.8, "maxPlato": 18.2},
-     "sg": { "minGravity": 1.012, "maxGravity": 1.018,"minPlato": 3.1, "maxPlato": 4.6},
+     "fg": { "minGravity": 1.012, "maxGravity": 1.018,"minPlato": 3.1, "maxPlato": 4.6},
      "alc": { "minPercentWeight": 5.0, "maxPercentWeight": 6.0,"minPercentVol": 6.3, "maxPercentVol": 7.6},
      "ibu": { "min": 40, "max": 70},
      "colorVal": { "minSRM": 35, "maxSRM": null,"minEBC": 70, "maxEBC": null}
@@ -586,7 +586,7 @@
      "ferm_character":"Fruity esters are low. Diacetyl is usually absent in these beers but may be present at very low levels.",
      "body":"Medium to full",
      "og": { "minGravity": 1.050, "maxGravity": 1.075,"minPlato": 12.4, "maxPlato": 18.2},
-     "sg": { "minGravity": 1.010, "maxGravity": 1.022,"minPlato": 2.6, "maxPlato": 5.6},
+     "fg": { "minGravity": 1.010, "maxGravity": 1.022,"minPlato": 2.6, "maxPlato": 5.6},
      "alc": { "minPercentWeight": 4.5, "maxPercentWeight": 6.4,"minPercentVol": 5.7, "maxPercentVol": 8.0},
      "ibu": { "min": 35, "max": 60},
      "colorVal": { "minSRM": 40, "maxSRM": null,"minEBC": 80, "maxEBC": null}
@@ -602,7 +602,7 @@
      "ferm_character":"Fruity esters are present but not overpowering and should complement hop character and malt-derived sweetness. Diacetyl should not be present absent.",
      "body":"Full",
      "og": { "minGravity": 1.080, "maxGravity": 1.100,"minPlato": 19.3, "maxPlato": 23.7},
-     "sg": { "minGravity": 1.020, "maxGravity": 1.030,"minPlato": 5.1, "maxPlato": 7.6},
+     "fg": { "minGravity": 1.020, "maxGravity": 1.030,"minPlato": 5.1, "maxPlato": 7.6},
      "alc": { "minPercentWeight": 5.5, "maxPercentWeight": 9.5,"minPercentVol": 7.0, "maxPercentVol": 12.0},
      "ibu": { "min": 35, "max": 50},
      "colorVal": { "minSRM": 40, "maxSRM": null,"minEBC": 80, "maxEBC": null}
@@ -618,7 +618,7 @@
      "ferm_character":"Fruity esters are high. Diacetyl should not be present.",
      "body":"Full",
      "og": { "minGravity": 1.080, "maxGravity": 1.100,"minPlato": 19.3, "maxPlato": 23.7},
-     "sg": { "minGravity": 1.020, "maxGravity": 1.030,"minPlato": 5.1, "maxPlato": 7.6},
+     "fg": { "minGravity": 1.020, "maxGravity": 1.030,"minPlato": 5.1, "maxPlato": 7.6},
      "alc": { "minPercentWeight": 5.5, "maxPercentWeight": 9.5,"minPercentVol": 7.0, "maxPercentVol": 12.0},
      "ibu": { "min": 50, "max": 80},
      "colorVal": { "minSRM": 40, "maxSRM": null,"minEBC": 80, "maxEBC": null}
@@ -634,7 +634,7 @@
      "ferm_character":"Alcohol content is medium to high. Complex alcohol ﬂavors may be present. Fruity esters are medium. Diacetyl should not be present.",
      "body":"Medium to full",
      "og": { "minGravity": 1.058, "maxGravity": 1.080,"minPlato": 14.3, "maxPlato": 19.3},
-     "sg": { "minGravity": 1.015, "maxGravity": 1.024,"minPlato": 3.9, "maxPlato": 6.1},
+     "fg": { "minGravity": 1.015, "maxGravity": 1.024,"minPlato": 3.9, "maxPlato": 6.1},
      "alc": { "minPercentWeight": 4.9, "maxPercentWeight": 6.3,"minPercentVol": 6.1, "maxPercentVol": 7.9},
      "ibu": { "min": 45, "max": 80},
      "colorVal": { "minSRM": 10, "maxSRM": 17,"minEBC": 20, "maxEBC": 34}
@@ -650,7 +650,7 @@
      "ferm_character":"Very high alcohol is a hallmark of this style. Complex alcohol ﬂavors may be present. Fruity esters are medium. Diacetyl should not be present.",
      "body":"Full",
      "og": { "minGravity": 1.080, "maxGravity": 1.100,"minPlato": 19.3, "maxPlato": 23.7},
-     "sg": { "minGravity": 1.020, "maxGravity": 1.028,"minPlato": 5.1, "maxPlato": 7.1},
+     "fg": { "minGravity": 1.020, "maxGravity": 1.028,"minPlato": 5.1, "maxPlato": 7.1},
      "alc": { "minPercentWeight": 6.3, "maxPercentWeight": 8.4,"minPercentVol": 8.0, "maxPercentVol": 10.6},
      "ibu": { "min": 55, "max": 85},
      "colorVal": { "minSRM": 10, "maxSRM": 17,"minEBC": 20, "maxEBC": 34}
@@ -666,7 +666,7 @@
      "ferm_character":"Alcohol content is medium-high to high and evident. Fruity esters are medium to high. Diacetyl should not be present.",
      "body":"Medium to full",
      "og": { "minGravity": 1.070, "maxGravity": 1.100,"minPlato": 17.1, "maxPlato": 23.7},
-     "sg": { "minGravity": 1.012, "maxGravity": 1.020,"minPlato": 3.1, "maxPlato": 5.1},
+     "fg": { "minGravity": 1.012, "maxGravity": 1.020,"minPlato": 3.1, "maxPlato": 5.1},
      "alc": { "minPercentWeight": 6.0, "maxPercentWeight": 8.4,"minPercentVol": 7.6, "maxPercentVol": 10.6},
      "ibu": { "min": 65, "max": 100},
      "colorVal": { "minSRM": 2, "maxSRM": 9,"minEBC": 4, "maxEBC": 18}
@@ -682,7 +682,7 @@
      "ferm_character":"Medium-high to high fruity esters are present, and can contribute to the perception of sweetness and be complementary to the hop profile. Diacetyl should not be present.",
      "body":"Medium to high. A silky or full mouthfeel may contribute to overall flavor profile.",
      "og": { "minGravity": 1.070, "maxGravity": 1.100,"minPlato": 17.1, "maxPlato": 23.7},
-     "sg": { "minGravity": 1.012, "maxGravity": 1.024,"minPlato": 3.1, "maxPlato": 6},
+     "fg": { "minGravity": 1.012, "maxGravity": 1.024,"minPlato": 3.1, "maxPlato": 6},
      "alc": { "minPercentWeight": 6.0, "maxPercentWeight": 8.4,"minPercentVol": 7.6, "maxPercentVol": 10.6},
      "ibu": { "min": 45, "max": 80},
      "colorVal": { "minSRM": 3, "maxSRM": 7,"minEBC": 6, "maxEBC": 14}
@@ -698,7 +698,7 @@
      "ferm_character":"Complex alcohols are evident. Fruity esters are often high. Diacetyl is usually absent in these beers but may be present at very low levels.",
      "body":"Full",
      "og": { "minGravity": 1.090, "maxGravity": 1.120,"minPlato": 21.6, "maxPlato": 28},
-     "sg": { "minGravity": 1.024, "maxGravity": 1.028,"minPlato": 6.1, "maxPlato": 7.1},
+     "fg": { "minGravity": 1.024, "maxGravity": 1.028,"minPlato": 6.1, "maxPlato": 7.1},
      "alc": { "minPercentWeight": 6.7, "maxPercentWeight": 9.6,"minPercentVol": 8.5, "maxPercentVol": 12.2},
      "ibu": { "min": 60, "max": 100},
      "colorVal": { "minSRM": 11, "maxSRM": 18,"minEBC": 22, "maxEBC": 36}
@@ -714,7 +714,7 @@
      "ferm_character":"Fruity esters are often high and balanced by a complexity of alcohols and high alcohol content. Diacetyl is usually absent in these beers but may be present at very low levels. Phenolic yeast character, sulfur, and/or DMS should not be present. Oxidized, stale and aged attributes are not typical of this style.",
      "body":"Full",
      "og": { "minGravity": 1.088, "maxGravity": 1.120,"minPlato": 21.1, "maxPlato": 28},
-     "sg": { "minGravity": 1.024, "maxGravity": 1.032,"minPlato": 6.1, "maxPlato": 8},
+     "fg": { "minGravity": 1.024, "maxGravity": 1.032,"minPlato": 6.1, "maxPlato": 8},
      "alc": { "minPercentWeight": 6.7, "maxPercentWeight": 9.6,"minPercentVol": 8.5, "maxPercentVol": 12.2},
      "ibu": { "min": 45, "max": 85},
      "colorVal": { "minSRM": 5, "maxSRM": null,"minEBC": 10, "maxEBC": null}
@@ -730,7 +730,7 @@
      "ferm_character":"Low to medium fruity esters are acceptable",
      "body":"Medium to full",
      "og": { "minGravity": 1.050, "maxGravity": 1.065,"minPlato": 12.4, "maxPlato": 15.9},
-     "sg": { "minGravity": 1.010, "maxGravity": 1.018,"minPlato": 2.6, "maxPlato": 4.6},
+     "fg": { "minGravity": 1.010, "maxGravity": 1.018,"minPlato": 2.6, "maxPlato": 4.6},
      "alc": { "minPercentWeight": 4.0, "maxPercentWeight": 7.0,"minPercentVol": 5.1, "maxPercentVol": 8.9},
      "ibu": { "min": 20, "max": 40},
      "colorVal": { "minSRM": 20, "maxSRM": null,"minEBC": 40, "maxEBC": null}
@@ -746,7 +746,7 @@
      "ferm_character":"Moderate to intense, yet balanced, fruity esters are present. Diacetyl, DMS and Brettanomyces should not be present. The evolution of natural acidity at medium-low to high levels develops a balanced complexity and is expressed as a refreshing, pleasant sourness, in harmony with other attributes. The acidity present is usually in the form of lactic, acetic and other organic acids naturally developed with acidiﬁed malt in the mash or in kettle or post wort fermentation and is produced by various microorganisms including certain bacteria and yeasts. Acidic character can be a complex balance of several types of acid and attributes of age. There should be no residual ﬂavors from liquids previously aged in a barrel such as bourbon or sherry. Wood vessels may be used during the fermentation and aging process, but wood-derived ﬂavors such as vanillin should not be present.",
      "body":"Low to high",
      "og": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
-     "sg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
+     "fg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
      "alc":  { "minPercentWeight": null, "maxPercentWeight": null,"minPercentVol": null, "maxPercentVol": null},
      "ibu":  { "min": null, "max": null },
      "colorVal": { "minSRM": null, "maxSRM": null,"minEBC": null, "maxEBC": null}
@@ -762,7 +762,7 @@
      "ferm_character":"Moderate to intense, yet balanced, fruity esters are present. Diacetyl, DMS and Brettanomyces should not be present. The evolution of natural acidity at medium-low to high levels develops a balanced complexity and is expressed as a refreshing, pleasant sourness, in harmony with other attributes. The acidity present is usually in the form of lactic, acetic and other organic acids naturally developed with acidiﬁed malt in the mash or in kettle or post wort fermentation and is produced by various microorganisms including certain bacteria and yeasts. Acidic character can be a complex balance of several types of acid and attributes of age. There should be no residual ﬂavors from liquids previously aged in a barrel such as bourbon or sherry. Wood vessels may be used during the fermentation and aging process, but wood-derived ﬂavors such as vanillin should not be present.",
      "body":"Low to high",
      "og": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
-     "sg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
+     "fg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
      "alc":  { "minPercentWeight": null, "maxPercentWeight": null,"minPercentVol": null, "maxPercentVol": null},
      "ibu":  { "min": null, "max": null },
      "colorVal": { "minSRM": null, "maxSRM": null,"minEBC": null, "maxEBC": null}
@@ -778,7 +778,7 @@
      "ferm_character":"Fruity esters are absent to low, expressed as pear, apple or wine-like attributes when present. Diacetyl should not be present.",
      "body":"Low to medium-low. Dry and crisp.",
      "og": { "minGravity": 1.042, "maxGravity": 1.048,"minPlato": 10.5, "maxPlato": 11.9},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.010,"minPlato": 1.5, "maxPlato": 2.6},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.010,"minPlato": 1.5, "maxPlato": 2.6},
      "alc": { "minPercentWeight": 3.8, "maxPercentWeight": 4.2,"minPercentVol": 4.8, "maxPercentVol": 5.3},
      "ibu": { "min": 22, "max": 30},
      "colorVal": { "minSRM": 3, "maxSRM": 6,"minEBC": 6, "maxEBC": 12}
@@ -794,7 +794,7 @@
      "ferm_character":"Fruity esters are absent to low, with attributes expressed subtly as citrus, pear, dark cherry or plum. A slight sulphur aroma is acceptable. Diacetyl should not be present.",
      "body":"Medium-low to medium.",
      "og": { "minGravity": 1.044, "maxGravity": 1.052,"minPlato": 11, "maxPlato": 12.9},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.014,"minPlato": 2.1, "maxPlato": 3.6},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.014,"minPlato": 2.1, "maxPlato": 3.6},
      "alc": { "minPercentWeight": 3.6, "maxPercentWeight": 4.4,"minPercentVol": 4.6, "maxPercentVol": 5.6},
      "ibu": { "min": 25, "max": 52},
      "colorVal": { "minSRM": 11, "maxSRM": 19,"minEBC": 22, "maxEBC": 38}
@@ -810,7 +810,7 @@
      "ferm_character":"Fruity esters are low to medium. Diacetyl should not be present. Brettanomyces character may be absent or present at low to medium levels, and if present may be expressed as horsey, goaty, leathery, phenolic, fruity and/or acidic aromas and flavors. The unique combination of yeast and lactic acid bacteria fermentation yields a beer that is acidic and highly attenuated.",
      "body":"Very low",
      "og": { "minGravity": 1.028, "maxGravity": 1.044,"minPlato": 7.1, "maxPlato": 11},
-     "sg": { "minGravity": 1.004, "maxGravity": 1.006,"minPlato": 1, "maxPlato": 1.5},
+     "fg": { "minGravity": 1.004, "maxGravity": 1.006,"minPlato": 1, "maxPlato": 1.5},
      "alc": { "minPercentWeight": 2.2, "maxPercentWeight": 4.0,"minPercentVol": 2.8, "maxPercentVol": 5.0},
      "ibu": { "min": 3, "max": 6},
      "colorVal": { "minSRM": 2, "maxSRM": 4,"minEBC": 4, "maxEBC": 8}
@@ -826,7 +826,7 @@
      "ferm_character":"Medium to high lactic acid character should be present and expressed as a sharp, refreshing sourness. These beers are not excessively aged.",
      "body":"Low to medium-low",
      "og": { "minGravity": 1.036, "maxGravity": 1.056,"minPlato": 9, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.012,"minPlato": 2.1, "maxPlato": 3.1},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.012,"minPlato": 2.1, "maxPlato": 3.1},
      "alc": { "minPercentWeight": 3.5, "maxPercentWeight": 4.3,"minPercentVol": 4.4, "maxPercentVol": 5.4},
      "ibu": { "min": 5, "max": 15},
      "colorVal": { "minSRM": 2, "maxSRM": 7,"minEBC": 4, "maxEBC": 14}
@@ -842,7 +842,7 @@
      "ferm_character":"Horsey, leathery or earthy aromas contributed by Brettanomyces yeasts may be present but at low levels as these beers do not undergo prolonged aging. Contemporary Gose may be fermented with pure beer yeast strains, or with yeast mixed with bacteria. Alternatively, they may be spontaneously fermented. Low to medium lactic acid character is present in all examples expressed as a sharp, refreshing sourness.",
      "body":"Low to medium-low",
      "og": { "minGravity": 1.036, "maxGravity": 1.056,"minPlato": 9, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.012,"minPlato": 2.1, "maxPlato": 3.1},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.012,"minPlato": 2.1, "maxPlato": 3.1},
      "alc": { "minPercentWeight": 3.5, "maxPercentWeight": 4.3,"minPercentVol": 4.4, "maxPercentVol": 5.4},
      "ibu": { "min": 5, "max": 30},
      "colorVal": { "minSRM": 3, "maxSRM": 9,"minEBC": 6, "maxEBC": 18}
@@ -858,7 +858,7 @@
      "ferm_character":"Med-low to med-high fruity and phenolic attributes are hallmarks of this style. Phenolic attributes such as clove, nutmeg, smoke and vanilla are present. Banana ester aroma and ﬂavor should be present at low to medium-high levels. Diacetyl should not be present.",
      "body":"Medium to full",
      "og": { "minGravity": 1.047, "maxGravity": 1.056,"minPlato": 11.7, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
      "alc": { "minPercentWeight": 3.9, "maxPercentWeight": 4.4,"minPercentVol": 4.9, "maxPercentVol": 5.6},
      "ibu": { "min": 10, "max": 15},
      "colorVal": { "minSRM": 3, "maxSRM": 9,"minEBC": 6, "maxEBC": 18}
@@ -874,7 +874,7 @@
      "ferm_character":"The aroma and flavor are very similar to Hefeweizen with the caveat that fruity and phenolic characters are not combined with the yeasty ﬂavor and fuller-bodied mouthfeel of yeast. The phenolic characteristics are often described as clove-like or nutmeg-like and can be smoky or even vanilla-like. A Banana-like ester aroma and flavor is often present. Diacetyl should not be present. Kristal Weizens are well attenuated and very highly carbonated.",
      "body":"Medium to full",
      "og": { "minGravity": 1.047, "maxGravity": 1.056,"minPlato": 11.7, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
      "alc": { "minPercentWeight": 3.9, "maxPercentWeight": 4.4,"minPercentVol": 4.9, "maxPercentVol": 5.6},
      "ibu": { "min": 10, "max": 15},
      "colorVal": { "minSRM": 3, "maxSRM": 9,"minEBC": 6, "maxEBC": 18}
@@ -890,7 +890,7 @@
      "ferm_character":"The phenolic and estery aromas typical of Weissbiers should be present but less pronounced in this style. The overall ﬂavor proﬁle is less complex than Hefeweizen due to a lower alcohol content and there is less yeasty ﬂavor. Diacetyl should not be present.",
      "body":"Low with a lighter mouthfeel than Hefeweizen. The German word “leicht” means light, and as such these beers are light versions of Hefeweizen.",
      "og": { "minGravity": 1.028, "maxGravity": 1.044,"minPlato": 7.1, "maxPlato": 11},
-     "sg": { "minGravity": 1.004, "maxGravity": 1.008,"minPlato": 1, "maxPlato": 2.1},
+     "fg": { "minGravity": 1.004, "maxGravity": 1.008,"minPlato": 1, "maxPlato": 2.1},
      "alc": { "minPercentWeight": 2.0, "maxPercentWeight": 2.8,"minPercentVol": 2.5, "maxPercentVol": 3.5},
      "ibu": { "min": 10, "max": 15},
      "colorVal": { "minSRM": 3.5, "maxSRM": 15,"minEBC": 7, "maxEBC": 30}
@@ -906,7 +906,7 @@
      "ferm_character":"The phenolic and estery aromas and flavors typical of Weissbiers are present but less pronounced in Bernsteinfarbenes Weissbiers. These beers should be well attenuated and very highly carbonated. Diacetyl should not be present.",
      "body":"Medium to full",
      "og": { "minGravity": 1.048, "maxGravity": 1.056,"minPlato": 11.9, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
      "alc": { "minPercentWeight": 3.8, "maxPercentWeight": 4.3,"minPercentVol": 4.8, "maxPercentVol": 5.4},
      "ibu": { "min": 10, "max": 15},
      "colorVal": { "minSRM": 9, "maxSRM": 13,"minEBC": 18, "maxEBC": 26}
@@ -922,7 +922,7 @@
      "ferm_character":"The phenolic and estery aromas and flavors typical of Weissbiers are present but less pronounced in Dunkel Weissbiers. Dunkel Weissbiers should be well attenuated and very highly carbonated. Diacetyl should not be present",
      "body":"Medium to full",
      "og": { "minGravity": 1.048, "maxGravity": 1.056,"minPlato": 11.9, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
      "alc": { "minPercentWeight": 3.8, "maxPercentWeight": 4.3,"minPercentVol": 4.8, "maxPercentVol": 5.4},
      "ibu": { "min": 10, "max": 15},
      "colorVal": { "minSRM": 10, "maxSRM": 25,"minEBC": 20, "maxEBC": 50}
@@ -938,7 +938,7 @@
      "ferm_character":"Balanced, clove-like phenolic and fruity ester banana notes produce a well-rounded ﬂavor and aroma. Diacetyl should not be present. Carbonation should be high.",
      "body":"Medium to full",
      "og": { "minGravity": 1.066, "maxGravity": 1.080,"minPlato": 16.1, "maxPlato": 19.3},
-     "sg": { "minGravity": 1.016, "maxGravity": 1.028,"minPlato": 4.1, "maxPlato": 7.1},
+     "fg": { "minGravity": 1.016, "maxGravity": 1.028,"minPlato": 4.1, "maxPlato": 7.1},
      "alc": { "minPercentWeight": 5.5, "maxPercentWeight": 7.5,"minPercentVol": 7.0, "maxPercentVol": 9.5},
      "ibu": { "min": 15, "max": 35},
      "colorVal": { "minSRM": 4.5, "maxSRM": 30,"minEBC": 9, "maxEBC": 60}
@@ -954,7 +954,7 @@
      "ferm_character":"Low to medium banana–like and/or other fruity ester aromas and flavors are typical. Clove-like and/or other phenolic aromas and flavors should also be present. No yeast aroma should be present in versions without yeast. Versions packaged and served without yeast will not have yeast ﬂavor or full mouthfeel typical of beers with yeast. Versions with yeast will have low to medium yeast aroma and ﬂavor and a full mouthfeel, but the yeast character should not overpower the balance of rye and barley malts, esters and phenolics.",
      "body":"Low to medium",
      "og": { "minGravity": 1.047, "maxGravity": 1.056,"minPlato": 11.7, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
      "alc": { "minPercentWeight": 3.9, "maxPercentWeight": 4.4,"minPercentVol": 4.9, "maxPercentVol": 5.6},
      "ibu": { "min": 10, "max": 15},
      "colorVal": { "minSRM": 4, "maxSRM": 25,"minEBC": 8, "maxEBC": 50}
@@ -970,7 +970,7 @@
      "ferm_character":"The aroma and flavor of a Weiss Rauchbier with yeast should be fruity and phenolic. The phenolic characteristics are often described as clove, nutmeg, vanilla and smoke. Banana esters are often present at low to medium-high levels. No diacetyl should be perceived. Weissbiers are well attenuated and very highly carbonated.",
      "body":"Medium to full",
      "og": { "minGravity": 1.047, "maxGravity": 1.056,"minPlato": 11.7, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
      "alc": { "minPercentWeight": 3.9, "maxPercentWeight": 4.4,"minPercentVol": 4.9, "maxPercentVol": 5.6},
      "ibu": { "min": 10, "max": 15},
      "colorVal": { "minSRM": 4, "maxSRM": 18,"minEBC": 8, "maxEBC": 36}
@@ -986,7 +986,7 @@
      "ferm_character":"Diacetyl should not be present. Traditional versions do not use artiﬁcial sweeteners nor are they excessively sweet. More modern versions can incorporate sweeteners such as sugar and saccharin added post fermentation for additional sweetness and to increase smoothness.",
      "body":"Low",
      "og": { "minGravity": 1.008, "maxGravity": 1.023,"minPlato": 2.1, "maxPlato": 5.8},
-     "sg": { "minGravity": 1.002, "maxGravity": 1.008,"minPlato": 0.5, "maxPlato": 2.1},
+     "fg": { "minGravity": 1.002, "maxGravity": 1.008,"minPlato": 0.5, "maxPlato": 2.1},
      "alc": { "minPercentWeight": 0.4, "maxPercentWeight": 1.6,"minPercentVol": 0.5, "maxPercentVol": 2.0},
      "ibu": { "min": 5, "max": 15},
      "colorVal": { "minSRM": 5, "maxSRM": 50,"minEBC": 10, "maxEBC": 100}
@@ -1002,7 +1002,7 @@
      "ferm_character":"Phenolic spiciness may be absent or may be present at low levels. Fruity-ester complexity may range from low to medium, in harmony with malt and other attributes. Diacetyl should not be present.",
      "body":"Very low to low",
      "og": { "minGravity": 1.018, "maxGravity": 1.040,"minPlato": 4.5, "maxPlato": 10},
-     "sg": { "minGravity": 1.002, "maxGravity": 1.010,"minPlato": 0.5, "maxPlato": 2.6},
+     "fg": { "minGravity": 1.002, "maxGravity": 1.010,"minPlato": 0.5, "maxPlato": 2.6},
      "alc": { "minPercentWeight": 1.7, "maxPercentWeight": 4.0,"minPercentVol": 2.1, "maxPercentVol": 5.0},
      "ibu": { "min": 5, "max": 35},
      "colorVal": { "minSRM": null, "maxSRM": null,"minEBC": null, "maxEBC": null}
@@ -1018,7 +1018,7 @@
      "ferm_character":"Low to medium fruity esters are present. Yeast-derived phenolic spicy ﬂavors and aromas should be present at low to medium-low levels. Diacetyl should not be present.",
      "body":"Low to medium",
      "og": { "minGravity": 1.040, "maxGravity": 1.054,"minPlato": 10, "maxPlato": 13.3},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.014,"minPlato": 2.1, "maxPlato": 3.6},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.014,"minPlato": 2.1, "maxPlato": 3.6},
      "alc": { "minPercentWeight": 4.1, "maxPercentWeight": 5.0,"minPercentVol": 5.1, "maxPercentVol": 6.3},
      "ibu": { "min": 20, "max": 30},
      "colorVal": { "minSRM": 4, "maxSRM": 12,"minEBC": 8, "maxEBC": 24}
@@ -1034,7 +1034,7 @@
      "ferm_character":"Low to medium fruity esters are balanced with low level malt attributes. Low level yeast-derived phenolic spiciness may be present. Diacetyl and acidic character should not be present.",
      "body":"Low to medium",
      "og": { "minGravity": 1.054, "maxGravity": 1.068,"minPlato": 13.3, "maxPlato": 16.6},
-     "sg": { "minGravity": 1.010, "maxGravity": 1.014,"minPlato": 2.6, "maxPlato": 3.6},
+     "fg": { "minGravity": 1.010, "maxGravity": 1.014,"minPlato": 2.6, "maxPlato": 3.6},
      "alc": { "minPercentWeight": 5.0, "maxPercentWeight": 6.2,"minPercentVol": 6.3, "maxPercentVol": 7.9},
      "ibu": { "min": 15, "max": 40},
      "colorVal": { "minSRM": 2, "maxSRM": 7,"minEBC": 4, "maxEBC": 14}
@@ -1050,7 +1050,7 @@
      "ferm_character":"Low to medium fruity esters are present. Yeast-derived phenolic spicy ﬂavors and aromas should be present at low to medium-low levels. Diacetyl is usually absent in these beers but may be present at very low levels.",
      "body":"Very low to medium",
      "og": { "minGravity": 1.064, "maxGravity": 1.096,"minPlato": 15.7, "maxPlato": 22.9},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.024,"minPlato": 2, "maxPlato": 6.1},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.024,"minPlato": 2, "maxPlato": 6.1},
      "alc": { "minPercentWeight": 5.6, "maxPercentWeight": 8.8,"minPercentVol": 7.1, "maxPercentVol": 11.2},
      "ibu": { "min": 20, "max": 50},
      "colorVal": { "minSRM": 2, "maxSRM": 7,"minEBC": 4, "maxEBC": 14}
@@ -1066,7 +1066,7 @@
      "ferm_character":"Yeast-derived phenolic spicy ﬂavors and aromas are present at low to medium-low levels. Diacetyl is usually absent in these beers but may be present at very low levels.",
      "body":"Medium to full",
      "og": { "minGravity": 1.064, "maxGravity": 1.096,"minPlato": 15.7, "maxPlato": 22.9},
-     "sg": { "minGravity": 1.012, "maxGravity": 1.024,"minPlato": 3.1, "maxPlato": 6.1},
+     "fg": { "minGravity": 1.012, "maxGravity": 1.024,"minPlato": 3.1, "maxPlato": 6.1},
      "alc": { "minPercentWeight": 5.6, "maxPercentWeight": 8.8,"minPercentVol": 7.1, "maxPercentVol": 11.2},
      "ibu": { "min": 20, "max": 50},
      "colorVal": { "minSRM": 8, "maxSRM": 35,"minEBC": 16, "maxEBC": 70}
@@ -1082,7 +1082,7 @@
      "ferm_character":"Fruity esters (especially banana) are absent or present at low levels. Clove-like phenolic flavor and aroma may be present at low to medium-low levels. Diacetyl character should not be present.",
      "body":"Low to medium",
      "og": { "minGravity": 1.060, "maxGravity": 1.075,"minPlato": 14.7, "maxPlato": 18.2},
-     "sg": { "minGravity": 1.012, "maxGravity": 1.016,"minPlato": 3.1, "maxPlato": 4.1},
+     "fg": { "minGravity": 1.012, "maxGravity": 1.016,"minPlato": 3.1, "maxPlato": 4.1},
      "alc": { "minPercentWeight": 5.0, "maxPercentWeight": 6.0,"minPercentVol": 6.3, "maxPercentVol": 7.6},
      "ibu": { "min": 20, "max": 35},
      "colorVal": { "minSRM": 16, "maxSRM": 36,"minEBC": 32, "maxEBC": 72}
@@ -1098,7 +1098,7 @@
      "ferm_character":"A complex, sometimes mildly spicy, aroma and ﬂavor characterize this style. Clove-like phenolic aroma and ﬂavor may be very low. Fruity esters, including banana, are also common, but not required. Traditional Tripels are often well attenuated. Alcohol strength and ﬂavor should be present.",
      "body":"Medium",
      "og": { "minGravity": 1.070, "maxGravity": 1.092,"minPlato": 17.1, "maxPlato": 22},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.014,"minPlato": 2.1, "maxPlato": 3.5},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.014,"minPlato": 2.1, "maxPlato": 3.5},
      "alc": { "minPercentWeight": 5.6, "maxPercentWeight": 8.0,"minPercentVol": 7.1, "maxPercentVol": 10.1},
      "ibu": { "min": 20, "max": 45},
      "colorVal": { "minSRM": 4, "maxSRM": 7,"minEBC": 8, "maxEBC": 14}
@@ -1114,7 +1114,7 @@
      "ferm_character":"Perception of alcohol can be strong. Complex fruity ﬂavors, such as raisins, dates, ﬁgs, grapes and/or plums are often present and may be accompanied by wine-like attributes at low levels. Clove-like phenolic ﬂavor and aroma may be present at low to medium-low levels. Diacetyl and DMS should not be present.",
      "body":"Full with creamy mouthfeel",
      "og": { "minGravity": 1.092, "maxGravity": 1.120,"minPlato": 22, "maxPlato": 28},
-     "sg": { "minGravity": 1.014, "maxGravity": 1.020,"minPlato": 3.6, "maxPlato": 5.1},
+     "fg": { "minGravity": 1.014, "maxGravity": 1.020,"minPlato": 3.6, "maxPlato": 5.1},
      "alc": { "minPercentWeight": 8.0, "maxPercentWeight": 11.2,"minPercentVol": 10.0, "maxPercentVol": 14.2},
      "ibu": { "min": 25, "max": 50},
      "colorVal": { "minSRM": 16, "maxSRM": 36,"minEBC": 32, "maxEBC": 72}
@@ -1130,7 +1130,7 @@
      "ferm_character":"Low to medium fruity esters are present. Mild phenolic spiciness and yeast ﬂavors may be present. Mild acidity is appropriate. Diacetyl should not be present.",
      "body":"Low to medium, with a degree of creaminess from wheat starch.",
      "og": { "minGravity": 1.044, "maxGravity": 1.050,"minPlato": 11, "maxPlato": 12.4},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.008,"minPlato": 1.5, "maxPlato": 2.1},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.008,"minPlato": 1.5, "maxPlato": 2.1},
      "alc": { "minPercentWeight": 3.8, "maxPercentWeight": 4.4,"minPercentVol": 4.8, "maxPercentVol": 5.6},
      "ibu": { "min": 10, "max": 17},
      "colorVal": { "minSRM": 2, "maxSRM": 4,"minEBC": 4, "maxEBC": 8}
@@ -1146,7 +1146,7 @@
      "ferm_character":"Fruity esters are medium to high. Low to medium-low level phenolics may be present, expressed as spice-like or other attributes. Phenolics should not be harsh or dominant and should be in harmony with ester profile and hops. Fruity and spicy black pepper attributes derived from Belgian yeast are common. Diacetyl should not be present. Low levels of Brettanomyces yeast-derived ﬂavors that are slightly acidic, fruity, horsey, goaty and/or leather-like, may be present but are not required. These beers are well attenuated and often bottle conditioned contributing some yeast character and high carbonation.",
      "body":"Very low to low",
      "og": { "minGravity": 1.040, "maxGravity": 1.060,"minPlato": 10, "maxPlato": 14.7},
-     "sg": { "minGravity": 1.004, "maxGravity": 1.008,"minPlato": 1, "maxPlato": 2},
+     "fg": { "minGravity": 1.004, "maxGravity": 1.008,"minPlato": 1, "maxPlato": 2},
      "alc": { "minPercentWeight": 4.0, "maxPercentWeight": 5.4,"minPercentVol": 5.0, "maxPercentVol": 6.8},
      "ibu": { "min": 20, "max": 38},
      "colorVal": { "minSRM": 3, "maxSRM": 7,"minEBC": 6, "maxEBC": 14}
@@ -1162,7 +1162,7 @@
      "ferm_character":"Fruity esters are medium to high. Diacetyl should not be present. Complex alcohols, herbs, spices, low Brettanomyces attributes including slightly acidic, fruity, horsey, goaty and leather-like, as well as clovey and smoky phenolics may be present. Herb and/or spice ﬂavors, including notes of black pepper, may be present. A low level of sour acidic ﬂavor is acceptable when in balance with other components. These beers are often bottle conditioned and display some yeast character and high carbonation.",
      "body":"Low to medium",
      "og": { "minGravity": 1.040, "maxGravity": 1.080,"minPlato": 10, "maxPlato": 19.3},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.014,"minPlato": 2, "maxPlato": 3.5},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.014,"minPlato": 2, "maxPlato": 3.5},
      "alc": { "minPercentWeight": 4.0, "maxPercentWeight": 6.6,"minPercentVol": 5.0, "maxPercentVol": 8.4},
      "ibu": { "min": 20, "max": 40},
      "colorVal": { "minSRM": 3, "maxSRM": 20,"minEBC": 6, "maxEBC": 40}
@@ -1178,7 +1178,7 @@
      "ferm_character":"Fruity ester aromas are medium to high. Whereas fruity ester ﬂavors are low to medium. Diacetyl should not be present. Bière de Garde may have low levels of Brettanomyces yeast-derived ﬂavors that are slightly acidic, fruity, horsey, goaty and/or leather-like. Beers displaying more pronounced levels of Brettanomyces derived attributes are categorized as Brett Beers. Alcohol may be evident in higher strength beers.",
      "body":"Low to medium",
      "og": { "minGravity": 1.060, "maxGravity": 1.080,"minPlato": 14.7, "maxPlato": 19.3},
-     "sg": { "minGravity": 1.012, "maxGravity": 1.024,"minPlato": 3.1, "maxPlato": 6.1},
+     "fg": { "minGravity": 1.012, "maxGravity": 1.024,"minPlato": 3.1, "maxPlato": 6.1},
      "alc": { "minPercentWeight": 3.5, "maxPercentWeight": 6.3,"minPercentVol": 4.4, "maxPercentVol": 8.0},
      "ibu": { "min": 20, "max": 30},
      "colorVal": { "minSRM": 7, "maxSRM": 16,"minEBC": 14, "maxEBC": 32}
@@ -1194,7 +1194,7 @@
      "ferm_character":"Brettanomyces-produced aromas and flavors should be absent or very low. Fruity esters expressed as cherry or green apple attributes are apparent. Overall flavor of Oud Bruin is fundamentally characterized by low to high lactic sourness. Many versions express very low to medium acetic sourness and aroma; acetic sourness may also be absent.",
      "body":"Low to medium-low with a refreshing mouthfeel",
      "og": { "minGravity": 1.044, "maxGravity": 1.056,"minPlato": 11, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
      "alc": { "minPercentWeight": 3.8, "maxPercentWeight": 5.2,"minPercentVol": 4.8, "maxPercentVol": 6.6},
      "ibu": { "min": 5, "max": 18},
      "colorVal": { "minSRM": 12, "maxSRM": 25,"minEBC": 24, "maxEBC": 50}
@@ -1210,7 +1210,7 @@
      "ferm_character":"Characteristic horsey, goaty, leathery and phenolic aromas and ﬂavors derived from Brettanomyces yeast are often present at moderate levels. High to very high fruity esters are present. Traditionally, Lambics are unblended and spontaneously fermented. They express high to very high levels of fruity esters as well as bacteria and yeast-derived sourness. Some versions are fermented with the addition of cultured yeast and bacteria. Carbonation can range from very low to high. Vanillin and other wood-derived ﬂavors should not be present.",
      "body":"Very low with dry mouthfeel",
      "og": { "minGravity": 1.047, "maxGravity": 1.056,"minPlato": 11.7, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.000, "maxGravity": 1.010,"minPlato": 0, "maxPlato": 2.6},
+     "fg": { "minGravity": 1.000, "maxGravity": 1.010,"minPlato": 0, "maxPlato": 2.6},
      "alc": { "minPercentWeight": 4.0, "maxPercentWeight": 6.5,"minPercentVol": 5.0, "maxPercentVol": 8.2},
      "ibu": { "min": 9, "max": 23},
      "colorVal": { "minSRM": 6, "maxSRM": 13,"minEBC": 12, "maxEBC": 26}
@@ -1226,7 +1226,7 @@
      "ferm_character":"Gueuze represents blends of aged and newly fermenting young Lambics. These unﬂavored blended and secondary fermented beers may be very dry or mildly sweet. They are characterized by intense fruity ester, sour, and acidic attributes which only result from spontaneous fermentation. Diacetyl should not be present. Characteristic horsey, goaty, leathery and phenolic aromas and ﬂavors derived from Brettanomyces yeast are often present at moderate levels. Vanillin and other wood-derived ﬂavors should not be present. Carbonation can be none (flat) to medium.",
      "body":"Very low with dry mouthfeel",
      "og": { "minGravity": 1.044, "maxGravity": 1.056,"minPlato": 11, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.000, "maxGravity": 1.010,"minPlato": 0, "maxPlato": 2.6},
+     "fg": { "minGravity": 1.000, "maxGravity": 1.010,"minPlato": 0, "maxPlato": 2.6},
      "alc": { "minPercentWeight": 4.0, "maxPercentWeight": 7.0,"minPercentVol": 5.0, "maxPercentVol": 8.9},
      "ibu": { "min": 11, "max": 23},
      "colorVal": { "minSRM": 6, "maxSRM": 13,"minEBC": 12, "maxEBC": 26}
@@ -1242,7 +1242,7 @@
      "ferm_character":"These blended and secondary fermented beers may be very dry or mildly sweet. They are characterized by intense fruity ester, sour, and acidic attributes which only result from spontaneous fermentation. Diacetyl should not be present. Characteristic horsey, goaty, leathery and phenolic aromas and ﬂavors derived from Brettanomyces yeast are often present at moderate levels. Aged beer is often blended with young beer to create this special style. Vanillin and other wood-derived ﬂavors should not be present. Carbonation can be none (flat) to medium.",
      "body":"Very low with dry mouthfeel",
      "og": { "minGravity": 1.044, "maxGravity": 1.056,"minPlato": 11, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.000, "maxGravity": 1.010,"minPlato": 0, "maxPlato": 2.6},
+     "fg": { "minGravity": 1.000, "maxGravity": 1.010,"minPlato": 0, "maxPlato": 2.6},
      "alc": { "minPercentWeight": 4.0, "maxPercentWeight": 7.0,"minPercentVol": 5.0, "maxPercentVol": 8.9},
      "ibu": { "min": 11, "max": 23},
      "colorVal": { "minSRM": 6, "maxSRM": 40,"minEBC": 12, "maxEBC": 80}
@@ -1258,7 +1258,7 @@
      "ferm_character":"Characteristic horsey, goaty, leathery and phenolic aromas and ﬂavors derived from Brettanomyces yeast are often present at moderate levels. Fermented sourness is an important part of the ﬂavor proﬁle, though sweetness may compromise the intensity. Fruit sourness may also be an important part of the proﬁle. These ﬂavored Lambic beers may be very dry or mildly sweet. Vanillin and other woody ﬂavors should not be present.",
      "body":"Dry to full",
      "og": { "minGravity": 1.040, "maxGravity": 1.072,"minPlato": 10, "maxPlato": 17.5},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
      "alc": { "minPercentWeight": 4.0, "maxPercentWeight": 7.0,"minPercentVol": 5.0, "maxPercentVol": 8.9},
      "ibu": { "min": 15, "max": 21},
      "colorVal": { "minSRM": null, "maxSRM": null,"minEBC": null, "maxEBC": null}
@@ -1274,7 +1274,7 @@
      "ferm_character":"Phenolic spiciness may be absent or may be present at low levels. Fruity-ester complexity may range from low to medium, in harmony with malt and other attributes. Diacetyl should not be present.",
      "body":"Varies with style",
      "og": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
-     "sg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
+     "fg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
      "alc": { "minPercentWeight": 4, "maxPercentWeight": null,"minPercentVol": 5, "maxPercentVol": null},
      "ibu":  { "min": null, "max": null },
      "colorVal": { "minSRM": null, "maxSRM": null,"minEBC": null, "maxEBC": null}
@@ -1290,7 +1290,7 @@
      "ferm_character":"Fruity esters are low. Diacetyl and DMS should not be present. An overall crisp flavor is achieved by managing fermentation temperatures. Sourness should not be present.",
      "body":"Low to medium-low",
      "og": { "minGravity": 1.028, "maxGravity": 1.036,"minPlato": 7.1, "maxPlato": 9},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.010,"minPlato": 1.5, "maxPlato": 2.6},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.010,"minPlato": 1.5, "maxPlato": 2.6},
      "alc": { "minPercentWeight": 2.1, "maxPercentWeight": 2.9,"minPercentVol": 2.7, "maxPercentVol": 3.7},
      "ibu": { "min": 15, "max": 25},
      "colorVal": { "minSRM": 3, "maxSRM": 6,"minEBC": 6, "maxEBC": 12}
@@ -1306,7 +1306,7 @@
      "ferm_character":"A cool ale fermentation is typically used. Extensive aging and acidiﬁcation of this beer can mask malt and hop character to varying degrees. Aging in barrels may contribute some level of Brettanomyces and lactic character.",
      "body":"Medium to full",
      "og": { "minGravity": 1.070, "maxGravity": 1.090,"minPlato": 17.1, "maxPlato": 21.6},
-     "sg": { "minGravity": 1.010, "maxGravity": 1.020,"minPlato": 2.6, "maxPlato": 5.1},
+     "fg": { "minGravity": 1.010, "maxGravity": 1.020,"minPlato": 2.6, "maxPlato": 5.1},
      "alc": { "minPercentWeight": 7.1, "maxPercentWeight": 8.7,"minPercentVol": 9.0, "maxPercentVol": 11.0},
      "ibu": { "min": 30, "max": 50},
      "colorVal": { "minSRM": 15, "maxSRM": 35,"minEBC": 30, "maxEBC": 70}
@@ -1322,7 +1322,7 @@
      "ferm_character":"Esters may be present at low levels. Diacetyl is usually absent in these beers but may be present at very low levels. Acidity and sweet corn-like DMS should not be present.",
      "body":"Low to medium",
      "og": { "minGravity": 1.050, "maxGravity": 1.080,"minPlato": 12.4, "maxPlato": 19.3},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.015,"minPlato": 1.5, "maxPlato": 3.7},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.015,"minPlato": 1.5, "maxPlato": 3.7},
      "alc": { "minPercentWeight": 3.8, "maxPercentWeight": 6.3,"minPercentVol": 4.7, "maxPercentVol": 7.9},
      "ibu": { "min": 25, "max": 35},
      "colorVal": { "minSRM": 5, "maxSRM": 12.5,"minEBC": 10, "maxEBC": 25}
@@ -1338,7 +1338,7 @@
      "ferm_character":"Fruity esters are low to high. Diacetyl is usually absent in these beers but may be present at very low levels. DMS should not be present.",
      "body":"Low to medium",
      "og": { "minGravity": 1.040, "maxGravity": 1.060,"minPlato": 10, "maxPlato": 14.7},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.014,"minPlato": 1.5, "maxPlato": 3.6},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.014,"minPlato": 1.5, "maxPlato": 3.6},
      "alc": { "minPercentWeight": 3.5, "maxPercentWeight": 5.2,"minPercentVol": 4.4, "maxPercentVol": 6.6},
      "ibu": { "min": 20, "max": 42},
      "colorVal": { "minSRM": 5, "maxSRM": 12,"minEBC": 10, "maxEBC": 24}
@@ -1354,7 +1354,7 @@
      "ferm_character":"Perceivable fruity esters should be present, and are a defining character of this beer style, balanced by low to medium hop aroma. Overall flavor impression is mild. Clean yeasty, bready character may be present. Yeast in suspension if present may impact overall perception of bitterness. Diacetyl is usually absent in these beers but may be present at very low levels. DMS should not be present.",
      "body":"Low to medium with a dry finish",
      "og": { "minGravity": 1.040, "maxGravity": 1.052,"minPlato": 10, "maxPlato": 13},
-     "sg": { "minGravity": 1.004, "maxGravity": 1.010,"minPlato": 1, "maxPlato": 2.5},
+     "fg": { "minGravity": 1.004, "maxGravity": 1.010,"minPlato": 1, "maxPlato": 2.5},
      "alc": { "minPercentWeight": 3.2, "maxPercentWeight": 4.7,"minPercentVol": 4.0, "maxPercentVol": 6.0},
      "ibu": { "min": 15, "max": 35},
      "colorVal": { "minSRM": 3, "maxSRM": 10,"minEBC": 6, "maxEBC": 20}
@@ -1370,7 +1370,7 @@
      "ferm_character":"Very low to low fruity esters are acceptable but not essential.",
      "body":"Low to medium-low with a dry finish",
      "og": { "minGravity": 1.040, "maxGravity": 1.052,"minPlato": 10, "maxPlato": 13},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.010,"minPlato": 1.5, "maxPlato": 2.5},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.010,"minPlato": 1.5, "maxPlato": 2.5},
      "alc": { "minPercentWeight": 3.2, "maxPercentWeight": 4.7,"minPercentVol": 4.0, "maxPercentVol": 6.0},
      "ibu": { "min": 15, "max": 40},
      "colorVal": { "minSRM": 3, "maxSRM": 9,"minEBC": 6, "maxEBC": 18}
@@ -1386,7 +1386,7 @@
      "ferm_character":"Low to medium fruity esters are acceptable but not essential.",
      "body":"Medium-low to medium with a dry finish",
      "og": { "minGravity": 1.040, "maxGravity": 1.052,"minPlato": 10, "maxPlato": 13},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.010,"minPlato": 1.5, "maxPlato": 2.5},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.010,"minPlato": 1.5, "maxPlato": 2.5},
      "alc": { "minPercentWeight": 3.2, "maxPercentWeight": 4.7,"minPercentVol": 4.0, "maxPercentVol": 6.0},
      "ibu": { "min": 15, "max": 40},
      "colorVal": { "minSRM": 3, "maxSRM": 9,"minEBC": 6, "maxEBC": 18}
@@ -1402,7 +1402,7 @@
      "ferm_character":"Fruity esters are low to high, acceptable but not essential.",
      "body":"Medium-low to medium with a dry finish",
      "og": { "minGravity": 1.060, "maxGravity": 1.070,"minPlato": 14.7, "maxPlato": 17.1},
-     "sg": { "minGravity": 1.010, "maxGravity": 1.016,"minPlato": 2.5, "maxPlato": 4.1},
+     "fg": { "minGravity": 1.010, "maxGravity": 1.016,"minPlato": 2.5, "maxPlato": 4.1},
      "alc": { "minPercentWeight": 5.0, "maxPercentWeight": 6.0,"minPercentVol": 6.3, "maxPercentVol": 7.5},
      "ibu": { "min": 50, "max": 70},
      "colorVal": { "minSRM": 6, "maxSRM": 12,"minEBC": 12, "maxEBC": 24}
@@ -1418,7 +1418,7 @@
      "ferm_character":"These beers can vary significantly in character. Fruity ester and yeasty aromas are medium to high. Diacetyl should not be present. Bread/bakers’ yeast is traditionally used for fermentation and may produce flavors and aromas of complex alcohols, clove-like phenolics and banana fruitiness.",
      "body":"Medium to full",
      "og": { "minGravity": 1.060, "maxGravity": 1.090,"minPlato": 14.7, "maxPlato": 21.6},
-     "sg": { "minGravity": 1.016, "maxGravity": 1.040,"minPlato": 4, "maxPlato": 10},
+     "fg": { "minGravity": 1.016, "maxGravity": 1.040,"minPlato": 4, "maxPlato": 10},
      "alc": { "minPercentWeight": 5.6, "maxPercentWeight": 6.8,"minPercentVol": 7.0, "maxPercentVol": 8.5},
      "ibu": { "min": 3, "max": 16},
      "colorVal": { "minSRM": 4, "maxSRM": 12,"minEBC": 8, "maxEBC": 24}
@@ -1434,7 +1434,7 @@
      "ferm_character":"Bread/bakers’ yeast is traditionally used for fermentation and contributes to unique character of these beers. Fruity ester and yeasty aromas are medium to high. Diacetyl should not be present.",
      "body":"Medium to full",
      "og": { "minGravity": 1.040, "maxGravity": 1.050,"minPlato": 10, "maxPlato": 12.4},
-     "sg": { "minGravity": 1.010, "maxGravity": 1.014,"minPlato": 2.5, "maxPlato": 3.5},
+     "fg": { "minGravity": 1.010, "maxGravity": 1.014,"minPlato": 2.5, "maxPlato": 3.5},
      "alc": { "minPercentWeight": 4.4, "maxPercentWeight": 5.2,"minPercentVol": 5.5, "maxPercentVol": 6.5},
      "ibu": { "min": 15, "max": 25},
      "colorVal": { "minSRM": 4, "maxSRM": 12,"minEBC": 8, "maxEBC": 24}
@@ -1450,7 +1450,7 @@
      "ferm_character":"Fruity esters may be present as these beers are fermented with ale yeast as opposed to wheat beer yeast. Diacetyl and phenolic aromas and ﬂavors should not be present.",
      "body":"Full",
      "og": { "minGravity": 1.067, "maxGravity": 1.072,"minPlato": 16.5, "maxPlato": 17.5},
-     "sg": { "minGravity": 1.016, "maxGravity": 1.024,"minPlato": 4.5, "maxPlato": 6.1},
+     "fg": { "minGravity": 1.016, "maxGravity": 1.024,"minPlato": 4.5, "maxPlato": 6.1},
      "alc": { "minPercentWeight": 4.8, "maxPercentWeight": 5.6,"minPercentVol": 6.0, "maxPercentVol": 7.0},
      "ibu": { "min": 20, "max": 30},
      "colorVal": { "minSRM": 2, "maxSRM": 40,"minEBC": 4, "maxEBC": 80}
@@ -1466,7 +1466,7 @@
      "ferm_character":"Fruity esters and diacetyl should not be present. Very low levels of sulfur-related compounds are acceptable.",
      "body":"Very low",
      "og": { "minGravity": 1.026, "maxGravity": 1.034,"minPlato": 6.6, "maxPlato": 8.5},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.010,"minPlato": 1.5, "maxPlato": 2.6},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.010,"minPlato": 1.5, "maxPlato": 2.6},
      "alc": { "minPercentWeight": 2.0, "maxPercentWeight": 2.9,"minPercentVol": 2.5, "maxPercentVol": 3.7},
      "ibu": { "min": 16, "max": 24},
      "colorVal": { "minSRM": 2, "maxSRM": 4,"minEBC": 4, "maxEBC": 8}
@@ -1482,7 +1482,7 @@
      "ferm_character":"Fruity-ester and DMS should not be present. These are well attenuated beers.",
      "body":"Low to medium-low",
      "og": { "minGravity": 1.044, "maxGravity": 1.052,"minPlato": 11, "maxPlato": 12.9},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.012,"minPlato": 1.5, "maxPlato": 3.1},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.012,"minPlato": 1.5, "maxPlato": 3.1},
      "alc": { "minPercentWeight": 3.6, "maxPercentWeight": 4.2,"minPercentVol": 4.6, "maxPercentVol": 5.3},
      "ibu": { "min": 25, "max": 50},
      "colorVal": { "minSRM": 3, "maxSRM": 4,"minEBC": 6, "maxEBC": 8}
@@ -1498,7 +1498,7 @@
      "ferm_character":"Very low levels of diacetyl, if present, are characteristic of this style and may accent malt character. Low levels of sulfur compounds may be present. DMS should not be present.",
      "body":"Medium",
      "og": { "minGravity": 1.044, "maxGravity": 1.056,"minPlato": 11, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.014, "maxGravity": 1.018,"minPlato": 3.6, "maxPlato": 4.5},
+     "fg": { "minGravity": 1.014, "maxGravity": 1.018,"minPlato": 3.6, "maxPlato": 4.5},
      "alc": { "minPercentWeight": 3.2, "maxPercentWeight": 4.0,"minPercentVol": 4.1, "maxPercentVol": 5.1},
      "ibu": { "min": 30, "max": 45},
      "colorVal": { "minSRM": 3, "maxSRM": 6,"minEBC": 6, "maxEBC": 12}
@@ -1514,7 +1514,7 @@
      "ferm_character":"Fruity esters, DMS and diacetyl should not be present. A very low level of sulfur attributes may be present in balance with other attributes.",
      "body":"Medium",
      "og": { "minGravity": 1.044, "maxGravity": 1.050,"minPlato": 11, "maxPlato": 12.4},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.012,"minPlato": 2.1, "maxPlato": 3.1},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.012,"minPlato": 2.1, "maxPlato": 3.1},
      "alc": { "minPercentWeight": 3.8, "maxPercentWeight": 4.4,"minPercentVol": 4.8, "maxPercentVol": 5.6},
      "ibu": { "min": 18, "max": 25},
      "colorVal": { "minSRM": 4, "maxSRM": 5.5,"minEBC": 8, "maxEBC": 11}
@@ -1530,7 +1530,7 @@
      "ferm_character":"Fruity esters and diacetyl should not be present.",
      "body":"Medium",
      "og": { "minGravity": 1.048, "maxGravity": 1.057,"minPlato": 11.9, "maxPlato": 14},
-     "sg": { "minGravity": 1.010, "maxGravity": 1.014,"minPlato": 2.6, "maxPlato": 3.6},
+     "fg": { "minGravity": 1.010, "maxGravity": 1.014,"minPlato": 2.6, "maxPlato": 3.6},
      "alc": { "minPercentWeight": 4.0, "maxPercentWeight": 4.8,"minPercentVol": 5.1, "maxPercentVol": 6.1},
      "ibu": { "min": 23, "max": 29},
      "colorVal": { "minSRM": 3, "maxSRM": 6,"minEBC": 6, "maxEBC": 12}
@@ -1546,7 +1546,7 @@
      "ferm_character":"DMS, diacetyl, and fruity esters should not be present.",
      "body":"Medium",
      "og": { "minGravity": 1.046, "maxGravity": 1.056,"minPlato": 11.4, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.012, "maxGravity": 1.018,"minPlato": 3.1, "maxPlato": 4.6},
+     "fg": { "minGravity": 1.012, "maxGravity": 1.018,"minPlato": 3.1, "maxPlato": 4.6},
      "alc": { "minPercentWeight": 3.8, "maxPercentWeight": 4.3,"minPercentVol": 4.8, "maxPercentVol": 5.4},
      "ibu": { "min": 22, "max": 28},
      "colorVal": { "minSRM": 10, "maxSRM": 18,"minEBC": 20, "maxEBC": 36}
@@ -1562,7 +1562,7 @@
      "ferm_character":"DMS, diacetyl, fruity esters and phenolic attributes should not be present.",
      "body":"Medium",
      "og": { "minGravity": 1.046, "maxGravity": 1.056,"minPlato": 11.4, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.010,"minPlato": 2.1, "maxPlato": 2.6},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.010,"minPlato": 2.1, "maxPlato": 2.6},
      "alc": { "minPercentWeight": 3.8, "maxPercentWeight": 4.4,"minPercentVol": 4.8, "maxPercentVol": 5.6},
      "ibu": { "min": 20, "max": 28},
      "colorVal": { "minSRM": 13, "maxSRM": 23,"minEBC": 26, "maxEBC": 46}
@@ -1578,7 +1578,7 @@
      "ferm_character":"Fruity esters and diacetyl should not be present",
      "body":"Medium",
      "og": { "minGravity": 1.050, "maxGravity": 1.060,"minPlato": 12.4, "maxPlato": 14.7},
-     "sg": { "minGravity": 1.012, "maxGravity": 1.020,"minPlato": 3.1, "maxPlato": 5.1},
+     "fg": { "minGravity": 1.012, "maxGravity": 1.020,"minPlato": 3.1, "maxPlato": 5.1},
      "alc": { "minPercentWeight": 4.0, "maxPercentWeight": 4.7,"minPercentVol": 5.1, "maxPercentVol": 6.0},
      "ibu": { "min": 18, "max": 25},
      "colorVal": { "minSRM": 4, "maxSRM": 15,"minEBC": 8, "maxEBC": 30}
@@ -1594,7 +1594,7 @@
      "ferm_character":"Fruity esters and diacetyl should not be present",
      "body":"Medium",
      "og": { "minGravity": 1.048, "maxGravity": 1.056,"minPlato": 11.9, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.010, "maxGravity": 1.014,"minPlato": 2.6, "maxPlato": 3.6},
+     "fg": { "minGravity": 1.010, "maxGravity": 1.014,"minPlato": 2.6, "maxPlato": 3.6},
      "alc": { "minPercentWeight": 4.0, "maxPercentWeight": 4.8,"minPercentVol": 5.1, "maxPercentVol": 6.1},
      "ibu": { "min": 23, "max": 29},
      "colorVal": { "minSRM": 3, "maxSRM": 5,"minEBC": 6, "maxEBC": 10}
@@ -1610,7 +1610,7 @@
      "ferm_character":"Fruity esters and diacetyl should not be present",
      "body":"Low to medium-low",
      "og": { "minGravity": 1.048, "maxGravity": 1.056,"minPlato": 11.9, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.014, "maxGravity": 1.018,"minPlato": 3.6, "maxPlato": 4.6},
+     "fg": { "minGravity": 1.014, "maxGravity": 1.018,"minPlato": 3.6, "maxPlato": 4.6},
      "alc": { "minPercentWeight": 3.8, "maxPercentWeight": 4.2,"minPercentVol": 4.8, "maxPercentVol": 5.3},
      "ibu": { "min": 16, "max": 25},
      "colorVal": { "minSRM": 15, "maxSRM": 17,"minEBC": 30, "maxEBC": 34}
@@ -1626,7 +1626,7 @@
      "ferm_character":"Fruity esters and diacetyl should not be present.",
      "body":"Low to medium-low",
      "og": { "minGravity": 1.048, "maxGravity": 1.056,"minPlato": 11.9, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.014, "maxGravity": 1.018,"minPlato": 3.6, "maxPlato": 4.6},
+     "fg": { "minGravity": 1.014, "maxGravity": 1.018,"minPlato": 3.6, "maxPlato": 4.6},
      "alc": { "minPercentWeight": 3.8, "maxPercentWeight": 4.2,"minPercentVol": 4.8, "maxPercentVol": 5.3},
      "ibu": { "min": 20, "max": 35},
      "colorVal": { "minSRM": 15, "maxSRM": 24,"minEBC": 30, "maxEBC": 48}
@@ -1642,7 +1642,7 @@
      "ferm_character":"Fruity esters and diacetyl should not be present.",
      "body":"Low to medium-low",
      "og": { "minGravity": 1.044, "maxGravity": 1.052,"minPlato": 11, "maxPlato": 12.9},
-     "sg": { "minGravity": 1.010, "maxGravity": 1.016,"minPlato": 2.6, "maxPlato": 4.1},
+     "fg": { "minGravity": 1.010, "maxGravity": 1.016,"minPlato": 2.6, "maxPlato": 4.1},
      "alc": { "minPercentWeight": 3.0, "maxPercentWeight": 3.9,"minPercentVol": 3.8, "maxPercentVol": 4.9},
      "ibu": { "min": 22, "max": 30},
      "colorVal": { "minSRM": 25, "maxSRM": 40,"minEBC": 50, "maxEBC": 80}
@@ -1658,7 +1658,7 @@
      "ferm_character":"Fruity esters and diacetyl should not be present. Very low levels of sulfur-related compounds are acceptable.",
      "body":"Medium",
      "og": { "minGravity": 1.044, "maxGravity": 1.050,"minPlato": 11, "maxPlato": 12.4},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.012,"minPlato": 2.1, "maxPlato": 3.1},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.012,"minPlato": 2.1, "maxPlato": 3.1},
      "alc": { "minPercentWeight": 3.8, "maxPercentWeight": 4.4,"minPercentVol": 4.8, "maxPercentVol": 5.6},
      "ibu": { "min": 18, "max": 25},
      "colorVal": { "minSRM": 4, "maxSRM": 5.5,"minEBC": 8, "maxEBC": 11}
@@ -1674,7 +1674,7 @@
      "ferm_character":"Fruity esters and diacetyl should not be present",
      "body":"Full",
      "og": { "minGravity": 1.050, "maxGravity": 1.060,"minPlato": 12.4, "maxPlato": 14.7},
-     "sg": { "minGravity": 1.012, "maxGravity": 1.020,"minPlato": 3.1, "maxPlato": 5.1},
+     "fg": { "minGravity": 1.012, "maxGravity": 1.020,"minPlato": 3.1, "maxPlato": 5.1},
      "alc": { "minPercentWeight": 4.0, "maxPercentWeight": 4.7,"minPercentVol": 5.1, "maxPercentVol": 6.0},
      "ibu": { "min": 18, "max": 25},
      "colorVal": { "minSRM": 4, "maxSRM": 15,"minEBC": 8, "maxEBC": 30}
@@ -1690,7 +1690,7 @@
      "ferm_character":"Fruity esters are usually absent, but if present should be very low. Diacetyl should not be present.",
      "body":"Medium to full",
      "og": { "minGravity": 1.066, "maxGravity": 1.074,"minPlato": 16.1, "maxPlato": 18},
-     "sg": { "minGravity": 1.018, "maxGravity": 1.024,"minPlato": 4.6, "maxPlato": 6.1},
+     "fg": { "minGravity": 1.018, "maxGravity": 1.024,"minPlato": 4.6, "maxPlato": 6.1},
      "alc": { "minPercentWeight": 5.0, "maxPercentWeight": 6.0,"minPercentVol": 6.3, "maxPercentVol": 7.6},
      "ibu": { "min": 20, "max": 30},
      "colorVal": { "minSRM": 20, "maxSRM": 30,"minEBC": 40, "maxEBC": 60}
@@ -1706,7 +1706,7 @@
      "ferm_character":"Fruity esters, if present, should be low. Diacetyl should not be present.",
      "body":"Medium to full",
      "og": { "minGravity": 1.066, "maxGravity": 1.074,"minPlato": 16.1, "maxPlato": 18},
-     "sg": { "minGravity": 1.012, "maxGravity": 1.020,"minPlato": 3.1, "maxPlato": 5.1},
+     "fg": { "minGravity": 1.012, "maxGravity": 1.020,"minPlato": 3.1, "maxPlato": 5.1},
      "alc": { "minPercentWeight": 5.0, "maxPercentWeight": 6.4,"minPercentVol": 6.3, "maxPercentVol": 8.1},
      "ibu": { "min": 20, "max": 38},
      "colorVal": { "minSRM": 4, "maxSRM": 9,"minEBC": 8, "maxEBC": 18}
@@ -1722,7 +1722,7 @@
      "ferm_character":"Fruity esters if present should be minimal. Diacetyl should not be present.",
      "body":"Medium to full",
      "og": { "minGravity": 1.066, "maxGravity": 1.074,"minPlato": 16.1, "maxPlato": 18},
-     "sg": { "minGravity": 1.018, "maxGravity": 1.024,"minPlato": 4.6, "maxPlato": 6.1},
+     "fg": { "minGravity": 1.018, "maxGravity": 1.024,"minPlato": 4.6, "maxPlato": 6.1},
      "alc": { "minPercentWeight": 5.0, "maxPercentWeight": 6.0,"minPercentVol": 6.3, "maxPercentVol": 7.6},
      "ibu": { "min": 20, "max": 30},
      "colorVal": { "minSRM": 20, "maxSRM": 30,"minEBC": 40, "maxEBC": 60}
@@ -1738,7 +1738,7 @@
      "ferm_character":"Alcoholic strength is high. Fruity esters are commonly perceived at low to moderate levels. Diacetyl should not be present.",
      "body":"Full",
      "og": { "minGravity": 1.074, "maxGravity": 1.080,"minPlato": 18, "maxPlato": 19.3},
-     "sg": { "minGravity": 1.014, "maxGravity": 1.020,"minPlato": 3.6, "maxPlato": 5.1},
+     "fg": { "minGravity": 1.014, "maxGravity": 1.020,"minPlato": 3.6, "maxPlato": 5.1},
      "alc": { "minPercentWeight": 5.2, "maxPercentWeight": 6.2,"minPercentVol": 6.6, "maxPercentVol": 7.9},
      "ibu": { "min": 17, "max": 27},
      "colorVal": { "minSRM": 12, "maxSRM": 30,"minEBC": 24, "maxEBC": 60}
@@ -1754,7 +1754,7 @@
      "ferm_character":"Alcohol may be present in aroma. Fruity esters may be evident, but not overpowering. Diacetyl should not be present. Alcoholic strength is very high.",
      "body":"Very full",
      "og": { "minGravity": 1.074, "maxGravity": 1.116,"minPlato": 18, "maxPlato": 27.2},
-     "sg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
+     "fg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
      "alc": { "minPercentWeight": 6.8, "maxPercentWeight": 11.3,"minPercentVol": 8.6, "maxPercentVol": 14.3},
      "ibu": { "min": 26, "max": 33},
      "colorVal": { "minSRM": 15, "maxSRM": 50,"minEBC": 30, "maxEBC": 100}
@@ -1770,7 +1770,7 @@
      "ferm_character":"Fruity esters are usually absent, but may be present at very low levels. Diacetyl should not be present.",
      "body":"Low",
      "og": { "minGravity": 1.040, "maxGravity": 1.048,"minPlato": 10, "maxPlato": 11.9},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.012,"minPlato": 1.5, "maxPlato": 3},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.012,"minPlato": 1.5, "maxPlato": 3},
      "alc": { "minPercentWeight": 3.2, "maxPercentWeight": 4.0,"minPercentVol": 4.1, "maxPercentVol": 5.1},
      "ibu": { "min": 5, "max": 15},
      "colorVal": { "minSRM": 2, "maxSRM": 4,"minEBC": 4, "maxEBC": 8}
@@ -1786,7 +1786,7 @@
      "ferm_character":"Fruity esters are usually absent but may be present at very low levels. Diacetyl should not be present.",
      "body":"Low",
      "og": { "minGravity": 1.040, "maxGravity": 1.048,"minPlato": 10, "maxPlato": 11.9},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.012,"minPlato": 1.5, "maxPlato": 3},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.012,"minPlato": 1.5, "maxPlato": 3},
      "alc": { "minPercentWeight": 3.2, "maxPercentWeight": 4.0,"minPercentVol": 4.1, "maxPercentVol": 5.1},
      "ibu": { "min": 5, "max": 16},
      "colorVal": { "minSRM": 2, "maxSRM": 4,"minEBC": 4, "maxEBC": 8}
@@ -1802,7 +1802,7 @@
      "ferm_character":"Fruity esters are usually absent but may be present at very low levels. Diacetyl should not be present. These beers are characterized by an extremely high degree of attenuation. Final gravity is often less than 1.000 (0.0 ºPlato).",
      "body":"Low with dry mouthfeel",
      "og": { "minGravity": 1.024, "maxGravity": 1.040,"minPlato": 6.1, "maxPlato": 10},
-     "sg": { "minGravity": 0.992, "maxGravity": 1.008,"minPlato": -2.1, "maxPlato": 2.1},
+     "fg": { "minGravity": 0.992, "maxGravity": 1.008,"minPlato": -2.1, "maxPlato": 2.1},
      "alc": { "minPercentWeight": 2.8, "maxPercentWeight": 3.5,"minPercentVol": 3.5, "maxPercentVol": 4.4},
      "ibu": { "min": 4, "max": 10},
      "colorVal": { "minSRM": 1.5, "maxSRM": 4,"minEBC": 3, "maxEBC": 8}
@@ -1818,7 +1818,7 @@
      "ferm_character":"Fruity esters are usually absent but may be present at very low levels. Diacetyl should not be present. These beers are characterized by an extremely high degree of attenuation. Final gravity is often less than 1.000 (0.0 ºPlato).",
      "body":"Low to medium-low, often with dry mouthfeel",
      "og": { "minGravity": 1.024, "maxGravity": 1.040,"minPlato": 6.1, "maxPlato": 10},
-     "sg": { "minGravity": 0.992, "maxGravity": 1.008,"minPlato": -2.1, "maxPlato": 2.1},
+     "fg": { "minGravity": 0.992, "maxGravity": 1.008,"minPlato": -2.1, "maxPlato": 2.1},
      "alc": { "minPercentWeight": 2.8, "maxPercentWeight": 3.5,"minPercentVol": 3.5, "maxPercentVol": 4.4},
      "ibu": { "min": 4, "max": 15},
      "colorVal": { "minSRM": 1.5, "maxSRM": 12,"minEBC": 3, "maxEBC": 24}
@@ -1834,7 +1834,7 @@
      "ferm_character":"DMS, fruity esters and diacetyl should not be present.",
      "body":"Medium-low to medium",
      "og": { "minGravity": 1.045, "maxGravity": 1.060,"minPlato": 11.2, "maxPlato": 14.7},
-     "sg": { "minGravity": 1.012, "maxGravity": 1.018,"minPlato": 3.1, "maxPlato": 4.6},
+     "fg": { "minGravity": 1.012, "maxGravity": 1.018,"minPlato": 3.1, "maxPlato": 4.6},
      "alc": { "minPercentWeight": 3.9, "maxPercentWeight": 4.7,"minPercentVol": 4.9, "maxPercentVol": 6.0},
      "ibu": { "min": 25, "max": 40},
      "colorVal": { "minSRM": 3, "maxSRM": 6,"minEBC": 6, "maxEBC": 12}
@@ -1850,7 +1850,7 @@
      "ferm_character":"DMS, fruity esters and diacetyl should not be present.",
      "body":"Medium-low to medium",
      "og": { "minGravity": 1.045, "maxGravity": 1.053,"minPlato": 11.2, "maxPlato": 13},
-     "sg": { "minGravity": 1.010, "maxGravity": 1.018,"minPlato": 2.5, "maxPlato": 4.6},
+     "fg": { "minGravity": 1.010, "maxGravity": 1.018,"minPlato": 2.5, "maxPlato": 4.6},
      "alc": { "minPercentWeight": 3.9, "maxPercentWeight": 4.7,"minPercentVol": 4.9, "maxPercentVol": 6.0},
      "ibu": { "min": 25, "max": 50},
      "colorVal": { "minSRM": 3, "maxSRM": 6,"minEBC": 6, "maxEBC": 12}
@@ -1866,7 +1866,7 @@
      "ferm_character":"Fruity esters, DMS and diacetyl should not be present.",
      "body":"Medium-low to medium",
      "og": { "minGravity": 1.050, "maxGravity": 1.065,"minPlato": 12.4, "maxPlato": 15.9},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.016,"minPlato": 2.1, "maxPlato": 4.1},
      "alc": { "minPercentWeight": 4.4, "maxPercentWeight": 5.6,"minPercentVol": 5.6, "maxPercentVol": 7.0},
      "ibu": { "min": 30, "max": 70},
      "colorVal": { "minSRM": 3, "maxSRM": 6,"minEBC": 6, "maxEBC": 12}
@@ -1882,7 +1882,7 @@
      "ferm_character":"Fruity esters and complex alcohol aromas and ﬂavors are acceptable at low levels. Alcohol should not be solvent-like. Diacetyl should not be present.",
      "body":"Low to medium-low",
      "og": { "minGravity": 1.050, "maxGravity": 1.060,"minPlato": 12.4, "maxPlato": 14.7},
-     "sg": { "minGravity": 1.004, "maxGravity": 1.010,"minPlato": 1, "maxPlato": 2.6},
+     "fg": { "minGravity": 1.004, "maxGravity": 1.010,"minPlato": 1, "maxPlato": 2.6},
      "alc": { "minPercentWeight": 5.0, "maxPercentWeight": 6.0,"minPercentVol": 6.3, "maxPercentVol": 7.6},
      "ibu": { "min": 12, "max": 23},
      "colorVal": { "minSRM": 2, "maxSRM": 6,"minEBC": 4, "maxEBC": 12}
@@ -1898,7 +1898,7 @@
      "ferm_character":"Fruity esters and diacetyl should not be present",
      "body":"Medium",
      "og": { "minGravity": 1.042, "maxGravity": 1.056,"minPlato": 10.5, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.010, "maxGravity": 1.018,"minPlato": 2.6, "maxPlato": 4.6},
+     "fg": { "minGravity": 1.010, "maxGravity": 1.018,"minPlato": 2.6, "maxPlato": 4.6},
      "alc": { "minPercentWeight": 3.8, "maxPercentWeight": 4.3,"minPercentVol": 4.8, "maxPercentVol": 5.4},
      "ibu": { "min": 18, "max": 30},
      "colorVal": { "minSRM": 6, "maxSRM": 14,"minEBC": 12, "maxEBC": 28}
@@ -1914,7 +1914,7 @@
      "ferm_character":"Fruity esters and diacetyl should not be present",
      "body":"Medium",
      "og": { "minGravity": 1.050, "maxGravity": 1.060,"minPlato": 12.4, "maxPlato": 14.7},
-     "sg": { "minGravity": 1.012, "maxGravity": 1.020,"minPlato": 3.1, "maxPlato": 5.1},
+     "fg": { "minGravity": 1.012, "maxGravity": 1.020,"minPlato": 3.1, "maxPlato": 5.1},
      "alc": { "minPercentWeight": 4.0, "maxPercentWeight": 4.7,"minPercentVol": 5.1, "maxPercentVol": 6.0},
      "ibu": { "min": 20, "max": 30},
      "colorVal": { "minSRM": 4, "maxSRM": 15,"minEBC": 8, "maxEBC": 30}
@@ -1930,7 +1930,7 @@
      "ferm_character":"Carbonation is high. Fruity esters, DMS and diacetyl should not be present.",
      "body":"low",
      "og": { "minGravity": 1.040, "maxGravity": 1.050,"minPlato": 10, "maxPlato": 12.4},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.012,"minPlato": 2.1, "maxPlato": 3.1},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.012,"minPlato": 2.1, "maxPlato": 3.1},
      "alc": { "minPercentWeight": 3.2, "maxPercentWeight": 4.4,"minPercentVol": 4.1, "maxPercentVol": 5.6},
      "ibu": { "min": 14, "max": 24},
      "colorVal": { "minSRM": 14, "maxSRM": 25,"minEBC": 28, "maxEBC": 50}
@@ -1946,7 +1946,7 @@
      "ferm_character":"Varies with underlying style",
      "body":"Varies with underlying style",
      "og": { "minGravity": 1.034, "maxGravity": 1.040,"minPlato": 8.5, "maxPlato": 10},
-     "sg": { "minGravity": 1.004, "maxGravity": 1.010,"minPlato": 1, "maxPlato": 2.6},
+     "fg": { "minGravity": 1.004, "maxGravity": 1.010,"minPlato": 1, "maxPlato": 2.6},
      "alc": { "minPercentWeight": 2.8, "maxPercentWeight": 4.0,"minPercentVol": 3.5, "maxPercentVol": 5.0},
      "ibu": { "min": 10, "max": 35},
      "colorVal":{ "minSRM": 2, "maxSRM": null,"minEBC": 4, "maxEBC": null}
@@ -1962,7 +1962,7 @@
      "ferm_character":"Low level fruity esters may be present. Sulfur and DMS are usually absent but may be present at extremely low levels. Diacetyl should not be present.",
      "body":"Low",
      "og": { "minGravity": 1.044, "maxGravity": 1.052,"minPlato": 11, "maxPlato": 12.9},
-     "sg": { "minGravity": 1.004, "maxGravity": 1.010,"minPlato": 1, "maxPlato": 2.6},
+     "fg": { "minGravity": 1.004, "maxGravity": 1.010,"minPlato": 1, "maxPlato": 2.6},
      "alc": { "minPercentWeight": 3.4, "maxPercentWeight": 4.5,"minPercentVol": 4.3, "maxPercentVol": 5.7},
      "ibu": { "min": 10, "max": 22},
      "colorVal": { "minSRM": 2, "maxSRM": 5,"minEBC": 4, "maxEBC": 10}
@@ -1978,7 +1978,7 @@
      "ferm_character":"Fruity esters are low to medium-low. Diacetyl should be absent.",
      "body":"Medium",
      "og": { "minGravity": 1.045, "maxGravity": 1.056,"minPlato": 11.2, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.010, "maxGravity": 1.018,"minPlato": 2.6, "maxPlato": 4.6},
+     "fg": { "minGravity": 1.010, "maxGravity": 1.018,"minPlato": 2.6, "maxPlato": 4.6},
      "alc": { "minPercentWeight": 3.6, "maxPercentWeight": 4.5,"minPercentVol": 4.6, "maxPercentVol": 5.7},
      "ibu": { "min": 35, "max": 45},
      "colorVal": { "minSRM": 8, "maxSRM": 15,"minEBC": 16, "maxEBC": 30}
@@ -1994,7 +1994,7 @@
      "ferm_character":"Low to medium-low fruity esters may be present. Very low levels of DMS, if present, are acceptable. Diacetyl should not be present.",
      "body":"Medium-low to medium with a dry finish enhanced by high carbonation",
      "og": { "minGravity": 1.040, "maxGravity": 1.055,"minPlato": 10, "maxPlato": 13.6},
-     "sg": { "minGravity": 1.010, "maxGravity": 1.018,"minPlato": 2.6, "maxPlato": 4.6},
+     "fg": { "minGravity": 1.010, "maxGravity": 1.018,"minPlato": 2.6, "maxPlato": 4.6},
      "alc": { "minPercentWeight": 3.2, "maxPercentWeight": 4.4,"minPercentVol": 4.0, "maxPercentVol": 5.5},
      "ibu": { "min": 15, "max": 30},
      "colorVal": { "minSRM": 11, "maxSRM": 20,"minEBC": 22, "maxEBC": 40}
@@ -2010,7 +2010,7 @@
      "ferm_character":"Low to medium fruity esters are present. Diacetyl and phenolic, clove-like attributes should not be present. Low to medium yeast character is present in versions served with yeast, in harmony with malt and hop attributes and not sharp.",
      "body":"Very low to medium",
      "og": { "minGravity": 1.036, "maxGravity": 1.056,"minPlato": 9, "maxPlato": 13.8},
-     "sg": { "minGravity": 1.004, "maxGravity": 1.016,"minPlato": 1, "maxPlato": 4.1},
+     "fg": { "minGravity": 1.004, "maxGravity": 1.016,"minPlato": 1, "maxPlato": 4.1},
      "alc": { "minPercentWeight": 2.8, "maxPercentWeight": 4.4,"minPercentVol": 3.5, "maxPercentVol": 5.6},
      "ibu": { "min": 10, "max": 35},
      "colorVal": { "minSRM": 2, "maxSRM": 10,"minEBC": 4, "maxEBC": 20}
@@ -2026,7 +2026,7 @@
      "ferm_character":"Low levels of sulfur and acetaldehyde or other volatiles normally scrubbed during fermentation, if present, can enhance the flavor of these beers. Low fruity esters may be present and may vary slightly from the underlying style due to age and the presence of yeast. Diacetyl is usually absent in these beers but may be present at low levels in keller versions of beer styles which can contain diacetyl when fully aged, such as Bohemian-Style Lager.",
      "body":"Varies depending on underlying style",
      "og": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
-     "sg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
+     "fg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
      "alc": { "minPercentWeight": null, "maxPercentWeight": null,"minPercentVol": null, "maxPercentVol": null},
      "ibu":  { "min": null, "max": null },
      "colorVal": { "minSRM": null, "maxSRM": null,"minEBC": null, "maxEBC": null}
@@ -2042,7 +2042,7 @@
      "ferm_character":"American-Style Fruit Beers are fermented with traditional German, British or American ale or lager yeast. Beers fermented with Belgian-style, German-style Hefeweizen or other South German wheat beer or Berliner-style Weisse yeasts should be categorized elsewhere. Fruit beers exhibiting sourness should be categorized elsewhere. Attributes typical of wild fermentation should not be present.",
      "body":"Varies with style",
      "og": { "minGravity": 1.030, "maxGravity": 1.110,"minPlato": 7.6, "maxPlato": 25.9},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.030,"minPlato": 1.5, "maxPlato": 7.6},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.030,"minPlato": 1.5, "maxPlato": 7.6},
      "alc": { "minPercentWeight": 2.0, "maxPercentWeight": 9.5,"minPercentVol": 2.5, "maxPercentVol": 12.0},
      "ibu": { "min": 5, "max": 70},
      "colorVal": { "minSRM": 5, "maxSRM": 50,"minEBC": 10, "maxEBC": 100}
@@ -2058,7 +2058,7 @@
      "ferm_character":"These beers can be fermented with either ale or lager yeast depending on the underlying wheat beer style. Low fruity esters are typical. Diacetyl should not be present. In versions served with yeast, yeasty aroma and ﬂavor should be low to medium.",
      "body":"Low to medium",
      "og": { "minGravity": 1.030, "maxGravity": 1.110,"minPlato": 7.6, "maxPlato": 25.9},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.030,"minPlato": 1.5, "maxPlato": 7.6},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.030,"minPlato": 1.5, "maxPlato": 7.6},
      "alc": { "minPercentWeight": 2.0, "maxPercentWeight": 9.5,"minPercentVol": 2.5, "maxPercentVol": 12.0},
      "ibu": { "min": 10, "max": 35},
      "colorVal": { "minSRM": 2, "maxSRM": 10,"minEBC": 4, "maxEBC": 20}
@@ -2074,7 +2074,7 @@
      "ferm_character":"Acidic bacterial fermentation attributes may be absent or may be present; if present, such attributes contribute to acidity and enhance fruity balance.",
      "body":"Varies with style",
      "og": { "minGravity": 1.030, "maxGravity": 1.110,"minPlato": 7.6, "maxPlato": 25.9},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.030,"minPlato": 1.5, "maxPlato": 7.6},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.030,"minPlato": 1.5, "maxPlato": 7.6},
      "alc": { "minPercentWeight": 2.0, "maxPercentWeight": 9.5,"minPercentVol": 2.5, "maxPercentVol": 12.0},
      "ibu": { "min": 5, "max": 70},
      "colorVal": { "minSRM": 5, "maxSRM": 50,"minEBC": 10, "maxEBC": 100}
@@ -2090,7 +2090,7 @@
      "ferm_character":"Varies with underlying style",
      "body":"Varies with underlying style",
      "og": { "minGravity": 1.030, "maxGravity": 1.110,"minPlato": 7.6, "maxPlato": 25.9},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.030,"minPlato": 1.5, "maxPlato": 7.6},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.030,"minPlato": 1.5, "maxPlato": 7.6},
      "alc": { "minPercentWeight": 2.0, "maxPercentWeight": 10.5,"minPercentVol": 2.5, "maxPercentVol": 13.3},
      "ibu": { "min": 5, "max": 70},
      "colorVal": { "minSRM": 5, "maxSRM": 50,"minEBC": 10, "maxEBC": 100}
@@ -2106,7 +2106,7 @@
      "ferm_character":"Typical of underlying beer style",
      "body":"Varies with underlying style",
      "og": { "minGravity": 1.030, "maxGravity": 1.110,"minPlato": 7.6, "maxPlato": 25.9},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.030,"minPlato": 1.5, "maxPlato": 7.6},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.030,"minPlato": 1.5, "maxPlato": 7.6},
      "alc": { "minPercentWeight": 2.0, "maxPercentWeight": 9.5,"minPercentVol": 2.5, "maxPercentVol": 12.0},
      "ibu": { "min": 5, "max": 35},
      "colorVal": { "minSRM": 5, "maxSRM": 50,"minEBC": 10, "maxEBC": 100}
@@ -2122,7 +2122,7 @@
      "ferm_character":"Typical of underlying beer style",
      "body":"Varies with underlying style",
      "og": { "minGravity": 1.030, "maxGravity": 1.110,"minPlato": 7.6, "maxPlato": 25.9},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.030,"minPlato": 1.5, "maxPlato": 7.6},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.030,"minPlato": 1.5, "maxPlato": 7.6},
      "alc": { "minPercentWeight": 2.0, "maxPercentWeight": 9.5,"minPercentVol": 2.5, "maxPercentVol": 12.0},
      "ibu": { "min": 5, "max": 35},
      "colorVal": { "minSRM": 5, "maxSRM": 50,"minEBC": 10, "maxEBC": 100}
@@ -2138,7 +2138,7 @@
      "ferm_character":"Typical of underlying beer style. Attributes derived from chocolate or cocoa should be apparent in all such beers, ranging from subtle to intense, and in harmony with the overall flavor profile of the beer.",
      "body":"Varies with underlying style",
      "og": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
-     "sg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
+     "fg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
      "alc":  { "minPercentWeight": null, "maxPercentWeight": null,"minPercentVol": null, "maxPercentVol": null},
      "ibu":  { "min": null, "max": null },
      "colorVal": { "minSRM": null, "maxSRM": null,"minEBC": null, "maxEBC": null}
@@ -2154,7 +2154,7 @@
      "ferm_character":"Typical of underlying style",
      "body":"Reﬂective of the underlying beer style",
      "og": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
-     "sg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
+     "fg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
      "alc":  { "minPercentWeight": null, "maxPercentWeight": null,"minPercentVol": null, "maxPercentVol": null},
      "ibu":  { "min": null, "max": null },
      "colorVal": { "minSRM": null, "maxSRM": null,"minEBC": null, "maxEBC": null}
@@ -2170,7 +2170,7 @@
      "ferm_character":"Chili pepper aroma and ﬂavor attributes should be harmonious with the underlying beer style. Chili pepper character may be expressed as vegetal, spicy and/or hot on the palate.",
      "body":"Representative of underlying style",
      "og": { "minGravity": 1.030, "maxGravity": 1.110,"minPlato": 7.6, "maxPlato": 25.9},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.030,"minPlato": 1.5, "maxPlato": 7.6},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.030,"minPlato": 1.5, "maxPlato": 7.6},
      "alc": { "minPercentWeight": 2.0, "maxPercentWeight": 10.5,"minPercentVol": 2.5, "maxPercentVol": 13.3},
      "ibu": { "min": 5, "max": 70},
      "colorVal": { "minSRM": 5, "maxSRM": 50,"minEBC": 10, "maxEBC": 100}
@@ -2186,7 +2186,7 @@
      "ferm_character":"Aromas and ﬂavors of individual spices may not always be identiﬁable",
      "body":"Varies with underlying style",
      "og": { "minGravity": 1.030, "maxGravity": 1.110,"minPlato": 7.6, "maxPlato": 25.9},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.030,"minPlato": 1.5, "maxPlato": 7.6},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.030,"minPlato": 1.5, "maxPlato": 7.6},
      "alc": { "minPercentWeight": 2.0, "maxPercentWeight": 9.5,"minPercentVol": 2.5, "maxPercentVol": 12.0},
      "ibu": { "min": 5, "max": 40},
      "colorVal": { "minSRM": 5, "maxSRM": 50,"minEBC": 10, "maxEBC": 100}
@@ -2202,7 +2202,7 @@
      "ferm_character":"Specialty Beers are brewed with atypical fermentable sugars, grains and/or starches which contribute to alcohol content. The hallmark of Specialty Beers are the distinctive attributes of these special ingredients, which should be present in the aroma, ﬂavor and overall balance of the beer. Examples could include maple syrup, agave, potatoes, wild rice or any other sources of carbohydrate not commonly used in modern beer styles.  Beers containing wheat are categorized in one of several wheat beer styles. The use of rice or corn would not normally be considered unusual since these adjuncts are commonly used in beer production. However, beers made with rice or corn varieties which imbue highly distinctive flavor attributes might be categorized as Specialty Beers.",
      "body":"Varies with underlying style",
      "og": { "minGravity": 1.030, "maxGravity": 1.140,"minPlato": 7.6, "maxPlato": 32.1},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.030,"minPlato": 1.5, "maxPlato": 7.6},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.030,"minPlato": 1.5, "maxPlato": 7.6},
      "alc":  { "minPercentWeight": 2.0, "maxPercentWeight": 20.0,"minPercentVol": 2.5, "maxPercentVol": 25.0},
      "ibu": { "min": 1, "max": 100},
      "colorVal": { "minSRM": 1, "maxSRM": 100,"minEBC": 2, "maxEBC": 200}
@@ -2218,7 +2218,7 @@
      "ferm_character":"Honey Beers may be brewed to a traditional style or may be experimental. Honey Beers incorporate honey as a fermentable sugar in addition to malted barley. Honey character should be present in aroma and ﬂavor but should not be overpowering.",
      "body":"Varies with underlying style",
      "og": { "minGravity": 1.030, "maxGravity": 1.110,"minPlato": 7.6, "maxPlato": 25.9},
-     "sg": { "minGravity": 1.006, "maxGravity": 1.030,"minPlato": 1.5, "maxPlato": 7.6},
+     "fg": { "minGravity": 1.006, "maxGravity": 1.030,"minPlato": 1.5, "maxPlato": 7.6},
      "alc": { "minPercentWeight": 2.0, "maxPercentWeight": 9.5,"minPercentVol": 2.5, "maxPercentVol": 12.0},
      "ibu": { "min": 1, "max": 100},
      "colorVal": { "minSRM": 1, "maxSRM": 100,"minEBC": 2, "maxEBC": 200}
@@ -2234,7 +2234,7 @@
      "ferm_character":"Low levels of spicy and fruity ester aromas are typical. Yeast-derived aroma and flavor attributes such as clove-like or other phenolics may be present when consistent with underlying beer style. These beers can be fermented with either ale or lager yeast. Diacetyl should not be present. Low to medium yeast aroma may be present in versions packaged with yeast.",
      "body":"Low to medium. Rye can impart textural qualities ranging from dry and crisp to smooth and velvety.",
      "og": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
-     "sg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
+     "fg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
      "alc":  { "minPercentWeight": null, "maxPercentWeight": null,"minPercentVol": null, "maxPercentVol": null},
      "ibu":  { "min": null, "max": null },
      "colorVal": { "minSRM": null, "maxSRM": null,"minEBC": null, "maxEBC": null}
@@ -2250,7 +2250,7 @@
      "ferm_character":"Medium to high fruity esters are present. Acidity resulting from Brettanomyces fermentation results in a complex flavor profile. Brettanomyces character, at low to high levels, should be present and expressed as horsey, goaty, leathery, phenolic, fruity and/or acidic aromas and flavors. Brettanomyces character may or may not be dominant. Acidity from Brettanomyces should be low to medium-low. Cultured yeast strains may be used in the fermentation. Beers fermented with Brettanomyces that do not exhibit attributes typical of Brettanomyces fermentation are categorized elsewhere. Beers in this style should not incorporate bacteria or exhibit a bacteria-derived flavor profile. Diacetyl and DMS should not be present.",
      "body":"Low to high",
      "og": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
-     "sg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
+     "fg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
      "alc":  { "minPercentWeight": null, "maxPercentWeight": null,"minPercentVol": null, "maxPercentVol": null},
      "ibu":  { "min": null, "max": null },
      "colorVal": { "minSRM": null, "maxSRM": null,"minEBC": null, "maxEBC": null}
@@ -2266,7 +2266,7 @@
      "ferm_character":"Medium to high fruity esters are present. Acidity resulting from fermentation with Brettanomyces and/or bacteria results in a complex flavor profile. Brettanomyces character should be present and expressed as horsey, goaty, leathery, phenolic, fruity and/or acidic aromas and flavors. Cultured yeast may be used in the fermentation. Bacteria should be incorporated and in evidence. Bacteria will contribute acidity which may or may not dominate the flavor profile. Diacetyl and DMS should not be present.",
      "body":"Low to high",
      "og": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
-     "sg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
+     "fg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
      "alc":  { "minPercentWeight": null, "maxPercentWeight": null,"minPercentVol": null, "maxPercentVol": null},
      "ibu":  { "min": null, "max": null },
      "colorVal": { "minSRM": null, "maxSRM": null,"minEBC": null, "maxEBC": null}
@@ -2282,7 +2282,7 @@
      "ferm_character":"These beers are brewed with sake yeast or sake (koji) enzymes. The unique byproducts of sake yeast and/or koji enzymes should be distinctive and in harmony with other elements. Sake character may best be described as having mild fruitiness and mild earthiness, with mushroom and/or an umami protein-like character. A high amount of alcohol may be evident.",
      "body":"Varies depending on original gravity. Mouthfeel also varies.",
      "og": { "minGravity": 1.040, "maxGravity": 1.090,"minPlato": 10, "maxPlato": 21.6},
-     "sg": { "minGravity": 1.008, "maxGravity": 1.020,"minPlato": 2.1, "maxPlato": 5},
+     "fg": { "minGravity": 1.008, "maxGravity": 1.020,"minPlato": 2.1, "maxPlato": 5},
      "alc": { "minPercentWeight": 3.4, "maxPercentWeight": 8.2,"minPercentVol": 4.3, "maxPercentVol": 10.2},
      "ibu": { "min": 12, "max": 35},
      "colorVal": { "minSRM": 4, "maxSRM": 20,"minEBC": 8, "maxEBC": 40}
@@ -2298,7 +2298,7 @@
      "ferm_character":"Fruity esters may present at levels consistent with the underlying beer style being made with fresh hops",
      "body":"Varies with underlying style",
      "og": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
-     "sg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
+     "fg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
      "alc":  { "minPercentWeight": null, "maxPercentWeight": null,"minPercentVol": null, "maxPercentVol": null},
      "ibu":  { "min": null, "max": null },
      "colorVal": { "minSRM": null, "maxSRM": null,"minEBC": null, "maxEBC": null}
@@ -2314,7 +2314,7 @@
      "ferm_character":"Typical of underlying style of beer being aged",
      "body":"Varies with underlying style",
      "og": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
-     "sg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
+     "fg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
      "alc":  { "minPercentWeight": null, "maxPercentWeight": null,"minPercentVol": null, "maxPercentVol": null},
      "ibu":  { "min": null, "max": null },
      "colorVal": { "minSRM": null, "maxSRM": null,"minEBC": null, "maxEBC": null}
@@ -2330,7 +2330,7 @@
      "ferm_character":"Typical of underlying style of sour beer being aged",
      "body":"Varies with underlying style",
      "og": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
-     "sg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
+     "fg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
      "alc":  { "minPercentWeight": null, "maxPercentWeight": null,"minPercentVol": null, "maxPercentVol": null},
      "ibu":  { "min": null, "max": null },
      "colorVal": { "minSRM": null, "maxSRM": null,"minEBC": null, "maxEBC": null}
@@ -2346,7 +2346,7 @@
      "ferm_character":"Aged Beers are any beers aged for over one year. A brewer may brew any type of beer of any strength and enhance its character with various aging conditions for an extended time. In general, beers with high hopping rates, roast malt, high alcohol content, and/or complex herbal, smoke or fruit character are the best candidates for aging. Aged Beers may be aged in bottles, cans, kegs or other non-wooden vessels. Aged character may be expressed in mouthfeel, aroma and ﬂavor. Often, aged character is the result of oxidative reactions that either bring individual flavor components into harmony or are unique flavors unto themselves. Sherry-like and fruity flavors often develop during aging, and hop character often changes. No matter what the effect, the overall character should be balanced and without aggressive flavors. The level of change created by aging will vary with the duration of aging and the underlying beer style. Mildly-ﬂavored beers are more likely to develop aggressive and unpleasant oxidation. Positive transformations are more likely to occur in beers with higher levels of hops, malt and/or alcohol.",
      "body":"Varies with underlying style",
      "og": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
-     "sg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
+     "fg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
      "alc":  { "minPercentWeight": null, "maxPercentWeight": null,"minPercentVol": null, "maxPercentVol": null},
      "ibu":  { "min": null, "max": null },
      "colorVal": { "minSRM": null, "maxSRM": null,"minEBC": null, "maxEBC": null}
@@ -2362,7 +2362,7 @@
      "ferm_character":"Will vary widely depending on the nature of the techniques and/or ingredients used to create the beer",
      "body":"May vary widely with ingredients used and brewing process",
      "og": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
-     "sg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
+     "fg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
      "alc":  { "minPercentWeight": null, "maxPercentWeight": null,"minPercentVol": null, "maxPercentVol": null},
      "ibu":  { "min": null, "max": null },
      "colorVal": { "minSRM": null, "maxSRM": null,"minEBC": null, "maxEBC": null}
@@ -2378,7 +2378,7 @@
      "ferm_character":"Fruity esters are low to high and may contribute to an overall highly fruity impression regardless of the presence or absence of fruit(s) used and can contribute to the perception of sweetness and be complementary to the hop profile. Yeast choices can vary widely as can sensory outcomes; very low to low phenolic or other attributes typical of wine, champagne or Brettanomyces yeast strains may be present but are not required. Carbonation can range from average to high, with higher levels often associated with a crisp mouthfeel. Diacetyl and DMS should not be present.",
      "body":"Very low to medium, depending on grist and yeast choice, enzymatic treatment, finishing adjunct(s) and other fermentation parameters. Mouthfeel can vary widely from light to full and from dry to silky.",
      "og": { "minGravity": 1.060, "maxGravity": 1.100,"minPlato": 14.7, "maxPlato": 23.7},
-     "sg": { "minGravity": 0.994, "maxGravity": 1.020,"minPlato": -1.6, "maxPlato": 5.1},
+     "fg": { "minGravity": 0.994, "maxGravity": 1.020,"minPlato": -1.6, "maxPlato": 5.1},
      "alc": { "minPercentWeight": 5.0, "maxPercentWeight": 8.4,"minPercentVol": 6.3, "maxPercentVol": 10.6},
      "ibu": { "min": 30, "max": 100},
      "colorVal": { "minSRM": 3, "maxSRM": 40,"minEBC": 6, "maxEBC": 80}
@@ -2394,7 +2394,7 @@
      "ferm_character":"Varies with underlying style",
      "body":"Varies with underlying style",
      "og": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
-     "sg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
+     "fg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
      "alc":  { "minPercentWeight": null, "maxPercentWeight": null,"minPercentVol": null, "maxPercentVol": null},
      "ibu":  { "min": null, "max": null },
      "colorVal": { "minSRM": null, "maxSRM": null,"minEBC": null, "maxEBC": null}
@@ -2410,7 +2410,7 @@
      "ferm_character":"Aromas may vary significantly due to fermentation attributes contributed by various known and unknown microorganisms. The overall balance should be complex and balanced. Wild beers are spontaneously fermented with microorganisms that the brewer has introduced from the ambient air/environment near the brewery in which the beer is brewed. Wild Beers may not be fermented with any cultured strains of yeast or bacteria. Wild Beers may or may not be perceived as acidic. They may include a highly-variable spectrum of ﬂavors and aromas derived from the wild microorganisms with which they are fermented. The overall balance of ﬂavors, aromas, appearance and body are important factors in assessing these beers.",
      "body":"Very low to medium",
      "og": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
-     "sg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
+     "fg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
      "alc":  { "minPercentWeight": null, "maxPercentWeight": null,"minPercentVol": null, "maxPercentVol": null},
      "ibu":  { "min": null, "max": null },
      "colorVal": { "minSRM": null, "maxSRM": null,"minEBC": null, "maxEBC": null}
@@ -2426,7 +2426,7 @@
      "ferm_character":"For Smoke Beers based on lager styles, any phenolic notes (if present) should be derived from smoke; in such lagers yeast-derived phenolics should not be present.",
      "body":"Varies with underlying beer style",
      "og": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
-     "sg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
+     "fg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
      "alc":  { "minPercentWeight": null, "maxPercentWeight": null,"minPercentVol": null, "maxPercentVol": null},
      "ibu":  { "min": null, "max": null },
      "colorVal": { "minSRM": null, "maxSRM": null,"minEBC": null, "maxEBC": null}
@@ -2442,7 +2442,7 @@
      "ferm_character":"Within the framework of these guidelines, beers of any style intentionally brewed to a higher alcohol content than defined within that style’s guidelines are categorized as Other Strong Beer. These beers should achieve a balance between the style&#8217;s characteristics and the additional alcohol, and are not wood- or barrel-aged. All Wood- and Barrel-Aged Beers that meet the criteria for alcohol content shown below are categorized as any of several Wood- and Barrel-Aged Beers.",
      "body":"Varies with underlying style",
      "og": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
-     "sg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
+     "fg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
      "alc": { "minPercentWeight": 6.4, "maxPercentWeight": null,"minPercentVol": 8, "maxPercentVol": null},
      "ibu":  { "min": null, "max": null },
      "colorVal": { "minSRM": null, "maxSRM": null,"minEBC": null, "maxEBC": null}
@@ -2458,7 +2458,7 @@
      "ferm_character":"Although brewers may design and identify these beers according to defined style guidelines, these beers should be evaluated on their own merits without strict adherence to defined style parameters.",
      "body":"Varies with underlying style",
      "og": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
-     "sg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
+     "fg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
      "alc":  { "minPercentWeight": null, "maxPercentWeight": null,"minPercentVol": null, "maxPercentVol": null},
      "ibu":  { "min": null, "max": null },
      "colorVal": { "minSRM": null, "maxSRM": null,"minEBC": null, "maxEBC": null}
@@ -2474,7 +2474,7 @@
      "ferm_character":"Non-alcohol (N/A) malt beverages can emulate the character of any beer style defined within these guidelines but without alcohol  (less than 0.5 percent abv). Due to their nature, non-alcohol malt beverages will have a proﬁle lacking the complexity and balance of ﬂavors that beers containing alcohol will display. N/A beers should be assessed with this is mind, and should not be given negative evaluations for reasons related to the absence of alcohol.",
      "body":"Varies with underlying style",
      "og": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
-     "sg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
+     "fg": { "minGravity": null, "maxGravity": null,"minPlato": null, "maxPlato": null},
      "alc": { "minPercentWeight": null, "maxPercentWeight": 0.4,"minPercentVol": null, "maxPercentVol": 0.5},
      "ibu":  { "min": null, "max": null },
      "colorVal": { "minSRM": null, "maxSRM": null,"minEBC": null, "maxEBC": null}

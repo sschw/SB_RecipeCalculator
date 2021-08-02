@@ -112,7 +112,7 @@ export default function ShowRecipe(props) {
               Recipe for {beer.water.finalVolume}L &nbsp;&nbsp; 
             </Typography>
             <Typography sx={{ marginBottom: 2 }} variant="subtitle2" align="center" gutterBottom component="div">
-              OG: {beer.recipe.og}°P &nbsp;&nbsp; FG: {beer.recipe.sg}°P &nbsp;&nbsp; ALC: {beer.recipe.alc}%vol &nbsp;&nbsp; EBC: {beer.recipe.ebc} &nbsp;&nbsp; IBU: {beer.recipe.ibu}
+              OG: {beer.recipe.og}°P &nbsp;&nbsp; FG: {beer.recipe.fg}°P &nbsp;&nbsp; ALC: {beer.recipe.alc}%vol &nbsp;&nbsp; EBC: {beer.recipe.ebc} &nbsp;&nbsp; IBU: {beer.recipe.ibu}
             </Typography>
           </Grid>
           <Grid item xs={2} md={2} lg={2}>

@@ -54,12 +54,12 @@ export function usGal2litre(g) {
 
 // Note: using waterVolume pre-boil will give the pre-boil gravity
 export function potentials2og(malt, waterVolume, maltyield) {
-  return Math.round(malt.reduce((pv, v) => pv+(v.potentials-1)*1000 * v.amount, 0)*maltyield/waterVolume)/1000+1
+  return Math.round(malt.reduce((pv, v) => pv+(v.potential-1)*1000 * gramm2Pounds(v.amount), 0)*maltyield/litre2USGal(waterVolume))/1000+1
 }
 
 // morey equation
 export function maltebc2beerebc(malt, waterVolume) {
-  return 1.4922*(malt.reduce((pv, v) => pv+srm2Lovibond(v.color.srm) * gramm2Pounds(v.amount) / litre2USGal(waterVolume), 0)**0.6859)
+  return Math.round(1.4922*(malt.reduce((pv, v) => pv+srm2Lovibond(v.color.srm) * gramm2Pounds(v.amount) / litre2USGal(waterVolume), 0)**0.6859))
 }
 
 export function og2fg(og, yeastAttenuation) {

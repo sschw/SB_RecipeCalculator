@@ -9,20 +9,20 @@ export const beerRecipe = () => {return {
       maltYield: 0.68,                             // Default is 68%
 
       og: null,
-      sg: null,
+      fg: null,
       ibu: null,
       alc: null,
       ebc: null,
       beertype: {
         name: null,
         og: { minGravity: null, maxGravity: null,minPlato: null, maxPlato: null},
-        sg: { minGravity: null, maxGravity: null,minPlato: null, maxPlato: null},
+        fg: { minGravity: null, maxGravity: null,minPlato: null, maxPlato: null},
         alc: { minPercentWeight: null, maxPercentWeight: null,minPercentVol: null, maxPercentVol: null},
         colorVal: { minSRM: null, maxSRM: null,minEBC: null, maxEBC: null},
         ibu:  { min: null, max: null }
       }
     },
-    water: { mashWaterVolume: 0, spargeWaterVolume: 0, finalVolume: 0 },
+    water: { mashWaterVolume: 17, spargeWaterVolume: 13, finalVolume: 20 },
     malt: [],
     mashSteps: [{key: "mash0", temp: 57, dur: 0, type: 0, descr: "" }],
     hops: [],
@@ -30,7 +30,7 @@ export const beerRecipe = () => {return {
   }
 }
 
-export const malt = (key) => {return {key: key, name: "", color: {srm: 0, ebc: 0}, potential: 0, amount: 0}}
+export const malt = (key) => {return {key: key, name: "", color: {srm: 0, ebc: 0}, potential: 1, amount: 0}}
 
 export const hop = (key) => {return {key: key, name: "", alpha: 0, oil: 0, amount: 0, type: 1, duration: 0}}
 
