@@ -77,6 +77,7 @@ function Malt(props) {
   }, []);
 
   let children = []
+  rows.sort((a, b) => a.amount < b.amount);
   rows.forEach((row, index) => {
     children.push(<SingleMalt malt={row} rowID={index} maltList={state} dispatch={dispatch} key={row.key} />)
   });

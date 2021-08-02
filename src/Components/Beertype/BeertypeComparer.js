@@ -79,7 +79,7 @@ function alctext(value) {
 }
 
 function platotext(value) {
-  return `${Math.round(value*100)/100}°Plato`;
+  return `${Math.round(value*10)/10}°Plato`;
 }
 
 function ibutext(value) {

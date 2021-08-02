@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-import { Autocomplete, IconButton, InputLabel, MenuItem, Paper, Select, Table, TableBody, TableContainer, TableHead, TextField } from '@material-ui/core';
+import { Autocomplete, Grid, IconButton, InputLabel, MenuItem, Paper, Select, Table, TableBody, TableContainer, TableHead, TextField } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import *  as Model from '../../Model';
-import { GrammInput, MinuteInput } from '../../Utils/NumberInput';
+import { DecimalPercentInput, GrammInput, MinuteInput, PercentInput } from '../../Utils/NumberInput';
 
 function Hop(props) {
   const dispatch = props.dispatch
@@ -30,7 +30,7 @@ function Hop(props) {
         />
       </TableCell>
       <TableCell align="center">
-        <TextField label="Alpha" fullWidth variant="standard" size="small" value={props.hop.alpha} onChange={(event) => updateHops("alpha", event.target.valueAsNumber)} type="number" />
+        <TextField label="Alpha" fullWidth variant="standard" size="small" value={props.hop.alpha.toString()} InputProps={{ inputComponent: DecimalPercentInput }} InputLabelProps={{ shrink: true }}  onChange={(event) => updateHops("alpha", event.floatValue)} />
       </TableCell>
       <TableCell align="center">
         <TextField label="Oil" fullWidth variant="standard" size="small" value={props.hop.oil} onChange={(event) => updateHops("oil", event.target.valueAsNumber)} type="number" />
@@ -52,6 +52,7 @@ function Hop(props) {
         <TextField label="Duration" disabled={props.hop.type !== 1} InputProps={{ inputComponent: MinuteInput }} InputLabelProps={{ shrink: true }} size="small" fullWidth variant="standard" value={props.hop.duration.toString()} onChange={(event) => updateHops("duration", event.floatValue)} />
       </TableCell>
       <TableCell align="center">
+        {props.hop.type < 2 ? "IBU: " + props.hop.ibu : "Oil: " + props.hop.oilTotal }
       </TableCell>
       <TableCell align="right">
         <IconButton disabled={rowId < 0} aria-label="delete" onClick={() => {dispatch({type: "deleteHop", rowId: rowId});}}>
@@ -76,7 +77,15 @@ function Hops(props) {
 
   return (
     <div>
-      <h3>Hop</h3>
+      <Grid container>
+        <Grid item lg={2} md={2} sm={12} xs={12} ></Grid>
+        <Grid item lg={8} md={8} sm={12} xs={12} >
+          <h3>Hop</h3>
+        </Grid>
+        <Grid item lg={2} md={2} sm={12} xs={12}>
+        <TextField label="Cooking Duration" InputProps={{ inputComponent: MinuteInput }} InputLabelProps={{ shrink: true }} size="small" fullWidth variant="standard" value={props.cookingDuration.toString()} onChange={(event) => dispatch({type: "duration", value: event.floatValue})} />
+        </Grid>
+      </Grid>
       <TableContainer component={Paper}>
         <Table size="small" aria-label="hop table">
           <TableHead>

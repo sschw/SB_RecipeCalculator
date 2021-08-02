@@ -4,6 +4,7 @@ import logo from '../../logo.svg';
 import * as Model from '../../Model';
 import html2pdf from 'html2pdf.js';
 import { renderToString } from 'react-dom/server';
+import { sg2plato } from '../../Utils/Formulas';
 
 export default async function print(beer) {
   await html2pdf().from(renderToString(ShowRecipeHeader({beer}))).set({html2canvas:  { scale: 4 }}).toImg().get('img').then(async img => {
@@ -37,7 +38,7 @@ function ShowRecipeHeader(props) {
               Recipe for {beer.water.finalVolume}L &nbsp;&nbsp; 
             </Typography>
             <Typography variant="subtitle2" align="center" gutterBottom component="div">
-              Volume: {beer.water.finalVolume}L &nbsp;&nbsp; OG: {beer.recipe.og}°P &nbsp;&nbsp; FG: {beer.recipe.fg}°P &nbsp;&nbsp; ALC: {beer.recipe.alc}%vol &nbsp;&nbsp; EBC: {beer.recipe.ebc} &nbsp;&nbsp; IBU: {beer.recipe.ibu}
+              OG: {Math.round(sg2plato(beer.recipe.og)*10)/10}°P &nbsp;&nbsp; FG: {Math.round(sg2plato(beer.recipe.fg)*10)/10}°P &nbsp;&nbsp; ALC: {Math.round(beer.recipe.alc*100)/100}%vol &nbsp;&nbsp; EBC: {beer.recipe.ebc} &nbsp;&nbsp; IBU: {beer.recipe.ibu}
             </Typography>
           </Grid>
           <Grid item xs={2} md={2} lg={2}>

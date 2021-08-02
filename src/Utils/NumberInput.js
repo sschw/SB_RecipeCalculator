@@ -50,6 +50,34 @@ PercentInput.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
+export const DecimalPercentInput = React.forwardRef(function NumberFormatCustom(props, ref) {
+  const { value, onChange, ...other } = props;
+
+  return (
+    <NumberFormat
+      {...other}
+      getInputRef={ref}
+      suffix="%"
+      decimalSeparator="."
+      decimalScale={1}
+      fixedDecimalScale={true}
+      className={`text-right ${props.className}`}
+      value={parseFloat(value) * 100}
+      onValueChange={values => {
+        if(values !== undefined)
+          values?.floatValue > 100
+              ? onChange({ floatValue: 1, formattedValue: '1.00', value: '1' })
+              : onChange({ floatValue: values?.floatValue/100, formattedValue: values?.formattedValue, value: values?.value });
+      }}
+    />
+  );
+});
+
+DecimalPercentInput.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
+
 export const GrammInput = React.forwardRef(function NumberFormatCustom(props, ref) {
   const { value, onChange, ...other } = props;
 

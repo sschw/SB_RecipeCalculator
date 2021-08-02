@@ -1,15 +1,7 @@
 import { Autocomplete, Stack, TextField } from '@material-ui/core';
 import React, {useState, useEffect} from 'react';
 import { PercentInput } from '../../Utils/NumberInput'
-
-const emptyRecipe = {
-  name: null,
-  og: { minGravity: null, maxGravity: null,minPlato: null, maxPlato: null},
-  fg: { minGravity: null, maxGravity: null,minPlato: null, maxPlato: null},
-  alc: { minPercentWeight: null, maxPercentWeight: null,minPercentVol: null, maxPercentVol: null},
-  colorVal: { minSRM: null, maxSRM: null,minEBC: null, maxEBC: null},
-  ibu:  { min: null, max: null }
-}
+import * as Model from "../../Model"
 
 function Recipe(props) {
   const recipe = props.recipe
@@ -65,7 +57,7 @@ function Recipe(props) {
           getOptionLabel={(bt) => bt.name}
           renderInput={(params) => <TextField {...params} label="Beertype" />}
           onChange={(event, newValue) => {
-            if(newValue === null) { newValue = emptyRecipe }
+            if(newValue === null) { newValue = Model.recipe() }
             updateRecipe("beertype", newValue);
           }}
           onInputChange={(_, newValue) => setInputValue(newValue)} />

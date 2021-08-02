@@ -8,7 +8,9 @@ import * as Model from '../../Model';
 import MashSteps from '../MashSteps/MashSteps';
 import ShowRecipe from './ShowRecipe';
 import printRecipe from './PrintRecipe';
-import { gravities2Abv, maltebc2beerebc, og2fg, potentials2og } from '../../Utils/Formulas';
+import { gravities2Abv, ibu, maltebc2beerebc, og2fg, potentials2og, tinseth } from '../../Utils/Formulas';
+import Yeast from '../Yeast/Yeast';
+import Water from '../Water/Water';
 
 function changeState(state, action) {
   let updated = false
@@ -17,6 +19,35 @@ function changeState(state, action) {
     case 'recipe':
       if(state.recipe[action.target] !== action.value) {
         state.recipe[action.target] = action.value;
+        return {...state};
+      }
+      return state
+    case 'duration':
+      state.cookingDuration = action.value
+      return {...state}
+    case 'yeast':
+        if(state.yeast[action.target] !== action.value) {
+          state.yeast[action.target] = action.value;
+          state.recipe.fg = state.recipe.og === null ? null : og2fg(state.recipe.og, state.yeast.attenuation)
+          state.recipe.alc = state.recipe.og === null ? null : gravities2Abv(state.recipe.og, state.recipe.fg)
+          return {...state};
+        }
+        return state
+    case 'water':
+      if(state.water[action.target] !== action.value) {
+        state.water[action.target] = action.value;
+        state.recipe.og = potentials2og(state.malt, state.water.finalVolume, state.recipe.maltYield)
+        state.recipe.og = state.recipe.og === 0 || state.recipe.og === 1 ? null : state.recipe.og
+        state.recipe.fg = state.recipe.og === null ? null : og2fg(state.recipe.og, state.yeast.attenuation)
+        state.recipe.alc = state.recipe.og === null ? null : gravities2Abv(state.recipe.og, state.recipe.fg)
+        state.recipe.ebc = maltebc2beerebc(state.malt, state.water.finalVolume)
+        state.recipe.ebc = state.recipe.ebc === 0 ? null : state.recipe.ebc
+        let maltAmount = state.malt.reduce((pv, v) => pv+v.amount/1000, 0)
+        for(let i = 0; i < state.hops.length; i++) {
+          let duration = state.hops[action.rowId].type === 0 ? state.cookingDuration : state.hops[action.rowId].duration
+          state.hops[i].ibu = state.hops[action.rowId] > 1 || state.recipe.og == null ? 0 : Math.round(tinseth(state.recipe.og, state.water.mashWaterVolume+state.water.spargeWaterVolume-state.water.grainLoss*maltAmount, state.water.finalVolume, state.hops[i].alpha, state.hops[i].amount, duration));
+        }
+        state.recipe.ibu = ibu(state.hops);
         return {...state};
       }
       return state
@@ -34,6 +65,10 @@ function changeState(state, action) {
         updated = true
       } else if(state.hops[action.rowId][action.target] !== action.value) {
         state.hops[action.rowId][action.target] = action.value;
+        let maltAmount = state.malt.reduce((pv, v) => pv+v.amount/1000, 0)
+        let duration = state.hops[action.rowId].type === 0 ? state.cookingDuration : state.hops[action.rowId].duration
+        state.hops[action.rowId].ibu = state.hops[action.rowId] > 1 || state.recipe.og == null ? 0 : Math.round(tinseth(state.recipe.og, state.water.mashWaterVolume+state.water.spargeWaterVolume-state.water.grainLoss*maltAmount, state.water.finalVolume, state.hops[action.rowId].alpha, state.hops[action.rowId].amount, duration));
+        state.recipe.ibu = ibu(state.hops);
         updated = true
       }
       if(updated)
@@ -42,6 +77,7 @@ function changeState(state, action) {
     case 'deleteHop':
       array = [...state.hops];
       array.splice(action.rowId, 1);
+      state.recipe.ibu = ibu(array);
       return {...state, hops: array};
     case 'updateMalt':
       if(action.rowId === -1) {
@@ -64,7 +100,6 @@ function changeState(state, action) {
         state.recipe.og = state.recipe.og === 0 || state.recipe.og === 1 ? null : state.recipe.og
         state.recipe.fg = state.recipe.og === null ? null : og2fg(state.recipe.og, state.yeast.attenuation)
         state.recipe.alc = state.recipe.og === null ? null : gravities2Abv(state.recipe.og, state.recipe.fg)
-        state.recipe.alc = state.recipe.alc === 0 ? null : state.recipe.alc
         state.recipe.ebc = maltebc2beerebc(state.malt, state.water.finalVolume)
         state.recipe.ebc = state.recipe.ebc === 0 ? null : state.recipe.ebc
         return {...state};
@@ -73,12 +108,11 @@ function changeState(state, action) {
     case 'deleteMalt':
       array = [...state.malt];
       array.splice(action.rowId, 1);
-      state.recipe.og = potentials2og(state.malt, state.water.finalVolume, state.recipe.maltYield)
+      state.recipe.og = potentials2og(array, state.water.finalVolume, state.recipe.maltYield)
       state.recipe.og = state.recipe.og === 0 || state.recipe.og === 1 ? null : state.recipe.og
       state.recipe.fg = state.recipe.og === null ? null : og2fg(state.recipe.og, state.yeast.attenuation)
       state.recipe.alc = state.recipe.og === null ? null : gravities2Abv(state.recipe.og, state.recipe.fg)
-      state.recipe.alc = state.recipe.alc === 0 ? null : state.recipe.alc
-      state.recipe.ebc = maltebc2beerebc(state.malt, state.water.finalVolume)
+      state.recipe.ebc = maltebc2beerebc(array, state.water.finalVolume)
       state.recipe.ebc = state.recipe.ebc === 0 ? null : state.recipe.ebc
       return {...state, malt: array};
     case 'updateMashStep':
@@ -147,13 +181,7 @@ function Beer(props) {
       <Button sx={{ m: 2 }} variant="contained" onClick={handleOpen}>Print recipe</Button>
       <Grid container spacing={3}>
         <Grid item xs={12} md={8} lg={9}>
-          <Paper
-            sx={{
-              p: 2,
-              display: 'flex',
-              flexDirection: 'column',
-            }}
-          >
+          <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
             <Recipe recipe={state["recipe"]} dispatch={dispatch} />
           </Paper>
         </Grid>
@@ -170,6 +198,11 @@ function Beer(props) {
         </Grid>
         <Grid item xs={12}>
           <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+            <Water water={state["water"]} malt={state["malt"]} cookingDuration={state["cookingDuration"]} dispatch={dispatch} />
+          </Paper>
+        </Grid>
+        <Grid item xs={12}>
+          <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
             <Malt malt={state["malt"]} dispatch={dispatch} />
           </Paper>
         </Grid>
@@ -180,7 +213,12 @@ function Beer(props) {
         </Grid>
         <Grid item xs={12}>
           <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-            <Hops hops={state["hops"]} dispatch={dispatch} />
+            <Hops hops={state["hops"]} cookingDuration={state["cookingDuration"]} dispatch={dispatch} />
+          </Paper>
+        </Grid>
+        <Grid item xs={12}>
+          <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+            <Yeast yeast={state["yeast"]} dispatch={dispatch} />
           </Paper>
         </Grid>
       </Grid>

@@ -76,3 +76,13 @@ export function gravities2Abv(og, fg) {
 export function abv2Abw(abv, fg) {
   return 0.79 * abv / fg
 }
+
+export function tinseth(og, cookVolume, finalVolume, aa, amount, time, maximumUtilizationValue) {
+  var sg = (og - 1.0) * finalVolume / cookVolume;
+  if (maximumUtilizationValue == null) maximumUtilizationValue = 4.15;
+  return 1.65 * Math.pow(0.000125, sg) * ((1 - Math.pow(Math.E, -0.04 * time)) / maximumUtilizationValue) * ((aa * amount * 1000) / finalVolume);
+}
+
+export function ibu(hops) {
+  return hops.reduce((pv, v) => pv+v.ibu, 0)
+}
