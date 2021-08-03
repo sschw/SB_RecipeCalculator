@@ -19,7 +19,7 @@ function MashStep(props) {
   return (
     <TableRow sx={styling}>
       <TableCell align="center">
-        <TextField label="Temperature" InputProps={{ inputComponent: CelsiusInput }} fullWidth variant="standard" size="small" value={props.mashStep.temp} onChange={(event) => updateMashStep("temp", event.floatValue)} />
+        <TextField label="Temperature" InputProps={{ inputComponent: CelsiusInput }} fullWidth variant="standard" size="small" value={props.mashStep.temp.toString()} onChange={(event) => updateMashStep("temp", event.floatValue)} />
       </TableCell>
       <TableCell align="center">
       <TextField label="Duration" disabled={props.mashStep.type === 0} InputProps={{ inputComponent: MinuteInput }} InputLabelProps={{ shrink: true }} size="small" fullWidth variant="standard" value={props.mashStep.dur.toString()} onChange={(event) => updateMashStep("dur", event.floatValue)} />

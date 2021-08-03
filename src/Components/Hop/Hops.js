@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import { Autocomplete, Grid, IconButton, InputLabel, MenuItem, Paper, Select, Table, TableBody, TableContainer, TableHead, TextField } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import *  as Model from '../../Model';
-import { DecimalPercentInput, GrammInput, MinuteInput, PercentInput } from '../../Utils/NumberInput';
+import { DecimalPercentInput, GrammInput, MinuteInput } from '../../Utils/NumberInput';
 
 function Hop(props) {
   const dispatch = props.dispatch
@@ -20,11 +20,20 @@ function Hop(props) {
     <TableRow sx={styling}>
       <TableCell component="th" scope="row">
         <Autocomplete 
-          options={[]}
+          options={props.hopList}
+          getOptionLabel={(bt) => (typeof bt === 'string' || bt instanceof String) ? bt : bt.name}
           renderInput={(params) => <TextField {...params} label="Name" variant="standard" size="small" />} 
           freeSolo 
-          value={props.hop.name} 
-          onChange={(_, newValue) => updateHops("name", newValue == null ? "" : newValue)} 
+          value={props.hop} 
+          onChange={(_, newValue) => {
+            if(newValue == null) {
+              updateHops("name", "")
+            } else if(typeof newValue === 'string' || newValue instanceof String) {
+              updateHops("name", newValue)
+            } else {
+              updateHops(null, {"name": newValue.name, "alpha": (newValue.alpha.min+newValue.alpha.max)/200, "oil": (newValue.oil.min+newValue.oil.max)/2})
+            }
+          }}
           inputValue={inputName} 
           onInputChange={(_, newValue) => setInputName(newValue)} 
         />
@@ -33,7 +42,7 @@ function Hop(props) {
         <TextField label="Alpha" fullWidth variant="standard" size="small" value={props.hop.alpha.toString()} InputProps={{ inputComponent: DecimalPercentInput }} InputLabelProps={{ shrink: true }}  onChange={(event) => updateHops("alpha", event.floatValue)} />
       </TableCell>
       <TableCell align="center">
-        <TextField label="Oil" fullWidth variant="standard" size="small" value={props.hop.oil} onChange={(event) => updateHops("oil", event.target.valueAsNumber)} type="number" />
+        <TextField label="Oil" fullWidth variant="standard" size="small" value={props.hop.oil} inputProps={{step: 0.01}} onChange={(event) => updateHops("oil", event.target.valueAsNumber)} type="number" />
       </TableCell>
       <TableCell align="center">
         <TextField label="Amount" fullWidth variant="standard" size="small" value={props.hop.amount.toString()} InputProps={{ inputComponent: GrammInput }} InputLabelProps={{ shrink: true }} onChange={(event) => updateHops("amount", event.floatValue)} />
@@ -68,12 +77,22 @@ function Hops(props) {
   let rows = props.hops
   let dispatch = props.dispatch
 
+  const [state, setState] = useState({hops: []});
+
+  useEffect(() => {
+    fetch("./sb_hops.json")
+    .then((resp) => resp.json())
+    .then((resp) => {
+      setState({hops: resp});
+    });
+  }, []);
+
   let children = []
   rows.sort((a, b) => a.type > b.type || (a.type === b.type && a.duration < b.duration));
   rows.forEach((row, index) => {
-    children.push(<Hop hop={row} rowID={index} dispatch={dispatch} key={row.key} />)
+    children.push(<Hop hop={row} hopList={state.hops} rowID={index} dispatch={dispatch} key={row.key} />)
   });
-  children.push(<Hop hop={Model.hop("hop"+rows.length)} rowID={-1} dispatch={dispatch} key={"hop"+rows.length} />)
+  children.push(<Hop hop={Model.hop("hop"+rows.length)} hopList={state.hops} rowID={-1} dispatch={dispatch} key={"hop"+rows.length} />)
 
   return (
     <div>
