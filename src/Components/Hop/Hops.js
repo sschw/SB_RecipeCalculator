@@ -24,6 +24,7 @@ function Hop(props) {
           getOptionLabel={(bt) => (typeof bt === 'string' || bt instanceof String) ? bt : bt.name}
           renderInput={(params) => <TextField {...params} label="Name" variant="standard" size="small" />} 
           freeSolo 
+          fullWidth
           value={props.hop} 
           onChange={(_, newValue) => {
             if(newValue == null) {
@@ -31,7 +32,7 @@ function Hop(props) {
             } else if(typeof newValue === 'string' || newValue instanceof String) {
               updateHops("name", newValue)
             } else {
-              updateHops(null, {"name": newValue.name, "alpha": (newValue.alpha.min+newValue.alpha.max)/200, "oil": (newValue.oil.min+newValue.oil.max)/2})
+              updateHops(null, {"name": newValue.name, "alpha": Math.round((newValue.alpha.min+newValue.alpha.max)*5)/1000, "oil": (newValue.oil.min+newValue.oil.max)/2})
             }
           }}
           inputValue={inputName} 
@@ -39,7 +40,7 @@ function Hop(props) {
         />
       </TableCell>
       <TableCell align="center">
-        <TextField label="Alpha" fullWidth variant="standard" size="small" value={props.hop.alpha.toString()} InputProps={{ inputComponent: DecimalPercentInput }} InputLabelProps={{ shrink: true }}  onChange={(event) => updateHops("alpha", event.floatValue)} />
+        <TextField label="Alpha" fullWidth variant="standard" size="small" value={props.hop.alpha.toString()} InputProps={{ inputComponent: DecimalPercentInput }} InputLabelProps={{ shrink: true }}  onChange={(event) => {if(event.floatValue > 0) updateHops("alpha", event.floatValue)}} />
       </TableCell>
       <TableCell align="center">
         <TextField label="Oil" fullWidth variant="standard" size="small" value={props.hop.oil} inputProps={{step: 0.01}} onChange={(event) => updateHops("oil", event.target.valueAsNumber)} type="number" />

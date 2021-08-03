@@ -52,6 +52,7 @@ function changeState(state, action) {
       }
       return state
     case 'updateHop':
+      if(action.rowId >= state.hops.length) return state
       if(action.rowId === -1) {
         action.rowId = state.hops.length
         state.hops.push(Model.hop("hop"+state.hops.length));
@@ -63,16 +64,17 @@ function changeState(state, action) {
             state.hops[action.rowId][key] = value
         }
         updated = true
-      } else if(state.hops[action.rowId][action.target] !== action.value) {
+      } else if(state.hops[action.rowId][action.target] !== action.value  && (isNaN(action.value) || state.hops[action.rowId][action.target] || Math.abs(state.hops[action.rowId][action.target]-action.value) > Number.EPSILON)) {
         state.hops[action.rowId][action.target] = action.value;
+        updated = true
+      }
+      if(updated) {
         let maltAmount = state.malt.reduce((pv, v) => pv+v.amount/1000, 0)
         let duration = state.hops[action.rowId].type === 0 ? state.cookingDuration : state.hops[action.rowId].duration
         state.hops[action.rowId].ibu = state.hops[action.rowId] > 1 || state.recipe.og == null ? 0 : Math.round(tinseth(state.recipe.og, state.water.mashWaterVolume+state.water.spargeWaterVolume-state.water.grainLoss*maltAmount, state.water.finalVolume, state.hops[action.rowId].alpha, state.hops[action.rowId].amount, duration));
         state.recipe.ibu = ibu(state.hops);
-        updated = true
-      }
-      if(updated)
         return {...state};
+      }
       return state
     case 'deleteHop':
       array = [...state.hops];
@@ -80,6 +82,7 @@ function changeState(state, action) {
       state.recipe.ibu = ibu(array);
       return {...state, hops: array};
     case 'updateMalt':
+      if(action.rowId >= state.malt.length) return state
       if(action.rowId === -1) {
         action.rowId = state.malt.length
         state.malt.push(Model.malt("malt"+state.malt.length));
@@ -91,7 +94,7 @@ function changeState(state, action) {
             state.malt[action.rowId][key] = value
         }
         updated = true
-      } else if(state.malt[action.rowId][action.target] !== action.value) {
+      } else if(state.malt[action.rowId][action.target] !== action.value && (isNaN(action.value) || state.malt[action.rowId][action.target] || Math.abs(state.malt[action.rowId][action.target]-action.value) < Number.EPSILON)) {
         state.malt[action.rowId][action.target] = action.value;
         updated = true
       }
