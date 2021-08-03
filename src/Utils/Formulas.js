@@ -92,5 +92,5 @@ export function totOil(hop) {
 }
 
 export function oil(hops) {
-  return hops.reduce((pv, v) => pv+v.totOil, 0)
+  return hops.reduce((pv, v) => pv+v.oilTotal, 0)
 }

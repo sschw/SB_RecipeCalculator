@@ -73,7 +73,7 @@ function changeState(state, action) {
         let duration = state.hops[action.rowId].type === 0 ? state.cookingDuration : state.hops[action.rowId].duration
         state.hops[action.rowId].ibu = state.hops[action.rowId].type > 1 || state.recipe.og == null ? 0 : Math.round(tinseth(state.recipe.og, state.water.mashWaterVolume+state.water.spargeWaterVolume-state.water.grainLoss*maltAmount, state.water.finalVolume, state.hops[action.rowId].alpha, state.hops[action.rowId].amount, duration));
         state.recipe.ibu = ibu(state.hops);
-        state.hops[action.rowId].oil = state.hops[action.rowId].type < 2 ? 0 : Math.round(totOil(state.hops[action.rowId])*100)/100;
+        state.hops[action.rowId].oilTotal = state.hops[action.rowId].type < 2 ? 0 : Math.round(totOil(state.hops[action.rowId])*100)/100;
         state.recipe.oil = oil(state.hops);
         state.recipe.ibu = ibu(state.hops);
         return {...state};

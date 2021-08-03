@@ -43,7 +43,7 @@ function Hop(props) {
         <TextField label="Alpha" fullWidth variant="standard" size="small" value={props.hop.alpha.toString()} InputProps={{ inputComponent: DecimalPercentInput }} InputLabelProps={{ shrink: true }}  onChange={(event) => {if(event.floatValue > 0) updateHops("alpha", event.floatValue)}} />
       </TableCell>
       <TableCell align="center">
-        <TextField label="Oil" fullWidth variant="standard" size="small" value={props.hop.oil.toString()} InputProps={{ inputComponent: MlPerGInput }} InputLabelProps={{ shrink: true }} onChange={(event) => updateHops("oil", event.floatValue)} />
+        <TextField label="Oil" fullWidth variant="standard" size="small" value={props.hop.oil.toString()} InputProps={{ inputComponent: MlPerGInput }} InputLabelProps={{ shrink: true }} onChange={(event) => {if(event.floatValue > 0) updateHops("oil", event.floatValue)}} />
       </TableCell>
       <TableCell align="center">
         <TextField label="Amount" fullWidth variant="standard" size="small" value={props.hop.amount.toString()} InputProps={{ inputComponent: GrammInput }} InputLabelProps={{ shrink: true }} onChange={(event) => updateHops("amount", event.floatValue)} />

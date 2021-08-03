@@ -177,7 +177,7 @@ export const MlPerGInput = React.forwardRef(function NumberFormatCustom(props, r
       {...other}
       getInputRef={ref}
       decimalScale={2}
-      suffix="ml/100g"
+      suffix="ml"
       className={`text-right ${props.className}`}
       value={value}
       onValueChange={values => {
