@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
 import Box from '@material-ui/core/Box';
 import {sg2plato} from '../../Utils/Formulas'
+import Ebc2Hex from '../../Utils/Ebc2Hex'
 
 function getMinSliderPos(min, max, value) {
   if(min === null && max === null && value === null) return 0
@@ -100,6 +101,8 @@ function BeertypeComparer (props) {
   const ibu = recipe.ibu
   const ebc = recipe.ebc
 
+  const ebccolor = Ebc2Hex(recipe.ebc, 1)
+
   return (
     <Box className="beertype">
       <h3>Beer type</h3>
@@ -167,6 +170,7 @@ function BeertypeComparer (props) {
           EBC
       </Typography>
       <Slider
+        sx={{'& .MuiSlider-valueLabel': { backgroundColor: ebccolor }, '& .MuiSlider-thumb': { backgroundColor: ebccolor }}}
         value={ebc === null ? getMinSliderPos(beertype.colorVal.minEBC, beertype.colorVal.maxEBC, ebc) : ebc}
         min={getMinSliderPos(beertype.colorVal.minEBC, beertype.colorVal.maxEBC, ebc)}
         max={getMaxSliderPos(beertype.colorVal.minEBC, beertype.colorVal.maxEBC, ebc)}
