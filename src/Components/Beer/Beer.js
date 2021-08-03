@@ -64,7 +64,7 @@ function changeState(state, action) {
             state.hops[action.rowId][key] = value
         }
         updated = true
-      } else if(state.hops[action.rowId][action.target] !== action.value  && (isNaN(action.value) || state.hops[action.rowId][action.target] || Math.abs(state.hops[action.rowId][action.target]-action.value) > Number.EPSILON)) {
+      } else if(state.hops[action.rowId][action.target] !== action.value  && (isNaN(action.value) || isNaN(state.hops[action.rowId][action.target]) || Math.abs(state.hops[action.rowId][action.target]-action.value) > Number.EPSILON)) {
         state.hops[action.rowId][action.target] = action.value;
         updated = true
       }
@@ -94,7 +94,7 @@ function changeState(state, action) {
             state.malt[action.rowId][key] = value
         }
         updated = true
-      } else if(state.malt[action.rowId][action.target] !== action.value && (isNaN(action.value) || state.malt[action.rowId][action.target] || Math.abs(state.malt[action.rowId][action.target]-action.value) < Number.EPSILON)) {
+      } else if(state.malt[action.rowId][action.target] !== action.value && (isNaN(action.value) || isNaN(state.malt[action.rowId][action.target]) || Math.abs(state.malt[action.rowId][action.target]-action.value) > Number.EPSILON)) {
         state.malt[action.rowId][action.target] = action.value;
         updated = true
       }
@@ -130,7 +130,7 @@ function changeState(state, action) {
             state.mashSteps[action.rowId][key] = value
         }
         updated = true
-      } else if(state.mashSteps[action.rowId][action.target] !== action.value) {
+      } else if(state.mashSteps[action.rowId][action.target] !== action.value && (isNaN(action.value) || isNaN(state.mashSteps[action.rowId][action.target]) || Math.abs(state.mashSteps[action.rowId][action.target]-action.value) > Number.EPSILON)) {
         state.mashSteps[action.rowId][action.target] = action.value;
         updated = true
       }
