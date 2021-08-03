@@ -13,6 +13,7 @@ export const beerRecipe = () => {return {
       ibu: null,
       alc: null,
       ebc: null,
+      oil: null,
       beertype: {
         name: null,
         og: { minGravity: null, maxGravity: null,minPlato: null, maxPlato: null},

@@ -4,7 +4,7 @@ import TableRow from '@material-ui/core/TableRow';
 import { Autocomplete, Grid, IconButton, InputLabel, MenuItem, Paper, Select, Table, TableBody, TableContainer, TableHead, TextField } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import *  as Model from '../../Model';
-import { DecimalPercentInput, GrammInput, MinuteInput } from '../../Utils/NumberInput';
+import { DecimalPercentInput, GrammInput, MinuteInput, MlPerGInput } from '../../Utils/NumberInput';
 
 function Hop(props) {
   const dispatch = props.dispatch
@@ -43,7 +43,7 @@ function Hop(props) {
         <TextField label="Alpha" fullWidth variant="standard" size="small" value={props.hop.alpha.toString()} InputProps={{ inputComponent: DecimalPercentInput }} InputLabelProps={{ shrink: true }}  onChange={(event) => {if(event.floatValue > 0) updateHops("alpha", event.floatValue)}} />
       </TableCell>
       <TableCell align="center">
-        <TextField label="Oil" fullWidth variant="standard" size="small" value={props.hop.oil} inputProps={{step: 0.01}} onChange={(event) => updateHops("oil", event.target.valueAsNumber)} type="number" />
+        <TextField label="Oil" fullWidth variant="standard" size="small" value={props.hop.oil.toString()} InputProps={{ inputComponent: MlPerGInput }} InputLabelProps={{ shrink: true }} onChange={(event) => updateHops("oil", event.floatValue)} />
       </TableCell>
       <TableCell align="center">
         <TextField label="Amount" fullWidth variant="standard" size="small" value={props.hop.amount.toString()} InputProps={{ inputComponent: GrammInput }} InputLabelProps={{ shrink: true }} onChange={(event) => updateHops("amount", event.floatValue)} />

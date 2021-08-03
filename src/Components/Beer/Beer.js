@@ -8,7 +8,7 @@ import * as Model from '../../Model';
 import MashSteps from '../MashSteps/MashSteps';
 import ShowRecipe from './ShowRecipe';
 import printRecipe from './PrintRecipe';
-import { gravities2Abv, ibu, maltebc2beerebc, og2fg, potentials2og, tinseth } from '../../Utils/Formulas';
+import { gravities2Abv, ibu, maltebc2beerebc, og2fg, oil, potentials2og, tinseth, totOil } from '../../Utils/Formulas';
 import Yeast from '../Yeast/Yeast';
 import Water from '../Water/Water';
 
@@ -71,7 +71,10 @@ function changeState(state, action) {
       if(updated) {
         let maltAmount = state.malt.reduce((pv, v) => pv+v.amount/1000, 0)
         let duration = state.hops[action.rowId].type === 0 ? state.cookingDuration : state.hops[action.rowId].duration
-        state.hops[action.rowId].ibu = state.hops[action.rowId] > 1 || state.recipe.og == null ? 0 : Math.round(tinseth(state.recipe.og, state.water.mashWaterVolume+state.water.spargeWaterVolume-state.water.grainLoss*maltAmount, state.water.finalVolume, state.hops[action.rowId].alpha, state.hops[action.rowId].amount, duration));
+        state.hops[action.rowId].ibu = state.hops[action.rowId].type > 1 || state.recipe.og == null ? 0 : Math.round(tinseth(state.recipe.og, state.water.mashWaterVolume+state.water.spargeWaterVolume-state.water.grainLoss*maltAmount, state.water.finalVolume, state.hops[action.rowId].alpha, state.hops[action.rowId].amount, duration));
+        state.recipe.ibu = ibu(state.hops);
+        state.hops[action.rowId].oil = state.hops[action.rowId].type < 2 ? 0 : Math.round(totOil(state.hops[action.rowId])*100)/100;
+        state.recipe.oil = oil(state.hops);
         state.recipe.ibu = ibu(state.hops);
         return {...state};
       }
@@ -80,6 +83,7 @@ function changeState(state, action) {
       array = [...state.hops];
       array.splice(action.rowId, 1);
       state.recipe.ibu = ibu(array);
+      state.recipe.oil = oil(state.hops);
       return {...state, hops: array};
     case 'updateMalt':
       if(action.rowId >= state.malt.length) return state

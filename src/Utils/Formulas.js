@@ -86,3 +86,11 @@ export function tinseth(og, cookVolume, finalVolume, aa, amount, time, maximumUt
 export function ibu(hops) {
   return hops.reduce((pv, v) => pv+v.ibu, 0)
 }
+
+export function totOil(hop) {
+  return hop.oil*hop.amount/100
+}
+
+export function oil(hops) {
+  return hops.reduce((pv, v) => pv+v.totOil, 0)
+}

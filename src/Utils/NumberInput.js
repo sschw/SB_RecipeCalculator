@@ -10,6 +10,7 @@ export const CelsiusInput = React.forwardRef(function NumberFormatCustom(props, 
       {...other}
       getInputRef={ref}
       suffix="°C"
+      decimalScale={0}
       className={`text-right ${props.className}`}
       value={value}
       onValueChange={values => {
@@ -32,6 +33,7 @@ export const PercentInput = React.forwardRef(function NumberFormatCustom(props, 
     <NumberFormat
       {...other}
       getInputRef={ref}
+      decimalScale={0}
       format="###%"
       className={`text-right ${props.className}`}
       value={parseFloat(value) * 100}
@@ -87,6 +89,7 @@ export const GrammInput = React.forwardRef(function NumberFormatCustom(props, re
       <NumberFormat
         {...other}
         getInputRef={ref}
+        decimalScale={3}
         suffix="kg"
         className={`text-right ${props.className}`}
         value={valFloat/1000}
@@ -101,6 +104,7 @@ export const GrammInput = React.forwardRef(function NumberFormatCustom(props, re
     <NumberFormat
       {...other}
       getInputRef={ref}
+      decimalScale={0}
       suffix="g"
       className={`text-right ${props.className}`}
       value={value}
@@ -125,6 +129,7 @@ export const LitreInput = React.forwardRef(function NumberFormatCustom(props, re
       {...other}
       getInputRef={ref}
       suffix="L"
+      decimalScale={0}
       className={`text-right ${props.className}`}
       value={value}
       onValueChange={values => {
@@ -147,6 +152,7 @@ export const MinuteInput = React.forwardRef(function NumberFormatCustom(props, r
     <NumberFormat
       {...other}
       getInputRef={ref}
+      decimalScale={0}
       suffix="min"
       className={`text-right ${props.className}`}
       value={value}
@@ -159,6 +165,30 @@ export const MinuteInput = React.forwardRef(function NumberFormatCustom(props, r
 });
 
 MinuteInput.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
+
+export const MlPerGInput = React.forwardRef(function NumberFormatCustom(props, ref) {
+  const { value, onChange, ...other } = props;
+
+  return (
+    <NumberFormat
+      {...other}
+      getInputRef={ref}
+      decimalScale={2}
+      suffix="ml/100g"
+      className={`text-right ${props.className}`}
+      value={value}
+      onValueChange={values => {
+        if(values === undefined || values?.floatValue === undefined) values = { floatValue: 0, formattedValue: "", value: ""}
+        onChange({ floatValue: values?.floatValue, formattedValue: values?.formattedValue, value: values?.value });
+      }}
+    />
+  );
+});
+
+MlPerGInput.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
