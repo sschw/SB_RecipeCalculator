@@ -6,6 +6,10 @@
   opacity: 1.0
 }
 
+.beertype .MuiSlider-root .MuiSlider-track {
+  border: none;
+}
+
 .beertype .MuiSlider-root .MuiSlider-mark ~ .MuiSlider-mark {
   width: auto;
   right: 0%;
