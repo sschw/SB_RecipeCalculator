@@ -102,6 +102,7 @@ function BeertypeComparer (props) {
   const ebc = recipe.ebc
 
   const ebccolor = Ebc2Hex(recipe.ebc, 1)
+  const ebctextcolor = recipe.ebc < 8 ? 'black' : 'white'
 
   return (
     <Box className="beertype">
@@ -170,7 +171,7 @@ function BeertypeComparer (props) {
           EBC
       </Typography>
       <Slider
-        sx={{'& .MuiSlider-valueLabel': { backgroundColor: ebccolor }, '& .MuiSlider-thumb': { backgroundColor: ebccolor }}}
+        sx={{'& .MuiSlider-valueLabel': { backgroundColor: ebccolor, color: ebctextcolor }, '& .MuiSlider-thumb': { backgroundColor: ebccolor }}}
         value={ebc === null ? getMinSliderPos(beertype.colorVal.minEBC, beertype.colorVal.maxEBC, ebc) : ebc}
         min={getMinSliderPos(beertype.colorVal.minEBC, beertype.colorVal.maxEBC, ebc)}
         max={getMaxSliderPos(beertype.colorVal.minEBC, beertype.colorVal.maxEBC, ebc)}
