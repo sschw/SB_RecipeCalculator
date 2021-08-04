@@ -52,9 +52,17 @@ export function usGal2litre(g) {
   return g / 0.26417;
 }
 
+export function litre2Gal(l) {
+  return l / 4.546;
+}
+
+export function gal2litre(g) {
+  return g * 4.546;
+}
+
 // Note: using waterVolume pre-boil will give the pre-boil gravity
 export function potentials2og(malt, waterVolume, maltyield) {
-  return Math.round(malt.reduce((pv, v) => pv+(v.potential-1)*1000 * gramm2Pounds(v.amount), 0)*maltyield/litre2USGal(waterVolume))/1000+1
+  return Math.round(malt.reduce((pv, v) => pv+(v.potential-1)*1000 * gramm2Pounds(v.amount), 0)*maltyield/litre2Gal(waterVolume))/1000+1
 }
 
 // morey equation
