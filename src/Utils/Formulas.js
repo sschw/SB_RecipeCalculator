@@ -45,11 +45,11 @@ export function pounds2Gramm(p) {
 }
 
 export function litre2USGal(l) {
-  return l * 0.26417;
+  return l / 3.785;
 }
 
 export function usGal2litre(g) {
-  return g / 0.26417;
+  return g * 3.785;
 }
 
 export function litre2Gal(l) {

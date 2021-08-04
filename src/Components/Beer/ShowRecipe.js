@@ -31,9 +31,10 @@ export default function ShowRecipe(props) {
 
   let maltListToDisplay = []
   maltList.forEach((c) => {
+    let amount = c.amout > 999 ? (c.amount/1000).toString() + "kg" : c.amount.toString() + "g"
     maltListToDisplay.push(
       <Typography key={c.name} variant="body2" align="left">
-        {c.amount}g {c.name}
+        {amount} {c.name}
       </Typography>
     )
   })
