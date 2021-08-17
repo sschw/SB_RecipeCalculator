@@ -7,10 +7,10 @@ import { renderToString } from 'react-dom/server';
 import { sg2plato } from '../../Utils/Formulas';
 
 export default async function print(beer) {
-  await html2pdf().from(renderToString(ShowRecipeHeader({beer}))).set({html2canvas:  { scale: 4 }}).toImg().get('img').then(async img => {
-    await html2pdf().from(renderToString(ShowRecipeContent({beer}))).set({ margin: [46, 0, 0, 2], html2canvas:  { scale: 4 }, pagebreak: { avoid: '.keepTogether' }}).toPdf().get('pdf').then((pdf) => {
+  await html2pdf().from(renderToString(ShowRecipeHeader({beer}))).set({ html2canvas:  { scale: 2 }}).toImg().get('img').then(async img => {
+    await html2pdf().from(renderToString(ShowRecipeContent({beer}))).set({ margin: [46, 0, 0, 2], html2canvas:  { scale: 2 }, pagebreak: { avoid: '.keepTogether' }}).toPdf().get('pdf').then((pdf) => {
       const totalPages = pdf.internal.getNumberOfPages();
-      const imgProps= pdf.getImageProperties(imgData);
+      const imgProps= pdf.getImageProperties(img);
       const width = pdf.internal.pageSize.getWidth();
       const height = (imgProps.height * pdf.internal.pageSize.getWidth()) / imgProps.width;
       for (let i = 1; i <= totalPages; i++) {
