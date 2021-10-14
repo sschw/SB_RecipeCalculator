@@ -12,6 +12,10 @@ export function celsius2fahrenheit(c) {
   return (c * 1.8 + 32);
 }
 
+export function fahrenheit2celsius(f) {
+  return (f - 32) / 1.8;
+}
+
 export function ebc2Srm(ebc) {
   return ebc * 0.508;
 }
@@ -60,9 +64,10 @@ export function gal2litre(g) {
   return g * 4.546;
 }
 
-// Note: using waterVolume pre-boil will give the pre-boil gravity
 export function potentials2og(malt, waterVolume, maltyield) {
-  return Math.round(malt.reduce((pv, v) => pv+(v.potential-1)*1000 * gramm2Pounds(v.amount), 0)*maltyield/litre2Gal(waterVolume))/1000+1
+  const maltPoints = malt.reduce((pv, v) => pv+ v.mustMash ? ((v.potential-1)*1000 * gramm2Pounds(v.amount)) : 0, 0) * maltyield / litre2USGal(waterVolume)
+  const sugarPoints = malt.reduce((pv, v) => pv+ v.mustMash ? 0 : ((v.potential-1)*1000 * gramm2Pounds(v.amount)), 0) / litre2USGal(waterVolume)
+  return Math.round(maltPoints+sugarPoints)/1000+1
 }
 
 // morey equation

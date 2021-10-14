@@ -1,10 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import NumberFormat from 'react-number-format';
+import { celsius2fahrenheit, fahrenheit2celsius, gramm2Pounds, litre2USGal, pounds2Gramm, usGal2litre } from './Formulas';
+
+export const FahrenheitInput = React.forwardRef(function NumberFormatCustom(props, ref) {
+  const { value, onChange, ...other } = props;
+  return (
+    <NumberFormat
+      {...other}
+      getInputRef={ref}
+      suffix="°F"
+      decimalScale={0}
+      className={`text-right ${props.className}`}
+      value={celsius2fahrenheit(value)}
+      onValueChange={values => {
+        if(values === undefined || values?.floatValue === undefined) values = { floatValue: 0, formattedValue: "", value: ""}
+        else values.floatValue = fahrenheit2celsius(value.floatValue)
+        onChange({ floatValue: values?.floatValue, formattedValue: values?.formattedValue, value: values?.value });
+      }}
+    />
+  ); 
+});
 
 export const CelsiusInput = React.forwardRef(function NumberFormatCustom(props, ref) {
   const { value, onChange, ...other } = props;
-
+  
   return (
     <NumberFormat
       {...other}
@@ -21,6 +41,10 @@ export const CelsiusInput = React.forwardRef(function NumberFormatCustom(props, 
   );
 });
 
+FahrenheitInput.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 CelsiusInput.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
@@ -80,56 +104,116 @@ DecimalPercentInput.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
-export const GrammInput = React.forwardRef(function NumberFormatCustom(props, ref) {
-  const { value, onChange, ...other } = props;
+export const OunceInput = React.forwardRef(function NumberFormatCustom(props, ref) {
+  const { value, onChange, useScale, ...other } = props;
 
-  let valFloat = parseFloat(value)
-  if(valFloat > 999) {
-    return (
-      <NumberFormat
-        {...other}
-        getInputRef={ref}
-        decimalScale={3}
-        suffix="kg"
-        className={`text-right ${props.className}`}
-        value={valFloat/1000}
-        onValueChange={values => {
-          if(values === undefined || values?.floatValue === undefined) values = { floatValue: 0, formattedValue: "", value: ""}
-          onChange({ floatValue: values?.floatValue*1000, formattedValue: values?.formattedValue, value: values?.value });
-        }}
-      />
-    );
+  const scales = [ {name: "oz", scale: 1}, {name: "lb", scale: 16}, {name: "ton", scale: 32000} ]
+  let floatVal = gramm2Pounds(parseFloat(value))*16 // to oz
+  if(isNaN(floatVal)) floatVal = 0
+
+  let currentScale = scales[0]
+  if (useScale) {
+    scales.forEach((s) => {
+      if(useScale === s.name)
+        currentScale = s
+    })
+  } if (floatVal === 0) {
+    currentScale = [1] // Use lb per default.
+  } else {
+    scales.forEach((s) => {
+      if(floatVal > s.scale-1) currentScale = s
+    })
   }
+
   return (
     <NumberFormat
       {...other}
       getInputRef={ref}
-      decimalScale={0}
-      suffix="g"
+      decimalScale={Math.ceil(Math.log10(currentScale.scale))}
+      suffix={currentScale.name}
       className={`text-right ${props.className}`}
-      value={value}
+      value={floatVal/currentScale.scale}
       onValueChange={values => {
         if(values === undefined || values?.floatValue === undefined) values = { floatValue: 0, formattedValue: "", value: ""}
-        onChange({ floatValue: values?.floatValue, formattedValue: values?.formattedValue, value: values?.value });
+        else values.floatValue = pounds2Gramm(values.floatValue/16) // from oz
+        onChange({ floatValue: values?.floatValue*currentScale.scale, formattedValue: values?.formattedValue, value: values?.value });
       }}
     />
   );
 });
 
+export const GrammInput = React.forwardRef(function NumberFormatCustom(props, ref) {
+  const { value, onChange, useScale, ...other } = props;
+
+  const scales = [ {name: "g", scale: 1}, {name: "kg", scale: 1000}, {name: "t", scale: 1000000} ]
+  let floatVal = parseFloat(value)
+  if(isNaN(floatVal)) floatVal = 0
+
+  let currentScale = scales[0]
+  if (useScale) {
+    scales.forEach((s) => {
+      if(useScale === s.name)
+        currentScale = s
+    })
+  } else {
+    scales.forEach((s) => {
+      if(floatVal > s.scale-1) currentScale = s
+    })
+  }
+
+  return (
+    <NumberFormat
+      {...other}
+      getInputRef={ref}
+      decimalScale={Math.log10(currentScale.scale)}
+      suffix={currentScale.name}
+      className={`text-right ${props.className}`}
+      value={floatVal/currentScale.scale}
+      onValueChange={values => {
+        if(values === undefined || values?.floatValue === undefined) values = { floatValue: 0, formattedValue: "", value: ""}
+        onChange({ floatValue: values?.floatValue*currentScale.scale, formattedValue: values?.formattedValue, value: values?.value });
+      }}
+    />
+  );
+});
+
+OunceInput.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 GrammInput.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
+  
+export const USGalInput = React.forwardRef(function NumberFormatCustom(props, ref) {
+  const { value, onChange, useUSGallon, ...other } = props;
+  return (
+    <NumberFormat
+      {...other}
+      getInputRef={ref}
+      suffix="gal"
+      decimalScale={1}
+      className={`text-right ${props.className}`}
+      value={litre2USGal(value)}
+      onValueChange={values => {
+        if(values === undefined || values?.floatValue === undefined) values = { floatValue: 0, formattedValue: "", value: ""}
+        else values.floatValue = usGal2litre(values.floatValue);
+        onChange({ floatValue: values?.floatValue, formattedValue: values?.formattedValue, value: values?.value });
+      }}
+    />
+  );
+});
+  
 export const LitreInput = React.forwardRef(function NumberFormatCustom(props, ref) {
-  const { value, onChange, ...other } = props;
-
+  const { value, onChange, useUSGallon, ...other } = props;
   return (
     <NumberFormat
       {...other}
       getInputRef={ref}
       suffix="L"
-      decimalScale={0}
+      decimalScale={1}
       className={`text-right ${props.className}`}
       value={value}
       onValueChange={values => {
@@ -140,6 +224,10 @@ export const LitreInput = React.forwardRef(function NumberFormatCustom(props, re
   );
 });
 
+USGalInput.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 LitreInput.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,

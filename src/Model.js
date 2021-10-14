@@ -1,7 +1,8 @@
 
 
 export const beerRecipe = () => {return {
-    recipe: { 
+    system: "SI", // US for gal & °F
+    recipe: {
       name: "", 
       description: "",
       author: "",
@@ -54,6 +55,7 @@ export const mashStepTemplates = [
   { id: 0, label: "3-Rests", value: [{temp: 57, dur: 0, type: 0, descr: "" }, {temp: 55, dur: 15, type: 1, descr: "" }, {temp: 68, dur: 60, type: 1, descr: "" }, {temp: 78, dur: 10, type: 1, descr: "" }]},
   { id: 1, label: "4-Rests", value: [{temp: 57, dur: 0, type: 0, descr: "" }, {temp: 55, dur: 15, type: 1, descr: "" }, {temp: 63, dur: 60, type: 1, descr: "" }, {temp: 72, dur: 15, type: 1, descr: "" }, {temp: 78, dur: 10, type: 1, descr: "" }]},
   { id: 2, label: "5-Rests Wheat Beer", value: [{temp: 47, dur: 0, type: 0, descr: "" }, {temp: 45, dur: 15, type: 1, descr: "" }, {temp: 55, dur: 15, type: 1, descr: "" }, {temp: 63, dur: 60, type: 1, descr: "" }, {temp: 72, dur: 15, type: 1, descr: "" }, {temp: 78, dur: 10, type: 1, descr: "" }]},
+  { id: 3, label: "5-Rests Rye Beer", value: [{temp: 37, dur: 0, type: 0, descr: "" }, {temp: 35, dur: 15, type: 1, descr: "" }, {temp: 55, dur: 15, type: 1, descr: "" }, {temp: 63, dur: 60, type: 1, descr: "" }, {temp: 72, dur: 15, type: 1, descr: "" }, {temp: 78, dur: 10, type: 1, descr: "" }]},
 ]
 
 export const hopType = [
