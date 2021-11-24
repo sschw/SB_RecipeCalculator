@@ -49,9 +49,9 @@ export function updateRecipe(beerRecipe, target, value) {
   beerRecipe.recipe[target] = value;
 
   if(target === "maltYield") {
-    calcMaltValues();
-    calcHopsValues();
-    calcYeastValues();
+    calcMaltValues(beerRecipe);
+    calcHopsValues(beerRecipe);
+    calcYeastValues(beerRecipe);
   }
   return valChanged;
 }

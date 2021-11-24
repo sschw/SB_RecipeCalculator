@@ -15,6 +15,8 @@ import { deleteHop, deleteMalt, deleteMashSteps, moveMashSteps, updateCookingDur
 // action = { type, target, key, value }
 function changeState(state, action) {
   switch(action.type) {
+    case 'model':
+      return action.value;
     case 'recipe':
       if(updateRecipe(state, action.target, action.value)) {
         return {...state};
@@ -100,11 +102,16 @@ function Beer(props) {
   const [loading, setLoading] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const handleCopy = () =>  navigator.clipboard.writeText(Model.exportRecipe(state));
+  // Firefox not compatible
+  const handlePaste = () => navigator.clipboard.readText().then((s) => dispatch({type: "model", value: Model.importRecipe(s)}));
 
   return (
     <div>
       <h2>{state["recipe"]["name"] !== "" ? state["recipe"]["name"] + " Recipe" : "New Beer Recipe"}</h2>
       <Button sx={{ m: 2 }} variant="contained" onClick={handleOpen}>Print recipe</Button>
+      <Button sx={{ m: 2 }} variant="contained" onClick={handleCopy}>Export recipe to Clipboard</Button>
+      <Button sx={{ m: 2 }} variant="contained" onClick={handlePaste}>Import recipe from Clipboard</Button>
       <Grid container spacing={3}>
         <Grid item xs={12} md={8} lg={9}>
           <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>

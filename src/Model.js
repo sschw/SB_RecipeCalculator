@@ -78,3 +78,87 @@ export const sedimentation = [
   { id: 3, label: "Medium-High" }, 
   { id: 4, label: "High" }, 
 ] 
+
+export const exportRecipe = (beerRecipe) => {
+  let exportData = {}
+  exportData["recipe"] = {
+    name: beerRecipe.recipe.name, 
+      description: beerRecipe.recipe.description,
+      author: beerRecipe.recipe.author,
+      date: beerRecipe.recipe.date,
+      maltYield: beerRecipe.recipe.maltYield,
+      beertype: beerRecipe.recipe.beertype
+  }
+  exportData["cookingDuration"] = beerRecipe.cookingDuration
+  exportData["water"] = beerRecipe.water
+  exportData["yeast"] = beerRecipe.yeast
+  exportData["malt"] = []
+  beerRecipe.malt.forEach((data) => {
+    let row = {}
+    for(let [k, val] of Object.entries(data)) {
+      if(k !== "key")
+        row[k] = val
+    }
+    exportData["malt"].push(row)
+  })
+  exportData["mashSteps"] = []
+  beerRecipe.mashSteps.forEach((data) => {
+    let row = {}
+    for(let [k, val] of Object.entries(data)) {
+      if(k !== "key")
+        row[k] = val
+    }
+    exportData["mashSteps"].push(row)
+  })
+  exportData["hops"] = []
+  beerRecipe.hops.forEach((data) => {
+    let row = {}
+    for(let [k, val] of Object.entries(data)) {
+      if(k !== "key")
+        row[k] = val
+    }
+    exportData["hops"].push(row)
+  })
+  return JSON.stringify(exportData, null, 4)
+}
+
+export const importRecipe = (data) => {
+  data = JSON.parse(data)
+  let recipe = beerRecipe()
+  recipe["recipe"] = {
+    name: data.recipe.name, 
+      description: data.recipe.description,
+      author: data.recipe.author,
+      date: data.recipe.date,
+      maltYield: data.recipe.maltYield,
+      beertype: data.recipe.beertype
+  }
+  recipe["cookingDuration"] = data.cookingDuration
+  recipe["water"] = data.water
+  recipe["yeast"] = data.yeast
+  recipe["malt"] = []
+  data.malt.forEach((data) => {
+    let row = malt()
+    for(let [k, val] of Object.entries(data)) {
+      row[k] = val
+    }
+    recipe["malt"].push(row)
+  })
+  recipe["mashSteps"] = []
+  data.mashSteps.forEach((data) => {
+    let row = mashStep()
+    for(let [k, val] of Object.entries(data)) {
+      row[k] = val
+    }
+    recipe["mashSteps"].push(row)
+  })
+  recipe["hops"] = []
+  data.hops.forEach((data) => {
+    let row = hop()
+    for(let [k, val] of Object.entries(data)) {
+      row[k] = val
+    }
+    recipe["hops"].push(row)
+  })
+  return recipe
+}
