@@ -5,6 +5,7 @@ export function plato2sg(plato) {
 }
 
 export function sg2plato(sg) {
+  if(sg < 0.9) return 0;
   return -616.868 + (1111.14 * sg) - (630.272 * sg * sg) + (135.997 * sg * sg * sg);
 }
 
