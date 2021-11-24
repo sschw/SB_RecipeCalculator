@@ -47,6 +47,12 @@ function calcYeastValues(beerRecipe) {
 export function updateRecipe(beerRecipe, target, value) {
   let valChanged = beerRecipe.recipe[target] !== value;
   beerRecipe.recipe[target] = value;
+
+  if(target === "maltYield") {
+    calcMaltValues();
+    calcHopsValues();
+    calcYeastValues();
+  }
   return valChanged;
 }
 

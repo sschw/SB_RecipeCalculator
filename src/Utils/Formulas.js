@@ -65,8 +65,8 @@ export function gal2litre(g) {
 }
 
 export function potentials2og(malt, waterVolume, maltyield) {
-  const maltPoints = malt.reduce((pv, v) => pv+ v.mustMash ? ((v.potential-1)*1000 * gramm2Pounds(v.amount)) : 0, 0) * maltyield / litre2USGal(waterVolume)
-  const sugarPoints = malt.reduce((pv, v) => pv+ v.mustMash ? 0 : ((v.potential-1)*1000 * gramm2Pounds(v.amount)), 0) / litre2USGal(waterVolume)
+  const maltPoints = malt.reduce((pv, v) => pv + (v.type === "Grain" ? ((v.potential-1)*1000 * gramm2Pounds(v.amount)) : 0), 0) * maltyield / litre2USGal(waterVolume)
+  const sugarPoints = malt.reduce((pv, v) => pv + (v.type === "Grain" ? 0 : ((v.potential-1)*1000 * gramm2Pounds(v.amount))), 0) / litre2USGal(waterVolume)
   return Math.round(maltPoints+sugarPoints)/1000+1
 }
 
