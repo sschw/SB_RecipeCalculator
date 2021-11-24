@@ -12,7 +12,7 @@ const { Provider } = metaData
 
 export const MetaDataProvider = ({ children }) => {
   const [_, i18n] = useTranslation();
-  const initState = {...initialState, language: (i18n.language != null && i18n.language.length === 2) ? i18n.language : "en"}
+  const initState = {...initialState, language: (i18n.language != null && i18n.language.length === 2) ? i18n.language : "en"} // TODO: This needs improvement.
   const [state, dispatch] = useReducer((state, action) => {
     const currentState = { ...state };
     switch(action.type) {
