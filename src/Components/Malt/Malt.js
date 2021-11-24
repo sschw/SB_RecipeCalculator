@@ -1,11 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import { Autocomplete, IconButton, Paper, Table, TableBody, TableContainer, TableHead, TextField } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import *  as Model from '../../Model';
-import { GrammInput } from '../../Utils/NumberInput';
+import { GrammInput, PoundsInput } from '../../Utils/NumberInput';
 import { ebc2Srm } from '../../Utils/Formulas';
+import { metaData } from "../../Context/MetaDataContext"
 
 function SingleMalt(props) {
   const dispatch = props.dispatch
@@ -15,6 +16,8 @@ function SingleMalt(props) {
     dispatch({type: 'updateMalt', key: key, target: target, value: value})
   }
   const [inputName, setInputName] = useState(props.malt.name)
+
+  const metaDataContext = useContext(metaData)
 
   const styling = isNew ? {'&:last-child td, &:last-child th': { border: 0 }, backgroundColor: "#eeeeee"} : {'&:last-child td, &:last-child th': { border: 0 }};
 
@@ -48,7 +51,7 @@ function SingleMalt(props) {
         <TextField label="Potential" variant="standard" inputProps={{step: 0.001}} fullWidth size="small" value={props.malt.potential} onChange={(event) => updateMalt("potential", event.target.valueAsNumber)} type="number" />
       </TableCell>
       <TableCell align="center">
-      <TextField label="Amount" fullWidth variant="standard" size="small" value={props.malt.amount.toString()} InputProps={{ inputComponent: GrammInput }} InputLabelProps={{ shrink: true }} onChange={(event) => updateMalt("amount", event.floatValue)} />
+      <TextField label="Amount" fullWidth variant="standard" size="small" value={props.malt.amount.toString()} InputProps={ metaDataContext.state["system"] === "US" ? { inputComponent: PoundsInput } : { inputComponent: GrammInput } } InputLabelProps={{ shrink: true }} onChange={(event) => updateMalt("amount", event.floatValue)} />
       </TableCell>
       <TableCell align="right">
         <IconButton disabled={isNew} aria-label="delete" onClick={() => {dispatch({type: "deleteMalt", key: key});}}>

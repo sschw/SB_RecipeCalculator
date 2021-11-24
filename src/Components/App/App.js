@@ -1,5 +1,6 @@
 import './App.css';
 import Beer from './../Beer/Beer'
+import {MetaDataProvider} from "../../Context/MetaDataContext"
 import { Box, Container } from '@material-ui/core';
 
 function App() {
@@ -17,9 +18,11 @@ function App() {
           overflow: 'auto',
         }}
       >
-        <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-          <Beer />
-        </Container>
+        <MetaDataProvider>
+          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+            <Beer />
+          </Container>
+        </MetaDataProvider>
       </Box>
     </div>
   );

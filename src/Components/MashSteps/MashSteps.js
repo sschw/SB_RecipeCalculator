@@ -1,11 +1,12 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import { Grid, IconButton, InputLabel, MenuItem, Paper, Select, Stack, Table, TableBody, TableContainer, TableHead, TextField } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import *  as Model from '../../Model';
 import { ArrowDownward, ArrowUpward } from '@material-ui/icons';
-import { CelsiusInput, MinuteInput } from '../../Utils/NumberInput';
+import { CelsiusInput, FahrenheitInput, MinuteInput } from '../../Utils/NumberInput';
+import { metaData } from "../../Context/MetaDataContext"
 
 function MashStep(props) {
   const dispatch = props.dispatch
@@ -13,6 +14,9 @@ function MashStep(props) {
   const key = props.mashStep.key
   const isFirst = props.isFirst
   const isLast = props.isLast
+
+  const metaDataContext = useContext(metaData)
+
   const updateMashStep = (target, value) => {
     dispatch({type: 'updateMashStep', key: key, target: target, value: value})
   }
@@ -22,7 +26,7 @@ function MashStep(props) {
   return (
     <TableRow sx={styling}>
       <TableCell align="center">
-        <TextField label="Temperature" InputProps={{ inputComponent: CelsiusInput }} fullWidth variant="standard" size="small" value={props.mashStep.temp.toString()} onChange={(event) => updateMashStep("temp", event.floatValue)} />
+        <TextField label="Temperature" InputProps={ metaDataContext.state["system"] === "US" ? { inputComponent: FahrenheitInput } : { inputComponent: CelsiusInput } } fullWidth variant="standard" size="small" value={props.mashStep.temp.toString()} onChange={(event) => updateMashStep("temp", event.floatValue)} />
       </TableCell>
       <TableCell align="center">
       <TextField label="Duration" disabled={props.mashStep.type === 0} InputProps={{ inputComponent: MinuteInput }} InputLabelProps={{ shrink: true }} size="small" fullWidth variant="standard" value={props.mashStep.dur.toString()} onChange={(event) => updateMashStep("dur", event.floatValue)} />

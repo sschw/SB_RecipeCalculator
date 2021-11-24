@@ -91,6 +91,7 @@ const modalStyle = {
 
 function Beer(props) {
   let beer
+  // props can include beer which represents a beerRecipe. In case we want to load a recipe from a server.
   if (props.beer === undefined) {
     beer = Model.beerRecipe()
   } else {

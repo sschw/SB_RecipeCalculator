@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import { Autocomplete, Grid, IconButton, InputLabel, MenuItem, Paper, Select, Table, TableBody, TableContainer, TableHead, TextField } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import *  as Model from '../../Model';
-import { DecimalPercentInput, GrammInput, MinuteInput, MlPerGInput } from '../../Utils/NumberInput';
+import { DecimalPercentInput, GrammInput, MinuteInput, MlPerGInput, OunceInput } from '../../Utils/NumberInput';
+import { metaData } from "../../Context/MetaDataContext"
 
 function Hop(props) {
   const dispatch = props.dispatch
@@ -14,6 +15,8 @@ function Hop(props) {
     dispatch({type: 'updateHop', key: key, target: target, value: value})
   }
   const [inputName, setInputName] = useState(props.hop.name)
+
+  const metaDataContext = useContext(metaData)
 
   const styling = isNew ? {'&:last-child td, &:last-child th': { border: 0 }, backgroundColor: "#eeeeee"} : {'&:last-child td, &:last-child th': { border: 0 }};
 
@@ -47,7 +50,7 @@ function Hop(props) {
         <TextField label="Oil" fullWidth variant="standard" size="small" value={props.hop.oil.toString()} InputProps={{ inputComponent: MlPerGInput }} InputLabelProps={{ shrink: true }} onChange={(event) => {if(event.floatValue > 0) updateHops("oil", event.floatValue)}} />
       </TableCell>
       <TableCell align="center">
-        <TextField label="Amount" fullWidth variant="standard" size="small" value={props.hop.amount.toString()} InputProps={{ inputComponent: GrammInput }} InputLabelProps={{ shrink: true }} onChange={(event) => updateHops("amount", event.floatValue)} />
+        <TextField label="Amount" fullWidth variant="standard" size="small" value={props.hop.amount.toString()} InputProps={ metaDataContext.state["system"] === "US" ? { inputComponent: OunceInput } : { inputComponent: GrammInput } } InputLabelProps={{ shrink: true }} onChange={(event) => updateHops("amount", event.floatValue)} />
       </TableCell>
       <TableCell align="center">
         <InputLabel id={props.hop.key + "-hoptype"} variant="standard" sx={{ fontSize: 12 }} >

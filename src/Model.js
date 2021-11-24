@@ -1,7 +1,6 @@
 var uuid = require('uuid');
 
 export const beerRecipe = () => {return {
-    system: "SI", // US for gal & °F - Will just change display type
     recipe: {
       name: "", 
       description: "",

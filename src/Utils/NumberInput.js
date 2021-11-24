@@ -104,26 +104,36 @@ DecimalPercentInput.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
+export const PoundsInput = React.forwardRef(function NumberFormatCustom(props, ref) {
+  const { value, onChange, useScale, ...other } = props;
+
+  let floatVal = gramm2Pounds(parseFloat(value))*16 // to oz
+  if(isNaN(floatVal)) floatVal = 0
+  let currentScale = {name: "lb", scale: 16}
+
+  return (
+    <NumberFormat
+      {...other}
+      getInputRef={ref}
+      decimalScale={Math.ceil(Math.log10(currentScale.scale))}
+      suffix={currentScale.name}
+      className={`text-right ${props.className}`}
+      value={floatVal/currentScale.scale}
+      onValueChange={values => {
+        if(values === undefined || values?.floatValue === undefined) values = { floatValue: 0, formattedValue: "", value: ""}
+        else values.floatValue = pounds2Gramm(values.floatValue/16) // from oz
+        onChange({ floatValue: values?.floatValue*currentScale.scale, formattedValue: values?.formattedValue, value: values?.value });
+      }}
+    />
+  );
+});
+
 export const OunceInput = React.forwardRef(function NumberFormatCustom(props, ref) {
   const { value, onChange, useScale, ...other } = props;
 
-  const scales = [ {name: "oz", scale: 1}, {name: "lb", scale: 16}, {name: "ton", scale: 32000} ]
   let floatVal = gramm2Pounds(parseFloat(value))*16 // to oz
   if(isNaN(floatVal)) floatVal = 0
-
-  let currentScale = scales[0]
-  if (useScale) {
-    scales.forEach((s) => {
-      if(useScale === s.name)
-        currentScale = s
-    })
-  } if (floatVal === 0) {
-    currentScale = [1] // Use lb per default.
-  } else {
-    scales.forEach((s) => {
-      if(floatVal > s.scale-1) currentScale = s
-    })
-  }
+  let currentScale = {name: "oz", scale: 1}
 
   return (
     <NumberFormat
@@ -177,6 +187,10 @@ export const GrammInput = React.forwardRef(function NumberFormatCustom(props, re
   );
 });
 
+PoundsInput.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 OunceInput.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
