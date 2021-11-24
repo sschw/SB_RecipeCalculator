@@ -4,7 +4,7 @@ import logo from '../../logo.svg';
 import * as Model from '../../Model';
 import html2pdf from 'html2pdf.js';
 import { renderToString } from 'react-dom/server';
-import { litre2USGal, sg2plato } from '../../Utils/Formulas';
+import { celsius2fahrenheit, gramm2Pounds, litre2USGal, sg2plato } from '../../Utils/Formulas';
 import { metaData } from "../../Context/MetaDataContext"
 
 export default async function print(beer) {
@@ -89,7 +89,12 @@ export function ShowRecipeContent(props) {
 
   let maltListToDisplay = []
   maltList.forEach((c) => {
-    let amount = c.amout > 999 ? (c.amount/1000).toString() + "kg" : c.amount.toString() + "g"
+    let amount;
+    if(metaDataContext.state["system"] === "US") {
+      amount = gramm2Pounds(c.amount) + "lb"
+    } else {
+      amount = c.amount > 999 ? (c.amount/1000).toString() + "kg" : c.amount.toString() + "g"
+    }
     maltListToDisplay.push(
       <Typography key={c.name} variant="body2" align="left">
         {amount} {c.name}
@@ -99,19 +104,31 @@ export function ShowRecipeContent(props) {
 
   let hopListToDisplay = []
   hopList.forEach((c) => {
+    let amount;
+    if(metaDataContext.state["system"] === "US") {
+      amount = gramm2Pounds(c.amount)*12 + "oz"
+    } else {
+      amount = c.amount.toString() + "g"
+    }
     hopListToDisplay.push(
       <Typography key={c.name} variant="body2" align="left">
-        {c.amount}g {c.name}
+        {amount} {c.name}
       </Typography>
     )
   })
 
   let mashstepsListToDisplay = []
   beer.mashSteps.forEach((c, i) => {
+    let temp;
+    if(metaDataContext.state["system"] === "US") {
+      temp = celsius2fahrenheit(c.temp) + "°F"
+    } else {
+      temp = c.temp + "°C"
+    }
     let detail = (c.type === 1) ? "for " + c.dur + "min" : c.descr !== "" ? " - " + c.descr : ""
     mashstepsListToDisplay.push(
       <Typography sx={{ marginBottom: 2 }} key={i} variant="body1" align="left" gutterBottom>
-        {Model.mashStepTypes[c.type].label} at {c.temp}°C {detail}
+        {Model.mashStepTypes[c.type].label} at {temp} {detail}
       </Typography>
     )
   })
@@ -128,9 +145,15 @@ export function ShowRecipeContent(props) {
 
   let hopadditionListToDisplay = []
   beer.hops.forEach((c, i) => {
+    let amount;
+    if(metaDataContext.state["system"] === "US") {
+      amount = gramm2Pounds(c.amount)*12 + "oz"
+    } else {
+      amount = c.amount.toString() + "g"
+    }
     hopadditionListToDisplay.push(
       <Typography sx={{ marginBottom: 2 }} key={i} variant="body1" align="left" gutterBottom>
-        {c.amount}g {c.name}
+        {amount} {c.name}
       </Typography>
     )
   })
@@ -153,6 +176,9 @@ export function ShowRecipeContent(props) {
       </Typography>
     )
   })
+
+  let mashWaterVolume = metaDataContext.state["system"] === "US" ? (litre2USGal(beer.water.mashWaterVolume) + "gal") : (beer.water.mashWaterVolume + "L")
+  let spargeWaterVolume = metaDataContext.state["system"] === "US" ? (litre2USGal(beer.water.spargeWaterVolume) + "gal") : (beer.water.spargeWaterVolume + "L")
   
   return (
     <div>
@@ -199,7 +225,7 @@ export function ShowRecipeContent(props) {
                 Mashing
               </Typography>
               <Typography sx={{ marginBottom: 2 }} variant="body1" align="left" gutterBottom>
-                Mash water: {beer.water.mashWaterVolume}L &nbsp;&nbsp; Sparge water: {beer.water.spargeWaterVolume}L
+                Mash water: {mashWaterVolume} &nbsp;&nbsp; Sparge water: {spargeWaterVolume}
               </Typography>
               <Stack direction="row" spacing={4}>
                 <Stack>
