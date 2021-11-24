@@ -182,7 +182,7 @@ function Beer(props) {
           </div>
           <Box display="flex" justifyContent="flex-end" spacing={2} sx={{borderTop: "1px solid black"}}>
             <Button variant="contained" sx={{m:1}} color="grey" disabled={loading} onClick={() => { handleClose(); } }>Close</Button>
-            <Button variant="contained" sx={{m:1}} color="primary" disabled={loading} onClick={() => {setLoading(true); printRecipe(state).then(() => {setLoading(false); handleClose()}) } }>Print</Button>
+            <Button variant="contained" sx={{m:1}} color="primary" disabled={loading} onClick={() => {setLoading(true); printRecipe(state, metaDataContext.state.system).then(() => {setLoading(false); handleClose()}) } }>Print</Button>
           </Box>
         </Paper>
       </Modal>

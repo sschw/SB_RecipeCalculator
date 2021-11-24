@@ -1,15 +1,14 @@
 import { Grid, Stack, Typography } from '@material-ui/core';
-import React, { useContext } from 'react';
+import React from 'react';
 import logo from '../../logo.svg';
 import * as Model from '../../Model';
 import html2pdf from 'html2pdf.js';
 import { renderToString } from 'react-dom/server';
 import { celsius2fahrenheit, gramm2Pounds, litre2USGal, sg2plato } from '../../Utils/Formulas';
-import { metaData } from "../../Context/MetaDataContext"
 
-export default async function print(beer) {
-  await html2pdf().from(renderToString(ShowRecipeHeader({beer}))).set({ html2canvas:  { scale: 2 }}).toImg().get('img').then(async img => {
-    await html2pdf().from(renderToString(ShowRecipeContent({beer}))).set({ margin: [46, 0, 0, 2], html2canvas:  { scale: 2 }, pagebreak: { avoid: '.keepTogether' }}).toPdf().get('pdf').then((pdf) => {
+export default async function print(beer, system) {
+  await html2pdf().from(renderToString(ShowRecipeHeader({beer, system}))).set({ html2canvas:  { scale: 2 }}).toImg().get('img').then(async img => {
+    await html2pdf().from(renderToString(ShowRecipeContent({beer, system}))).set({ margin: [46, 0, 0, 2], html2canvas:  { scale: 2 }, pagebreak: { avoid: '.keepTogether' }}).toPdf().get('pdf').then((pdf) => {
       const totalPages = pdf.internal.getNumberOfPages();
       const imgProps= pdf.getImageProperties(img);
       const width = pdf.internal.pageSize.getWidth();
@@ -38,9 +37,9 @@ function roundNumber(num, scale) {
 
 export function ShowRecipeHeader(props) {
   const beer = props.beer
-  const metaDataContext = useContext(metaData)
+  const system = props.system
 
-  const recipeVolume = metaDataContext.state["system"] === "US" ? (roundNumber(litre2USGal(beer.water.finalVolume), 1) + "gal") : (beer.water.finalVolume + "L")
+  const recipeVolume = system === "US" ? (roundNumber(litre2USGal(beer.water.finalVolume), 1) + "gal") : (beer.water.finalVolume + "L")
 
   return (
     <div>
@@ -77,7 +76,7 @@ export function ShowRecipeHeader(props) {
 
 export function ShowRecipeContent(props) {
   const beer = props.beer
-  const metaDataContext = useContext(metaData)
+  const system = props.system
   
   const maltList = Object.values(
     beer.malt.reduce((pv, c) => { 
@@ -104,7 +103,7 @@ export function ShowRecipeContent(props) {
   let maltListToDisplay = []
   maltList.forEach((c) => {
     let amount;
-    if(metaDataContext.state["system"] === "US") {
+    if(system === "US") {
       amount = roundNumber(gramm2Pounds(c.amount), 2) + "lb"
     } else {
       amount = c.amount > 999 ? (c.amount/1000).toString() + "kg" : c.amount.toString() + "g"
@@ -119,7 +118,7 @@ export function ShowRecipeContent(props) {
   let hopListToDisplay = []
   hopList.forEach((c) => {
     let amount;
-    if(metaDataContext.state["system"] === "US") {
+    if(system === "US") {
       amount = roundNumber(gramm2Pounds(c.amount)*12, 0) + "oz"
     } else {
       amount = c.amount.toString() + "g"
@@ -134,7 +133,7 @@ export function ShowRecipeContent(props) {
   let mashstepsListToDisplay = []
   beer.mashSteps.forEach((c, i) => {
     let temp;
-    if(metaDataContext.state["system"] === "US") {
+    if(system === "US") {
       temp = roundNumber(celsius2fahrenheit(c.temp), 0) + "°F"
     } else {
       temp = c.temp + "°C"
@@ -160,7 +159,7 @@ export function ShowRecipeContent(props) {
   let hopadditionListToDisplay = []
   beer.hops.forEach((c, i) => {
     let amount;
-    if(metaDataContext.state["system"] === "US") {
+    if(system === "US") {
       amount = roundNumber(gramm2Pounds(c.amount)*12, 0) + "oz"
     } else {
       amount = c.amount.toString() + "g"
@@ -191,8 +190,8 @@ export function ShowRecipeContent(props) {
     )
   })
 
-  let mashWaterVolume = metaDataContext.state["system"] === "US" ? (roundNumber(litre2USGal(beer.water.mashWaterVolume), 1) + "gal") : (beer.water.mashWaterVolume + "L")
-  let spargeWaterVolume = metaDataContext.state["system"] === "US" ? (roundNumber(litre2USGal(beer.water.spargeWaterVolume), 1) + "gal") : (beer.water.spargeWaterVolume + "L")
+  let mashWaterVolume = system === "US" ? (roundNumber(litre2USGal(beer.water.mashWaterVolume), 1) + "gal") : (beer.water.mashWaterVolume + "L")
+  let spargeWaterVolume = system === "US" ? (roundNumber(litre2USGal(beer.water.spargeWaterVolume), 1) + "gal") : (beer.water.spargeWaterVolume + "L")
   
   return (
     <div>
