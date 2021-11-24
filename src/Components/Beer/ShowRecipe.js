@@ -50,7 +50,7 @@ export default function ShowRecipe(props) {
 
   let mashstepsListToDisplay = []
   beer.mashSteps.forEach((c, i) => {
-    let detail = (c.type === 1) ? "for " + c.dur + "min" : ""
+    let detail = (c.type === 1) ? "for " + c.dur + "min" : c.descr !== "" ? " - " + c.descr : ""
     mashstepsListToDisplay.push(
       <Typography sx={{ marginBottom: 2 }} key={i} variant="body1" align="left" gutterBottom>
         {Model.mashStepTypes[c.type].label} at {c.temp}°C {detail}

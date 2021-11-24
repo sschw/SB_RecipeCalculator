@@ -40,7 +40,7 @@ function MashStep(props) {
         </Select>
       </TableCell>
       <TableCell align="center">
-        <TextField label="Description" variant="standard" size="small" fullWidth value={props.mashStep.descr} onChange={(event) => updateMashStep("descr", event.target.valueAsNumber)} />
+        <TextField label="Description" variant="standard" size="small" fullWidth value={props.mashStep.descr} onChange={(event) => updateMashStep("descr", event.target.value)} />
       </TableCell>
       <TableCell align="right">
         <Stack direction="row" spacing={1}>
