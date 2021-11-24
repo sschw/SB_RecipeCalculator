@@ -9,13 +9,14 @@ import { ebc2Srm } from '../../Utils/Formulas';
 
 function SingleMalt(props) {
   const dispatch = props.dispatch
-  const rowId = props.rowID
+  const isNew = props.isNew
+  const key = props.key
   const updateMalt = (target, value) => {
-    dispatch({type: 'updateMalt', rowId: rowId, target: target, value: value})
+    dispatch({type: 'updateMalt', key: key, target: target, value: value})
   }
   const [inputName, setInputName] = useState(props.malt.name)
 
-  const styling = rowId === -1 ? {'&:last-child td, &:last-child th': { border: 0 }, backgroundColor: "#eeeeee"} : {'&:last-child td, &:last-child th': { border: 0 }};
+  const styling = isNew ? {'&:last-child td, &:last-child th': { border: 0 }, backgroundColor: "#eeeeee"} : {'&:last-child td, &:last-child th': { border: 0 }};
 
   return (
     <TableRow sx={styling}>
@@ -50,7 +51,7 @@ function SingleMalt(props) {
       <TextField label="Amount" fullWidth variant="standard" size="small" value={props.malt.amount.toString()} InputProps={{ inputComponent: GrammInput }} InputLabelProps={{ shrink: true }} onChange={(event) => updateMalt("amount", event.floatValue)} />
       </TableCell>
       <TableCell align="right">
-        <IconButton disabled={rowId < 0} aria-label="delete" onClick={() => {dispatch({type: "deleteMalt", rowId: rowId});}}>
+        <IconButton disabled={isNew} aria-label="delete" onClick={() => {dispatch({type: "deleteMalt", key: key});}}>
           <DeleteIcon />
         </IconButton>
       </TableCell>
@@ -79,9 +80,10 @@ function Malt(props) {
   let children = []
   rows.sort((a, b) => a.amount < b.amount);
   rows.forEach((row, index) => {
-    children.push(<SingleMalt malt={row} rowID={index} maltList={state} dispatch={dispatch} key={row.key} />)
+    children.push(<SingleMalt malt={row} isNew={false} maltList={state} dispatch={dispatch} key={row.key} />)
   });
-  children.push(<SingleMalt malt={Model.malt("malt"+rows.length)} maltList={state} rowID={-1} dispatch={dispatch} key={"malt"+rows.length} />)
+  let newMalt = Model.malt();
+  children.push(<SingleMalt malt={newMalt} isNew={true} maltList={state} dispatch={dispatch} key={newMalt.key} />)
 
   return (
     <div>

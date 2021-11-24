@@ -8,13 +8,14 @@ import { DecimalPercentInput, GrammInput, MinuteInput, MlPerGInput } from '../..
 
 function Hop(props) {
   const dispatch = props.dispatch
-  const rowId = props.rowID
+  const isNew = props.isNew
+  const key = props.key
   const updateHops = (target, value) => {
-    dispatch({type: 'updateHop', rowId: rowId, target: target, value: value})
+    dispatch({type: 'updateHop', key: key, target: target, value: value})
   }
   const [inputName, setInputName] = useState(props.hop.name)
 
-  const styling = rowId === -1 ? {'&:last-child td, &:last-child th': { border: 0 }, backgroundColor: "#eeeeee"} : {'&:last-child td, &:last-child th': { border: 0 }};
+  const styling = isNew ? {'&:last-child td, &:last-child th': { border: 0 }, backgroundColor: "#eeeeee"} : {'&:last-child td, &:last-child th': { border: 0 }};
 
   return (
     <TableRow sx={styling}>
@@ -65,7 +66,7 @@ function Hop(props) {
         {props.hop.type < 2 ? "IBU: " + props.hop.ibu : "Oil: " + props.hop.oilTotal }
       </TableCell>
       <TableCell align="right">
-        <IconButton disabled={rowId < 0} aria-label="delete" onClick={() => {dispatch({type: "deleteHop", rowId: rowId});}}>
+        <IconButton disabled={isNew} aria-label="delete" onClick={() => {dispatch({type: "deleteHop", key: key});}}>
           <DeleteIcon />
         </IconButton>
       </TableCell>
@@ -91,9 +92,10 @@ function Hops(props) {
   let children = []
   rows.sort((a, b) => a.type > b.type || (a.type === b.type && a.duration < b.duration));
   rows.forEach((row, index) => {
-    children.push(<Hop hop={row} hopList={state.hops} rowID={index} dispatch={dispatch} key={row.key} />)
+    children.push(<Hop hop={row} isNew={false} hopList={state.hops} dispatch={dispatch} key={row.key} />)
   });
-  children.push(<Hop hop={Model.hop("hop"+rows.length)} hopList={state.hops} rowID={-1} dispatch={dispatch} key={"hop"+rows.length} />)
+  let newHop = Model.hop();
+  children.push(<Hop hop={newHop} isNew={true} hopList={state.hops} dispatch={dispatch} key={newHop.key} />)
 
   return (
     <div>

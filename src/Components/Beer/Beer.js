@@ -8,152 +8,71 @@ import * as Model from '../../Model';
 import MashSteps from '../MashSteps/MashSteps';
 import ShowRecipe from './ShowRecipe';
 import printRecipe from './PrintRecipe';
-import { gravities2Abv, ibu, maltebc2beerebc, og2fg, oil, potentials2og, tinseth, totOil } from '../../Utils/Formulas';
 import Yeast from '../Yeast/Yeast';
 import Water from '../Water/Water';
+import { deleteHop, deleteMalt, deleteMashSteps, moveMashSteps, updateCookingDuration, updateHop, updateMalt, updateMashSteps, updateRecipe, updateWater, updateYeast } from '../../Utils/ModelUtils';
 
+// action = { type, target, key, value }
 function changeState(state, action) {
-  let updated = false
-  let array = []
   switch(action.type) {
     case 'recipe':
-      if(state.recipe[action.target] !== action.value) {
-        state.recipe[action.target] = action.value;
+      if(updateRecipe(state, action.target, action.value)) {
         return {...state};
       }
       return state
     case 'duration':
-      state.cookingDuration = action.value
-      return {...state}
+      if(updateCookingDuration(state, action.value)) {
+        return {...state};
+      }
+      return state
     case 'yeast':
-        if(state.yeast[action.target] !== action.value) {
-          state.yeast[action.target] = action.value;
-          state.recipe.fg = state.recipe.og === null ? null : og2fg(state.recipe.og, state.yeast.attenuation)
-          state.recipe.alc = state.recipe.og === null ? null : gravities2Abv(state.recipe.og, state.recipe.fg)
-          return {...state};
-        }
-        return state
+      if(updateYeast(state, action.target, action.value)) {
+        return {...state};
+      }
+      return state
     case 'water':
-      if(state.water[action.target] !== action.value) {
-        state.water[action.target] = action.value;
-        state.recipe.og = potentials2og(state.malt, state.water.finalVolume, state.recipe.maltYield)
-        state.recipe.og = state.recipe.og === 0 || state.recipe.og === 1 ? null : state.recipe.og
-        state.recipe.fg = state.recipe.og === null ? null : og2fg(state.recipe.og, state.yeast.attenuation)
-        state.recipe.alc = state.recipe.og === null ? null : gravities2Abv(state.recipe.og, state.recipe.fg)
-        state.recipe.ebc = maltebc2beerebc(state.malt, state.water.finalVolume)
-        state.recipe.ebc = state.recipe.ebc === 0 ? null : state.recipe.ebc
-        let maltAmount = state.malt.reduce((pv, v) => pv+v.amount/1000, 0)
-        for(let i = 0; i < state.hops.length; i++) {
-          let duration = state.hops[action.rowId].type === 0 ? state.cookingDuration : state.hops[action.rowId].duration
-          state.hops[i].ibu = state.hops[action.rowId] > 1 || state.recipe.og == null ? 0 : Math.round(tinseth(state.recipe.og, state.water.mashWaterVolume+state.water.spargeWaterVolume-state.water.grainLoss*maltAmount, state.water.finalVolume, state.hops[i].alpha, state.hops[i].amount, duration));
-        }
-        state.recipe.ibu = ibu(state.hops);
+      if(updateWater(state, action.target, action.value)) {
         return {...state};
       }
       return state
     case 'updateHop':
-      if(action.rowId >= state.hops.length) return state
-      if(action.rowId === -1) {
-        action.rowId = state.hops.length
-        state.hops.push(Model.hop("hop"+state.hops.length));
-        updated = true
-      }
-      if(action.target == null) {
-        for(let [key, value] of Object.entries(action.value)) {
-          if(state.hops[action.rowId][key] !== undefined)
-            state.hops[action.rowId][key] = value
-        }
-        updated = true
-      } else if(state.hops[action.rowId][action.target] !== action.value  && (isNaN(action.value) || isNaN(state.hops[action.rowId][action.target]) || Math.abs(state.hops[action.rowId][action.target]-action.value) > Number.EPSILON)) {
-        state.hops[action.rowId][action.target] = action.value;
-        updated = true
-      }
-      if(updated) {
-        let maltAmount = state.malt.reduce((pv, v) => pv+v.amount/1000, 0)
-        let duration = state.hops[action.rowId].type === 0 ? state.cookingDuration : state.hops[action.rowId].duration
-        state.hops[action.rowId].ibu = state.hops[action.rowId].type > 1 || state.recipe.og == null ? 0 : Math.round(tinseth(state.recipe.og, state.water.mashWaterVolume+state.water.spargeWaterVolume-state.water.grainLoss*maltAmount, state.water.finalVolume, state.hops[action.rowId].alpha, state.hops[action.rowId].amount, duration));
-        state.recipe.ibu = ibu(state.hops);
-        state.hops[action.rowId].oilTotal = state.hops[action.rowId].type < 2 ? 0 : Math.round(totOil(state.hops[action.rowId])*100)/100;
-        state.recipe.oil = oil(state.hops);
-        state.recipe.ibu = ibu(state.hops);
+      if(updateHop(state, action.key, action.target, action.value)) {
         return {...state};
       }
       return state
     case 'deleteHop':
-      array = [...state.hops];
-      array.splice(action.rowId, 1);
-      state.recipe.ibu = ibu(array);
-      state.recipe.oil = oil(state.hops);
-      return {...state, hops: array};
+      if(deleteHop(state, action.key)) {
+        return {...state};
+      }
+      return state
     case 'updateMalt':
-      if(action.rowId >= state.malt.length) return state
-      if(action.rowId === -1) {
-        action.rowId = state.malt.length
-        state.malt.push(Model.malt("malt"+state.malt.length));
-        updated = true
-      }
-      if(action.target == null) {
-        for(let [key, value] of Object.entries(action.value)) {
-          if(state.malt[action.rowId][key] !== undefined)
-            state.malt[action.rowId][key] = value
-        }
-        updated = true
-      } else if(state.malt[action.rowId][action.target] !== action.value && (isNaN(action.value) || isNaN(state.malt[action.rowId][action.target]) || Math.abs(state.malt[action.rowId][action.target]-action.value) > Number.EPSILON)) {
-        state.malt[action.rowId][action.target] = action.value;
-        updated = true
-      }
-      if(updated) {
-        state.recipe.og = potentials2og(state.malt, state.water.finalVolume, state.recipe.maltYield)
-        state.recipe.og = state.recipe.og === 0 || state.recipe.og === 1 ? null : state.recipe.og
-        state.recipe.fg = state.recipe.og === null ? null : og2fg(state.recipe.og, state.yeast.attenuation)
-        state.recipe.alc = state.recipe.og === null ? null : gravities2Abv(state.recipe.og, state.recipe.fg)
-        state.recipe.ebc = maltebc2beerebc(state.malt, state.water.finalVolume)
-        state.recipe.ebc = state.recipe.ebc === 0 ? null : state.recipe.ebc
+      if(updateMalt(state, action.key, action.target, action.value)) {
         return {...state};
       }
       return state
     case 'deleteMalt':
-      array = [...state.malt];
-      array.splice(action.rowId, 1);
-      state.recipe.og = potentials2og(array, state.water.finalVolume, state.recipe.maltYield)
-      state.recipe.og = state.recipe.og === 0 || state.recipe.og === 1 ? null : state.recipe.og
-      state.recipe.fg = state.recipe.og === null ? null : og2fg(state.recipe.og, state.yeast.attenuation)
-      state.recipe.alc = state.recipe.og === null ? null : gravities2Abv(state.recipe.og, state.recipe.fg)
-      state.recipe.ebc = maltebc2beerebc(array, state.water.finalVolume)
-      state.recipe.ebc = state.recipe.ebc === 0 ? null : state.recipe.ebc
-      return {...state, malt: array};
-    case 'updateMashStep':
-      if(action.rowId === -1) {
-        action.rowId = state.mashSteps.length
-        state.mashSteps.push(Model.mashStep("mash"+state.mashSteps.length));
-        updated = true
-      }
-      if(action.target == null) {
-        for(let [key, value] of Object.entries(action.value)) {
-          if(state.mashSteps[action.rowId][key] !== undefined)
-            state.mashSteps[action.rowId][key] = value
-        }
-        updated = true
-      } else if(state.mashSteps[action.rowId][action.target] !== action.value && (isNaN(action.value) || isNaN(state.mashSteps[action.rowId][action.target]) || Math.abs(state.mashSteps[action.rowId][action.target]-action.value) > Number.EPSILON)) {
-        state.mashSteps[action.rowId][action.target] = action.value;
-        updated = true
-      }
-      if(updated)
+      if(deleteMalt(state, action.key, action.target, action.value)) {
         return {...state};
+      }
+      return state
+    case 'updateMashStep':
+      if(updateMashSteps(state, action.key, action.target, action.value)) {
+        return {...state};
+      }
       return state
     case 'moveMashStep':
-      if(action.rowId2 >= state.mashSteps.length)
-        state.mashSteps.push(Model.mashStep())
-      array = [...state.mashSteps];
-      array[action.rowId1] = state.mashSteps[action.rowId2]
-      array[action.rowId2] = state.mashSteps[action.rowId1]
-      return {...state, mashSteps: array};
+      if(moveMashSteps(state, action.key, action.value)) {
+        return {...state};
+      }
+      return state
     case 'deleteMashStep':
-      array = [...state.mashSteps];
-      array.splice(action.rowId, 1);
-      return {...state, mashSteps: array};
+      if(deleteMashSteps(state, action.key, action.target, action.value)) {
+        return {...state};
+      }
+      return state
     case 'setMashTemplate':
-      array = [...action.value];
+      // MashSteps are the value.
+      let array = [...action.value];
       return {...state, mashSteps: array};
     default:
       return state

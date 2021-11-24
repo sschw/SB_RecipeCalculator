@@ -9,12 +9,15 @@ import { CelsiusInput, MinuteInput } from '../../Utils/NumberInput';
 
 function MashStep(props) {
   const dispatch = props.dispatch
-  const rowId = props.rowID
+  const isNew = props.isNew
+  const key = props.key
+  const isFirst = props.isFirst
+  const isLast = props.isLast
   const updateMashStep = (target, value) => {
-    dispatch({type: 'updateMashStep', rowId: rowId, target: target, value: value})
+    dispatch({type: 'updateMashStep', key: key, target: target, value: value})
   }
 
-  const styling = rowId === -1 ? {'&:last-child td, &:last-child th': { border: 0 }, backgroundColor: "#eeeeee"} : {'&:last-child td, &:last-child th': { border: 0 }};
+  const styling = isNew ? {'&:last-child td, &:last-child th': { border: 0 }, backgroundColor: "#eeeeee"} : {'&:last-child td, &:last-child th': { border: 0 }};
 
   return (
     <TableRow sx={styling}>
@@ -41,13 +44,13 @@ function MashStep(props) {
       </TableCell>
       <TableCell align="right">
         <Stack direction="row" spacing={1}>
-          <IconButton disabled={rowId === 0 || rowId === -1} aria-label="up" onClick={() => {dispatch({type: "moveMashStep", rowId1: rowId, rowId2: rowId-1});}}>
+          <IconButton disabled={!isFirst} aria-label="up" onClick={() => {dispatch({type: "moveMashStep", key: key, value: -1});}}>
             <ArrowUpward />
           </IconButton>
-          <IconButton disabled={rowId === 0 || rowId === -1} aria-label="down" onClick={() => {dispatch({type: "moveMashStep", rowId1: rowId, rowId2: rowId+1});}}>
+          <IconButton disabled={!isLast} aria-label="down" onClick={() => {dispatch({type: "moveMashStep", key: key, value: 1});}}>
             <ArrowDownward />
           </IconButton>
-          <IconButton disabled={rowId < 0} aria-label="delete" onClick={() => {dispatch({type: "deleteMashStep", rowId: rowId});}}>
+          <IconButton disabled={isNew} aria-label="delete" onClick={() => {dispatch({type: "deleteMashStep", key: key});}}>
             <DeleteIcon />
           </IconButton>
         </Stack>
@@ -63,9 +66,10 @@ function MashSteps(props) {
 
   let children = []
   rows.forEach((row, index) => {
-    children.push(<MashStep mashStep={row} rowID={index} dispatch={dispatch} key={row.key} />)
+    children.push(<MashStep mashStep={row} isNew={false} isFirst={index === 0} isLast={false} dispatch={dispatch} key={row.key} />)
   });
-  children.push(<MashStep mashStep={Model.mashStep("mash"+rows.length)} rowID={-1} dispatch={dispatch} key={"mash"+rows.length} />)
+  let newMashStep = Model.mashStep()
+  children.push(<MashStep mashStep={newMashStep} isNew={true} isFirst={false} isLast={true} dispatch={dispatch} key={newMashStep.key} />)
 
   const [maltTemplate, setMaltTemplate] = useState(0)
 

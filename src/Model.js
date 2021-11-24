@@ -1,7 +1,7 @@
-
+var uuid = require('uuid');
 
 export const beerRecipe = () => {return {
-    system: "SI", // US for gal & °F
+    system: "SI", // US for gal & °F - Will just change display type
     recipe: {
       name: "", 
       description: "",
@@ -24,20 +24,20 @@ export const beerRecipe = () => {return {
         ibu:  { min: null, max: null }
       }
     },
+    cookingDuration: 90,
     water: { mashWaterVolume: 17, spargeWaterVolume: 13, finalVolume: 20, grainLoss: 1, boilLoss: 4 },
     malt: [],
     mashSteps: [{key: "mash0", temp: 57, dur: 0, type: 0, descr: "" }],
-    cookingDuration: 90,
     hops: [],
     yeast: { name: "", attenuation: 0.7, flocculation: "" }
   }
 }
 
-export const malt = (key) => {return {key: key, name: "", color: {srm: 0, ebc: 0}, potential: 1, amount: 0}}
+export const malt = (key) => {return {key: key == null ? uuid.v4() : key, name: "", color: {srm: 0, ebc: 0}, potential: 1, amount: 0}}
 
-export const hop = (key) => {return {key: key, name: "", alpha: 0, oil: 0, amount: 0, type: 1, ibu: 0, oilTotal: 0, duration: 0}}
+export const hop = (key) => {return {key: key == null ? uuid.v4() : key, name: "", alpha: 0, oil: 0, amount: 0, type: 1, ibu: 0, oilTotal: 0, duration: 0}}
 
-export const mashStep = (key) => {return {key: key, temp: 0, dur: 0, type: 1, descr: "" }}
+export const mashStep = (key) => {return {key: key == null ? uuid.v4() : key, temp: 0, dur: 0, type: 1, descr: "" }}
 
 export const yeast = () => {return { name: "", attenuation: 0.7, flocculation: "" }}
 
