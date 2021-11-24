@@ -42,6 +42,10 @@
 
   "Mashing": "Maischen",
   "Mashing Templates": "Maisch-Vorlagen",
+  "3-Rests": "3 Rasten",
+  "4-Rests": "4 Rasten",
+  "5-Rests Wheat Beer": "5 Rasten Weizenbier",
+  "5-Rests Rye Beer": "5 Rasten Roggenbier",
   "Temperature": "Temperatur",
   "Duration": "Dauer",
   "Type": "Art",
@@ -51,6 +55,10 @@
   "Alpha": "Alpha",
   "Oil": "Öl",
   "Info": "Info",
+  "first wort": "Vorderwürze",
+  "boil": "Kochen",
+  "whirlpool 80°C": "Whirlpool 80°C ",
+  "dry hopping": "Trockenhopfung",
 
   "Yeast": "Hefe",
   "Attenuation": "Endvergährungsgrad",

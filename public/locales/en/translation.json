@@ -42,6 +42,10 @@
 
   "Mashing": "Mashing",
   "Mashing Templates": "Mashing Templates",
+  "3-Rests": "3-Rests",
+  "4-Rests": "4-Rests",
+  "5-Rests Wheat Beer": "5-Rests Wheat Beer",
+  "5-Rests Rye Beer": "5-Rests Rye Beer",
   "Temperature": "Temperature",
   "Duration": "Duration",
   "Type": "Type",
@@ -51,6 +55,10 @@
   "Alpha": "Alpha",
   "Oil": "Oil",
   "Info": "Info",
+  "first wort": "first wort",
+  "boil": "boil",
+  "whirlpool 80°C": "whirlpool 80°C ",
+  "dry hopping": "dry hopping",
 
   "Yeast": "Yeast",
   "Attenuation": "Attenuation",

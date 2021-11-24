@@ -94,8 +94,8 @@ function MashSteps(props) {
             {t("Mashing Templates")}
           </InputLabel>
           <Select labelId={"mashtemplate"} label={t("Mashing Templates")} fullWidth variant="standard" size="small" value={maltTemplate} onChange={(event) => {dispatch({type: "setMashTemplate", value: event.target.value.value}); setMaltTemplate(event.target.value)}}>
-            {Model.mashStepTemplates.map(t => 
-              <MenuItem key={"mashstep" + t.id} value={t}>{t.label}</MenuItem>
+            {Model.mashStepTemplates.map(ty => 
+              <MenuItem key={"mashstep" + ty.id} value={ty}>{t(ty.label)}</MenuItem>
             )}
           </Select>
         </Grid>

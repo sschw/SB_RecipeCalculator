@@ -59,8 +59,8 @@ function Hop(props) {
           {t("Type")}
         </InputLabel>
         <Select labelId={props.hop.key + "-hoptype"} fullWidth label={t("Type")} variant="standard" size="small" value={props.hop.type} onChange={(event) => updateHops("type", event.target.value)}>
-          {Model.hopType.map(t => 
-            <MenuItem key={props.hop.key + "hoptype" + t.id} value={t.id}>{t.label}</MenuItem>
+          {Model.hopType.map(ty => 
+            <MenuItem key={props.hop.key + "hoptype" + ty.id} value={ty.id}>{t(ty.label)}</MenuItem>
           )}
         </Select>
       </TableCell>
@@ -68,7 +68,7 @@ function Hop(props) {
         <TextField label={t("Duration")} disabled={props.hop.type !== 1} InputProps={{ inputComponent: MinuteInput }} InputLabelProps={{ shrink: true }} size="small" fullWidth variant="standard" value={props.hop.duration.toString()} onChange={(event) => updateHops("duration", event.floatValue)} />
       </TableCell>
       <TableCell align="center">
-        {props.hop.type < 2 ? "IBU: " + props.hop.ibu : "Oil: " + props.hop.oilTotal }
+        {props.hop.type < 2 ? ("IBU: " + props.hop.ibu) : (t("Oil") + ": " + props.hop.oilTotal) }
       </TableCell>
       <TableCell align="right">
         <IconButton disabled={isNew} aria-label="delete" onClick={() => {dispatch({type: "deleteHop", key: key});}}>
@@ -126,7 +126,7 @@ function Hops(props) {
               <TableCell width="10%" sx={{minWidth: 40}} align="center">{t("Type")}</TableCell>
               <TableCell width="10%" sx={{minWidth: 40}} align="center">{t("Duration")}</TableCell>
               <TableCell width="20%" align="center">{t("Info")}</TableCell>
-              <TableCell width="10%" align="right">{t("Actions")}</TableCell>
+              <TableCell width="10%" align="right">{t("Action")}</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

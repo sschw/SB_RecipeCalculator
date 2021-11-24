@@ -103,7 +103,7 @@ function Malt(props) {
               <TableCell width="20%" sx={{minWidth: 40}} align="center">EBC</TableCell>
               <TableCell width="20%" sx={{minWidth: 40}} align="center">{t("Pontential")}</TableCell>
               <TableCell width="20%" sx={{minWidth: 40}} align="center">{t("Amount")}</TableCell>
-              <TableCell width="10%" align="right">Action</TableCell>
+              <TableCell width="10%" align="right">{t("Action")}</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
