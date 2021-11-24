@@ -6,8 +6,10 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import *  as Model from '../../Model';
 import { DecimalPercentInput, GrammInput, MinuteInput, MlPerGInput, OunceInput } from '../../Utils/NumberInput';
 import { metaData } from "../../Context/MetaDataContext"
+import { useTranslation } from 'react-i18next';
 
 function Hop(props) {
+  const [t, i18n] = useTranslation();
   const dispatch = props.dispatch
   const isNew = props.isNew
   const key = props.hop.key
@@ -26,7 +28,7 @@ function Hop(props) {
         <Autocomplete 
           options={props.hopList}
           getOptionLabel={(bt) => (typeof bt === 'string' || bt instanceof String) ? bt : bt.name}
-          renderInput={(params) => <TextField {...params} label="Name" variant="standard" size="small" />} 
+          renderInput={(params) => <TextField {...params} label={t("Name")} variant="standard" size="small" />} 
           freeSolo 
           fullWidth
           value={props.hop} 
@@ -44,26 +46,26 @@ function Hop(props) {
         />
       </TableCell>
       <TableCell align="center">
-        <TextField label="Alpha" fullWidth variant="standard" size="small" value={props.hop.alpha.toString()} InputProps={{ inputComponent: DecimalPercentInput }} InputLabelProps={{ shrink: true }}  onChange={(event) => {if(event.floatValue > 0) updateHops("alpha", event.floatValue)}} />
+        <TextField label={t("Alpha")} fullWidth variant="standard" size="small" value={props.hop.alpha.toString()} InputProps={{ inputComponent: DecimalPercentInput }} InputLabelProps={{ shrink: true }}  onChange={(event) => {if(event.floatValue > 0) updateHops("alpha", event.floatValue)}} />
       </TableCell>
       <TableCell align="center">
-        <TextField label="Oil" fullWidth variant="standard" size="small" value={props.hop.oil.toString()} InputProps={{ inputComponent: MlPerGInput }} InputLabelProps={{ shrink: true }} onChange={(event) => {if(event.floatValue > 0) updateHops("oil", event.floatValue)}} />
+        <TextField label={t("Oil")} fullWidth variant="standard" size="small" value={props.hop.oil.toString()} InputProps={{ inputComponent: MlPerGInput }} InputLabelProps={{ shrink: true }} onChange={(event) => {if(event.floatValue > 0) updateHops("oil", event.floatValue)}} />
       </TableCell>
       <TableCell align="center">
-        <TextField label="Amount" fullWidth variant="standard" size="small" value={props.hop.amount.toString()} InputProps={ metaDataContext.state["system"] === "US" ? { inputComponent: OunceInput } : { inputComponent: GrammInput } } InputLabelProps={{ shrink: true }} onChange={(event) => updateHops("amount", event.floatValue)} />
+        <TextField label={t("Amount")} fullWidth variant="standard" size="small" value={props.hop.amount.toString()} InputProps={ metaDataContext.state["system"] === "US" ? { inputComponent: OunceInput } : { inputComponent: GrammInput } } InputLabelProps={{ shrink: true }} onChange={(event) => updateHops("amount", event.floatValue)} />
       </TableCell>
       <TableCell align="center">
         <InputLabel id={props.hop.key + "-hoptype"} variant="standard" sx={{ fontSize: 12 }} >
-          Type
+          {t("Type")}
         </InputLabel>
-        <Select labelId={props.hop.key + "-hoptype"} fullWidth label="Type" variant="standard" size="small" value={props.hop.type} onChange={(event) => updateHops("type", event.target.value)}>
+        <Select labelId={props.hop.key + "-hoptype"} fullWidth label={t("Type")} variant="standard" size="small" value={props.hop.type} onChange={(event) => updateHops("type", event.target.value)}>
           {Model.hopType.map(t => 
             <MenuItem key={props.hop.key + "hoptype" + t.id} value={t.id}>{t.label}</MenuItem>
           )}
         </Select>
       </TableCell>
       <TableCell align="center">
-        <TextField label="Duration" disabled={props.hop.type !== 1} InputProps={{ inputComponent: MinuteInput }} InputLabelProps={{ shrink: true }} size="small" fullWidth variant="standard" value={props.hop.duration.toString()} onChange={(event) => updateHops("duration", event.floatValue)} />
+        <TextField label={t("Duration")} disabled={props.hop.type !== 1} InputProps={{ inputComponent: MinuteInput }} InputLabelProps={{ shrink: true }} size="small" fullWidth variant="standard" value={props.hop.duration.toString()} onChange={(event) => updateHops("duration", event.floatValue)} />
       </TableCell>
       <TableCell align="center">
         {props.hop.type < 2 ? "IBU: " + props.hop.ibu : "Oil: " + props.hop.oilTotal }
@@ -79,18 +81,20 @@ function Hop(props) {
 
 
 function Hops(props) {
+  const [t, i18n] = useTranslation();
   let rows = props.hops
   let dispatch = props.dispatch
 
   const [state, setState] = useState({hops: []});
+  const metaDataContext = useContext(metaData)
 
   useEffect(() => {
-    fetch("./sb_hops.json")
+    fetch("./locales/" + metaDataContext.state.language + "/sb_hops.json")
     .then((resp) => resp.json())
     .then((resp) => {
       setState({hops: resp});
     });
-  }, []);
+  }, [metaDataContext.state]);
 
   let children = []
   rows.sort((a, b) => a.type > b.type || (a.type === b.type && a.duration < b.duration));
@@ -105,7 +109,7 @@ function Hops(props) {
       <Grid container>
         <Grid item lg={2} md={2} sm={12} xs={12} ></Grid>
         <Grid item lg={8} md={8} sm={12} xs={12} >
-          <h3>Hop</h3>
+          <h3>{t("Hop")}</h3>
         </Grid>
         <Grid item lg={2} md={2} sm={12} xs={12}>
         <TextField label="Cooking Duration" InputProps={{ inputComponent: MinuteInput }} InputLabelProps={{ shrink: true }} size="small" fullWidth variant="standard" value={props.cookingDuration.toString()} onChange={(event) => dispatch({type: "duration", value: event.floatValue})} />
@@ -115,14 +119,14 @@ function Hops(props) {
         <Table size="small" aria-label="hop table">
           <TableHead>
             <TableRow>
-              <TableCell width="20%">Name</TableCell>
-              <TableCell width="10%" sx={{minWidth: 40}} align="center">Alpha</TableCell>
-              <TableCell width="10%" sx={{minWidth: 40}} align="center">Oil</TableCell>
-              <TableCell width="10%" sx={{minWidth: 40}} align="center">Amount</TableCell>
-              <TableCell width="10%" sx={{minWidth: 40}} align="center">Type</TableCell>
-              <TableCell width="10%" sx={{minWidth: 40}} align="center">Duration</TableCell>
-              <TableCell width="20%" align="center">Info</TableCell>
-              <TableCell width="10%" align="right">Actions</TableCell>
+              <TableCell width="20%">{t("Name")}</TableCell>
+              <TableCell width="10%" sx={{minWidth: 40}} align="center">{t("Alpha")}</TableCell>
+              <TableCell width="10%" sx={{minWidth: 40}} align="center">{t("Oil")}</TableCell>
+              <TableCell width="10%" sx={{minWidth: 40}} align="center">{t("Amount")}</TableCell>
+              <TableCell width="10%" sx={{minWidth: 40}} align="center">{t("Type")}</TableCell>
+              <TableCell width="10%" sx={{minWidth: 40}} align="center">{t("Duration")}</TableCell>
+              <TableCell width="20%" align="center">{t("Info")}</TableCell>
+              <TableCell width="10%" align="right">{t("Actions")}</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

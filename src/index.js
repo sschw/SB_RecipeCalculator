@@ -6,6 +6,8 @@ import App from './Components/App/App';
 import { StyledEngineProvider } from '@material-ui/core/styles';
 import reportWebVitals from './reportWebVitals';
 
+import './i18n';
+
 ReactDOM.render(
   <StyledEngineProvider injectFirst>
     <App />

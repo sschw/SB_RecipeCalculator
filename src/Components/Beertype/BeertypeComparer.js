@@ -5,6 +5,7 @@ import Slider from '@material-ui/core/Slider';
 import Box from '@material-ui/core/Box';
 import {sg2plato} from '../../Utils/Formulas'
 import Ebc2Hex from '../../Utils/Ebc2Hex'
+import { useTranslation } from 'react-i18next';
 
 function getMinSliderPos(min, max, value) {
   if(min === null && max === null && value === null) return 0
@@ -92,6 +93,7 @@ function ebctext(value) {
 }
 
 function BeertypeComparer (props) {
+  const [t, i18n] = useTranslation();
   const recipe = props.recipe
   const beertype = recipe.beertype
 
@@ -106,9 +108,9 @@ function BeertypeComparer (props) {
 
   return (
     <Box className="beertype">
-      <h3>Beer type</h3>
+      <h3>{t("Beer type")}</h3>
       <Typography id="discrete-slider-always" gutterBottom>
-          Original Gravity
+          {t("Original Gravity")}
       </Typography>
       <Slider
         value={og === null ? getMinSliderPos(beertype.og.minPlato, beertype.og.maxPlato, og) : og}
@@ -123,7 +125,7 @@ function BeertypeComparer (props) {
         valueLabelDisplay={og !== null && !isNaN(og) ? "on" : "off"}
       />
       <Typography id="discrete-slider-always" gutterBottom>
-          Final Gravity
+          {t("Final Gravity")}
       </Typography>
       <Slider
         value={fg === null ? getMinSliderPos(beertype.fg.minPlato, beertype.fg.maxPlato, fg) : fg}
@@ -138,7 +140,7 @@ function BeertypeComparer (props) {
         valueLabelDisplay={fg !== null && !isNaN(fg) ? "on" : "off"}
       />
       <Typography id="discrete-slider-always" gutterBottom>
-          Alcohol
+          {t("Alcohol")}
       </Typography>
       <Slider
         value={alc === null ? getMinSliderPos(beertype.alc.minPercentVol, beertype.alc.maxPercentVol, alc) : alc}

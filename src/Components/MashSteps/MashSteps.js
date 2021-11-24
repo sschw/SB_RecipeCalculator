@@ -7,8 +7,10 @@ import *  as Model from '../../Model';
 import { ArrowDownward, ArrowUpward } from '@material-ui/icons';
 import { CelsiusInput, FahrenheitInput, MinuteInput } from '../../Utils/NumberInput';
 import { metaData } from "../../Context/MetaDataContext"
+import { useTranslation } from 'react-i18next';
 
 function MashStep(props) {
+  const [t, i18n] = useTranslation();
   const dispatch = props.dispatch
   const isNew = props.isNew
   const key = props.mashStep.key
@@ -26,25 +28,25 @@ function MashStep(props) {
   return (
     <TableRow sx={styling}>
       <TableCell align="center">
-        <TextField label="Temperature" InputProps={ metaDataContext.state["system"] === "US" ? { inputComponent: FahrenheitInput } : { inputComponent: CelsiusInput } } fullWidth variant="standard" size="small" value={props.mashStep.temp.toString()} onChange={(event) => updateMashStep("temp", event.floatValue)} />
+        <TextField label={t("Temperature")} InputProps={ metaDataContext.state["system"] === "US" ? { inputComponent: FahrenheitInput } : { inputComponent: CelsiusInput } } fullWidth variant="standard" size="small" value={props.mashStep.temp.toString()} onChange={(event) => updateMashStep("temp", event.floatValue)} />
       </TableCell>
       <TableCell align="center">
-      <TextField label="Duration" disabled={props.mashStep.type === 0} InputProps={{ inputComponent: MinuteInput }} InputLabelProps={{ shrink: true }} size="small" fullWidth variant="standard" value={props.mashStep.dur.toString()} onChange={(event) => updateMashStep("dur", event.floatValue)} />
+      <TextField label={t("Duration")} disabled={props.mashStep.type === 0} InputProps={{ inputComponent: MinuteInput }} InputLabelProps={{ shrink: true }} size="small" fullWidth variant="standard" value={props.mashStep.dur.toString()} onChange={(event) => updateMashStep("dur", event.floatValue)} />
       </TableCell>
       <TableCell align="center">
         <InputLabel id={props.mashStep.key + "-mashtype"} variant="standard" sx={{
           fontSize: 12,
             }} >
-          Type
+          {t("Type")}
         </InputLabel>
         <Select labelId={props.mashStep.key + "-mashtype"} label="Type" variant="standard" fullWidth size="small" value={props.mashStep.type} onChange={(event) => updateMashStep("type", event.target.value)}>
-          {Model.mashStepTypes.map(t => 
-            <MenuItem key={props.mashStep.key + "mashtype" + t.id} value={t.id}>{t.label}</MenuItem>
+          {Model.mashStepTypes.map(ty => 
+            <MenuItem key={props.mashStep.key + "mashtype" + ty.id} value={ty.id}>{t(ty.label)}</MenuItem>
           )}
         </Select>
       </TableCell>
       <TableCell align="center">
-        <TextField label="Description" variant="standard" size="small" fullWidth value={props.mashStep.descr} onChange={(event) => updateMashStep("descr", event.target.value)} />
+        <TextField label={t("Description")} variant="standard" size="small" fullWidth value={props.mashStep.descr} onChange={(event) => updateMashStep("descr", event.target.value)} />
       </TableCell>
       <TableCell align="right">
         <Stack direction="row" spacing={1}>
@@ -65,6 +67,7 @@ function MashStep(props) {
 
 
 function MashSteps(props) {
+  const [t, i18n] = useTranslation();
   let rows = props.mashSteps
   let dispatch = props.dispatch
 
@@ -82,15 +85,15 @@ function MashSteps(props) {
       <Grid container>
         <Grid item lg={2} md={2} sm={12} xs={12} ></Grid>
         <Grid item lg={8} md={8} sm={12} xs={12} >
-          <h3>Mashing</h3>
+          <h3>{t("Mashing")}</h3>
         </Grid>
         <Grid item lg={2} md={2} sm={12} xs={12}>
           <InputLabel id={"mashtemplate"} variant="standard" sx={{
             fontSize: 12,
               }} >
-            Mashing Templates
+            {t("Mashing Templates")}
           </InputLabel>
-          <Select labelId={"mashtemplate"} label="Mashing Templates" fullWidth variant="standard" size="small" value={maltTemplate} onChange={(event) => {dispatch({type: "setMashTemplate", value: event.target.value.value}); setMaltTemplate(event.target.value)}}>
+          <Select labelId={"mashtemplate"} label={t("Mashing Templates")} fullWidth variant="standard" size="small" value={maltTemplate} onChange={(event) => {dispatch({type: "setMashTemplate", value: event.target.value.value}); setMaltTemplate(event.target.value)}}>
             {Model.mashStepTemplates.map(t => 
               <MenuItem key={"mashstep" + t.id} value={t}>{t.label}</MenuItem>
             )}
@@ -101,11 +104,11 @@ function MashSteps(props) {
         <Table size="small" aria-label="mashsteps table">
           <TableHead>
             <TableRow>
-              <TableCell width="15%" sx={{minWidth: 40}} align="center">Temperature</TableCell>
-              <TableCell width="15%" sx={{minWidth: 40}} align="center">Duration</TableCell>
-              <TableCell width="15%" sx={{minWidth: 40}} align="center">Type</TableCell>
-              <TableCell width="45%" sx={{minWidth: 40}} align="center">Description</TableCell>
-              <TableCell width="10%" align="right">Action</TableCell>
+              <TableCell width="15%" sx={{minWidth: 40}} align="center">{t("Temperature")}</TableCell>
+              <TableCell width="15%" sx={{minWidth: 40}} align="center">{t("Duration")}</TableCell>
+              <TableCell width="15%" sx={{minWidth: 40}} align="center">{t("Type")}</TableCell>
+              <TableCell width="45%" sx={{minWidth: 40}} align="center">{t("Description")}</TableCell>
+              <TableCell width="10%" align="right">{t("Action")}</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

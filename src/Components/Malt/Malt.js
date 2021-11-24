@@ -7,8 +7,10 @@ import *  as Model from '../../Model';
 import { GrammInput, PoundsInput } from '../../Utils/NumberInput';
 import { ebc2Srm } from '../../Utils/Formulas';
 import { metaData } from "../../Context/MetaDataContext"
+import { useTranslation } from 'react-i18next';
 
 function SingleMalt(props) {
+  const [t, i18n] = useTranslation();
   const dispatch = props.dispatch
   const isNew = props.isNew
   const key = props.malt.key
@@ -27,7 +29,7 @@ function SingleMalt(props) {
         <Autocomplete 
           options={props.maltList.malt}
           getOptionLabel={(bt) => (typeof bt === 'string' || bt instanceof String) ? bt : bt.name}
-          renderInput={(params) => <TextField {...params} label="Name" variant="standard" size="small" />} 
+          renderInput={(params) => <TextField {...params} label={t("Name")} variant="standard" size="small" />} 
           freeSolo 
           fullWidth
           value={props.malt} 
@@ -48,10 +50,10 @@ function SingleMalt(props) {
         <TextField label="EBC" variant="standard" fullWidth size="small" value={props.malt.color.ebc} onChange={(event) => updateMalt("color", {srm: ebc2Srm(event.target.valueAsNumber), ebc: event.target.valueAsNumber})} type="number" />
       </TableCell>
       <TableCell align="center">
-        <TextField label="Potential" variant="standard" inputProps={{step: 0.001}} fullWidth size="small" value={props.malt.potential} onChange={(event) => updateMalt("potential", event.target.valueAsNumber)} type="number" />
+        <TextField label={t("Potential")} variant="standard" inputProps={{step: 0.001}} fullWidth size="small" value={props.malt.potential} onChange={(event) => updateMalt("potential", event.target.valueAsNumber)} type="number" />
       </TableCell>
       <TableCell align="center">
-      <TextField label="Amount" fullWidth variant="standard" size="small" value={props.malt.amount.toString()} InputProps={ metaDataContext.state["system"] === "US" ? { inputComponent: PoundsInput } : { inputComponent: GrammInput } } InputLabelProps={{ shrink: true }} onChange={(event) => updateMalt("amount", event.floatValue)} />
+      <TextField label={t("Amount")} fullWidth variant="standard" size="small" value={props.malt.amount.toString()} InputProps={ metaDataContext.state["system"] === "US" ? { inputComponent: PoundsInput } : { inputComponent: GrammInput } } InputLabelProps={{ shrink: true }} onChange={(event) => updateMalt("amount", event.floatValue)} />
       </TableCell>
       <TableCell align="right">
         <IconButton disabled={isNew} aria-label="delete" onClick={() => {dispatch({type: "deleteMalt", key: key});}}>
@@ -64,13 +66,15 @@ function SingleMalt(props) {
 
 
 function Malt(props) {
+  const [t, i18n] = useTranslation();
   let rows = props.malt
   let dispatch = props.dispatch
 
   const [state, setState] = useState({malt: []});
+  const metaDataContext = useContext(metaData)
 
   useEffect(() => {
-    fetch("./sb_malt.json")
+    fetch("./locales/" + metaDataContext.state.language + "/sb_malt.json")
     .then((resp) => resp.json())
     .then((resp) => {
       for(let i = 0; i < resp.length; i++) {
@@ -78,7 +82,7 @@ function Malt(props) {
       }
       setState({malt: resp});
     });
-  }, []);
+  }, [metaDataContext.state]);
 
   let children = []
   rows.sort((a, b) => a.amount < b.amount);
@@ -90,15 +94,15 @@ function Malt(props) {
 
   return (
     <div>
-      <h3>Malt</h3>
+      <h3>{t("Malt")}</h3>
       <TableContainer component={Paper}>
         <Table size="small" aria-label="malt table">
           <TableHead>
             <TableRow>
-              <TableCell width="30%">Name</TableCell>
+              <TableCell width="30%">{t("Name")}</TableCell>
               <TableCell width="20%" sx={{minWidth: 40}} align="center">EBC</TableCell>
-              <TableCell width="20%" sx={{minWidth: 40}} align="center">Pontential</TableCell>
-              <TableCell width="20%" sx={{minWidth: 40}} align="center">Amount</TableCell>
+              <TableCell width="20%" sx={{minWidth: 40}} align="center">{t("Pontential")}</TableCell>
+              <TableCell width="20%" sx={{minWidth: 40}} align="center">{t("Amount")}</TableCell>
               <TableCell width="10%" align="right">Action</TableCell>
             </TableRow>
           </TableHead>

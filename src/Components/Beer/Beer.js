@@ -12,6 +12,7 @@ import Yeast from '../Yeast/Yeast';
 import Water from '../Water/Water';
 import { metaData } from "../../Context/MetaDataContext"
 import { deleteHop, deleteMalt, deleteMashSteps, moveMashSteps, updateCookingDuration, updateHop, updateMalt, updateMashSteps, updateRecipe, updateWater, updateYeast } from '../../Utils/ModelUtils';
+import { useTranslation } from 'react-i18next';
 
 // action = { type, target, key, value }
 function changeState(state, action) {
@@ -98,6 +99,7 @@ function Beer(props) {
   } else {
     beer = props.beer
   }
+  const [t, i18n] = useTranslation();
   const [state, dispatch] = useReducer(changeState, beer)
   const metaDataContext = useContext(metaData)
   
@@ -125,10 +127,10 @@ function Beer(props) {
 
   return (
     <div>
-      <h2>{state["recipe"]["name"] !== "" ? state["recipe"]["name"] + " Recipe" : "New Beer Recipe"}</h2>
+      <h2>{state["recipe"]["name"] !== "" ? state["recipe"]["name"] + " Recipe" : t("New Beer Recipe")}</h2>
       <Grid container justifyContent="center">
         <Grid item>
-          <Button sx={{ m: 2 }} variant="contained" onClick={handleOpen}>Print recipe</Button>
+          <Button sx={{ m: 2 }} variant="contained" onClick={handleOpen}>{t("Print recipe")}</Button>
         </Grid>
         <Grid item>
           <ClickAwayListener onClickAway={handleTooltipClose}>
@@ -141,18 +143,19 @@ function Beer(props) {
               disableFocusListener
               disableHoverListener
               disableTouchListener
-              title="Recipe copied to clipboard"
+              title={t("Recipe copied to clipboard")}
             >
-              <Button sx={{ m: 2 }} variant="contained" onClick={handleCopy}>Copy Recipe</Button>
+              <Button sx={{ m: 2 }} variant="contained" onClick={handleCopy}>{t("Copy Recipe")}</Button>
             </Tooltip>
           </ClickAwayListener>
         </Grid>
         <Grid item>
-          <Button sx={{ m: 2 }} variant="contained" onClick={handlePaste}>Paste Recipe</Button>
+          <Button sx={{ m: 2 }} variant="contained" onClick={handlePaste}>{t("Paste Recipe")}</Button>
         </Grid>
         <Grid item>
           <Select sx={{ m: 2 }} labelId="language" label="Languages" variant="standard" size="small" value={metaDataContext.state.language} onChange={(event) => {changeLanguage(event.target.value);}}>
-            <MenuItem key="en" value="EN">English</MenuItem>
+            <MenuItem key="en" value="en">English</MenuItem>
+            <MenuItem key="de" value="de">Deutsch</MenuItem>
           </Select>
         </Grid>
         <Grid item>
@@ -218,8 +221,8 @@ function Beer(props) {
             </Paper>
           </div>
           <Box display="flex" justifyContent="flex-end" spacing={2} sx={{borderTop: "1px solid black"}}>
-            <Button variant="contained" sx={{m:1}} color="grey" disabled={loading} onClick={() => { handleClose(); } }>Close</Button>
-            <Button variant="contained" sx={{m:1}} color="primary" disabled={loading} onClick={() => {setLoading(true); printRecipe(state, metaDataContext.state.system).then(() => {setLoading(false); handleClose()}) } }>Print</Button>
+            <Button variant="contained" sx={{m:1}} color="grey" disabled={loading} onClick={() => { handleClose(); } }>{t("Close")}</Button>
+            <Button variant="contained" sx={{m:1}} color="primary" disabled={loading} onClick={() => {setLoading(true); printRecipe(state, metaDataContext.state.system).then(() => {setLoading(false); handleClose()}) } }>{t("Print")}</Button>
           </Box>
         </Paper>
       </Modal>
