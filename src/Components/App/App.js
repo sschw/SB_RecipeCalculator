@@ -8,7 +8,7 @@ import logo from '../../logo.svg'
 const Loader = () => (
   <div className="App">
     <img src={logo} className="App-logo" alt="logo" />
-    <div>Loading...</div>
+    <div className="App-header">Loading...</div>
   </div>
 );
 
