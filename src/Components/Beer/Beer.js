@@ -1,4 +1,4 @@
-import { Box, Button, Grid, MenuItem, Modal, Paper, Select } from '@material-ui/core';
+import { Box, Button, ClickAwayListener, Grid, MenuItem, Modal, Paper, Select, Tooltip } from '@material-ui/core';
 import React, { useContext, useReducer } from 'react';
 import Recipe from '../Recipe/Recipe';
 import BeertypeComparer from '../Beertype/BeertypeComparer'
@@ -105,7 +105,18 @@ function Beer(props) {
   const [loading, setLoading] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const handleCopy = () =>  navigator.clipboard.writeText(Model.exportRecipe(state));
+
+  const [tooltipExportOpen, setTooltipExportOpen] = React.useState(false);
+  const handleTooltipClose = () => {
+    setTooltipExportOpen(false);
+  };
+
+  const handleTooltipOpen = () => {
+    setTooltipExportOpen(true);
+  };
+
+
+  const handleCopy = () => {handleTooltipOpen(); navigator.clipboard.writeText(Model.exportRecipe(state))};
   // Firefox not compatible
   const handlePaste = () => navigator.clipboard.readText().then((s) => dispatch({type: "model", value: Model.importRecipe(s)}));
 
@@ -115,16 +126,42 @@ function Beer(props) {
   return (
     <div>
       <h2>{state["recipe"]["name"] !== "" ? state["recipe"]["name"] + " Recipe" : "New Beer Recipe"}</h2>
-      <Button sx={{ m: 2 }} variant="contained" onClick={handleOpen}>Print recipe</Button>
-      <Button sx={{ m: 2 }} variant="contained" onClick={handleCopy}>Export recipe to Clipboard</Button>
-      <Button sx={{ m: 2 }} variant="contained" onClick={handlePaste}>Import recipe from Clipboard</Button>
-      <Select sx={{ m: 2 }} labelId="language" label="Languages" variant="standard" size="small" value={metaDataContext.state.language} onChange={(event) => {changeLanguage(event.target.value);}}>
-        <MenuItem key="en" value="EN">English</MenuItem>
-      </Select>
-      <Select sx={{ m: 2 }} labelId="system" label="System of measured units" variant="standard" size="small" value={metaDataContext.state.system} onChange={(event) => {changeSystem(event.target.value);}}>
-        <MenuItem key="si" value="SI">International System of Units</MenuItem>
-        <MenuItem key="us" value="US">United States customary units</MenuItem>
-      </Select>
+      <Grid container justifyContent="center">
+        <Grid item>
+          <Button sx={{ m: 2 }} variant="contained" onClick={handleOpen}>Print recipe</Button>
+        </Grid>
+        <Grid item>
+          <ClickAwayListener onClickAway={handleTooltipClose}>
+            <Tooltip
+              PopperProps={{
+                disablePortal: true,
+              }}
+              onClose={handleTooltipClose}
+              open={tooltipExportOpen}
+              disableFocusListener
+              disableHoverListener
+              disableTouchListener
+              title="Recipe copied to clipboard"
+            >
+              <Button sx={{ m: 2 }} variant="contained" onClick={handleCopy}>Copy Recipe</Button>
+            </Tooltip>
+          </ClickAwayListener>
+        </Grid>
+        <Grid item>
+          <Button sx={{ m: 2 }} variant="contained" onClick={handlePaste}>Paste Recipe</Button>
+        </Grid>
+        <Grid item>
+          <Select sx={{ m: 2 }} labelId="language" label="Languages" variant="standard" size="small" value={metaDataContext.state.language} onChange={(event) => {changeLanguage(event.target.value);}}>
+            <MenuItem key="en" value="EN">English</MenuItem>
+          </Select>
+        </Grid>
+        <Grid item>
+          <Select sx={{ m: 2 }} labelId="system" label="System of measured units" variant="standard" size="small" value={metaDataContext.state.system} onChange={(event) => {changeSystem(event.target.value);}}>
+            <MenuItem key="si" value="SI">International System of Units</MenuItem>
+            <MenuItem key="us" value="US">United States customary units</MenuItem>
+          </Select>
+        </Grid>
+      </Grid>
       <Grid container spacing={3}>
         <Grid item xs={12} md={8} lg={9}>
           <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
