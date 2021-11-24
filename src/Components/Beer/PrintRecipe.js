@@ -1,10 +1,11 @@
 import { Grid, Stack, Typography } from '@material-ui/core';
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../logo.svg';
 import * as Model from '../../Model';
 import html2pdf from 'html2pdf.js';
 import { renderToString } from 'react-dom/server';
-import { sg2plato } from '../../Utils/Formulas';
+import { litre2USGal, sg2plato } from '../../Utils/Formulas';
+import { metaData } from "../../Context/MetaDataContext"
 
 export default async function print(beer) {
   await html2pdf().from(renderToString(ShowRecipeHeader({beer}))).set({ html2canvas:  { scale: 2 }}).toImg().get('img').then(async img => {
@@ -21,8 +22,12 @@ export default async function print(beer) {
   })
 }
 
-function ShowRecipeHeader(props) {
-  let beer = props.beer
+export function ShowRecipeHeader(props) {
+  const beer = props.beer
+  const metaDataContext = useContext(metaData)
+
+  const recipeVolume = metaDataContext.state["system"] === "US" ? (litre2USGal(beer.water.finalVolume) + "gal") : (beer.water.finalVolume + "L")
+
   return (
     <div>
       <div style={{padding: 25}} id="showRecipeHeader">
@@ -38,7 +43,7 @@ function ShowRecipeHeader(props) {
               {beer.recipe.beertype.name}
             </Typography>
             <Typography variant="subtitle1" align="center"  component="div">
-              Recipe for {beer.water.finalVolume}L &nbsp;&nbsp; 
+              Recipe for {recipeVolume}
             </Typography>
             <Typography variant="subtitle2" align="center" gutterBottom component="div">
               OG: {Math.round(sg2plato(beer.recipe.og)*10)/10}°P &nbsp;&nbsp; FG: {Math.round(sg2plato(beer.recipe.fg)*10)/10}°P &nbsp;&nbsp; ALC: {Math.round(beer.recipe.alc*100)/100}%vol &nbsp;&nbsp; EBC: {beer.recipe.ebc} &nbsp;&nbsp; IBU: {beer.recipe.ibu}
@@ -56,8 +61,9 @@ function ShowRecipeHeader(props) {
   );
 }
 
-function ShowRecipeContent(props) {
-  let beer = props.beer
+export function ShowRecipeContent(props) {
+  const beer = props.beer
+  const metaDataContext = useContext(metaData)
   
   const maltList = Object.values(
     beer.malt.reduce((pv, c) => { 
