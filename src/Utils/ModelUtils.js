@@ -1,16 +1,13 @@
 // Include model creating functions.
 import { hop, malt, mashStep } from "../Model.js"
 // Include calculations
-import { potentials2og, maltebc2beerebc, tinseth, totOil, oil, ibu, og2fg, gravities2Abv } from "Formulas.js"
+import { potentials2og, maltebc2beerebc, tinseth, totOil, oil, ibu, og2fg, gravities2Abv } from "./Formulas.js"
 
 function calcMaltValues(beerRecipe) {
   // Calc OG.
   beerRecipe.recipe.og = potentials2og(beerRecipe.malt, beerRecipe.water.finalVolume, beerRecipe.recipe.maltYield)
   // If not valid value, reset it.
   beerRecipe.recipe.og = beerRecipe.recipe.og === 0 || beerRecipe.recipe.og === 1 ? null : beerRecipe.recipe.og
-
-  // If a yeast is set, we also need to calc these values.
-  calcYeastValues(beerRecipe);
 
   // Calc beer color.
   beerRecipe.recipe.ebc = maltebc2beerebc(beerRecipe.malt, beerRecipe.water.finalVolume)
@@ -85,6 +82,9 @@ export function updateMalt(beerRecipe, key, target, value) {
   }
   // Color and OG changes.
   calcMaltValues(beerRecipe);
+  // Depends on OG.
+  calcYeastValues(beerRecipe);
+  calcHopsValues(beerRecipe);
   return valChanged
 }
 
@@ -99,6 +99,9 @@ export function deleteMalt(beerRecipe, key) {
     beerRecipe.malt.splice(id, 1);
     // Color and OG changes.
     calcMaltValues(beerRecipe);
+    // Depends on OG.
+    calcYeastValues(beerRecipe);
+    calcHopsValues(beerRecipe);
     return true;
   }
   return false;

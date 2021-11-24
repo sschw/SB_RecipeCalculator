@@ -10,7 +10,7 @@ import { CelsiusInput, MinuteInput } from '../../Utils/NumberInput';
 function MashStep(props) {
   const dispatch = props.dispatch
   const isNew = props.isNew
-  const key = props.key
+  const key = props.mashStep.key
   const isFirst = props.isFirst
   const isLast = props.isLast
   const updateMashStep = (target, value) => {
@@ -44,10 +44,10 @@ function MashStep(props) {
       </TableCell>
       <TableCell align="right">
         <Stack direction="row" spacing={1}>
-          <IconButton disabled={!isFirst} aria-label="up" onClick={() => {dispatch({type: "moveMashStep", key: key, value: -1});}}>
+          <IconButton disabled={isFirst || isNew} aria-label="up" onClick={() => {dispatch({type: "moveMashStep", key: key, value: -1});}}>
             <ArrowUpward />
           </IconButton>
-          <IconButton disabled={!isLast} aria-label="down" onClick={() => {dispatch({type: "moveMashStep", key: key, value: 1});}}>
+          <IconButton disabled={isLast || isNew} aria-label="down" onClick={() => {dispatch({type: "moveMashStep", key: key, value: 1});}}>
             <ArrowDownward />
           </IconButton>
           <IconButton disabled={isNew} aria-label="delete" onClick={() => {dispatch({type: "deleteMashStep", key: key});}}>
@@ -66,10 +66,10 @@ function MashSteps(props) {
 
   let children = []
   rows.forEach((row, index) => {
-    children.push(<MashStep mashStep={row} isNew={false} isFirst={index === 0} isLast={false} dispatch={dispatch} key={row.key} />)
+    children.push(<MashStep mashStep={row} isNew={false} isFirst={index === 0} isLast={index === rows.length-1} dispatch={dispatch} key={row.key} />)
   });
   let newMashStep = Model.mashStep()
-  children.push(<MashStep mashStep={newMashStep} isNew={true} isFirst={false} isLast={true} dispatch={dispatch} key={newMashStep.key} />)
+  children.push(<MashStep mashStep={newMashStep} isNew={true} isFirst={false} isLast={false} dispatch={dispatch} key={newMashStep.key} />)
 
   const [maltTemplate, setMaltTemplate] = useState(0)
 

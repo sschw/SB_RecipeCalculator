@@ -9,7 +9,7 @@ import { DecimalPercentInput, GrammInput, MinuteInput, MlPerGInput } from '../..
 function Hop(props) {
   const dispatch = props.dispatch
   const isNew = props.isNew
-  const key = props.key
+  const key = props.hop.key
   const updateHops = (target, value) => {
     dispatch({type: 'updateHop', key: key, target: target, value: value})
   }

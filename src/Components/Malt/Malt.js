@@ -10,7 +10,7 @@ import { ebc2Srm } from '../../Utils/Formulas';
 function SingleMalt(props) {
   const dispatch = props.dispatch
   const isNew = props.isNew
-  const key = props.key
+  const key = props.malt.key
   const updateMalt = (target, value) => {
     dispatch({type: 'updateMalt', key: key, target: target, value: value})
   }
