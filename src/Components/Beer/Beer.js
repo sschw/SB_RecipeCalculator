@@ -130,7 +130,7 @@ function Beer(props) {
       <h2>{state["recipe"]["name"] !== "" ? state["recipe"]["name"] + " Recipe" : t("New Beer Recipe")}</h2>
       <Grid container justifyContent="center">
         <Grid item>
-          <Button sx={{ m: 2 }} variant="contained" onClick={handleOpen}>{t("Print recipe")}</Button>
+          <Button sx={{ m: 2 }} variant="contained" onClick={handleOpen}>{t("Print Recipe")}</Button>
         </Grid>
         <Grid item>
           <ClickAwayListener onClickAway={handleTooltipClose}>
