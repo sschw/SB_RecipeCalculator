@@ -1,5 +1,5 @@
-import { Box, Button, Grid, Modal, Paper } from '@material-ui/core';
-import React, { useReducer } from 'react';
+import { Box, Button, Grid, MenuItem, Modal, Paper, Select } from '@material-ui/core';
+import React, { useContext, useReducer } from 'react';
 import Recipe from '../Recipe/Recipe';
 import BeertypeComparer from '../Beertype/BeertypeComparer'
 import Hops from '../Hop/Hops';
@@ -10,6 +10,7 @@ import ShowRecipe from './ShowRecipe';
 import printRecipe from './PrintRecipe';
 import Yeast from '../Yeast/Yeast';
 import Water from '../Water/Water';
+import { metaData } from "../../Context/MetaDataContext"
 import { deleteHop, deleteMalt, deleteMashSteps, moveMashSteps, updateCookingDuration, updateHop, updateMalt, updateMashSteps, updateRecipe, updateWater, updateYeast } from '../../Utils/ModelUtils';
 
 // action = { type, target, key, value }
@@ -98,6 +99,7 @@ function Beer(props) {
     beer = props.beer
   }
   const [state, dispatch] = useReducer(changeState, beer)
+  const metaDataContext = useContext(metaData)
   
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
@@ -107,12 +109,22 @@ function Beer(props) {
   // Firefox not compatible
   const handlePaste = () => navigator.clipboard.readText().then((s) => dispatch({type: "model", value: Model.importRecipe(s)}));
 
+  const changeLanguage = (str) => metaDataContext.dispatch({type: "language", value: str});
+  const changeSystem = (str) => metaDataContext.dispatch({type: "system", value: str});
+
   return (
     <div>
       <h2>{state["recipe"]["name"] !== "" ? state["recipe"]["name"] + " Recipe" : "New Beer Recipe"}</h2>
       <Button sx={{ m: 2 }} variant="contained" onClick={handleOpen}>Print recipe</Button>
       <Button sx={{ m: 2 }} variant="contained" onClick={handleCopy}>Export recipe to Clipboard</Button>
       <Button sx={{ m: 2 }} variant="contained" onClick={handlePaste}>Import recipe from Clipboard</Button>
+      <Select sx={{ m: 2 }} labelId="language" label="Languages" variant="standard" size="small" value={metaDataContext.state.language} onChange={(event) => {changeLanguage(event.target.value);}}>
+        <MenuItem key="en" value="EN">English</MenuItem>
+      </Select>
+      <Select sx={{ m: 2 }} labelId="system" label="System of measured units" variant="standard" size="small" value={metaDataContext.state.system} onChange={(event) => {changeSystem(event.target.value);}}>
+        <MenuItem key="si" value="SI">International System of Units</MenuItem>
+        <MenuItem key="us" value="US">United States customary units</MenuItem>
+      </Select>
       <Grid container spacing={3}>
         <Grid item xs={12} md={8} lg={9}>
           <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>

@@ -22,11 +22,25 @@ export default async function print(beer) {
   })
 }
 
+function roundNumber(num, scale) {
+  if(isNaN(num)) return 0;
+  if(!("" + num).includes("e")) {
+    return +(Math.round(num + "e+" + scale)  + "e-" + scale);
+  } else {
+    var arr = ("" + num).split("e");
+    var sig = ""
+    if(+arr[1] + scale > 0) {
+      sig = "+";
+    }
+    return +(Math.round(+arr[0] + "e" + sig + (+arr[1] + scale)) + "e-" + scale);
+  }
+}
+
 export function ShowRecipeHeader(props) {
   const beer = props.beer
   const metaDataContext = useContext(metaData)
 
-  const recipeVolume = metaDataContext.state["system"] === "US" ? (litre2USGal(beer.water.finalVolume) + "gal") : (beer.water.finalVolume + "L")
+  const recipeVolume = metaDataContext.state["system"] === "US" ? (roundNumber(litre2USGal(beer.water.finalVolume), 1) + "gal") : (beer.water.finalVolume + "L")
 
   return (
     <div>
@@ -91,7 +105,7 @@ export function ShowRecipeContent(props) {
   maltList.forEach((c) => {
     let amount;
     if(metaDataContext.state["system"] === "US") {
-      amount = gramm2Pounds(c.amount) + "lb"
+      amount = roundNumber(gramm2Pounds(c.amount), 2) + "lb"
     } else {
       amount = c.amount > 999 ? (c.amount/1000).toString() + "kg" : c.amount.toString() + "g"
     }
@@ -106,7 +120,7 @@ export function ShowRecipeContent(props) {
   hopList.forEach((c) => {
     let amount;
     if(metaDataContext.state["system"] === "US") {
-      amount = gramm2Pounds(c.amount)*12 + "oz"
+      amount = roundNumber(gramm2Pounds(c.amount)*12, 0) + "oz"
     } else {
       amount = c.amount.toString() + "g"
     }
@@ -121,7 +135,7 @@ export function ShowRecipeContent(props) {
   beer.mashSteps.forEach((c, i) => {
     let temp;
     if(metaDataContext.state["system"] === "US") {
-      temp = celsius2fahrenheit(c.temp) + "°F"
+      temp = roundNumber(celsius2fahrenheit(c.temp), 0) + "°F"
     } else {
       temp = c.temp + "°C"
     }
@@ -147,7 +161,7 @@ export function ShowRecipeContent(props) {
   beer.hops.forEach((c, i) => {
     let amount;
     if(metaDataContext.state["system"] === "US") {
-      amount = gramm2Pounds(c.amount)*12 + "oz"
+      amount = roundNumber(gramm2Pounds(c.amount)*12, 0) + "oz"
     } else {
       amount = c.amount.toString() + "g"
     }
@@ -177,8 +191,8 @@ export function ShowRecipeContent(props) {
     )
   })
 
-  let mashWaterVolume = metaDataContext.state["system"] === "US" ? (litre2USGal(beer.water.mashWaterVolume) + "gal") : (beer.water.mashWaterVolume + "L")
-  let spargeWaterVolume = metaDataContext.state["system"] === "US" ? (litre2USGal(beer.water.spargeWaterVolume) + "gal") : (beer.water.spargeWaterVolume + "L")
+  let mashWaterVolume = metaDataContext.state["system"] === "US" ? (roundNumber(litre2USGal(beer.water.mashWaterVolume), 1) + "gal") : (beer.water.mashWaterVolume + "L")
+  let spargeWaterVolume = metaDataContext.state["system"] === "US" ? (roundNumber(litre2USGal(beer.water.spargeWaterVolume), 1) + "gal") : (beer.water.spargeWaterVolume + "L")
   
   return (
     <div>
