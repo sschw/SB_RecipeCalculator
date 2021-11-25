@@ -6,6 +6,8 @@ import html2pdf from 'html2pdf.js';
 import { renderToString } from 'react-dom/server';
 import { celsius2fahrenheit, gramm2Pounds, litre2USGal, sg2plato } from '../../Utils/Formulas';
 
+import "./PrintRecipe.css"
+
 export default async function print(beer, system, t) {
   await html2pdf().from(renderToString(ShowRecipeHeader({beer, system, t}))).set({ html2canvas:  { scale: 2 }}).toImg().get('img').then(async img => {
     await html2pdf().from(renderToString(ShowRecipeContent({beer, system, t}))).set({ margin: [46, 0, 0, 2], html2canvas:  { scale: 2 }, pagebreak: { avoid: '.keepTogether' }}).toPdf().get('pdf').then((pdf) => {
@@ -43,7 +45,7 @@ export function ShowRecipeHeader(props) {
   const recipeVolume = system === "US" ? (roundNumber(litre2USGal(beer.water.finalVolume), 1) + "gal") : (beer.water.finalVolume + "L")
 
   return (
-    <div>
+    <div className="print">
       <div style={{padding: 25}} id="showRecipeHeader">
         <Grid container spacing={3}>
           <Grid item xs={2} md={2} lg={2}>
@@ -196,7 +198,7 @@ export function ShowRecipeContent(props) {
   let spargeWaterVolume = system === "US" ? (roundNumber(litre2USGal(beer.water.spargeWaterVolume), 1) + "gal") : (beer.water.spargeWaterVolume + "L")
   
   return (
-    <div>
+    <div className="print">
       <div style={{padding: "0px 25px 0px 25px"}}>
         <Grid container spacing={3}>
           <Grid item xs={2} md={2} lg={2}></Grid>
@@ -209,7 +211,7 @@ export function ShowRecipeContent(props) {
 
           <Grid item xs={1} md={1} lg={1}></Grid>
           <Grid item xs={10} md={10} lg={10}>
-            <div class="keepTogether">
+            <div className="keepTogether">
               <hr />
               <Grid container spacing={3}>
                 <Grid item xs={4} md={4} lg={4}>
@@ -234,7 +236,7 @@ export function ShowRecipeContent(props) {
                 </Grid>
               </Grid>
             </div>
-            <div class="keepTogether">
+            <div className="keepTogether">
               <hr />
               <Typography variant="h6" align="left" gutterBottom>
                 {t("Mashing")}
@@ -251,7 +253,7 @@ export function ShowRecipeContent(props) {
                 </Stack>
               </Stack>
             </div>
-            <div class="keepTogether">
+            <div className="keepTogether">
               <hr />
               <Typography variant="h6" align="left" gutterBottom>
                 {t("Hop Cooking")}
@@ -268,7 +270,7 @@ export function ShowRecipeContent(props) {
                 </Stack>
               </Stack>
             </div>
-            <div class="keepTogether">
+            <div className="keepTogether">
               <hr />
               <Typography variant="body1" align="left" sx={{marginTop: 4}} gutterBottom>
                 <span>{t("OG")}: <span style={{display: "inline-block", marginRight: "20px", borderBottom: "1px solid black", width: "140px"}} /></span><span>{t("FG")}: <span style={{display: "inline-block", borderBottom: "1px solid black", width: "140px"}} /></span>

@@ -11,7 +11,7 @@ export default function ShowRecipe(props) {
 
   return (
     <div>
-      <div style={{padding: 25}} id="recipetoprint">
+      <div style={{padding: 25}} className="recipeToPrint">
           {ShowRecipeHeader({beer, system, t})}
           {ShowRecipeContent({beer, system, t})}
       </div>
