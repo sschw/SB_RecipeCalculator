@@ -10,7 +10,7 @@ import "./PrintRecipe.css"
 
 export default async function print(beer, system, t) {
   await html2pdf().from(renderToString(ShowRecipeHeader({beer, system, t}))).set({ html2canvas:  { scale: 2 }}).toImg().get('img').then(async img => {
-    await html2pdf().from(renderToString(ShowRecipeContent({beer, system, t}))).set({ margin: [46, 0, 0, 2], html2canvas:  { scale: 2 }, pagebreak: { avoid: '.keepTogether' }}).toPdf().get('pdf').then((pdf) => {
+    await html2pdf().from(renderToString(ShowRecipeContent({beer, system, t}))).set({ margin: [50, 0, 0, 2], html2canvas:  { scale: 2 }, pagebreak: { avoid: '.keepTogether' }}).toPdf().get('pdf').then((pdf) => {
       const totalPages = pdf.internal.getNumberOfPages();
       const imgProps= pdf.getImageProperties(img);
       const width = pdf.internal.pageSize.getWidth();
@@ -46,12 +46,12 @@ export function ShowRecipeHeader(props) {
 
   return (
     <div className="print">
-      <div style={{padding: 25}} id="showRecipeHeader">
+      <div style={{paddingTop: 35, paddingLeft: 45, paddingRight: 45}} id="showRecipeHeader">
         <Grid container spacing={3}>
-          <Grid item xs={2} md={2} lg={2}>
-            <img src={logo} width="100%" alt="" />
+          <Grid item xs={3} md={3} lg={3}>
+            <img src={logo} width="80%" alt="" />
           </Grid>
-          <Grid item xs={8} md={8} lg={8}>
+          <Grid item xs={6} md={6} lg={6}>
             <Typography variant="h3" align="center" gutterBottom component="div">
               {beer.recipe.name !== "" ? beer.recipe.name : t("Unnamed Recipe")}
             </Typography>
@@ -65,7 +65,7 @@ export function ShowRecipeHeader(props) {
               {t("OG")}: {Math.round(sg2plato(beer.recipe.og)*10)/10}°P &nbsp;&nbsp; {t("FG")}: {Math.round(sg2plato(beer.recipe.fg)*10)/10}°P &nbsp;&nbsp; {t("ALC")}: {Math.round(beer.recipe.alc*100)/100}%vol &nbsp;&nbsp; EBC: {beer.recipe.ebc} &nbsp;&nbsp; IBU: {beer.recipe.ibu}
             </Typography>
           </Grid>
-          <Grid item xs={2} md={2} lg={2}>
+          <Grid item xs={3} md={3} lg={3}>
             <Typography variant="subtitle" align="right" >
               {beer.recipe.author}<br />
               {beer.recipe.date}
@@ -154,8 +154,8 @@ export function ShowRecipeContent(props) {
   beer.mashSteps.forEach((c, i) => {
     mashstepsDetailListToDisplay.push(
       <Typography sx={{ marginBottom: 2 }} key={i} variant="body1" align="left" gutterBottom>
-        <span>{t("Start")}: <span style={{display: "inline-block", borderBottom: "1px solid black", width: "140px"}} /></span>
-        {(c.type !== 0) ? (<span style={{marginLeft: 20}}>{t("End")}: <span style={{display: "inline-block", borderBottom: "1px solid black", width: "140px"}} /></span>) : <span></span> }
+        <span>{t("Start")}: <span style={{display: "inline-block", borderBottom: "1px solid black", width: "6.5em"}} /></span>
+        {(c.type !== 0) ? (<span style={{marginLeft: 20}}>{t("End")}: <span style={{display: "inline-block", borderBottom: "1px solid black", width: "6.5em"}} /></span>) : <span></span> }
       </Typography>
     )
   })
@@ -189,7 +189,7 @@ export function ShowRecipeContent(props) {
   beer.hops.forEach((c, i) => {
     hopadditionDetailListToDisplay.push(
       <Typography sx={{ marginBottom: 2 }} key={i} variant="body1" align="left" gutterBottom>
-        <span>{t("Time")}: <span style={{display: "inline-block", borderBottom: "1px solid black", width: "140px"}} /></span>
+        <span>{t("Time")}: <span style={{display: "inline-block", borderBottom: "1px solid black", width: "6.5em"}} /></span>
       </Typography>
     )
   })
@@ -199,7 +199,7 @@ export function ShowRecipeContent(props) {
   
   return (
     <div className="print">
-      <div style={{padding: "0px 25px 0px 25px"}}>
+      <div style={{padding: "15px 25px 0px 25px"}}>
         <Grid container spacing={3}>
           <Grid item xs={2} md={2} lg={2}></Grid>
           <Grid item xs={8} md={8} lg={8}>
@@ -245,7 +245,7 @@ export function ShowRecipeContent(props) {
                 {t("Mash Water")}: {mashWaterVolume} &nbsp;&nbsp; {t("Sparge Water")}: {spargeWaterVolume}
               </Typography>
               <Stack direction="row" spacing={4}>
-                <Stack>
+                <Stack style={{maxWidth: "50%"}}>
                   {mashstepsListToDisplay}
                 </Stack>
                 <Stack>
@@ -273,7 +273,7 @@ export function ShowRecipeContent(props) {
             <div className="keepTogether">
               <hr />
               <Typography variant="body1" align="left" sx={{marginTop: 4}} gutterBottom>
-                <span>{t("OG")}: <span style={{display: "inline-block", marginRight: "20px", borderBottom: "1px solid black", width: "140px"}} /></span><span>{t("FG")}: <span style={{display: "inline-block", borderBottom: "1px solid black", width: "140px"}} /></span>
+                <span>{t("OG")}: <span style={{display: "inline-block", marginRight: "20px", borderBottom: "1px solid black", width: "6.5em"}} /></span><span>{t("FG")}: <span style={{display: "inline-block", borderBottom: "1px solid black", width: "6.5em"}} /></span>
               </Typography>
             </div>
           </Grid>
