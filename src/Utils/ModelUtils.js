@@ -1,11 +1,14 @@
 // Include model creating functions.
 import { hop, malt, mashStep } from "../Model.js"
 // Include calculations
-import { potentials2og, maltebc2beerebc, tinseth, totOil, oil, ibu, og2fg, gravities2Abv } from "./Formulas.js"
+import { potentials2og, potentials2og_v2, maltebc2beerebc, tinseth, totOil, oil, ibu, og2fg, gravities2Abv } from "./Formulas.js"
 
 function calcMaltValues(beerRecipe) {
   // Calc OG.
-  beerRecipe.recipe.og = potentials2og(beerRecipe.malt, beerRecipe.water.finalVolume, beerRecipe.recipe.maltYield)
+  let maltAmount = beerRecipe.malt.reduce((pv, v) => pv+v.amount/1000, 0)
+  let waterVolumeAfterCooking = beerRecipe.water.mashWaterVolume+beerRecipe.water.spargeWaterVolume-beerRecipe.water.grainLoss*maltAmount-beerRecipe.water.boilLoss*beerRecipe.cookingDuration/60
+  //beerRecipe.recipe.og = potentials2og(beerRecipe.malt, waterVolumeAfterCooking, beerRecipe.recipe.maltYield)
+  beerRecipe.recipe.og = potentials2og_v2(beerRecipe.malt, waterVolumeAfterCooking, beerRecipe.recipe.maltYield)
   // If not valid value, reset it.
   beerRecipe.recipe.og = beerRecipe.recipe.og === 0 || beerRecipe.recipe.og === 1 ? null : beerRecipe.recipe.og
 

@@ -71,6 +71,14 @@ export function potentials2og(malt, waterVolume, maltyield) {
   return Math.round(maltPoints+sugarPoints)/1000+1
 }
 
+// Formula according to brauerei mueggelland.
+// This formula is not found anywhere else but it has a better precision with higher OG.
+export function potentials2og_v2(malt, waterVolume, maltyield) {
+  const maltPoints = malt.reduce((pv, v) => pv + (v.type === "Grain" ? (((v.potential-1)*1000/40 + 0.04) * v.amount) : 0), 0) * maltyield / waterVolume
+  const sugarPoints = malt.reduce((pv, v) => pv + (v.type === "Grain" ? 0 : (((v.potential-1)*1000/40 + 0.04) * v.amount)), 0) / waterVolume
+  return plato2sg(Math.round(maltPoints+sugarPoints)/10)
+}
+
 // morey equation
 export function maltebc2beerebc(malt, waterVolume) {
   return Math.round(srm2Ebc(1.4922*(malt.reduce((pv, v) => pv+srm2Lovibond(v.color.srm) * gramm2Pounds(v.amount) / litre2USGal(waterVolume), 0)**0.6859)))
