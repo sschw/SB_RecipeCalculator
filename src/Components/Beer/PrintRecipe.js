@@ -177,7 +177,7 @@ export function ShowRecipeContent(props) {
 
   let hopadditionDescrListToDisplay = []
   beer.hops.forEach((c, i) => {
-    let txt = Model.hopType[c.type].descr + ((c.type === 1) ? c.duration + "min" : "")
+    let txt = Model.hopType[c.type].descr + ((c.type === 1) ? " " + c.duration + "min" : "")
     hopadditionDescrListToDisplay.push(
       <Typography sx={{ marginBottom: 2 }} key={i} variant="body1" align="left" gutterBottom>
         {txt}

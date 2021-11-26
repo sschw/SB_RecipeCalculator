@@ -58,11 +58,11 @@ export const mashStepTemplates = [
 ]
 
 export const hopType = [
-  {id: 0, label: "first wort", descr: " as first wort"},
-  {id: 1, label: "boil", descr: " boiling for "},
+  {id: 0, label: "first wort", descr: "as first wort"},
+  {id: 1, label: "boil", descr: "boiling for"},
   //{id: 2, label: "whirlpool", descr: ""},
-  {id: 2, label: "whirlpool 80°C", descr: " at 80°C with whirlpool"},
-  {id: 3, label: "dry hopping", descr: " as dry hop"}
+  {id: 2, label: "whirlpool 80°C", descr: "at 80°C with whirlpool"},
+  {id: 3, label: "dry hopping", descr: "as dry hop"}
 ]
 
 export const mashStepTypes = [
