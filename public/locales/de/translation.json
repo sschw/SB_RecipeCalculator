@@ -92,6 +92,7 @@
   "Very Low": "Sehr Niedrig",
 
   "MaltYieldInfo": "Beschreibt, wie effizient der Zucker aus dem Malz ausgewaschen werden kann. Normalerweise zwischen 50-75%",
+  "WaterLossInfo": "Diese unterschiedlichen Verluste beeinflussen die Berechnung der Stammwürze, des IBU und des Alkoholgehalts des Bieres.",
   "EBCInfo": "Beschreibt die Farbe des Malzes, die sich auf die Farbe des Bieres auswirken wird.",
   "PotentialInfo": "Beschreibt die maximale Menge an Zucker im Malz.",
   "CookingDurationInfo": "Die Kochdauer sollte zwischen 60-90 Minuten betragen.",

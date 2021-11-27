@@ -1,8 +1,9 @@
-import { Grid, TextField } from '@material-ui/core';
+import { Grid, IconButton, TextField, Tooltip } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { LitreInput, PercentInput, USGalInput } from '../../Utils/NumberInput'
 import { metaData } from "../../Context/MetaDataContext"
 import { useTranslation } from 'react-i18next';
+import InfoIcon from '@material-ui/icons/Info';
 
 export default function Water(props) {
   const [t, i18n] = useTranslation();
@@ -67,7 +68,14 @@ export default function Water(props) {
           </Grid>
         </Grid>
       </Grid>
-      <h4>{t("Water loss")}</h4>
+      <h4>
+        {t("Water loss")}
+        <Tooltip title={t("WaterLossInfo")}>
+          <IconButton size="small">
+            <InfoIcon fontSize="inherit" />
+          </IconButton>
+        </Tooltip>
+      </h4>
       <Grid container spacing={2}>
         <Grid item lg={5} md={5} xs={12}>
           <Grid container spacing={1}>

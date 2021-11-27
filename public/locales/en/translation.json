@@ -92,6 +92,7 @@
   "Very Low": "Very Low",
 
   "MaltYieldInfo": "Describes how efficient the sugar can be washed out of the malt. Typically between 50-75%",
+  "WaterLossInfo": "These different losses will influence the calculation of the Original Gravity, the IBU and the alcohol of the beer.",
   "EBCInfo": "Describes the color of the malt which will influence the color of the beer.",
   "PotentialInfo": "Describes the maximum amount of sugar in the malt.",
   "CookingDurationInfo": "The cooking duration should be between 60-90min.",
