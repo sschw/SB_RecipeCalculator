@@ -94,6 +94,7 @@ export const exportRecipe = (beerRecipe) => {
       beertype: beerRecipe.recipe.beertype
   }
   exportData["cookingDuration"] = beerRecipe.cookingDuration
+  exportData["postIsomizationTime"] = beerRecipe.postIsomizationTime
   exportData["water"] = beerRecipe.water
   exportData["yeast"] = beerRecipe.yeast
   exportData["malt"] = []
@@ -138,6 +139,7 @@ export const importRecipe = (data) => {
       beertype: data.recipe.beertype
   }
   recipe["cookingDuration"] = data.cookingDuration
+  recipe["postIsomizationTime"] = data.postIsomizationTime
   recipe["water"] = data.water
   recipe["yeast"] = data.yeast
   recipe["malt"] = []
