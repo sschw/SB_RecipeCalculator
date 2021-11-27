@@ -11,7 +11,7 @@ import printRecipe from './PrintRecipe';
 import Yeast from '../Yeast/Yeast';
 import Water from '../Water/Water';
 import { metaData } from "../../Context/MetaDataContext"
-import { deleteHop, deleteMalt, deleteMashSteps, moveMashSteps, updateCookingDuration, updateHop, updateMalt, updateMashSteps, updateRecipe, updateWater, updateYeast } from '../../Utils/ModelUtils';
+import { deleteHop, deleteMalt, deleteMashSteps, moveMashSteps, updateCookingDuration, updateHop, updateMalt, updateMashSteps, updatePostIsomizationTime, updateRecipe, updateWater, updateYeast } from '../../Utils/ModelUtils';
 import { useTranslation } from 'react-i18next';
 
 import "./Beer.css"
@@ -28,6 +28,11 @@ function changeState(state, action) {
       return state
     case 'duration':
       if(updateCookingDuration(state, action.value)) {
+        return {...state};
+      }
+      return state
+    case 'postIsomizationTime':
+      if(updatePostIsomizationTime(state, action.value)) {
         return {...state};
       }
       return state
@@ -206,7 +211,7 @@ function Beer(props) {
         </Grid>
         <Grid item xs={12}>
           <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-            <Hops hops={state["hops"]} cookingDuration={state["cookingDuration"]} dispatch={dispatch} />
+            <Hops hops={state["hops"]} cookingDuration={state["cookingDuration"]} postIsomizationTime={state["postIsomizationTime"]} dispatch={dispatch} />
           </Paper>
         </Grid>
         <Grid item xs={12}>

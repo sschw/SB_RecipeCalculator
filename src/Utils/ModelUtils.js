@@ -1,7 +1,7 @@
 // Include model creating functions.
 import { hop, malt, mashStep } from "../Model.js"
 // Include calculations
-import { potentials2og, potentials2og_v2, maltebc2beerebc, tinseth, totOil, oil, ibu, og2fg, gravities2Abv } from "./Formulas.js"
+import { potentials2og, potentials2og_v2, maltebc2beerebc, tinseth, totOil, oil, ibu, og2fg, gravities2Abv, postIsomizationTime2IsomizationSpeedFactorTime } from "./Formulas.js"
 
 function calcMaltValues(beerRecipe) {
   // Calc OG.
@@ -21,7 +21,8 @@ function calcMaltValues(beerRecipe) {
 function calcHopValues(beerRecipe, id) {
   let maltAmount = beerRecipe.malt.reduce((pv, v) => pv+v.amount/1000, 0)
   let duration = beerRecipe.hops[id].type === 0 ? beerRecipe.cookingDuration : beerRecipe.hops[id].duration
-  // If hop is cooked and OG is known, calculate IBU.
+  duration += postIsomizationTime2IsomizationSpeedFactorTime(beerRecipe.postIsomizationTime)
+    // If hop is cooked and OG is known, calculate IBU.
   beerRecipe.hops[id].ibu = beerRecipe.hops[id] > 1 || beerRecipe.recipe.og == null ? 0 : Math.round(tinseth(beerRecipe.recipe.og, beerRecipe.water.mashWaterVolume+beerRecipe.water.spargeWaterVolume-beerRecipe.water.grainLoss*maltAmount, beerRecipe.water.finalVolume, beerRecipe.hops[id].alpha, beerRecipe.hops[id].amount, duration));
   // Calculate the oil of the hop, if it is not cooked.
   beerRecipe.hops[id].oilTotal = beerRecipe.hops[id].type < 2 ? 0 : Math.round(totOil(beerRecipe.hops[id])*100)/100;
@@ -35,6 +36,7 @@ function calcHopsValues(beerRecipe) {
   for(let i = 0; i < beerRecipe.hops.length; i++) {
     // Get cooking duration of current hop, if first wort - take full cooking duration.
     let duration = beerRecipe.hops[i].type === 0 ? beerRecipe.cookingDuration : beerRecipe.hops[i].duration
+    duration += postIsomizationTime2IsomizationSpeedFactorTime(beerRecipe.postIsomizationTime)
     // If hop is cooked and OG is known, calculate IBU.
     beerRecipe.hops[i].ibu = beerRecipe.hops[i] > 1 || beerRecipe.recipe.og == null ? 0 : Math.round(tinseth(beerRecipe.recipe.og, beerRecipe.water.mashWaterVolume+beerRecipe.water.spargeWaterVolume-beerRecipe.water.grainLoss*maltAmount, beerRecipe.water.finalVolume, beerRecipe.hops[i].alpha, beerRecipe.hops[i].amount, duration));
   }
@@ -62,6 +64,15 @@ export function updateRecipe(beerRecipe, target, value) {
 export function updateCookingDuration(beerRecipe, value) {
   let valChanged = beerRecipe.cookingDuration !== value;
   beerRecipe.cookingDuration = value;
+
+  // IBU might change
+  calcHopsValues(beerRecipe);
+  return valChanged
+}
+
+export function updatePostIsomizationTime(beerRecipe, value) {
+  let valChanged = beerRecipe.postIsomizationTime !== value;
+  beerRecipe.postIsomizationTime = value;
 
   // IBU might change
   calcHopsValues(beerRecipe);

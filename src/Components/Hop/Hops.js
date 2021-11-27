@@ -113,7 +113,7 @@ function Hops(props) {
           <h3>{t("Hop")}</h3>
         </Grid>
         <Grid item lg={2} md={2} sm={12} xs={12}>
-        <TextField label="Cooking Duration" 
+        <TextField label={t("Cooking Duration")}
           InputProps={{ 
             inputComponent: MinuteInput,
             endAdornment: 
@@ -129,6 +129,23 @@ function Hops(props) {
           size="small" fullWidth variant="standard" 
           value={props.cookingDuration.toString()} 
           onChange={(event) => dispatch({type: "duration", value: event.floatValue})} />
+        <TextField label={t("Post Isomization Time")}
+          className="advancedSettings"
+          InputProps={{ 
+            inputComponent: MinuteInput,
+            endAdornment: 
+              <InputAdornment position="end">
+                <Tooltip title={t("PostIsomizationTimeInfo")}>
+                  <IconButton size="small">
+                    <InfoIcon fontSize="inherit" />
+                  </IconButton>
+                </Tooltip>
+            </InputAdornment>
+          }} 
+          InputLabelProps={{ shrink: true }} 
+          size="small" fullWidth variant="standard" 
+          value={props.postIsomizationTime.toString()} 
+          onChange={(event) => dispatch({type: "postIsomizationTime", value: event.floatValue})} />
         </Grid>
       </Grid>
       <TableContainer component={Paper}>

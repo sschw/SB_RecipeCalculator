@@ -54,6 +54,7 @@
 
   "Hop": "Hopfen",
   "Cooking Duration": "Kochdauer",
+  "Post Isomization Time": "Nachisomerisierungszeit",
   "Alpha": "Alpha",
   "Oil": "Öl",
   "Info": "Info",
@@ -98,6 +99,7 @@
   "EBCInfo": "Beschreibt die Farbe des Malzes, die sich auf die Farbe des Bieres auswirken wird.",
   "PotentialInfo": "Beschreibt die maximale Menge an Zucker im Malz.",
   "CookingDurationInfo": "Die Kochdauer sollte zwischen 60-90 Minuten betragen.",
+  "PostIsomizationTimeInfo": "Beschreibt die Zeit zwischen Kochen und Whirlpool, in der zusätzliche Alphasäure an das Bier abgegeben wird. Zur Vereinfachung sollte hier die Zeit zwischen Kochen und Erreichen von 80°C eingestellt werden.",
   "AlphaInfo": "Die Alphasäure beeinflusst den IBU-Wert des Bieres, wenn der Hopfen gekocht wird. Je mehr IBU ein Bier hat, desto bitterer wird es sein.",
   "OilInfo": "Hopfenöle beeinflussen den Geschmack des Bieres. Die meisten Öle gehen verloren, wenn der Hopfen gekocht wird.",
   "HopTypesInfo": "Vorderwürze: Hopfen wird zugegeben, bevor das Bier kocht\nKochen: Hopfen wird während des Kochens zugegeben\nWhirlpool 80°C: Hopfen wird nach dem Kochen bei 80° zugegeben\nTrockenhopfung: Hopfen wird nach einigen Tagen zugegeben",

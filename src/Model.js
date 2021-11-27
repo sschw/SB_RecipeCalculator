@@ -24,6 +24,7 @@ export const beerRecipe = () => {return {
       }
     },
     cookingDuration: 90,
+    postIsomizationTime: 0,
     water: { mashWaterVolume: 17, spargeWaterVolume: 13, finalVolume: 20, grainLoss: 1, boilLoss: 4 },
     malt: [],
     mashSteps: [{key: uuid.v4(), temp: 57, dur: 0, type: 0, descr: "" }],

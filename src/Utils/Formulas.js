@@ -105,6 +105,12 @@ export function tinseth(og, cookVolume, finalVolume, aa, amount, time, maximumUt
   return 1.65 * Math.pow(0.000125, sg) * ((1 - Math.pow(Math.E, -0.04 * time)) / maximumUtilizationValue) * ((aa * amount * 1000) / finalVolume);
 }
 
+// Scale the post isomization time with the isomization we reach in the time until we hit the defined degree.
+export function postIsomizationTime2IsomizationSpeedFactorTime(postIsomizationTime, degree) {
+  if (degree == null) degree = 80;
+  return postIsomizationTime * 0.046 * Math.pow(Math.E, 0.031*degree);
+}
+
 export function ibu(hops) {
   return hops.reduce((pv, v) => pv+v.ibu, 0)
 }
