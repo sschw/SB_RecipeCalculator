@@ -23,7 +23,7 @@ function calcHopValues(beerRecipe, id) {
   let duration = beerRecipe.hops[id].type === 0 ? beerRecipe.cookingDuration : beerRecipe.hops[id].duration
   duration += postIsomizationTime2IsomizationSpeedFactorTime(beerRecipe.postIsomizationTime)
     // If hop is cooked and OG is known, calculate IBU.
-  beerRecipe.hops[id].ibu = beerRecipe.hops[id] > 1 || beerRecipe.recipe.og == null ? 0 : Math.round(tinseth(beerRecipe.recipe.og, beerRecipe.water.mashWaterVolume+beerRecipe.water.spargeWaterVolume-beerRecipe.water.grainLoss*maltAmount, beerRecipe.water.finalVolume, beerRecipe.hops[id].alpha, beerRecipe.hops[id].amount, duration));
+  beerRecipe.hops[id].ibu = beerRecipe.hops[id].type > 1 || beerRecipe.recipe.og == null ? 0 : Math.round(tinseth(beerRecipe.recipe.og, beerRecipe.water.mashWaterVolume+beerRecipe.water.spargeWaterVolume-beerRecipe.water.grainLoss*maltAmount, beerRecipe.water.finalVolume, beerRecipe.hops[id].alpha, beerRecipe.hops[id].amount, duration));
   // Calculate the oil of the hop, if it is not cooked.
   beerRecipe.hops[id].oilTotal = beerRecipe.hops[id].type < 2 ? 0 : Math.round(totOil(beerRecipe.hops[id])*100)/100;
   beerRecipe.recipe.oil = oil(beerRecipe.hops);
@@ -38,7 +38,7 @@ function calcHopsValues(beerRecipe) {
     let duration = beerRecipe.hops[i].type === 0 ? beerRecipe.cookingDuration : beerRecipe.hops[i].duration
     duration += postIsomizationTime2IsomizationSpeedFactorTime(beerRecipe.postIsomizationTime)
     // If hop is cooked and OG is known, calculate IBU.
-    beerRecipe.hops[i].ibu = beerRecipe.hops[i] > 1 || beerRecipe.recipe.og == null ? 0 : Math.round(tinseth(beerRecipe.recipe.og, beerRecipe.water.mashWaterVolume+beerRecipe.water.spargeWaterVolume-beerRecipe.water.grainLoss*maltAmount, beerRecipe.water.finalVolume, beerRecipe.hops[i].alpha, beerRecipe.hops[i].amount, duration));
+    beerRecipe.hops[i].ibu = beerRecipe.hops[i].type > 1 || beerRecipe.recipe.og == null ? 0 : Math.round(tinseth(beerRecipe.recipe.og, beerRecipe.water.mashWaterVolume+beerRecipe.water.spargeWaterVolume-beerRecipe.water.grainLoss*maltAmount, beerRecipe.water.finalVolume, beerRecipe.hops[i].alpha, beerRecipe.hops[i].amount, duration));
   }
   beerRecipe.recipe.ibu = ibu(beerRecipe.hops);
 }
