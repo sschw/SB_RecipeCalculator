@@ -101,7 +101,7 @@ function Malt(props) {
           <TableHead>
             <TableRow>
               <TableCell width="30%">{t("Name")}</TableCell>
-              <TableCell width="20%" sx={{minWidth: 40}} align="center">
+              <TableCell width="20%" sx={{minWidth: 65}} align="center">
                 EBC
                 <Tooltip title={t("EBCInfo")}>
                   <IconButton size="small">
@@ -109,7 +109,7 @@ function Malt(props) {
                   </IconButton>
                 </Tooltip>
               </TableCell>
-              <TableCell width="20%" sx={{minWidth: 40}} align="center">
+              <TableCell width="20%" sx={{minWidth: 90}} align="center">
                 {t("Potential")}
                 <Tooltip title={t("PotentialInfo")}>
                   <IconButton size="small">

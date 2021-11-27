@@ -136,7 +136,7 @@ function Hops(props) {
           <TableHead>
             <TableRow>
               <TableCell width="20%">{t("Name")}</TableCell>
-              <TableCell width="10%" sx={{minWidth: 40}} align="center">
+              <TableCell width="10%" sx={{minWidth: 65}} align="center">
                 {t("Alpha")}
                 <Tooltip title={t("AlphaInfo")}>
                   <IconButton size="small">
@@ -144,7 +144,7 @@ function Hops(props) {
                   </IconButton>
                 </Tooltip>
               </TableCell>
-              <TableCell width="10%" sx={{minWidth: 40}} align="center">
+              <TableCell width="10%" sx={{minWidth: 60}} align="center">
                 {t("Oil")}
                 <Tooltip title={t("OilInfo")}>
                   <IconButton size="small">
@@ -152,8 +152,8 @@ function Hops(props) {
                   </IconButton>
                 </Tooltip>
               </TableCell>
-              <TableCell width="10%" sx={{minWidth: 40}} align="center">{t("Amount")}</TableCell>
-              <TableCell width="10%" sx={{minWidth: 40}} align="center">
+              <TableCell width="10%" sx={{minWidth: 60}} align="center">{t("Amount")}</TableCell>
+              <TableCell width="10%" sx={{minWidth: 60}} align="center">
                 {t("Type")}
                 <Tooltip title={<span style={{ whiteSpace: 'pre-line' }}>{t("HopTypesInfo")}</span>}>
                   <IconButton size="small">
@@ -161,7 +161,7 @@ function Hops(props) {
                   </IconButton>
                 </Tooltip>
               </TableCell>
-              <TableCell width="10%" sx={{minWidth: 40}} align="center">{t("Duration")}</TableCell>
+              <TableCell width="10%" sx={{minWidth: 60}} align="center">{t("Duration")}</TableCell>
               <TableCell width="20%" align="center">{t("Info")}</TableCell>
               <TableCell width="10%" align="right">{t("Action")}</TableCell>
             </TableRow>
