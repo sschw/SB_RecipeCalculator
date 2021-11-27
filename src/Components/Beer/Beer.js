@@ -11,7 +11,7 @@ import printRecipe from './PrintRecipe';
 import Yeast from '../Yeast/Yeast';
 import Water from '../Water/Water';
 import { metaData } from "../../Context/MetaDataContext"
-import { deleteHop, deleteMalt, deleteMashSteps, moveMashSteps, updateCookingDuration, updateHop, updateMalt, updateMashSteps, updatePostIsomizationTime, updateRecipe, updateWater, updateYeast } from '../../Utils/ModelUtils';
+import { calcAllValues, deleteHop, deleteMalt, deleteMashSteps, moveMashSteps, updateCookingDuration, updateHop, updateMalt, updateMashSteps, updatePostIsomizationTime, updateRecipe, updateWater, updateYeast } from '../../Utils/ModelUtils';
 import { useTranslation } from 'react-i18next';
 
 import "./Beer.css"
@@ -20,7 +20,9 @@ import "./Beer.css"
 function changeState(state, action) {
   switch(action.type) {
     case 'model':
-      return action.value;
+      let newState = action.value;
+      calcAllValues(newState);
+      return newState
     case 'recipe':
       if(updateRecipe(state, action.target, action.value)) {
         return {...state};

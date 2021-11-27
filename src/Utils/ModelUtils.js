@@ -22,7 +22,7 @@ function calcHopValues(beerRecipe, id) {
   let maltAmount = beerRecipe.malt.reduce((pv, v) => pv+v.amount/1000, 0)
   let duration = beerRecipe.hops[id].type === 0 ? beerRecipe.cookingDuration : beerRecipe.hops[id].duration
   duration += postIsomizationTime2IsomizationSpeedFactorTime(beerRecipe.postIsomizationTime)
-    // If hop is cooked and OG is known, calculate IBU.
+  // If hop is cooked and OG is known, calculate IBU.
   beerRecipe.hops[id].ibu = beerRecipe.hops[id].type > 1 || beerRecipe.recipe.og == null ? 0 : Math.round(tinseth(beerRecipe.recipe.og, beerRecipe.water.mashWaterVolume+beerRecipe.water.spargeWaterVolume-beerRecipe.water.grainLoss*maltAmount, beerRecipe.water.finalVolume, beerRecipe.hops[id].alpha, beerRecipe.hops[id].amount, duration));
   // Calculate the oil of the hop, if it is not cooked.
   beerRecipe.hops[id].oilTotal = beerRecipe.hops[id].type < 2 ? 0 : Math.round(totOil(beerRecipe.hops[id])*100)/100;
@@ -33,13 +33,17 @@ function calcHopValues(beerRecipe, id) {
 function calcHopsValues(beerRecipe) {
   // Calc amount of malt to calculate the amount of water lost.
   let maltAmount = beerRecipe.malt.reduce((pv, v) => pv+v.amount/1000, 0)
+  let postIsomizationTime = postIsomizationTime2IsomizationSpeedFactorTime(beerRecipe.postIsomizationTime)
   for(let i = 0; i < beerRecipe.hops.length; i++) {
     // Get cooking duration of current hop, if first wort - take full cooking duration.
     let duration = beerRecipe.hops[i].type === 0 ? beerRecipe.cookingDuration : beerRecipe.hops[i].duration
-    duration += postIsomizationTime2IsomizationSpeedFactorTime(beerRecipe.postIsomizationTime)
+    duration += postIsomizationTime
     // If hop is cooked and OG is known, calculate IBU.
     beerRecipe.hops[i].ibu = beerRecipe.hops[i].type > 1 || beerRecipe.recipe.og == null ? 0 : Math.round(tinseth(beerRecipe.recipe.og, beerRecipe.water.mashWaterVolume+beerRecipe.water.spargeWaterVolume-beerRecipe.water.grainLoss*maltAmount, beerRecipe.water.finalVolume, beerRecipe.hops[i].alpha, beerRecipe.hops[i].amount, duration));
+    // Calculate the oil of the hop, if it is not cooked.
+    beerRecipe.hops[i].oilTotal = beerRecipe.hops[i].type < 2 ? 0 : Math.round(totOil(beerRecipe.hops[i])*100)/100;
   }
+  beerRecipe.recipe.oil = oil(beerRecipe.hops);
   beerRecipe.recipe.ibu = ibu(beerRecipe.hops);
 }
 
@@ -47,6 +51,12 @@ function calcYeastValues(beerRecipe) {
   // If OG is correct, calculate FG and Alc
   beerRecipe.recipe.fg = beerRecipe.recipe.og === null ? null : og2fg(beerRecipe.recipe.og, beerRecipe.yeast.attenuation)
   beerRecipe.recipe.alc = beerRecipe.recipe.og === null ? null : gravities2Abv(beerRecipe.recipe.og, beerRecipe.recipe.fg)
+}
+
+export function calcAllValues(beerRecipe) {
+  calcMaltValues(beerRecipe);
+  calcHopsValues(beerRecipe);
+  calcYeastValues(beerRecipe);
 }
 
 export function updateRecipe(beerRecipe, target, value) {
