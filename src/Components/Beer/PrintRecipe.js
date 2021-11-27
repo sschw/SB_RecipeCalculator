@@ -37,12 +37,31 @@ function roundNumber(num, scale) {
   }
 }
 
+// Generated using https://bl.ocks.org/tophtucker/62f93a4658387bb61e4510c37e2e97cf
+// Great tool as we only want a static map for Roboto.
+function measureText(string, fontSize = 14) {
+  const widths = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.04999847412109375,0.5350006103515625,0.6100006103515625,0.7,0.7,1.0333328247070312,0.9800003051757813,0.38000030517578126,0.5350006103515625,0.5350006103515625,0.7,0.7633331298828125,0.45,0.5350006103515625,0.45,0.47833404541015623,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.47833404541015623,0.47833404541015623,0.7633331298828125,0.7633331298828125,0.7633331298828125,0.6449996948242187,1.1216659545898438,0.925,0.8683334350585937,0.8683334350585937,0.925,0.8133331298828125,0.7566665649414063,0.925,0.925,0.5350006103515625,0.5916671752929688,0.925,0.8133331298828125,1.0883331298828125,0.925,0.925,0.7566665649414063,0.925,0.8683334350585937,0.7566665649414063,0.8133331298828125,0.925,0.925,1.1449996948242187,0.925,0.925,0.8133331298828125,0.5350006103515625,0.47833404541015623,0.5350006103515625,0.6699996948242187,0.7,0.5350006103515625,0.6449996948242187,0.7,0.6449996948242187,0.7,0.6449996948242187,0.5350006103515625,0.7,0.7,0.47833404541015623,0.47833404541015623,0.7,0.47833404541015623,0.9800003051757813,0.7,0.7,0.7,0.7,0.5350006103515625,0.5916671752929688,0.47833404541015623,0.7,0.7,0.925,0.7,0.7,0.6449996948242187,0.6816665649414062,0.4,0.6816665649414062,0.7416671752929688]
+  const avg = 0.7068948203638984
+  return string
+    .split('')
+    .map(c => c.charCodeAt(0) < widths.length ? widths[c.charCodeAt(0)] : avg)
+    .reduce((cur, acc) => acc + cur) * fontSize
+}
+
 export function ShowRecipeHeader(props) {
   const beer = props.beer
   const system = props.system
   const t = props.t
 
   const recipeVolume = system === "US" ? (roundNumber(litre2USGal(beer.water.finalVolume), 1) + "gal") : (beer.water.finalVolume + "L")
+
+  let beerName = beer.recipe.name !== "" ? beer.recipe.name : t("Unnamed Recipe")
+  let pxOfTitle = measureText(beerName, 14*3) // 3em
+  const sizeOfTitle = 364
+  let titleScale = {fontSize: "1em"}
+  if(pxOfTitle > sizeOfTitle) {
+    titleScale = {fontSize: sizeOfTitle/pxOfTitle + "em"}
+  }
 
   return (
     <div className="print">
@@ -53,7 +72,7 @@ export function ShowRecipeHeader(props) {
           </Grid>
           <Grid item xs={6} md={6} lg={6}>
             <Typography variant="h3" align="center" gutterBottom component="div">
-              {beer.recipe.name !== "" ? beer.recipe.name : t("Unnamed Recipe")}
+              <span style={titleScale}>{beerName}</span>
             </Typography>
             <Typography sx={{ marginBottom: 2 }} variant="h5" align="center" gutterBottom component="div">
               {beer.recipe.beertype.name}
@@ -65,8 +84,8 @@ export function ShowRecipeHeader(props) {
               {t("OG")}: {Math.round(sg2plato(beer.recipe.og)*10)/10}°P &nbsp;&nbsp; {t("FG")}: {Math.round(sg2plato(beer.recipe.fg)*10)/10}°P &nbsp;&nbsp; {t("ALC")}: {Math.round(beer.recipe.alc*100)/100}%vol &nbsp;&nbsp; EBC: {beer.recipe.ebc} &nbsp;&nbsp; IBU: {beer.recipe.ibu}
             </Typography>
           </Grid>
-          <Grid item xs={3} md={3} lg={3}>
-            <Typography variant="subtitle" align="right" >
+          <Grid item xs={3} md={3} lg={3} sx={{ textAlign: 'right', paddingRight: 5 }}>
+            <Typography variant="subtitle" >
               {beer.recipe.author}<br />
               {beer.recipe.date}
             </Typography>
