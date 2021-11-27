@@ -51,7 +51,7 @@ function SingleMalt(props) {
         <TextField label="EBC" variant="standard" fullWidth size="small" value={props.malt.color.ebc} onChange={(event) => updateMalt("color", {srm: ebc2Srm(event.target.valueAsNumber), ebc: event.target.valueAsNumber})} type="number" />
       </TableCell>
       <TableCell align="center">
-        <TextField label={t("Potential")} variant="standard" inputProps={{step: 0.001}} fullWidth size="small" value={props.malt.potential} onChange={(event) => updateMalt("potential", event.target.valueAsNumber)} type="number" />
+        <TextField step={0.001} label={t("Potential")} variant="standard" inputProps={{step: 0.001}} fullWidth size="small" value={props.malt.potential.toFixed(3)} onChange={(event) => updateMalt("potential", event.target.valueAsNumber)} type="number" />
       </TableCell>
       <TableCell align="center">
       <TextField label={t("Amount")} fullWidth variant="standard" size="small" value={props.malt.amount.toString()} InputProps={ metaDataContext.state["system"] === "US" ? { inputComponent: PoundsInput } : { inputComponent: GrammInput } } InputLabelProps={{ shrink: true }} onChange={(event) => updateMalt("amount", event.floatValue)} />
