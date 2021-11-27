@@ -28,7 +28,7 @@ export const beerRecipe = () => {return {
     malt: [],
     mashSteps: [{key: uuid.v4(), temp: 57, dur: 0, type: 0, descr: "" }],
     hops: [],
-    yeast: { name: "", attenuation: 0.7, flocculation: "" }
+    yeast: { name: "", attenuation: 0.7, flocculation: 8 }
   }
 }
 
@@ -38,9 +38,9 @@ export const hop = (key) => {return {key: key == null ? uuid.v4() : key, name: "
 
 export const mashStep = (key) => {return {key: key == null ? uuid.v4() : key, temp: 0, dur: 0, type: 1, descr: "" }}
 
-export const yeast = () => {return { name: "", attenuation: 0.7, flocculation: "" }}
+export const yeast = () => {return { name: "", attenuation: 0.7, flocculation: 8 }}
 
-export const recipe = () => {return ({
+export const beertype = () => {return ({
     name: null,
     og: { minGravity: null, maxGravity: null,minPlato: null, maxPlato: null},
     fg: { minGravity: null, maxGravity: null,minPlato: null, maxPlato: null},
@@ -70,12 +70,16 @@ export const mashStepTypes = [
   { id: 1, label: "Resting" }
 ]
 
-export const sedimentation = [
-  { id: 0, label: "Low" }, 
-  { id: 1, label: "Medium-Low" }, 
-  { id: 2, label: "Medium" }, 
-  { id: 3, label: "Medium-High" }, 
-  { id: 4, label: "High" }, 
+export const flocculation = [
+  { id: 0, label: "Very High" },
+  { id: 1, label: "High" },
+  { id: 2, label: "Med/High" },
+  { id: 3, label: "Medium" },
+  { id: 4, label: "Low/Med" },
+  { id: 5, label: "Low" },
+  { id: 6, label: "Very Low" },
+  { id: 7, label: "Variable" },
+  { id: 8, label: "NA" }
 ] 
 
 export const exportRecipe = (beerRecipe) => {

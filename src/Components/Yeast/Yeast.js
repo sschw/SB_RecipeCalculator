@@ -11,6 +11,7 @@ export default function Yeast(props) {
   const dispatch = props.dispatch
   const [state, setState] = useState({yeasts: []});
   const [inputValue, setInputValue] = useState('')
+  const [inputValueFlocculation, setInputValueFlocculation] = useState(8)
   const metaDataContext = useContext(metaData)
 
   useEffect(() => {
@@ -33,14 +34,25 @@ export default function Yeast(props) {
             value={yeast["name"] === null ? null : yeast}
             inputValue={inputValue}
             groupBy={(bt) => bt.use}
-            getOptionLabel={(bt) => bt.name}
+            getOptionLabel={(bt) => (typeof bt === 'string' || bt instanceof String) ? bt : bt.name}
             fullWidth
+            freeSolo 
             renderInput={(params) => <TextField {...params} label={t("Yeast")} />}
             onChange={(event, newValue) => {
-              if(newValue === null) { newValue = Model.yeast() }
-              updateYeast("name", newValue.name);
-              updateYeast("attenuation", ((newValue.attenuation.min+newValue.attenuation.max)/2)/100);
-              updateYeast("flocculation", newValue.flocculation);
+              if(newValue === null) { 
+                newValue = Model.yeast()
+                updateYeast("name", newValue.name);
+                updateYeast("attenuation", newValue.attenuation);
+                updateYeast("flocculation", newValue.flocculation);
+              }
+              else if(typeof newValue === 'string' || newValue instanceof String) {
+                updateYeast("name", newValue)
+              }
+              else {
+                updateYeast("name", newValue.name);
+                updateYeast("attenuation", ((newValue.attenuation.min+newValue.attenuation.max)/2)/100);
+                updateYeast("flocculation", newValue.flocculation);
+              }
             }}
             onInputChange={(_, newValue) => setInputValue(newValue)} />
         </Grid>
@@ -56,9 +68,17 @@ export default function Yeast(props) {
           }}/>
         </Grid>
         <Grid item lg={3} md={3} xs={12}>
-          <TextField label={t("Flocculation")} value={yeast["flocculation"]} fullWidth onChange={(event) => {
-              updateYeast("flocculation", event.target.value)
-            }} />
+        <Autocomplete
+          options={Model.flocculation}
+          value={Model.flocculation[yeast["flocculation"]]}
+          inputValue={inputValueFlocculation}
+          getOptionLabel={(yfl) => t(yfl.label)}
+          renderInput={(params) => <TextField {...params} label={t("Flocculation")} />}
+          onChange={(event, newValue) => {
+            if(newValue === null) newValue = {id: 8}
+            updateYeast("flocculation", newValue.id);
+          }}
+          onInputChange={(_, newValue) => setInputValueFlocculation(newValue)} />
         </Grid>
       </Grid>
     </div>

@@ -79,5 +79,15 @@
   "Hop Cooking": "Hopfenkochen",
   "Start": "Start",
   "End": "Ende",
-  "Time": "Zeit"
+  "Time": "Zeit",
+
+  "High": "Hoch",
+  "Med/High": "Mittel/Hoch",
+  "Medium": "Mittel",
+  "Low/Med": "Niedrig/Mittel",
+  "Low": "Niedrig",
+  "NA": "Unbekannt",
+  "Variable": "Unterschiedlich",
+  "Very High": "Sehr Hoch",
+  "Very Low": "Sehr Niedrig"
 }

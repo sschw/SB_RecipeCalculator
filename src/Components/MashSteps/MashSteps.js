@@ -39,7 +39,7 @@ function MashStep(props) {
             }} >
           {t("Type")}
         </InputLabel>
-        <Select labelId={props.mashStep.key + "-mashtype"} label="Type" variant="standard" fullWidth size="small" value={props.mashStep.type} onChange={(event) => updateMashStep("type", event.target.value)}>
+        <Select labelId={props.mashStep.key + "-mashtype"} label={t("Type")} variant="standard" fullWidth size="small" value={props.mashStep.type} onChange={(event) => updateMashStep("type", event.target.value)}>
           {Model.mashStepTypes.map(ty => 
             <MenuItem key={props.mashStep.key + "mashtype" + ty.id} value={ty.id}>{t(ty.label)}</MenuItem>
           )}

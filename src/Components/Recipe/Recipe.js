@@ -61,7 +61,7 @@ function Recipe(props) {
           getOptionLabel={(bt) => bt.name}
           renderInput={(params) => <TextField {...params} label={t("Beertype")} />}
           onChange={(event, newValue) => {
-            if(newValue === null) { newValue = Model.recipe() }
+            if(newValue === null) { newValue = Model.beertype() }
             updateRecipe("beertype", newValue);
           }}
           onInputChange={(_, newValue) => setInputValue(newValue)} />
