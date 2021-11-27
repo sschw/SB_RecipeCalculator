@@ -6,7 +6,7 @@ import { potentials2og, potentials2og_v2, maltebc2beerebc, tinseth, totOil, oil,
 function calcMaltValues(beerRecipe) {
   // Calc OG.
   let maltAmount = beerRecipe.malt.reduce((pv, v) => pv+v.amount/1000, 0)
-  let waterVolumeAfterCooking = beerRecipe.water.mashWaterVolume+beerRecipe.water.spargeWaterVolume-beerRecipe.water.grainLoss*maltAmount-beerRecipe.water.boilLoss*beerRecipe.cookingDuration/60
+  let waterVolumeAfterCooking = Math.max(beerRecipe.water.mashWaterVolume+beerRecipe.water.spargeWaterVolume-beerRecipe.water.grainLoss*maltAmount-beerRecipe.water.boilLoss*beerRecipe.cookingDuration/60, beerRecipe.water.finalVolume)
   //beerRecipe.recipe.og = potentials2og(beerRecipe.malt, waterVolumeAfterCooking, beerRecipe.recipe.maltYield)
   beerRecipe.recipe.og = potentials2og_v2(beerRecipe.malt, waterVolumeAfterCooking, beerRecipe.recipe.maltYield)
   // If not valid value, reset it.

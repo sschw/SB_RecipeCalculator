@@ -3,7 +3,8 @@ import { useTranslation } from "react-i18next";
 
 const initialState = {
   language: "en",
-  system: "SI"
+  system: "SI",
+  simpleUI: false
 }
 
 export const metaData = createContext(initialState);
@@ -20,9 +21,12 @@ export const MetaDataProvider = ({ children }) => {
         currentState.language = action.value;
         i18n.changeLanguage(action.value);
         return currentState;
-      case "system": 
-        currentState.system = action.value;
-        return currentState;
+        case "system": 
+          currentState.system = action.value;
+          return currentState;
+        case "ui": 
+          currentState.simpleUI = action.value;
+          return currentState;
       default:
         return state
     }

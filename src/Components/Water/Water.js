@@ -68,7 +68,7 @@ export default function Water(props) {
           </Grid>
         </Grid>
       </Grid>
-      <h4>
+      <h4 className="advancedSettings">
         {t("Water loss")}
         <Tooltip title={t("WaterLossInfo")}>
           <IconButton size="small">
@@ -76,7 +76,7 @@ export default function Water(props) {
           </IconButton>
         </Tooltip>
       </h4>
-      <Grid container spacing={2}>
+      <Grid className="advancedSettings" container spacing={2}>
         <Grid item lg={5} md={5} xs={12}>
           <Grid container spacing={1}>
             <Grid item lg={8} md={8} xs={8}>

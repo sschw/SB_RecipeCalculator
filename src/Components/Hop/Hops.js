@@ -49,7 +49,7 @@ function Hop(props) {
       <TableCell align="center">
         <TextField label={t("Alpha")} fullWidth variant="standard" size="small" value={props.hop.alpha.toString()} InputProps={{ inputComponent: DecimalPercentInput }} InputLabelProps={{ shrink: true }}  onChange={(event) => {if(event.floatValue > 0) updateHops("alpha", event.floatValue)}} />
       </TableCell>
-      <TableCell align="center">
+      <TableCell className="advancedSettings" align="center">
         <TextField label={t("Oil")} fullWidth variant="standard" size="small" value={props.hop.oil.toString()} InputProps={{ inputComponent: MlPerGInput }} InputLabelProps={{ shrink: true }} onChange={(event) => {if(event.floatValue > 0) updateHops("oil", event.floatValue)}} />
       </TableCell>
       <TableCell align="center">
@@ -68,7 +68,7 @@ function Hop(props) {
       <TableCell align="center">
         <TextField label={t("Duration")} disabled={props.hop.type !== 1} InputProps={{ inputComponent: MinuteInput }} InputLabelProps={{ shrink: true }} size="small" fullWidth variant="standard" value={props.hop.duration.toString()} onChange={(event) => updateHops("duration", event.floatValue)} />
       </TableCell>
-      <TableCell align="center">
+      <TableCell className="advancedSettings" align="center">
         {props.hop.type < 2 ? ("IBU: " + props.hop.ibu) : (t("Oil") + ": " + props.hop.oilTotal) }
       </TableCell>
       <TableCell align="right">
@@ -144,7 +144,7 @@ function Hops(props) {
                   </IconButton>
                 </Tooltip>
               </TableCell>
-              <TableCell width="10%" sx={{minWidth: 60}} align="center">
+              <TableCell className="advancedSettings" width="10%" sx={{minWidth: 60}} align="center">
                 {t("Oil")}
                 <Tooltip title={t("OilInfo")}>
                   <IconButton size="small">
@@ -162,7 +162,7 @@ function Hops(props) {
                 </Tooltip>
               </TableCell>
               <TableCell width="10%" sx={{minWidth: 60}} align="center">{t("Duration")}</TableCell>
-              <TableCell width="20%" align="center">{t("Info")}</TableCell>
+              <TableCell className="advancedSettings" width="15%" align="center">{t("Info")}</TableCell>
               <TableCell width="10%" align="right">{t("Action")}</TableCell>
             </TableRow>
           </TableHead>

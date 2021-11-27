@@ -47,10 +47,10 @@ function SingleMalt(props) {
           onInputChange={(_, newValue) => setInputName(newValue)} 
         />
       </TableCell>
-      <TableCell align="center">
+      <TableCell className="advancedSettings" align="center">
         <TextField label="EBC" variant="standard" fullWidth size="small" value={props.malt.color.ebc} onChange={(event) => updateMalt("color", {srm: ebc2Srm(event.target.valueAsNumber), ebc: event.target.valueAsNumber})} type="number" />
       </TableCell>
-      <TableCell align="center">
+      <TableCell className="advancedSettings" align="center">
         <TextField step={0.001} label={t("Potential")} variant="standard" inputProps={{step: 0.001}} fullWidth size="small" value={props.malt.potential.toFixed(3)} onChange={(event) => updateMalt("potential", event.target.valueAsNumber)} type="number" />
       </TableCell>
       <TableCell align="center">
@@ -101,7 +101,7 @@ function Malt(props) {
           <TableHead>
             <TableRow>
               <TableCell width="30%">{t("Name")}</TableCell>
-              <TableCell width="20%" sx={{minWidth: 65}} align="center">
+              <TableCell className="advancedSettings" width="20%" sx={{minWidth: 65}} align="center">
                 EBC
                 <Tooltip title={t("EBCInfo")}>
                   <IconButton size="small">
@@ -109,7 +109,7 @@ function Malt(props) {
                   </IconButton>
                 </Tooltip>
               </TableCell>
-              <TableCell width="20%" sx={{minWidth: 90}} align="center">
+              <TableCell className="advancedSettings" width="20%" sx={{minWidth: 90}} align="center">
                 {t("Potential")}
                 <Tooltip title={t("PotentialInfo")}>
                   <IconButton size="small">

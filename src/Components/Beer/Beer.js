@@ -1,4 +1,4 @@
-import { Box, Button, ClickAwayListener, Grid, MenuItem, Modal, Paper, Select, Tooltip } from '@material-ui/core';
+import { Box, Button, ClickAwayListener, FormControlLabel, FormGroup, Grid, MenuItem, Modal, Paper, Select, Switch, Tooltip } from '@material-ui/core';
 import React, { useContext, useReducer } from 'react';
 import Recipe from '../Recipe/Recipe';
 import BeertypeComparer from '../Beertype/BeertypeComparer'
@@ -13,6 +13,8 @@ import Water from '../Water/Water';
 import { metaData } from "../../Context/MetaDataContext"
 import { deleteHop, deleteMalt, deleteMashSteps, moveMashSteps, updateCookingDuration, updateHop, updateMalt, updateMashSteps, updateRecipe, updateWater, updateYeast } from '../../Utils/ModelUtils';
 import { useTranslation } from 'react-i18next';
+
+import "./Beer.css"
 
 // action = { type, target, key, value }
 function changeState(state, action) {
@@ -117,16 +119,18 @@ function Beer(props) {
     setTooltipExportOpen(true);
   };
 
+  let beerRecipeClass = metaDataContext.state.simpleUI ? "simpleRecipe" : "advancedRecipe"
 
   const handleCopy = () => {handleTooltipOpen(); navigator.clipboard.writeText(Model.exportRecipe(state))};
   // Firefox not compatible
   const handlePaste = () => navigator.clipboard.readText().then((s) => dispatch({type: "model", value: Model.importRecipe(s)}));
 
-  const changeLanguage = (str) => metaDataContext.dispatch({type: "language", value: str});
-  const changeSystem = (str) => metaDataContext.dispatch({type: "system", value: str});
+  const changeLanguage = (evt) => metaDataContext.dispatch({type: "language", value: evt.target.value});
+  const changeSystem = (evt) => metaDataContext.dispatch({type: "system", value: evt.target.value});
+  const changeUI = (evt) => metaDataContext.dispatch({type: "ui", value: evt.target.checked});
 
   return (
-    <div>
+    <div className={beerRecipeClass}>
       <h2>{state["recipe"]["name"] !== "" ? state["recipe"]["name"] + " Recipe" : t("New Beer Recipe")}</h2>
       <Grid container justifyContent="center">
         <Grid item>
@@ -153,18 +157,21 @@ function Beer(props) {
           <Button sx={{ m: 2 }} variant="contained" onClick={handlePaste}>{t("Paste Recipe")}</Button>
         </Grid>
         <Grid item>
-          <Select sx={{ m: 2 }} labelId="language" label="Languages" variant="standard" size="small" value={metaDataContext.state.language} onChange={(event) => {changeLanguage(event.target.value);}}>
+          <Select sx={{ m: 2 }} labelId="language" label="Languages" variant="standard" size="small" value={metaDataContext.state.language} onChange={changeLanguage}>
             <MenuItem key="en" value="en">English</MenuItem>
             <MenuItem key="de" value="de">Deutsch</MenuItem>
           </Select>
         </Grid>
         <Grid item>
-          <Select sx={{ m: 2 }} labelId="system" label="System of measured units" variant="standard" size="small" value={metaDataContext.state.system} onChange={(event) => {changeSystem(event.target.value);}}>
+          <Select sx={{ m: 2 }} labelId="system" label="System of measured units" variant="standard" size="small" value={metaDataContext.state.system} onChange={changeSystem}>
             <MenuItem key="si" value="SI">International System of Units</MenuItem>
             <MenuItem key="us" value="US">United States customary units</MenuItem>
           </Select>
         </Grid>
       </Grid>
+      <div>
+        <FormGroup style={{justifyContent: "end", flexDirection: "row"}}><FormControlLabel control={<Switch checked={metaDataContext.state.simpleUI} onChange={changeUI} />} label={t("Simple Interface")} /></FormGroup>
+      </div>
       <Grid container spacing={3}>
         <Grid item xs={12} md={8} lg={9}>
           <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>

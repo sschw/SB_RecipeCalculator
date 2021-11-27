@@ -1,0 +1,9 @@
+.simpleRecipe .advancedSettings {
+  display: none;
+  flex-basis: 0%;
+}
+
+.advancedRecipe .simpleSettings {
+  display: none;
+  flex-basis: 0%;
+}
