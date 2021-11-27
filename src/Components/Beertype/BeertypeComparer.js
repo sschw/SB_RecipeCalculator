@@ -99,9 +99,9 @@ function BeertypeComparer (props) {
 
   const og = recipe.og != null ? sg2plato(recipe.og) : null
   const fg = recipe.fg != null ? sg2plato(recipe.fg) : null
-  const alc = recipe.alc
-  const ibu = recipe.ibu
-  const ebc = recipe.ebc
+  const alc = recipe.alc != null ? recipe.alc : null
+  const ibu = recipe.ibu != null ? recipe.ibu : null
+  const ebc = recipe.ebc != null ? recipe.ebc : null
 
   const ebccolor = Ebc2Hex(recipe.ebc, 1)
   const ebctextcolor = recipe.ebc < 8 ? 'black' : 'white'
