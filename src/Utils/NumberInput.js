@@ -57,8 +57,9 @@ export const PercentInput = React.forwardRef(function NumberFormatCustom(props, 
     <NumberFormat
       {...other}
       getInputRef={ref}
+      suffix="%"
       decimalScale={0}
-      format="###%"
+      fixedDecimalScale={true}
       className={`text-right ${props.className}`}
       value={parseFloat(value) * 100}
       onValueChange={values => {
