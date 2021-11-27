@@ -1,13 +1,14 @@
 import React, {useState, useEffect, useContext} from 'react';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-import { Autocomplete, IconButton, Paper, Table, TableBody, TableContainer, TableHead, TextField } from '@material-ui/core';
+import { Autocomplete, IconButton, Paper, Table, TableBody, TableContainer, TableHead, TextField, Tooltip } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import *  as Model from '../../Model';
 import { GrammInput, PoundsInput } from '../../Utils/NumberInput';
 import { ebc2Srm } from '../../Utils/Formulas';
 import { metaData } from "../../Context/MetaDataContext"
 import { useTranslation } from 'react-i18next';
+import InfoIcon from '@material-ui/icons/Info';
 
 function SingleMalt(props) {
   const [t, i18n] = useTranslation();
@@ -100,8 +101,22 @@ function Malt(props) {
           <TableHead>
             <TableRow>
               <TableCell width="30%">{t("Name")}</TableCell>
-              <TableCell width="20%" sx={{minWidth: 40}} align="center">EBC</TableCell>
-              <TableCell width="20%" sx={{minWidth: 40}} align="center">{t("Pontential")}</TableCell>
+              <TableCell width="20%" sx={{minWidth: 40}} align="center">
+                EBC
+                <Tooltip title={t("EBCInfo")}>
+                  <IconButton size="small">
+                    <InfoIcon fontSize="inherit" />
+                  </IconButton>
+                </Tooltip>
+              </TableCell>
+              <TableCell width="20%" sx={{minWidth: 40}} align="center">
+                {t("Potential")}
+                <Tooltip title={t("PotentialInfo")}>
+                  <IconButton size="small">
+                    <InfoIcon fontSize="inherit" />
+                  </IconButton>
+                </Tooltip>
+              </TableCell>
               <TableCell width="20%" sx={{minWidth: 40}} align="center">{t("Amount")}</TableCell>
               <TableCell width="10%" align="right">{t("Action")}</TableCell>
             </TableRow>

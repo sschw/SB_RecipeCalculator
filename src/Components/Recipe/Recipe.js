@@ -1,9 +1,10 @@
-import { Autocomplete, Stack, TextField } from '@material-ui/core';
+import { Autocomplete, IconButton, InputAdornment, Stack, TextField, Tooltip } from '@material-ui/core';
 import React, {useState, useEffect, useContext} from 'react';
 import { PercentInput } from '../../Utils/NumberInput'
 import * as Model from "../../Model"
 import { metaData } from "../../Context/MetaDataContext"
 import { useTranslation } from 'react-i18next';
+import InfoIcon from '@material-ui/icons/Info';
 
 function Recipe(props) {
   const [t, i18n] = useTranslation();
@@ -47,6 +48,14 @@ function Recipe(props) {
         }} 
         InputProps={{
           inputComponent: PercentInput,
+          endAdornment: 
+              <InputAdornment position="end">
+                <Tooltip title={t("MaltYieldInfo")}>
+                  <IconButton size="small">
+                    <InfoIcon fontSize="inherit" />
+                  </IconButton>
+                </Tooltip>
+            </InputAdornment>
         }}
         InputLabelProps={{
           shrink: true,

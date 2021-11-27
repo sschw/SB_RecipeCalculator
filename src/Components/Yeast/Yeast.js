@@ -1,9 +1,10 @@
-import { Autocomplete, Grid, TextField } from '@material-ui/core';
+import { Autocomplete, Grid, IconButton, InputAdornment, TextField, Tooltip } from '@material-ui/core';
 import React, {useState, useEffect, useContext} from 'react';
 import { PercentInput } from '../../Utils/NumberInput'
 import * as Model from "../../Model"
 import { metaData } from "../../Context/MetaDataContext"
 import { useTranslation } from 'react-i18next';
+import InfoIcon from '@material-ui/icons/Info';
 
 export default function Yeast(props) {
   const [t, i18n] = useTranslation();
@@ -62,6 +63,15 @@ export default function Yeast(props) {
           }} 
           InputProps={{
             inputComponent: PercentInput,
+            
+            endAdornment: 
+              <InputAdornment position="end">
+                <Tooltip title={t("AttenuationInfo")}>
+                  <IconButton size="small">
+                    <InfoIcon fontSize="inherit" />
+                  </IconButton>
+                </Tooltip>
+              </InputAdornment>
           }}
           InputLabelProps={{
             shrink: true,
@@ -73,12 +83,24 @@ export default function Yeast(props) {
           value={Model.flocculation[yeast["flocculation"]]}
           inputValue={inputValueFlocculation}
           getOptionLabel={(yfl) => t(yfl.label)}
-          renderInput={(params) => <TextField {...params} label={t("Flocculation")} />}
+          renderInput={(params) => <TextField {...params} label={t("Flocculation")} InputProps={{ 
+            ...params.InputProps,
+            endAdornment: 
+              <InputAdornment position="end">
+                {params.InputProps.endAdornment}
+                <Tooltip title={t("FlocculationInfo")}>
+                  <IconButton size="small">
+                    <InfoIcon fontSize="inherit" />
+                  </IconButton>
+                </Tooltip>
+              </InputAdornment>
+          }} />}
           onChange={(event, newValue) => {
             if(newValue === null) newValue = {id: 8}
             updateYeast("flocculation", newValue.id);
           }}
-          onInputChange={(_, newValue) => setInputValueFlocculation(newValue)} />
+          onInputChange={(_, newValue) => setInputValueFlocculation(newValue)}
+           />
         </Grid>
       </Grid>
     </div>

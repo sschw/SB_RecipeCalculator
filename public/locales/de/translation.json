@@ -89,5 +89,15 @@
   "NA": "Unbekannt",
   "Variable": "Unterschiedlich",
   "Very High": "Sehr Hoch",
-  "Very Low": "Sehr Niedrig"
+  "Very Low": "Sehr Niedrig",
+
+  "MaltYieldInfo": "Beschreibt, wie effizient der Zucker aus dem Malz ausgewaschen werden kann. Normalerweise zwischen 50-75%",
+  "EBCInfo": "Beschreibt die Farbe des Malzes, die sich auf die Farbe des Bieres auswirken wird.",
+  "PotentialInfo": "Beschreibt die maximale Menge an Zucker im Malz.",
+  "CookingDurationInfo": "Die Kochdauer sollte zwischen 60-90 Minuten betragen.",
+  "AlphaInfo": "Die Alphasäure beeinflusst den IBU-Wert des Bieres, wenn der Hopfen gekocht wird. Je mehr IBU ein Bier hat, desto bitterer wird es sein.",
+  "OilInfo": "Hopfenöle beeinflussen den Geschmack des Bieres. Die meisten Öle gehen verloren, wenn der Hopfen gekocht wird.",
+  "HopTypesInfo": "Vorderwürze: Hopfen wird zugegeben, bevor das Bier kocht\nKochen: Hopfen wird während des Kochens zugegeben\nWhirlpool 80°C: Hopfen wird nach dem Kochen bei 80° zugegeben\nTrockenhopfung: Hopfen wird nach einigen Tagen zugegeben",
+  "AttenuationInfo": "Der Endvergährungsgrad beschreibt, wie viel Zucker in Alkohol umgewandelt werden kann.",
+  "FlocculationInfo": "Die Sedimentierung beschreibt, wie gut sich die Hefe absetzen wird."
 }

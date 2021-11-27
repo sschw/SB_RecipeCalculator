@@ -89,5 +89,15 @@
   "NA": "Not Available",
   "Variable": "Variable",
   "Very High": "Very High",
-  "Very Low": "Very Low"
+  "Very Low": "Very Low",
+
+  "MaltYieldInfo": "Describes how efficient the sugar can be washed out of the malt. Typically between 50-75%",
+  "EBCInfo": "Describes the color of the malt which will influence the color of the beer.",
+  "PotentialInfo": "Describes the maximum amount of sugar in the malt.",
+  "CookingDurationInfo": "The cooking duration should be between 60-90min.",
+  "AlphaInfo": "Alpha acid influences the IBU of the beer if the hop is cooked. The more IBU a beer has, the bitterer the beer will be.",
+  "OilInfo": "Hop oils influence the taste of the beer. Most of the oil are lost when the hop is cooked.",
+  "HopTypesInfo": "First Wort: Hop is added before the beer is cooking\nBoil: Hop is added while the beer is cooking\nWhirlpool 80°C: Hop is added at 80° after cooking\nDry hopping: Hop is added some days",
+  "AttenuationInfo": "Attenuation describes how much sugar can be converted into alcohol.",
+  "FlocculationInfo": "Flocculation describes how good the yeast will sediment."
 }

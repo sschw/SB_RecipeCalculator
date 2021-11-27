@@ -1,12 +1,13 @@
 import React, {useState, useEffect, useContext} from 'react';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-import { Autocomplete, Grid, IconButton, InputLabel, MenuItem, Paper, Select, Table, TableBody, TableContainer, TableHead, TextField } from '@material-ui/core';
+import { Autocomplete, Grid, IconButton, InputAdornment, InputLabel, MenuItem, Paper, Select, Table, TableBody, TableContainer, TableHead, TextField, Tooltip } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import *  as Model from '../../Model';
 import { DecimalPercentInput, GrammInput, MinuteInput, MlPerGInput, OunceInput } from '../../Utils/NumberInput';
 import { metaData } from "../../Context/MetaDataContext"
 import { useTranslation } from 'react-i18next';
+import InfoIcon from '@material-ui/icons/Info';
 
 function Hop(props) {
   const [t, i18n] = useTranslation();
@@ -112,7 +113,22 @@ function Hops(props) {
           <h3>{t("Hop")}</h3>
         </Grid>
         <Grid item lg={2} md={2} sm={12} xs={12}>
-        <TextField label="Cooking Duration" InputProps={{ inputComponent: MinuteInput }} InputLabelProps={{ shrink: true }} size="small" fullWidth variant="standard" value={props.cookingDuration.toString()} onChange={(event) => dispatch({type: "duration", value: event.floatValue})} />
+        <TextField label="Cooking Duration" 
+          InputProps={{ 
+            inputComponent: MinuteInput,
+            endAdornment: 
+              <InputAdornment position="end">
+                <Tooltip title={t("CookingDurationInfo")}>
+                  <IconButton size="small">
+                    <InfoIcon fontSize="inherit" />
+                  </IconButton>
+                </Tooltip>
+            </InputAdornment>
+          }} 
+          InputLabelProps={{ shrink: true }} 
+          size="small" fullWidth variant="standard" 
+          value={props.cookingDuration.toString()} 
+          onChange={(event) => dispatch({type: "duration", value: event.floatValue})} />
         </Grid>
       </Grid>
       <TableContainer component={Paper}>
@@ -120,10 +136,31 @@ function Hops(props) {
           <TableHead>
             <TableRow>
               <TableCell width="20%">{t("Name")}</TableCell>
-              <TableCell width="10%" sx={{minWidth: 40}} align="center">{t("Alpha")}</TableCell>
-              <TableCell width="10%" sx={{minWidth: 40}} align="center">{t("Oil")}</TableCell>
+              <TableCell width="10%" sx={{minWidth: 40}} align="center">
+                {t("Alpha")}
+                <Tooltip title={t("AlphaInfo")}>
+                  <IconButton size="small">
+                    <InfoIcon fontSize="inherit" />
+                  </IconButton>
+                </Tooltip>
+              </TableCell>
+              <TableCell width="10%" sx={{minWidth: 40}} align="center">
+                {t("Oil")}
+                <Tooltip title={t("OilInfo")}>
+                  <IconButton size="small">
+                    <InfoIcon fontSize="inherit" />
+                  </IconButton>
+                </Tooltip>
+              </TableCell>
               <TableCell width="10%" sx={{minWidth: 40}} align="center">{t("Amount")}</TableCell>
-              <TableCell width="10%" sx={{minWidth: 40}} align="center">{t("Type")}</TableCell>
+              <TableCell width="10%" sx={{minWidth: 40}} align="center">
+                {t("Type")}
+                <Tooltip title={<span style={{ whiteSpace: 'pre-line' }}>{t("HopTypesInfo")}</span>}>
+                  <IconButton size="small">
+                    <InfoIcon fontSize="inherit" />
+                  </IconButton>
+                </Tooltip>
+              </TableCell>
               <TableCell width="10%" sx={{minWidth: 40}} align="center">{t("Duration")}</TableCell>
               <TableCell width="20%" align="center">{t("Info")}</TableCell>
               <TableCell width="10%" align="right">{t("Action")}</TableCell>
