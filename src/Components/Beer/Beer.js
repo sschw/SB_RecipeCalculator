@@ -98,6 +98,7 @@ const modalStyle = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   maxWidth: 1200,
+  minWidth: 450,
 };
 
 function Beer(props) {

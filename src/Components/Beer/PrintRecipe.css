@@ -46,9 +46,21 @@
   font-size: 14px;
 }
 
-@media screen and (max-width: 2399px) {
+@media screen and (max-width: 899px) {
   .recipeToPrint .print {
-    font-size: 0.862vw;
+    font-size: 5.86px;
+  }
+}
+
+@media screen and (max-width: 1199px) and (min-width: 900px) {
+  .recipeToPrint .print {
+    font-size: calc(0.9233426966292vw - 2.261224719px);
+  }
+}
+
+@media screen and (max-width: 2399px) and (min-width: 1200px) {
+  .recipeToPrint .print {
+    font-size: calc(0.9633426966292vw - 2.261224719px);
   }
 }
 

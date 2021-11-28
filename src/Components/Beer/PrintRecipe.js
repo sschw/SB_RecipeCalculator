@@ -232,7 +232,7 @@ export function ShowRecipeContent(props) {
           <Grid item xs={10} md={10} lg={10}>
             <div className="keepTogether">
               <hr />
-              <Grid container spacing={3}>
+              <Grid container spacing={3} mb={1}>
                 <Grid item xs={4} md={4} lg={4}>
                   <Typography variant="h6" align="left" gutterBottom component="div">
                     {t("Malt")}
